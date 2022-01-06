@@ -1,14 +1,12 @@
 <!-- Sidebar -->
 <script>
+	import QuoteGenerator from './QuoteGenerator.svelte';
 	import Toggle from './../elements/Toggle.svelte';
 	import Circle from './Circle.svelte';
-    import { Router, Link, Route } from "svelte-navigator";
-    import Structure from './structure.svelte';
-    import RouteHandler from '../services/RouteHandler.svelte';
     import Calculator from './Calculator.svelte';
-import { onMount } from 'svelte';
-    let list = ['Calculator','Circle','Toggle Button'];
-    let activeTab = 'Calculator';
+    import { onMount } from 'svelte';
+    let list = ['QuoteGenerator','Calculator','Circle','Toggle Button',];
+    let activeTab = 'QuoteGenerator';
     onMount(()=>{
     })
 
@@ -29,11 +27,13 @@ import { onMount } from 'svelte';
     <div class="col content">
             <div class="row justify-content-center">
                 <div class="col text-center">    
-                    {#if activeTab== 'Calculator'}                
+                    {#if activeTab == 'QuoteGenerator'}
+                        <QuoteGenerator/>
+                    {:else if activeTab == "Calculator"}
                         <Calculator/>
-                    {:else if activeTab== 'Toggle Button'}
+                    {:else if activeTab == 'Toggle Button'}
                         <Toggle width='10rem' onText='on' offText='off'/>
-                    {:else if activeTab== 'Circle'}
+                    {:else if activeTab == 'Circle'}
                         <Circle/>
                     {/if}
                 </div>
@@ -42,18 +42,15 @@ import { onMount } from 'svelte';
 </div>
 
 <style>
-    .row{
-        overflow-y: hidden;
-        margin-top: 0;
-        margin-right: 0;
-        margin-left: 0;
-    }
     :global(.my-link, .my-link:hover){
         text-decoration: none;
     }
+    
     .content{
         margin-top: 0;
         margin-bottom: 0;
+        margin-right: 0;
+        margin-left: 0;
     }
     .icon{
         padding: .5rem;
