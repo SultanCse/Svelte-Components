@@ -4,16 +4,44 @@
         </div>
     </div>
 </div>
+<div class="div1" style="">
+  <div class="div2" style=""></div>
+  <div class="div3" style=""></div>
+</div>
+
 <style>
+  .div1{
+    /* height: 200px;  */
+    width: 200px; 
+    position: relative; 
+    top: 40px; 
+    border:2px solid red;
+    display: flex;
+  }
+  .div2{
+    height: 50px; 
+    width: 50px; 
+    position: relative; 
+    top: 30px; 
+    border: 2px solid green;
+  }
+  .div3{
+    height: 50px; 
+    width: 50px; 
+    position: absolute; 
+    bottom: 30px; 
+    right: 0px;
+    border: 2px solid green;
+  }
     :root{
-        --height: 300px;
+        --height: 100px;
     }
 	.circle{
-        height: 300px;
+        height: var(--height);
         width: var(--height);
-        background: yellow;
+        background: transparent;
         border-radius: 50%; 
-        border: 8px dashed red;  
+        border: 8px dashed rgb(20, 20, 20);  
         animation-name: circle1;
         animation-duration: 6s; 
         animation-iteration-count: infinite;
@@ -22,14 +50,14 @@
     }
 
   .circle2{
-        height: 150px;
-        width: 150px;
+        height: calc(var(--height) / 4);
+        width: calc(var(--height) / 4);;
         position: absolute; 
         top: 25%; 
         left: 25%;
-        background: red;
+        background: rgb(116, 60, 248);
         border-radius: 50%; 
-        border: 8px dashed yellow; 
+        border: 8px dashed transparent; 
         animation-name: circle2;
         animation-duration: 3s;  
         animation-iteration-count: infinite; 

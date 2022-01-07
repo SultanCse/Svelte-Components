@@ -1,11 +1,12 @@
 <!-- Sidebar -->
 <script>
+	import AppPoll from '../pollevent/AppPoll.svelte';
 	import QuoteGenerator from './QuoteGenerator.svelte';
 	import Toggle from './../elements/Toggle.svelte';
 	import Circle from './Circle.svelte';
     import Calculator from './Calculator.svelte';
     import { onMount } from 'svelte';
-    let list = ['QuoteGenerator','Calculator','Circle','Toggle Button',];
+    let list = ['QuoteGenerator','Calculator','Circle','Toggle Button','AppPoll'];
     let activeTab = 'QuoteGenerator';
     onMount(()=>{
     })
@@ -29,6 +30,9 @@
                 <div class="col text-center">    
                     {#if activeTab == 'QuoteGenerator'}
                         <QuoteGenerator/>
+                        <!-- <Circle/> -->
+                    {:else if activeTab == 'AppPoll'}
+                        <AppPoll/>
                     {:else if activeTab == "Calculator"}
                         <Calculator/>
                     {:else if activeTab == 'Toggle Button'}

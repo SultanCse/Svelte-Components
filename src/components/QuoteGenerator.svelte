@@ -1,6 +1,7 @@
 <script>
 import { afterUpdate, onMount } from "svelte";
 
+
   import {fade,slide,fly,scale} from "svelte/transition"
   let colors = ['#16a085','#27ae60','#2c3e50','#f39c12',
   '#e74c3c','#9b59b6','#FB6964','#342224','#472E32',
@@ -26,8 +27,8 @@ import { afterUpdate, onMount } from "svelte";
   onMount(getData); 
 </script>
 <div class="container mother transition d-flex justify-content-center" style="background: {colors[colorIndex]}">
-  <div class="card transition border-success py-4 px-2 mb-3" >
-    <div class="card-body" >
+  <div class="card transition border-success py-4 px-2 mb-3">
+    <div class="card-body transition">
       <h5 class="card-title transition text-center" style="color: {colors[colorIndex]}">''{quote}.</h5>
       <p class="card-text float-end" style="color: {colors[colorIndex]}">-{author}</p>
     </div>
@@ -45,6 +46,9 @@ import { afterUpdate, onMount } from "svelte";
 </div>
 
 <style>
+  .mother{
+    position: relative;
+  }
   .card{
   max-width: 30rem;
   position: relative;
