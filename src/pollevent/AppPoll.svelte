@@ -4,7 +4,7 @@
 	import Tabs from '../elements/Tabs.svelte';
 	import CreatePollForm from './CreatePollForm.svelte';
 	import PollList from "./PollList.svelte"
-import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	let items=["Current Polls","Add a new poll"]
 	let activeItem="Current Polls";
 	const handleAdd=()=>{

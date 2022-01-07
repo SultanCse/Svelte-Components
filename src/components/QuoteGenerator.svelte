@@ -54,7 +54,7 @@ import { afterUpdate, onMount } from "svelte";
   position: relative;
   top: 7rem;
   font-family: Raleway;
-  min-width: 30rem;
+  min-width: 20rem;
   }
   .card-title{
     font-size: 2rem;

@@ -1,19 +1,25 @@
 <!-- Sidebar -->
 <script>
+	import { Litepicker } from 'litepicker';
+	import { slide } from 'svelte/transition';
+	import Sidebar from './Sidebar.svelte';
 	import AppPoll from '../pollevent/AppPoll.svelte';
 	import QuoteGenerator from './QuoteGenerator.svelte';
 	import Toggle from './../elements/Toggle.svelte';
 	import Circle from './Circle.svelte';
     import Calculator from './Calculator.svelte';
     import { onMount } from 'svelte';
-    let list = ['QuoteGenerator','Calculator','Circle','Toggle Button','AppPoll'];
+import ActionTest from './ActionTest.svelte';
+import DateRange from './DateRange.svelte';
+    let list = ['QuoteGenerator','Calculator','Circle','Toggle Button','AppPoll',
+    'ActionTest','DateRange'];
     let activeTab = 'QuoteGenerator';
     onMount(()=>{
     })
 
 </script>
 
-<div class="row g-0" style="overflow-x: hidden;" >
+<div class="row g-0" style="overflow-x: hidden; overflow-y: hidden; height: 90vh" >
     <div class="col-2 Sidebar">
         <div class="list-group rounded-0">
             {#each list as item, index}
@@ -39,6 +45,10 @@
                         <Toggle width='10rem' onText='on' offText='off'/>
                     {:else if activeTab == 'Circle'}
                         <Circle/>
+                    {:else if activeTab == 'ActionTest'}
+                        <ActionTest/>
+                    {:else if activeTab == 'DateRange'}
+                        <DateRange/>
                     {/if}
                 </div>
             </div>        
@@ -49,8 +59,18 @@
     :global(.my-link, .my-link:hover){
         text-decoration: none;
     }
-    
+    :global(body){
+        overflow: hidden;
+    }
+    .Sidebar{
+        height: 100%;
+        overflow-y: scroll;
+    }
     .content{
+        height: 100%;
+        padding-bottom: 7rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
         margin-top: 0;
         margin-bottom: 0;
         margin-right: 0;
