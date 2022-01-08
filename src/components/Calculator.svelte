@@ -19,7 +19,7 @@
   }
 </script>
 <div class="container-fluid">
-  <div class="row justify-content-center">
+  <div class="row g-0 justify-content-center">
     <div class="col-md-4 col-md-offset-4">
       <!-- start of header section -->
       <div class="row header">

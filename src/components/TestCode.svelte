@@ -1,0 +1,106 @@
+
+
+<!-- Array Assignment
+<script>
+    let arr = [1,2,3,4,5];
+    let arr2 = [...arr];
+    let arr2 = arr;
+    let arr2 = arr.slice(0,5)
+    console.log(arr2);
+</script> -->
+
+<!-- Call back function
+<script>
+    const taskOne = (callback)=>{
+        console.log('task one');
+        callback();
+    }
+    const tasktwo = ()=>{
+        console.log('task two');
+    }
+    const taskthree = (num,callback)=>{
+        console.log('task '+num);
+        callback();
+    }
+
+    taskOne(()=>{console.log('callback done')});
+    taskOne(tasktwo);
+    taskthree(3,()=>{
+        console.log('callback three');
+    })
+
+</script> -->
+
+
+<!-- js promise
+<script>
+    console.log('start')
+    const val = true;
+    const promise1 = new Promise((resolve,reject)=>{
+        if(val==true){
+            resolve('resolved promise 1');
+        }
+        else{
+              reject('rejected promise 1');             
+        }
+    })
+
+    const promise2 = new Promise((resolve,reject)=>{
+        if(val==true){
+            resolve('resolved promise 2')
+        }
+        else{
+            reject('rejected promise 2')
+        }
+    })
+
+     promise1.then((res)=>{
+        console.log(res);
+    })
+    .catch((res)=>{
+        console.log(res);
+    })
+
+     promise2.then((res)=>{
+        console.log(res);
+    })
+    .catch((res)=>{
+        console.log(res);
+    })
+
+    Promise.race([promise1,promise2])
+    .then((res)=>console.log(res))
+
+    console.log('end')
+</script> -->
+
+
+
+<!-- deal with position -->
+<!-- <div class="parent">
+    <div class="child1"></div>
+    <div class="child2"></div>
+</div>
+
+<style>
+    .parent{
+        height: 300px;
+        width: 300px;
+        /* position: relative; */
+        border: 2px solid red;
+    }
+    .child1{
+        position: relative;
+        height: 100px;
+        width: 100px;
+        background-color: blue;
+        border: 2px solid rgba(42, 16, 160, 0.904);
+    }
+    .child2{
+        /* position: relative; */
+        height: 110px;
+        width: 120px;
+        background: green;
+        border: 2px solid rgb(37, 212, 139);
+    }
+</style> -->

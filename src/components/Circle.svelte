@@ -8,11 +8,63 @@
   <div class="div2" style=""></div>
   <div class="div3" style=""></div>
 </div>
+<div class="circlediv">
+    <div class="circle">
+        <div class="circle2">
+        </div>
+    </div>
+</div>
+<div class="div1" style="">
+  <div class="div2" style=""></div>
+  <div class="div3" style=""></div>
+</div>
+<div class="circlediv">
+    <div class="circle">
+        <div class="circle2">
+        </div>
+    </div>
+</div>
+<div class="div1" style="">
+  <div class="div2" style=""></div>
+  <div class="div3" style=""></div>
+</div>
+<div class="circlediv">
+    <div class="circle">
+        <div class="circle2">
+        </div>
+    </div>
+</div>
+<div class="div1" style="">
+  <div class="div2" style=""></div>
+  <div class="div3" style=""></div>
+</div>
+<div class="circlediv">
+    <div class="circle">
+        <div class="circle2">
+        </div>
+    </div>
+</div>
+<div class="div1" style="">
+  <div class="div2" style=""></div>
+  <div class="div3" style=""></div>
+</div>
+<div class="circlediv">
+    <div class="circle">
+        <div class="circle2">
+        </div>
+    </div>
+</div>
+<div class="div1" style="">
+  <div class="div2" style=""></div>
+  <div class="div3" style=""></div>
+</div>
+
 
 <style>
   .div1{
     /* height: 200px;  */
     width: 200px; 
+    height: 50px;
     position: relative; 
     top: 40px; 
     border:2px solid red;
@@ -21,7 +73,7 @@
   .div2{
     height: 50px; 
     width: 50px; 
-    position: relative; 
+    position: absolute; 
     top: 30px; 
     border: 2px solid green;
   }
@@ -41,21 +93,21 @@
         width: var(--height);
         background: transparent;
         border-radius: 50%; 
-        border: 8px dashed rgb(20, 20, 20);  
+        border: 8px dashed rgb(45, 5, 156);  
         animation-name: circle1;
         animation-duration: 6s; 
         animation-iteration-count: infinite;
         animation-timing-function: linear;
-
-    }
+        margin: 0;
+  }
 
   .circle2{
         height: calc(var(--height) / 4);
-        width: calc(var(--height) / 4);;
-        position: absolute; 
-        top: 25%; 
-        left: 25%;
-        background: rgb(116, 60, 248);
+        width: calc(var(--height) / 4);
+        margin: 0 auto;
+        margin-top: 50%;
+        margin-left: 50%;
+        background: rgb(5, 190, 67);
         border-radius: 50%; 
         border: 8px dashed transparent; 
         animation-name: circle2;
@@ -63,6 +115,7 @@
         animation-iteration-count: infinite; 
         animation-timing-function: linear;
         animation-direction: reverse;
+        box-shadow: 15px 15px rgb(255, 0, 21);
     }
 
   @keyframes circle1 {
