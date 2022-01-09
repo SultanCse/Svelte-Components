@@ -1,3 +1,5 @@
+
+<!-- create element and set attribute
 <script>
 import { onMount } from "svelte";
     
@@ -11,7 +13,8 @@ import { onMount } from "svelte";
     })
     
 </script>
-<div class="parent" id='parentid'>a</div>
+<div class="parent" id='parentid'>a</div> -->
+
 <!-- for in loop
 <script>
     let arr = {name: 'sultan', age: 23, post: 'Goalanda'};
