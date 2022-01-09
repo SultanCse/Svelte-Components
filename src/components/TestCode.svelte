@@ -1,4 +1,24 @@
-
+<script>
+import { onMount } from "svelte";
+    
+    let a = document.createElement('a');
+    a.setAttribute('href','www.google.com');
+    a.setAttribute('target', '_blank')
+    a.innerHTML='click'
+    onMount(()=>{
+        const par = document.getElementById('parentid')
+        par.appendChild(a);
+    })
+    
+</script>
+<div class="parent" id='parentid'>a</div>
+<!-- for in loop
+<script>
+    let arr = {name: 'sultan', age: 23, post: 'Goalanda'};
+    for(const key in arr){
+        console.log(key + ' :' + arr[key]);,
+    }
+</script> -->
 
 <!-- Array Assignment
 <script>

@@ -18,6 +18,9 @@ import TestCode from './TestCode.svelte';
     let activeTab = 'InfiniteScroll';
     onMount(()=>{
     })
+    const scroll = ()=>{
+        console.log('scroll content');
+    }
 
 </script>
 
@@ -33,8 +36,9 @@ import TestCode from './TestCode.svelte';
         </div>
     </div>
     <!-- content -->
-    <div class="col">    
-        <div class="content">   
+    <div class="col">   
+        
+        <div class="content">  
             {#if activeTab == 'InfiniteScroll'}
                 <InfiniteScroll/> 
                 <!-- <TestCode/> -->
@@ -54,17 +58,17 @@ import TestCode from './TestCode.svelte';
             {:else if activeTab == 'DateRange'}
                 <DateRange/>
             {/if}
+            <!-- <div></div> -->
         </div>         
     </div>            
 </div>
-
 <style>
     :global(.my-link, .my-link:hover){
         text-decoration: none;
     }
-    :global(body){
+    /* :global(body){
         overflow: hidden;
-    }
+    } */
     /* .sidebar{
         max-width: 100vh;
         overflow-y: scroll;
@@ -72,7 +76,9 @@ import TestCode from './TestCode.svelte';
     .content{
         height: 90vh;
         overflow: auto;
-        padding: 1rem;
+        padding-left: 1rem;
+        /* padding-right: 1rem; */
+        padding-bottom: 1rem;
     }
     .icon{
         padding: .5rem;
@@ -103,18 +109,18 @@ import TestCode from './TestCode.svelte';
         background: rgb(149, 149, 248);
         color: white
     }
-    ::-webkit-scrollbar {
+    :global(::-webkit-scrollbar) {
     width: .1rem;
     }
 
     /* Track */
-    ::-webkit-scrollbar-track {
+    :global(::-webkit-scrollbar-track) {
     box-shadow: inset 0 0 .1rem grey; 
     border-radius: .1rem;
     }
     
     /* Handle */
-    ::-webkit-scrollbar-thumb {
+    :global(::-webkit-scrollbar-thumb) {
     background: rgb(122, 122, 122); 
     border-radius: .1rem;
     }
