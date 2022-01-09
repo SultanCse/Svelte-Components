@@ -5125,11 +5125,11 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[8] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
-    // (69:12) {#if data.length>0}
+    // (61:12) {#if data.length>0}
     function create_if_block$1(ctx) {
     	let each_1_anchor;
     	let each_value = /*data*/ ctx[0];
@@ -5156,7 +5156,7 @@ var app = (function () {
     			insert_dev(target, each_1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*data, scroll*/ 9) {
+    			if (dirty & /*data, console*/ 1) {
     				each_value = /*data*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
@@ -5198,21 +5198,21 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(69:12) {#if data.length>0}",
+    		source: "(61:12) {#if data.length>0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:16) {#each data as image}
+    // (62:16) {#each data as image}
     function create_each_block$1(ctx) {
     	let div;
     	let a;
-    	let img;
-    	let img_src_value;
-    	let img_alt_value;
-    	let img_title_value;
+    	let img_1;
+    	let img_1_src_value;
+    	let img_1_alt_value;
+    	let img_1_title_value;
     	let a_href_value;
     	let t;
     	let div_intro;
@@ -5223,44 +5223,44 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			a = element("a");
-    			img = element("img");
+    			img_1 = element("img");
     			t = space();
-    			attr_dev(img, "id", "img");
-    			attr_dev(img, "class", "img-thumbnail svelte-pr52cj");
-    			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[8].urls.regular)) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", img_alt_value = /*image*/ ctx[8].alt_description);
-    			attr_dev(img, "title", img_title_value = /*image*/ ctx[8].alt_description);
-    			add_location(img, file$2, 72, 16, 2473);
-    			attr_dev(a, "href", a_href_value = /*image*/ ctx[8].links.html);
+    			attr_dev(img_1, "id", "img");
+    			attr_dev(img_1, "class", "img-thumbnail svelte-1e171vo");
+    			if (!src_url_equal(img_1.src, img_1_src_value = /*image*/ ctx[9].urls.regular)) attr_dev(img_1, "src", img_1_src_value);
+    			attr_dev(img_1, "alt", img_1_alt_value = /*image*/ ctx[9].alt_description);
+    			attr_dev(img_1, "title", img_1_title_value = /*image*/ ctx[9].alt_description);
+    			add_location(img_1, file$2, 64, 16, 2156);
+    			attr_dev(a, "href", a_href_value = /*image*/ ctx[9].links.html);
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$2, 71, 16, 2412);
-    			add_location(div, file$2, 70, 16, 2363);
+    			add_location(a, file$2, 63, 16, 2095);
+    			add_location(div, file$2, 62, 16, 2046);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
     			append_dev(div, a);
-    			append_dev(a, img);
+    			append_dev(a, img_1);
     			append_dev(div, t);
 
     			if (!mounted) {
-    				dispose = listen_dev(img, "show", /*scroll*/ ctx[3], false, false, false);
+    				dispose = listen_dev(img_1, "load", /*load_handler*/ ctx[5], false, false, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*data*/ 1 && !src_url_equal(img.src, img_src_value = /*image*/ ctx[8].urls.regular)) {
-    				attr_dev(img, "src", img_src_value);
+    			if (dirty & /*data*/ 1 && !src_url_equal(img_1.src, img_1_src_value = /*image*/ ctx[9].urls.regular)) {
+    				attr_dev(img_1, "src", img_1_src_value);
     			}
 
-    			if (dirty & /*data*/ 1 && img_alt_value !== (img_alt_value = /*image*/ ctx[8].alt_description)) {
-    				attr_dev(img, "alt", img_alt_value);
+    			if (dirty & /*data*/ 1 && img_1_alt_value !== (img_1_alt_value = /*image*/ ctx[9].alt_description)) {
+    				attr_dev(img_1, "alt", img_1_alt_value);
     			}
 
-    			if (dirty & /*data*/ 1 && img_title_value !== (img_title_value = /*image*/ ctx[8].alt_description)) {
-    				attr_dev(img, "title", img_title_value);
+    			if (dirty & /*data*/ 1 && img_1_title_value !== (img_1_title_value = /*image*/ ctx[9].alt_description)) {
+    				attr_dev(img_1, "title", img_1_title_value);
     			}
 
-    			if (dirty & /*data*/ 1 && a_href_value !== (a_href_value = /*image*/ ctx[8].links.html)) {
+    			if (dirty & /*data*/ 1 && a_href_value !== (a_href_value = /*image*/ ctx[9].links.html)) {
     				attr_dev(a, "href", a_href_value);
     			}
     		},
@@ -5284,7 +5284,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(70:16) {#each data as image}",
+    		source: "(62:16) {#each data as image}",
     		ctx
     	});
 
@@ -5297,13 +5297,11 @@ var app = (function () {
     	let div0;
     	let t1;
     	let div1;
-    	let img;
-    	let img_src_value;
+    	let img_1;
+    	let img_1_src_value;
     	let div1_class_value;
     	let t2;
     	let div2;
-    	let mounted;
-    	let dispose;
     	let if_block = /*data*/ ctx[0].length > 0 && create_if_block$1(ctx);
 
     	const block = {
@@ -5314,28 +5312,29 @@ var app = (function () {
     			div0.textContent = "UNSPLASH API-INFINITE SCROLL";
     			t1 = space();
     			div1 = element("div");
-    			img = element("img");
+    			img_1 = element("img");
     			t2 = space();
     			div2 = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div0, "class", "title svelte-pr52cj");
-    			add_location(div0, file$2, 63, 8, 2047);
-    			if (!src_url_equal(img.src, img_src_value = "./images/loader.svg")) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", "loader img");
-    			attr_dev(img, "class", "svelte-pr52cj");
-    			add_location(img, file$2, 65, 12, 2153);
-    			attr_dev(div1, "class", div1_class_value = "loader " + /*loader*/ ctx[1] + " svelte-pr52cj");
-    			add_location(div1, file$2, 64, 8, 2110);
-    			attr_dev(div2, "class", "image-container svelte-pr52cj");
-    			attr_dev(div2, "id", "containers");
-    			add_location(div2, file$2, 67, 8, 2228);
-    			attr_dev(div3, "class", "body svelte-pr52cj");
+    			attr_dev(div0, "class", "title svelte-1e171vo");
+    			add_location(div0, file$2, 55, 8, 1731);
+    			if (!src_url_equal(img_1.src, img_1_src_value = "./images/loader.svg")) attr_dev(img_1, "src", img_1_src_value);
+    			attr_dev(img_1, "alt", "loader img");
+    			attr_dev(img_1, "class", "svelte-1e171vo");
+    			add_location(img_1, file$2, 57, 12, 1838);
+    			attr_dev(div1, "class", div1_class_value = "loader " + /*loader*/ ctx[1] + " svelte-1e171vo");
+    			add_location(div1, file$2, 56, 8, 1795);
+    			attr_dev(div2, "class", "image-container svelte-1e171vo");
+    			attr_dev(div2, "id", "elements");
+    			add_location(div2, file$2, 59, 8, 1913);
+    			attr_dev(div3, "class", "elements svelte-1e171vo");
     			set_style(div3, "height", /*height*/ ctx[2]);
-    			add_location(div3, file$2, 62, 4, 1993);
-    			attr_dev(div4, "class", "test");
+    			add_location(div3, file$2, 54, 4, 1672);
+    			attr_dev(div4, "class", "body");
+    			attr_dev(div4, "id", "body");
     			set_style(div4, "height", "100vh");
     			set_style(div4, "overflow-x", "auto");
-    			add_location(div4, file$2, 61, 0, 1907);
+    			add_location(div4, file$2, 53, 0, 1596);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5346,18 +5345,13 @@ var app = (function () {
     			append_dev(div3, div0);
     			append_dev(div3, t1);
     			append_dev(div3, div1);
-    			append_dev(div1, img);
+    			append_dev(div1, img_1);
     			append_dev(div3, t2);
     			append_dev(div3, div2);
     			if (if_block) if_block.m(div2, null);
-
-    			if (!mounted) {
-    				dispose = listen_dev(div4, "scroll", /*scroll*/ ctx[3], false, false, false);
-    				mounted = true;
-    			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*loader*/ 2 && div1_class_value !== (div1_class_value = "loader " + /*loader*/ ctx[1] + " svelte-pr52cj")) {
+    			if (dirty & /*loader*/ 2 && div1_class_value !== (div1_class_value = "loader " + /*loader*/ ctx[1] + " svelte-1e171vo")) {
     				attr_dev(div1, "class", div1_class_value);
     			}
 
@@ -5390,8 +5384,6 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
     			if (if_block) if_block.d();
-    			mounted = false;
-    			dispose();
     		}
     	};
 
@@ -5407,7 +5399,7 @@ var app = (function () {
     }
 
     const api_key = 'WWsBOsSnXbn9GJv3gucUMHYWJ3YHryd2uZMN1wWlIHk';
-    const count = 5;
+    const count = 10;
 
     function instance$3($$self, $$props, $$invalidate) {
     	let height;
@@ -5425,7 +5417,7 @@ var app = (function () {
 
     			if (data.length > 0) {
     				$$invalidate(1, loader = 'd-none');
-    				$$invalidate(2, height = '');
+    				$$invalidate(2, height = 'auto');
     				console.log(loader);
     			}
     		} catch(error) {
@@ -5434,40 +5426,14 @@ var app = (function () {
     	};
 
     	getPhotoes();
-
-    	window.addEventListener('scroll', () => {
-    		console.log("scroll");
-    	});
-
-    	// let imgcontainer = document.getElementById('imgcontainer');
-    	// imgcontainer.addEventListener('scroll',()=>{
-    	//     console.log("scroll");
-    	// })
-    	// let img = document.getElementById('img');
-    	// img.addEventListener('load',()=>{
-    	//         console.log('img ok')            
-    	//         img.setAttribute('transition', '2s');
-    	//     })
-    	let container;
-
-    	const loadFade = () => {
-    		container = document.getElementById('containers');
-    	}; //    container.style.background="red";
-    	//    console.log('P:'+container.offsetHeight)
+    	let body;
+    	let elements;
+    	let img;
 
     	onMount(() => {
-    		container = document.getElementById('containers');
-    		console.log('image container:' + container.offsetHeight);
-    		console.log('window height:' + window.innerHeight);
-    	});
-
-    	const scroll = () => {
-    		console.log('image container:' + container.offsetHeight);
-    		console.log('scroll content');
-    	};
-
-    	window.addEventListener('click', () => {
-    		console.log('clicked');
+    		$$invalidate(3, body = document.getElementById('body'));
+    		$$invalidate(4, elements = document.getElementById('elements'));
+    		img = document.getElementById('img');
     	});
 
     	const writable_props = [];
@@ -5476,25 +5442,31 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$1.warn(`<InfiniteScroll> was created with unknown prop '${key}'`);
     	});
 
+    	const load_handler = () => {
+    		console.log('loaded');
+    	};
+
     	$$self.$capture_state = () => ({
-    		fade,
     		onMount,
+    		fade,
     		api_key,
     		count,
     		link,
     		data,
     		loader,
     		getPhotoes,
-    		container,
-    		loadFade,
-    		scroll,
+    		body,
+    		elements,
+    		img,
     		height
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('data' in $$props) $$invalidate(0, data = $$props.data);
     		if ('loader' in $$props) $$invalidate(1, loader = $$props.loader);
-    		if ('container' in $$props) container = $$props.container;
+    		if ('body' in $$props) $$invalidate(3, body = $$props.body);
+    		if ('elements' in $$props) $$invalidate(4, elements = $$props.elements);
+    		if ('img' in $$props) img = $$props.img;
     		if ('height' in $$props) $$invalidate(2, height = $$props.height);
     	};
 
@@ -5502,8 +5474,26 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*elements, body*/ 24) {
+    			// $: if(img){
+    			//     img.addEventListener('load',()=>{
+    			//         console.log('loaded');
+    			//     })
+    			// }
+    			if (elements) {
+    				body.addEventListener('scroll', () => {
+    					if (window.innerHeight + body.scrollTop >= elements.offsetHeight) {
+    						console.log(window.innerHeight + body.scrollTop);
+    						console.log(elements.offsetHeight);
+    					}
+    				}); // console.log('window:'+window.innerHeight + '<=> scroll:' + body.scrollTop + '<=> body:' + elements.offsetHeight);  
+    			}
+    		}
+    	};
+
     	$$invalidate(2, height = '100%');
-    	return [data, loader, height, scroll];
+    	return [data, loader, height, body, elements, load_handler];
     }
 
     class InfiniteScroll extends SvelteComponentDev {
