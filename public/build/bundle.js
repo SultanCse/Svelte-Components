@@ -5125,14 +5125,14 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
+    	child_ctx[11] = list[i];
     	return child_ctx;
     }
 
-    // (61:12) {#if data.length>0}
+    // (60:12) {#if data.length>0}
     function create_if_block$1(ctx) {
     	let each_1_anchor;
-    	let each_value = /*data*/ ctx[0];
+    	let each_value = /*data*/ ctx[2];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -5156,8 +5156,8 @@ var app = (function () {
     			insert_dev(target, each_1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*data, console*/ 1) {
-    				each_value = /*data*/ ctx[0];
+    			if (dirty & /*data, onLoadFun*/ 20) {
+    				each_value = /*data*/ ctx[2];
     				validate_each_argument(each_value);
     				let i;
 
@@ -5198,14 +5198,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(61:12) {#if data.length>0}",
+    		source: "(60:12) {#if data.length>0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (62:16) {#each data as image}
+    // (61:16) {#each data as image}
     function create_each_block$1(ctx) {
     	let div;
     	let a;
@@ -5213,6 +5213,7 @@ var app = (function () {
     	let img_1_src_value;
     	let img_1_alt_value;
     	let img_1_title_value;
+    	let img_1_intro;
     	let a_href_value;
     	let t;
     	let div_intro;
@@ -5227,14 +5228,14 @@ var app = (function () {
     			t = space();
     			attr_dev(img_1, "id", "img");
     			attr_dev(img_1, "class", "img-thumbnail svelte-1e171vo");
-    			if (!src_url_equal(img_1.src, img_1_src_value = /*image*/ ctx[9].urls.regular)) attr_dev(img_1, "src", img_1_src_value);
-    			attr_dev(img_1, "alt", img_1_alt_value = /*image*/ ctx[9].alt_description);
-    			attr_dev(img_1, "title", img_1_title_value = /*image*/ ctx[9].alt_description);
-    			add_location(img_1, file$2, 64, 16, 2156);
-    			attr_dev(a, "href", a_href_value = /*image*/ ctx[9].links.html);
+    			if (!src_url_equal(img_1.src, img_1_src_value = /*image*/ ctx[11].urls.regular)) attr_dev(img_1, "src", img_1_src_value);
+    			attr_dev(img_1, "alt", img_1_alt_value = /*image*/ ctx[11].alt_description);
+    			attr_dev(img_1, "title", img_1_title_value = /*image*/ ctx[11].alt_description);
+    			add_location(img_1, file$2, 63, 16, 1997);
+    			attr_dev(a, "href", a_href_value = /*image*/ ctx[11].links.html);
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$2, 63, 16, 2095);
-    			add_location(div, file$2, 62, 16, 2046);
+    			add_location(a, file$2, 62, 16, 1936);
+    			add_location(div, file$2, 61, 16, 1887);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5243,28 +5244,35 @@ var app = (function () {
     			append_dev(div, t);
 
     			if (!mounted) {
-    				dispose = listen_dev(img_1, "load", /*load_handler*/ ctx[5], false, false, false);
+    				dispose = listen_dev(img_1, "load", /*onLoadFun*/ ctx[4], false, false, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*data*/ 1 && !src_url_equal(img_1.src, img_1_src_value = /*image*/ ctx[9].urls.regular)) {
+    			if (dirty & /*data*/ 4 && !src_url_equal(img_1.src, img_1_src_value = /*image*/ ctx[11].urls.regular)) {
     				attr_dev(img_1, "src", img_1_src_value);
     			}
 
-    			if (dirty & /*data*/ 1 && img_1_alt_value !== (img_1_alt_value = /*image*/ ctx[9].alt_description)) {
+    			if (dirty & /*data*/ 4 && img_1_alt_value !== (img_1_alt_value = /*image*/ ctx[11].alt_description)) {
     				attr_dev(img_1, "alt", img_1_alt_value);
     			}
 
-    			if (dirty & /*data*/ 1 && img_1_title_value !== (img_1_title_value = /*image*/ ctx[9].alt_description)) {
+    			if (dirty & /*data*/ 4 && img_1_title_value !== (img_1_title_value = /*image*/ ctx[11].alt_description)) {
     				attr_dev(img_1, "title", img_1_title_value);
     			}
 
-    			if (dirty & /*data*/ 1 && a_href_value !== (a_href_value = /*image*/ ctx[9].links.html)) {
+    			if (dirty & /*data*/ 4 && a_href_value !== (a_href_value = /*image*/ ctx[11].links.html)) {
     				attr_dev(a, "href", a_href_value);
     			}
     		},
     		i: function intro(local) {
+    			if (!img_1_intro) {
+    				add_render_callback(() => {
+    					img_1_intro = create_in_transition(img_1, fade, { duration: 2000 });
+    					img_1_intro.start();
+    				});
+    			}
+
     			if (!div_intro) {
     				add_render_callback(() => {
     					div_intro = create_in_transition(div, fade, { duration: 2000 });
@@ -5284,7 +5292,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(62:16) {#each data as image}",
+    		source: "(61:16) {#each data as image}",
     		ctx
     	});
 
@@ -5302,7 +5310,9 @@ var app = (function () {
     	let div1_class_value;
     	let t2;
     	let div2;
-    	let if_block = /*data*/ ctx[0].length > 0 && create_if_block$1(ctx);
+    	let mounted;
+    	let dispose;
+    	let if_block = /*data*/ ctx[2].length > 0 && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -5317,24 +5327,24 @@ var app = (function () {
     			div2 = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "title svelte-1e171vo");
-    			add_location(div0, file$2, 55, 8, 1731);
+    			add_location(div0, file$2, 54, 8, 1585);
     			if (!src_url_equal(img_1.src, img_1_src_value = "./images/loader.svg")) attr_dev(img_1, "src", img_1_src_value);
     			attr_dev(img_1, "alt", "loader img");
     			attr_dev(img_1, "class", "svelte-1e171vo");
-    			add_location(img_1, file$2, 57, 12, 1838);
-    			attr_dev(div1, "class", div1_class_value = "loader " + /*loader*/ ctx[1] + " svelte-1e171vo");
-    			add_location(div1, file$2, 56, 8, 1795);
+    			add_location(img_1, file$2, 56, 12, 1692);
+    			attr_dev(div1, "class", div1_class_value = "loader " + /*loader*/ ctx[0] + " svelte-1e171vo");
+    			add_location(div1, file$2, 55, 8, 1649);
     			attr_dev(div2, "class", "image-container svelte-1e171vo");
-    			attr_dev(div2, "id", "elements");
-    			add_location(div2, file$2, 59, 8, 1913);
+    			add_location(div2, file$2, 58, 8, 1767);
     			attr_dev(div3, "class", "elements svelte-1e171vo");
-    			set_style(div3, "height", /*height*/ ctx[2]);
-    			add_location(div3, file$2, 54, 4, 1672);
+    			attr_dev(div3, "id", "elements");
+    			set_style(div3, "height", /*height*/ ctx[1]);
+    			add_location(div3, file$2, 53, 4, 1513);
     			attr_dev(div4, "class", "body");
     			attr_dev(div4, "id", "body");
     			set_style(div4, "height", "100vh");
     			set_style(div4, "overflow-x", "auto");
-    			add_location(div4, file$2, 53, 0, 1596);
+    			add_location(div4, file$2, 52, 0, 1415);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5349,17 +5359,22 @@ var app = (function () {
     			append_dev(div3, t2);
     			append_dev(div3, div2);
     			if (if_block) if_block.m(div2, null);
+
+    			if (!mounted) {
+    				dispose = listen_dev(div4, "scroll", /*scrollFun*/ ctx[3], false, false, false);
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*loader*/ 2 && div1_class_value !== (div1_class_value = "loader " + /*loader*/ ctx[1] + " svelte-1e171vo")) {
+    			if (dirty & /*loader*/ 1 && div1_class_value !== (div1_class_value = "loader " + /*loader*/ ctx[0] + " svelte-1e171vo")) {
     				attr_dev(div1, "class", div1_class_value);
     			}
 
-    			if (/*data*/ ctx[0].length > 0) {
+    			if (/*data*/ ctx[2].length > 0) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty & /*data*/ 1) {
+    					if (dirty & /*data*/ 4) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -5373,8 +5388,8 @@ var app = (function () {
     				if_block = null;
     			}
 
-    			if (dirty & /*height*/ 4) {
-    				set_style(div3, "height", /*height*/ ctx[2]);
+    			if (dirty & /*height*/ 2) {
+    				set_style(div3, "height", /*height*/ ctx[1]);
     			}
     		},
     		i: function intro(local) {
@@ -5384,6 +5399,8 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
     			if (if_block) if_block.d();
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -5402,24 +5419,20 @@ var app = (function () {
     const count = 10;
 
     function instance$3($$self, $$props, $$invalidate) {
+    	let data;
     	let height;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('InfiniteScroll', slots, []);
     	const link = `https://api.unsplash.com/photos/random/?client_id=${api_key}&count=${count}`;
-    	let data = [];
     	let loader = '';
+    	let imageCount = 0;
 
     	const getPhotoes = async () => {
     		try {
     			const response = await fetch(link);
-    			$$invalidate(0, data = await response.json());
+    			let datas = await response.json();
+    			$$invalidate(2, data = [...data, ...datas]);
     			console.log(data);
-
-    			if (data.length > 0) {
-    				$$invalidate(1, loader = 'd-none');
-    				$$invalidate(2, height = 'auto');
-    				console.log(loader);
-    			}
     		} catch(error) {
     			console.log(error);
     		}
@@ -5431,10 +5444,24 @@ var app = (function () {
     	let img;
 
     	onMount(() => {
-    		$$invalidate(3, body = document.getElementById('body'));
-    		$$invalidate(4, elements = document.getElementById('elements'));
+    		body = document.getElementById('body');
+    		elements = document.getElementById('elements');
     		img = document.getElementById('img');
     	});
+
+    	const scrollFun = () => {
+    		if (window.innerHeight + body.scrollTop >= elements.offsetHeight - 700 && imageCount == 10) {
+    			$$invalidate(5, imageCount = 0);
+    			getPhotoes();
+    			console.log(elements.offsetHeight);
+    			console.log(imageCount);
+    		}
+    	};
+
+    	const onLoadFun = () => {
+    		$$invalidate(5, imageCount++, imageCount);
+    		console.log(imageCount);
+    	};
 
     	const writable_props = [];
 
@@ -5442,32 +5469,32 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$1.warn(`<InfiniteScroll> was created with unknown prop '${key}'`);
     	});
 
-    	const load_handler = () => {
-    		console.log('loaded');
-    	};
-
     	$$self.$capture_state = () => ({
     		onMount,
     		fade,
     		api_key,
     		count,
     		link,
-    		data,
     		loader,
+    		imageCount,
     		getPhotoes,
     		body,
     		elements,
     		img,
-    		height
+    		scrollFun,
+    		onLoadFun,
+    		height,
+    		data
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
-    		if ('loader' in $$props) $$invalidate(1, loader = $$props.loader);
-    		if ('body' in $$props) $$invalidate(3, body = $$props.body);
-    		if ('elements' in $$props) $$invalidate(4, elements = $$props.elements);
+    		if ('loader' in $$props) $$invalidate(0, loader = $$props.loader);
+    		if ('imageCount' in $$props) $$invalidate(5, imageCount = $$props.imageCount);
+    		if ('body' in $$props) body = $$props.body;
+    		if ('elements' in $$props) elements = $$props.elements;
     		if ('img' in $$props) img = $$props.img;
-    		if ('height' in $$props) $$invalidate(2, height = $$props.height);
+    		if ('height' in $$props) $$invalidate(1, height = $$props.height);
+    		if ('data' in $$props) $$invalidate(2, data = $$props.data);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -5475,25 +5502,17 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*elements, body*/ 24) {
-    			// $: if(img){
-    			//     img.addEventListener('load',()=>{
-    			//         console.log('loaded');
-    			//     })
-    			// }
-    			if (elements) {
-    				body.addEventListener('scroll', () => {
-    					if (window.innerHeight + body.scrollTop >= elements.offsetHeight) {
-    						console.log(window.innerHeight + body.scrollTop);
-    						console.log(elements.offsetHeight);
-    					}
-    				}); // console.log('window:'+window.innerHeight + '<=> scroll:' + body.scrollTop + '<=> body:' + elements.offsetHeight);  
+    		if ($$self.$$.dirty & /*imageCount*/ 32) {
+    			if (imageCount > 0) {
+    				$$invalidate(0, loader = 'd-none');
+    				$$invalidate(1, height = 'auto');
     			}
     		}
     	};
 
-    	$$invalidate(2, height = '100%');
-    	return [data, loader, height, body, elements, load_handler];
+    	$$invalidate(2, data = []);
+    	$$invalidate(1, height = '100%');
+    	return [loader, height, data, scrollFun, onLoadFun, imageCount];
     }
 
     class InfiniteScroll extends SvelteComponentDev {
@@ -5574,7 +5593,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (30:16) {#each list as item, index}
+    // (31:16) {#each list as item, index}
     function create_each_block(ctx) {
     	let div;
     	let i;
@@ -5598,12 +5617,12 @@ var app = (function () {
     			span = element("span");
     			t1 = text(t1_value);
     			t2 = space();
-    			attr_dev(i, "class", "fas fa-tachometer-alt icon svelte-1be97gg");
-    			add_location(i, file$1, 31, 20, 1242);
-    			attr_dev(span, "class", "itemText svelte-1be97gg");
-    			add_location(span, file$1, 32, 20, 1306);
-    			attr_dev(div, "class", "d-flex list-group-item text-center svelte-1be97gg");
-    			add_location(div, file$1, 30, 16, 1133);
+    			attr_dev(i, "class", "fas fa-tachometer-alt icon svelte-48p5ge");
+    			add_location(i, file$1, 32, 20, 1271);
+    			attr_dev(span, "class", "itemText svelte-48p5ge");
+    			add_location(span, file$1, 33, 20, 1335);
+    			attr_dev(div, "class", "d-flex list-group-item text-center svelte-48p5ge");
+    			add_location(div, file$1, 31, 16, 1162);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5632,14 +5651,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(30:16) {#each list as item, index}",
+    		source: "(31:16) {#each list as item, index}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:47) 
+    // (60:47) 
     function create_if_block_7(ctx) {
     	let daterange;
     	let current;
@@ -5671,14 +5690,14 @@ var app = (function () {
     		block,
     		id: create_if_block_7.name,
     		type: "if",
-    		source: "(58:47) ",
+    		source: "(60:47) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:48) 
+    // (58:48) 
     function create_if_block_6(ctx) {
     	let actiontest;
     	let current;
@@ -5710,14 +5729,14 @@ var app = (function () {
     		block,
     		id: create_if_block_6.name,
     		type: "if",
-    		source: "(56:48) ",
+    		source: "(58:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (54:44) 
+    // (56:44) 
     function create_if_block_5(ctx) {
     	let circle;
     	let current;
@@ -5749,14 +5768,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5.name,
     		type: "if",
-    		source: "(54:44) ",
+    		source: "(56:44) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:51) 
+    // (54:51) 
     function create_if_block_4(ctx) {
     	let toggle;
     	let current;
@@ -5796,14 +5815,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(52:51) ",
+    		source: "(54:51) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:48) 
+    // (52:48) 
     function create_if_block_3(ctx) {
     	let calculator;
     	let current;
@@ -5835,14 +5854,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(50:48) ",
+    		source: "(52:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (48:45) 
+    // (50:45) 
     function create_if_block_2(ctx) {
     	let apppoll;
     	let current;
@@ -5874,14 +5893,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(48:45) ",
+    		source: "(50:45) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (45:52) 
+    // (47:52) 
     function create_if_block_1(ctx) {
     	let quotegenerator;
     	let current;
@@ -5913,38 +5932,38 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(45:52) ",
+    		source: "(47:52) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (42:12) {#if activeTab == 'InfiniteScroll'}
+    // (44:12) {#if activeTab == 'InfiniteScroll'}
     function create_if_block(ctx) {
-    	let infinitescroll;
+    	let testcode;
     	let current;
-    	infinitescroll = new InfiniteScroll({ $$inline: true });
+    	testcode = new TestCode({ $$inline: true });
 
     	const block = {
     		c: function create() {
-    			create_component(infinitescroll.$$.fragment);
+    			create_component(testcode.$$.fragment);
     		},
     		m: function mount(target, anchor) {
-    			mount_component(infinitescroll, target, anchor);
+    			mount_component(testcode, target, anchor);
     			current = true;
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(infinitescroll.$$.fragment, local);
+    			transition_in(testcode.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(infinitescroll.$$.fragment, local);
+    			transition_out(testcode.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(infinitescroll, detaching);
+    			destroy_component(testcode, detaching);
     		}
     	};
 
@@ -5952,7 +5971,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(42:12) {#if activeTab == 'InfiniteScroll'}",
+    		source: "(44:12) {#if activeTab == 'InfiniteScroll'}",
     		ctx
     	});
 
@@ -5960,12 +5979,13 @@ var app = (function () {
     }
 
     function create_fragment$1(ctx) {
-    	let div4;
+    	let div5;
+    	let div2;
     	let div1;
     	let div0;
     	let t;
+    	let div4;
     	let div3;
-    	let div2;
     	let current_block_type_index;
     	let if_block;
     	let current;
@@ -6008,7 +6028,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div4 = element("div");
+    			div5 = element("div");
+    			div2 = element("div");
     			div1 = element("div");
     			div0 = element("div");
 
@@ -6017,38 +6038,41 @@ var app = (function () {
     			}
 
     			t = space();
+    			div4 = element("div");
     			div3 = element("div");
-    			div2 = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div0, "class", "list-group rounded-0 svelte-1be97gg");
-    			add_location(div0, file$1, 28, 12, 1036);
-    			attr_dev(div1, "class", "col-2");
-    			add_location(div1, file$1, 27, 4, 995);
-    			attr_dev(div2, "class", "content svelte-1be97gg");
-    			add_location(div2, file$1, 40, 8, 1511);
-    			attr_dev(div3, "class", "col");
-    			add_location(div3, file$1, 38, 4, 1471);
-    			attr_dev(div4, "class", "row g-0 m-0");
-    			add_location(div4, file$1, 26, 0, 963);
+    			attr_dev(div0, "class", "list-group rounded-0 svelte-48p5ge");
+    			add_location(div0, file$1, 29, 12, 1065);
+    			attr_dev(div1, "class", "row g-0 m-0");
+    			add_location(div1, file$1, 28, 8, 1025);
+    			attr_dev(div2, "class", "col-2");
+    			add_location(div2, file$1, 27, 4, 995);
+    			attr_dev(div3, "class", "content svelte-48p5ge");
+    			add_location(div3, file$1, 42, 8, 1567);
+    			attr_dev(div4, "class", "col");
+    			add_location(div4, file$1, 40, 4, 1527);
+    			attr_dev(div5, "class", "row g-0 m-0");
+    			add_location(div5, file$1, 26, 0, 963);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div4, anchor);
-    			append_dev(div4, div1);
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, div2);
+    			append_dev(div2, div1);
     			append_dev(div1, div0);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div0, null);
     			}
 
-    			append_dev(div4, t);
+    			append_dev(div5, t);
+    			append_dev(div5, div4);
     			append_dev(div4, div3);
-    			append_dev(div3, div2);
 
     			if (~current_block_type_index) {
-    				if_blocks[current_block_type_index].m(div2, null);
+    				if_blocks[current_block_type_index].m(div3, null);
     			}
 
     			current = true;
@@ -6101,7 +6125,7 @@ var app = (function () {
     					}
 
     					transition_in(if_block, 1);
-    					if_block.m(div2, null);
+    					if_block.m(div3, null);
     				} else {
     					if_block = null;
     				}
@@ -6117,7 +6141,7 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(div5);
     			destroy_each(each_blocks, detaching);
 
     			if (~current_block_type_index) {

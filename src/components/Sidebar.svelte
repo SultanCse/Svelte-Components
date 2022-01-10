@@ -25,7 +25,9 @@ import TestCode from './TestCode.svelte';
 </script>
 
 <div class="row g-0 m-0" >
-    <div class="col-2">        
+    <div class="col-2"> 
+        <div class="row g-0 m-0" >
+            
             <div class="list-group rounded-0">
                 {#each list as item, index}
                 <div class="d-flex list-group-item text-center" on:click={()=>{activeTab=list[index]}}>
@@ -33,15 +35,16 @@ import TestCode from './TestCode.svelte';
                     <span class='itemText'>{list[index]}</span>
                 </div>
                 {/each}                 
-        </div>
+            </div>
+        </div>       
     </div>
     <!-- content -->
     <div class="col">   
         
         <div class="content">  
             {#if activeTab == 'InfiniteScroll'}
-                <InfiniteScroll/> 
-                <!-- <TestCode/> -->
+                <!-- <InfiniteScroll/>  -->
+                <TestCode/>
             {:else if activeTab == 'QuoteGenerator'}
                 <QuoteGenerator/>
                 <!-- <Circle/> -->
@@ -66,18 +69,11 @@ import TestCode from './TestCode.svelte';
     :global(.my-link, .my-link:hover){
         text-decoration: none;
     }
-    /* :global(body){
-        overflow: hidden;
-    } */
-    /* .sidebar{
-        max-width: 100vh;
-        overflow-y: scroll;
-    } */
     .content{
         height: 90vh;
-        overflow: auto;
+        overflow: hidden;
         padding-left: 1rem;
-        /* padding-right: 1rem; */
+
         padding-bottom: 1rem;
     }
     .icon{
@@ -110,18 +106,18 @@ import TestCode from './TestCode.svelte';
         color: white
     }
     :global(::-webkit-scrollbar) {
-    width: .1rem;
+    width: .2rem;
     }
 
     /* Track */
     :global(::-webkit-scrollbar-track) {
-    box-shadow: inset 0 0 .1rem grey; 
+    /* box-shadow: inset 0 0 .1rem grey;  */
     border-radius: .1rem;
     }
     
     /* Handle */
     :global(::-webkit-scrollbar-thumb) {
-    background: rgb(122, 122, 122); 
+    background: rgb(107, 56, 248); 
     border-radius: .1rem;
     }
 

@@ -5,24 +5,27 @@ import { onMount } from 'svelte';
     const api_key = 'WWsBOsSnXbn9GJv3gucUMHYWJ3YHryd2uZMN1wWlIHk';
     const count = 10;
     const link = `https://api.unsplash.com/photos/random/?client_id=${api_key}&count=${count}`;
-    let data=[];
+    $: data=[];
     let loader = '';
     $: height = '100%';
+    let imageCount = 0;
     const getPhotoes = async() => {
         try{
             const response = await fetch(link);
-            data = await response.json();
+            let datas = await response.json();
+            data = [...data, ...datas];
             console.log(data);
-            if(data.length>0){
-                loader = 'd-none';
-                height = 'auto';
-                console.log(loader);
-            }
         }
         catch(error){
             console.log(error);
         }
     } 
+
+    $: if(imageCount>0){
+        loader = 'd-none';
+        height = 'auto';
+    }
+    
     getPhotoes(); 
     let body;
     let elements;
@@ -33,36 +36,32 @@ import { onMount } from 'svelte';
         img = document.getElementById('img');
     })
 
-    // $: if(img){
-    //     img.addEventListener('load',()=>{
-    //         console.log('loaded');
-    //     })
-    // }
-
-    $: if(elements){
-        body.addEventListener('scroll',()=>{
-            if(window.innerHeight + body.scrollTop >= elements.offsetHeight){
-                console.log(window.innerHeight + body.scrollTop);
-                console.log(elements.offsetHeight);
-            }      
-            // console.log('window:'+window.innerHeight + '<=> scroll:' + body.scrollTop + '<=> body:' + elements.offsetHeight);  
-    })
+    const scrollFun = ()=>{
+        if(window.innerHeight + body.scrollTop >= elements.offsetHeight-700 && imageCount == 10){
+            imageCount = 0;
+            getPhotoes();
+            console.log(elements.offsetHeight);
+            console.log(imageCount);
+        }
     }
-    
+    const onLoadFun = ()=>{
+        imageCount++;
+        console.log(imageCount);
+    }
 </script>
 
-<div class="body" id='body' style=" height: 100vh; overflow-x: auto;">
-    <div class="elements"  style="height: {height};">
+<div class="body" on:scroll={scrollFun} id='body' style=" height: 100vh; overflow-x: auto;">
+    <div class="elements" id='elements' style="height: {height};">
         <div class='title' >UNSPLASH API-INFINITE SCROLL</div>
         <div class="loader {loader}">
             <img src="./images/loader.svg" alt="loader img"/>
         </div>
-        <div class="image-container" id='elements'>
+        <div class="image-container" >
             {#if data.length>0}
                 {#each data as image}
                 <div in:fade={{duration:2000}}>
                 <a href={image.links.html} target="_blank">
-                <img id='img' on:load={()=>{console.log('loaded')}} class='img-thumbnail' src={image.urls.regular} alt={image.alt_description} title={image.alt_description} />
+                <img in:fade={{duration:2000}} id='img' on:load={onLoadFun} class='img-thumbnail' src={image.urls.regular} alt={image.alt_description} title={image.alt_description} />
                 </a>
                 </div>
                 {/each}
