@@ -5593,7 +5593,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (31:16) {#each list as item, index}
+    // (32:16) {#each list as item, index}
     function create_each_block(ctx) {
     	let div;
     	let i;
@@ -5618,11 +5618,11 @@ var app = (function () {
     			t1 = text(t1_value);
     			t2 = space();
     			attr_dev(i, "class", "fas fa-tachometer-alt icon svelte-48p5ge");
-    			add_location(i, file$1, 32, 20, 1271);
+    			add_location(i, file$1, 33, 20, 1285);
     			attr_dev(span, "class", "itemText svelte-48p5ge");
-    			add_location(span, file$1, 33, 20, 1335);
+    			add_location(span, file$1, 34, 20, 1349);
     			attr_dev(div, "class", "d-flex list-group-item text-center svelte-48p5ge");
-    			add_location(div, file$1, 31, 16, 1162);
+    			add_location(div, file$1, 32, 16, 1176);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5651,14 +5651,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(31:16) {#each list as item, index}",
+    		source: "(32:16) {#each list as item, index}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:47) 
+    // (61:47) 
     function create_if_block_7(ctx) {
     	let daterange;
     	let current;
@@ -5690,14 +5690,14 @@ var app = (function () {
     		block,
     		id: create_if_block_7.name,
     		type: "if",
-    		source: "(60:47) ",
+    		source: "(61:47) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:48) 
+    // (59:48) 
     function create_if_block_6(ctx) {
     	let actiontest;
     	let current;
@@ -5729,14 +5729,14 @@ var app = (function () {
     		block,
     		id: create_if_block_6.name,
     		type: "if",
-    		source: "(58:48) ",
+    		source: "(59:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:44) 
+    // (57:44) 
     function create_if_block_5(ctx) {
     	let circle;
     	let current;
@@ -5768,14 +5768,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5.name,
     		type: "if",
-    		source: "(56:44) ",
+    		source: "(57:44) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (54:51) 
+    // (55:51) 
     function create_if_block_4(ctx) {
     	let toggle;
     	let current;
@@ -5815,14 +5815,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(54:51) ",
+    		source: "(55:51) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:48) 
+    // (53:48) 
     function create_if_block_3(ctx) {
     	let calculator;
     	let current;
@@ -5854,14 +5854,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(52:48) ",
+    		source: "(53:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:45) 
+    // (51:45) 
     function create_if_block_2(ctx) {
     	let apppoll;
     	let current;
@@ -5893,14 +5893,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(50:45) ",
+    		source: "(51:45) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (47:52) 
+    // (48:52) 
     function create_if_block_1(ctx) {
     	let quotegenerator;
     	let current;
@@ -5932,14 +5932,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(47:52) ",
+    		source: "(48:52) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (44:12) {#if activeTab == 'InfiniteScroll'}
+    // (45:12) {#if activeTab == 'InfiniteScroll'}
     function create_if_block(ctx) {
     	let testcode;
     	let current;
@@ -5971,7 +5971,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(44:12) {#if activeTab == 'InfiniteScroll'}",
+    		source: "(45:12) {#if activeTab == 'InfiniteScroll'}",
     		ctx
     	});
 
@@ -6042,15 +6042,15 @@ var app = (function () {
     			div3 = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "list-group rounded-0 svelte-48p5ge");
-    			add_location(div0, file$1, 29, 12, 1065);
+    			add_location(div0, file$1, 30, 12, 1079);
     			attr_dev(div1, "class", "row g-0 m-0");
     			add_location(div1, file$1, 28, 8, 1025);
     			attr_dev(div2, "class", "col-2");
     			add_location(div2, file$1, 27, 4, 995);
     			attr_dev(div3, "class", "content svelte-48p5ge");
-    			add_location(div3, file$1, 42, 8, 1567);
+    			add_location(div3, file$1, 43, 8, 1581);
     			attr_dev(div4, "class", "col");
-    			add_location(div4, file$1, 40, 4, 1527);
+    			add_location(div4, file$1, 41, 4, 1541);
     			attr_dev(div5, "class", "row g-0 m-0");
     			add_location(div5, file$1, 26, 0, 963);
     		},
