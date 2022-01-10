@@ -1,3 +1,38 @@
+<script>
+    // export let actionText = '';
+</script>
+<div class="row g-0 shadow-sm item" tabindex="1" on:click>
+    <div class="col-md-4 d-flex justify-content-center">
+        <i class="fas fa-tachometer-alt icon"></i>
+    </div>
+    <div class="col-md-8 d-sm-none d-md-block title">Toggle Button</div>
+</div>
+
+<style>
+    .icon{
+        padding: .5rem;
+        font-size: 2.5rem;
+    }
+    .title{
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 1.3rem;        
+    }
+    .item{
+        cursor: pointer;
+    }
+    .item:hover{
+        background: #f0764d;
+        transition: .3s;
+        color: white;
+    }
+    .item:focus{
+        background: #FF4205;
+        color: white;
+        transition: .3s;
+    }
+
+</style>
 
 <!-- create element and set attribute
 <script>

@@ -1,6 +1,4 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
     export let onText = '';
     export let offText = '';
     export let width = '80px';
@@ -8,7 +6,7 @@
     
 </script>
 <label class='toggle' for='mytoggle' style="--width: {width}">
-    <input class='toggle__input' type='checkbox' id='mytoggle' bind:checked={value} >
+    <input class='toggle__input' type='checkbox' id='mytoggle' bind:checked={value}>
     <div class="toggle__fill ">
         <div class="row g-0 h-100 mw-50 text-center">
             <div class="on col"><p >{onText}</p></div>

@@ -13,47 +13,46 @@ import ActionTest from './ActionTest.svelte';
 import DateRange from './DateRange.svelte';
 import InfiniteScroll from './InfiniteScroll.svelte';
 import TestCode from './TestCode.svelte';
-    let list = ['InfiniteScroll','QuoteGenerator','Calculator','Circle','Toggle Button','AppPoll',
-    'ActionTest','DateRange','DateRange','DateRange','ActionTest','Toggle Button'];
-    let activeTab = 'InfiniteScroll';
-    onMount(()=>{
-    })
-    const scroll = ()=>{
-        console.log('scroll content');
-    }
+import LoadingCircle from './LoadingCircle.svelte';
+let value=false;
 
+    let list = ['QuoteGenerator','InfiniteScroll','QuoteGenerator','Calculator','Circle','Toggle Button','AppPoll',
+    'ActionTest','DateRange','DateRange','DateRange','ActionTest','Toggle Button'];
+    let activeTab = 'QuoteGenerator';
+    $: if(value){
+        console.log(value);
+    }
 </script>
 
 <div class="row g-0 m-0" >
     <div class="col-2"> 
-        <div class="row g-0 m-0" >
-            
-            <div class="list-group rounded-0">
-                {#each list as item, index}
-                <div class="d-flex list-group-item text-center" on:click={()=>{activeTab=list[index]}}>
-                    <i class="fas fa-tachometer-alt icon"></i>
-                    <span class='itemText'>{list[index]}</span>
-                </div>
-                {/each}                 
+        <div class="list-group rounded-0">
+            {#each list as item, index}
+            <div class="d-flex list-group-item text-center" on:click={()=>{activeTab=list[index]}}>
+                <i class="fas fa-tachometer-alt icon"></i>
+                <span class='itemText'>{list[index]}</span>
             </div>
-        </div>       
+            {/each}                 
+        </div> 
+        <TestCode on:click={()=>console.log('ok')}/>              
     </div>
     <!-- content -->
     <div class="col">   
         
         <div class="content">  
-            {#if activeTab == 'InfiniteScroll'}
-                <!-- <InfiniteScroll/>  -->
-                <TestCode/>
+            {#if activeTab == 'LoadingCircle'}
+                <!-- <LoadingCircle/> -->
+            {:else if activeTab == 'InfiniteScroll'}
+                <InfiniteScroll/>
             {:else if activeTab == 'QuoteGenerator'}
-                <QuoteGenerator/>
-                <!-- <Circle/> -->
+                <!-- <QuoteGenerator/> -->
+                <TestCode on:click={()=>{console.log('ok')}}/>
             {:else if activeTab == 'AppPoll'}
                 <AppPoll/>
             {:else if activeTab == "Calculator"}
                 <Calculator/>
             {:else if activeTab == 'Toggle Button'}
-                <Toggle width='10rem' onText='on' offText='off'/>
+                <Toggle width='10rem' onText='on' offText='off' bind:value/>
             {:else if activeTab == 'Circle'}
                 <Circle/>
             {:else if activeTab == 'ActionTest'}

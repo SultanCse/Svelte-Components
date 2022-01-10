@@ -21,7 +21,7 @@
       <nav class="navbar navbar-light bg-secondary ">
         <div class="container-fluid justify-content-center">  
           <a class="navbar-brand" href="#">    
-            <img src="images/slogo.jpg" alt="" width="30px" height="24px" class="rounded-pill img-thumbnail">
+            <img src="images/svelte.png" alt="" width="30px" height="24px" class="rounded-pill img-thumbnail">
           </a>    
         </div>
       </nav>
