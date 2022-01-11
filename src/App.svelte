@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar.svelte";
 
 </script>
 
-<main>
+<main >
 	<Navbar></Navbar>
 	<Sidebar></Sidebar>	
 </main>

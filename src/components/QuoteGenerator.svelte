@@ -20,7 +20,8 @@ import { afterUpdate, onMount } from "svelte";
       quote = data.quotes[quteIndex].quote;
       author = data.quotes[quteIndex].author;
       // console.log(quote+"-"+author);
-    }).catch(error => {            
+    })
+    .catch(error => {            
         console.log(error);
         return [];
     });

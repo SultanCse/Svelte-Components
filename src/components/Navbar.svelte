@@ -16,7 +16,7 @@
 
 </script>
 
-  <div class="row g-0 sticky-top">
+  <div class="row g-0 m-0 sticky-top" >
     <div class="col-{navColSize} p-0" id='col'>
       <nav class="navbar navbar-light bg-secondary ">
         <div class="container-fluid justify-content-center">  

@@ -16,16 +16,19 @@ import TestCode from './TestCode.svelte';
 import LoadingCircle from './LoadingCircle.svelte';
 let value=false;
 
-    let list = ['QuoteGenerator','InfiniteScroll','QuoteGenerator','Calculator','Circle','Toggle Button','AppPoll',
-    'ActionTest','DateRange','DateRange','DateRange','ActionTest','Toggle Button'];
-    let activeTab = 'QuoteGenerator';
+    let list = ['TestCode','InfiniteScroll','QuoteGenerator','Calculator',
+    'Circle','Toggle','AppPoll','LoadingCircle','InfiniteScroll','QuoteGenerator','Calculator',
+    'Circle','Toggle','AppPoll',];
+
+    let activeTab = 'TestCode';
+
     $: if(value){
         console.log(value);
     }
 </script>
 
 <div class="row g-0 m-0" >
-    <div class="col-2"> 
+    <div class="col-2">
         <div class="list-group rounded-0">
             {#each list as item, index}
             <div class="d-flex list-group-item text-center" on:click={()=>{activeTab=list[index]}}>
@@ -33,25 +36,23 @@ let value=false;
                 <span class='itemText'>{list[index]}</span>
             </div>
             {/each}                 
-        </div> 
-        <TestCode on:click={()=>console.log('ok')}/>              
+        </div>                       
     </div>
     <!-- content -->
     <div class="col">   
         
         <div class="content">  
-            {#if activeTab == 'LoadingCircle'}
-                <!-- <LoadingCircle/> -->
+            {#if activeTab == 'TestCode'}
+                <TestCode on:click={()=>{console.log(activeTab)}}/>
             {:else if activeTab == 'InfiniteScroll'}
                 <InfiniteScroll/>
             {:else if activeTab == 'QuoteGenerator'}
-                <!-- <QuoteGenerator/> -->
-                <TestCode on:click={()=>{console.log('ok')}}/>
+                <QuoteGenerator/>
             {:else if activeTab == 'AppPoll'}
                 <AppPoll/>
             {:else if activeTab == "Calculator"}
                 <Calculator/>
-            {:else if activeTab == 'Toggle Button'}
+            {:else if activeTab == 'Toggle'}
                 <Toggle width='10rem' onText='on' offText='off' bind:value/>
             {:else if activeTab == 'Circle'}
                 <Circle/>
@@ -67,6 +68,9 @@ let value=false;
 <style>
     :global(.my-link, .my-link:hover){
         text-decoration: none;
+    }
+    :global(body){
+        overflow-y: hidden;
     }
     .content{
         height: 90vh;
@@ -126,3 +130,26 @@ let value=false;
         }
      } */
 </style>
+
+
+
+    <!-- let sidebarItems=[
+        {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
+        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
+        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
+        {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
+        {name:'Circle', icon:'fas fa-tachometer-alt', component:'Circle'},
+        {name:'Toggle', icon:'fas fa-tachometer-alt', component:'Toggle'},
+        {name:'AppPoll', icon:'fas fa-tachometer-alt', component:'AppPoll'},
+        {name:'ActionTest', icon:'fas fa-tachometer-alt', component:'ActionTest'},
+        {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
+        {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
+        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
+        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
+        {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
+        {name:'Circle', icon:'fas fa-tachometer-alt', component:'Circle'},
+        {name:'Toggle', icon:'fas fa-tachometer-alt', component:'Toggle'},
+        {name:'AppPoll', icon:'fas fa-tachometer-alt', component:'AppPoll'},
+        {name:'ActionTest', icon:'fas fa-tachometer-alt', component:'ActionTest'},
+        {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
+    ] -->

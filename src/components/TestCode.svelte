@@ -1,14 +1,33 @@
 <script>
-    // export let actionText = '';
+import { createEventDispatcher, onMount } from "svelte";
+import AppPoll from "../pollevent/AppPoll.svelte";
+// export let list;
+export let list=[
+    {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+    {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+    {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+];
 </script>
-<div class="row g-0 shadow-sm item" tabindex="1" on:click>
-    <div class="col-md-4 d-flex justify-content-center">
-        <i class="fas fa-tachometer-alt icon"></i>
-    </div>
-    <div class="col-md-8 d-sm-none d-md-block title">Toggle Button</div>
-</div>
 
+<div class="parent">
+    {#each list as item}
+    <div class="row g-0 shadow-sm item" tabindex="1" on:click>
+        <div class="col-md-4 d-flex justify-content-center">
+            <i class="{item.icon} icon" ></i>
+        </div>
+        <div class="col-md-8 d-sm-none d-md-block title">
+            {item.name? item.name : item.component.name }
+        </div>
+    </div>
+    {/each}
+</div>
 <style>
+    .parent{
+        height: 89vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        text-decoration: none;
+    }
     .icon{
         padding: .5rem;
         font-size: 2.5rem;
