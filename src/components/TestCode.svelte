@@ -1,33 +1,26 @@
 <script>
-import { createEventDispatcher, onMount } from "svelte";
-import AppPoll from "../pollevent/AppPoll.svelte";
-// export let list;
-export let list=[
-    {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
-    {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
-    {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
-];
+    import { createEventDispatcher, onMount } from "svelte";
+    import AppPoll from "../pollevent/AppPoll.svelte";
+    // export let list;
+    export let list=[
+        {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+        {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+        {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+    ];
+    const dispatch = createEventDispatcher();
 </script>
-
-<div class="parent">
-    {#each list as item}
-    <div class="row g-0 shadow-sm item" tabindex="1" on:click>
-        <div class="col-md-4 d-flex justify-content-center">
-            <i class="{item.icon} icon" ></i>
-        </div>
-        <div class="col-md-8 d-sm-none d-md-block title">
-            {item.name? item.name : item.component.name }
-        </div>
+{#each list as item}
+<div class="row g-0 shadow-sm item" tabindex="1" on:click={()=>{dispatch('activeTab',{activeTab: item.name})}}>
+    <div class="col-lg-4 col-md-12 d-flex justify-content-center">
+        <i class="{item.icon} icon" ></i>
     </div>
-    {/each}
+    <div class="col-lg-8 col-md-12 d-sm-none d-md-block d-flex text-lg-start text-md-center title">
+        {item.name? item.name : item.component.name }
+    </div>
 </div>
+{/each}
 <style>
-    .parent{
-        height: 89vh;
-        overflow-y: auto;
-        overflow-x: hidden;
-        text-decoration: none;
-    }
+    
     .icon{
         padding: .5rem;
         font-size: 2.5rem;

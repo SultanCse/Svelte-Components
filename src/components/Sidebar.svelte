@@ -16,9 +16,29 @@ import TestCode from './TestCode.svelte';
 import LoadingCircle from './LoadingCircle.svelte';
 let value=false;
 
-    let list = ['TestCode','InfiniteScroll','QuoteGenerator','Calculator',
-    'Circle','Toggle','AppPoll','LoadingCircle','InfiniteScroll','QuoteGenerator','Calculator',
-    'Circle','Toggle','AppPoll',];
+    // let list = ['TestCode','InfiniteScroll','QuoteGenerator','Calculator',
+    // 'Circle','Toggle','AppPoll','LoadingCircle','InfiniteScroll','QuoteGenerator','Calculator',
+    // 'Circle','Toggle','AppPoll',];
+    let sidebarItems=[
+        {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
+        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
+        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
+        {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
+        {name:'Circle', icon:'fas fa-tachometer-alt', component:'Circle'},
+        {name:'Toggle', icon:'fas fa-tachometer-alt', component:'Toggle'},
+        {name:'AppPoll', icon:'fas fa-tachometer-alt', component:'AppPoll'},
+        {name:'ActionTest', icon:'fas fa-tachometer-alt', component:'ActionTest'},
+        {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
+        {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
+        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
+        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
+        {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
+        {name:'Circle', icon:'fas fa-tachometer-alt', component:'Circle'},
+        {name:'Toggle', icon:'fas fa-tachometer-alt', component:'Toggle'},
+        {name:'AppPoll', icon:'fas fa-tachometer-alt', component:'AppPoll'},
+        {name:'ActionTest', icon:'fas fa-tachometer-alt', component:'ActionTest'},
+        {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
+    ]
 
     let activeTab = 'TestCode';
 
@@ -28,15 +48,19 @@ let value=false;
 </script>
 
 <div class="row g-0 m-0" >
-    <div class="col-2">
-        <div class="list-group rounded-0">
-            {#each list as item, index}
-            <div class="d-flex list-group-item text-center" on:click={()=>{activeTab=list[index]}}>
-                <i class="fas fa-tachometer-alt icon"></i>
-                <span class='itemText'>{list[index]}</span>
-            </div>
-            {/each}                 
-        </div>                       
+    
+        <div class="col-2">
+            <div class="parent">
+            <TestCode list={sidebarItems} on:activeTab={(event)=>{activeTab=event.detail.activeTab}}/>
+            <!-- <div class="list-group rounded-0">
+                {#each list as item, index}
+                <div class="d-flex list-group-item text-center" on:click={()=>{activeTab=list[index]}}>
+                    <i class="fas fa-tachometer-alt icon"></i>
+                    <span class='itemText'>{list[index]}</span>
+                </div>
+                {/each}                 
+            </div>                        -->
+        </div>
     </div>
     <!-- content -->
     <div class="col">   
@@ -72,14 +96,21 @@ let value=false;
     :global(body){
         overflow-y: hidden;
     }
+    .parent{
+        height: 89vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        text-decoration: none;
+        border-right: .1rem solid #f0764d;;
+    }
     .content{
-        height: 90vh;
-        overflow: hidden;
+        height: 89vh;
+        overflow: auto;
         padding-left: 1rem;
 
         padding-bottom: 1rem;
     }
-    .icon{
+    /* .icon{
         padding: .5rem;
         font-size: 2rem;
     }
@@ -87,14 +118,14 @@ let value=false;
         margin-top: auto;
         margin-bottom: auto;
         font-size: 1.3rem;        
-    }
-    .list-group{
+    } */
+    /* .list-group{
         height: 89vh;
         overflow-y: auto;
         overflow-x: hidden;
         text-decoration: none;
-    }
-    .list-group-item{
+    } */
+    /* .list-group-item{
         font-family: Serif;
         color: black;
         cursor: pointer;
@@ -107,9 +138,9 @@ let value=false;
     .list-group-item:focus{
         background: rgb(149, 149, 248);
         color: white
-    }
+    } */
     :global(::-webkit-scrollbar) {
-    width: .2rem;
+    width: .1rem;
     }
 
     /* Track */
@@ -120,7 +151,7 @@ let value=false;
     
     /* Handle */
     :global(::-webkit-scrollbar-thumb) {
-    background: rgb(107, 56, 248); 
+    background: #FF4205; 
     border-radius: .1rem;
     }
 
