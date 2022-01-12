@@ -1,11 +1,11 @@
 <script>
     import { createEventDispatcher, onMount } from "svelte";
-    import AppPoll from "../pollevent/AppPoll.svelte";
+    // import AppPoll from "../pollevent/AppPoll.svelte";
     // export let list;
     export let list=[
-        {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
-        {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
-        {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+        // {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+        // {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
+        // {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
     ];
     const dispatch = createEventDispatcher();
 </script>

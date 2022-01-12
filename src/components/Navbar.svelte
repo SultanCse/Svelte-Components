@@ -20,8 +20,8 @@
     <div class="col-{navColSize} p-0" id='col'>
       <nav class="navbar navbar-light bg-danger ">
         <div class="container-fluid justify-content-center">  
-          <a class="navbar-brand" href="#">    
-            <img src="images/svelte.png" alt="" width="30px" height="24px" class="rounded-pill img-thumbnail">
+          <a class="navbar-brand" href="https://www.google.com" target="_blank">    
+            <img src="images/svelte.png" alt="" width="30px" height="24px" class=" img-thumbnail">
           </a>    
         </div>
       </nav>

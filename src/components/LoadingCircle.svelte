@@ -1,55 +1,143 @@
-<div>
-<svg viewBox="0 0 87 87" version="1.1"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
+<div class="parent">
+  <div class="child">
+    <span>S</span>
+    <span>U</span>
+    <span>L</span>
+    <span>T</span>
+    <span>A</span>
+    <span>N</span>
+    <span>&nbsp;</span>
+    <span>A</span>
+    <span>H</span>
+    <span>M</span>
+    <span>E</span>
+    <span>D</span> 
+  </div>  
+</div>
 
 <style>
-.ui-success-circle {
-  stroke-dasharray: 260px, 260px;
-  stroke-dashoffset: 260px;
-  transform: rotate(220deg);
-  transform-origin: center center;
-  stroke-linecap: round;
-  animation: ani-success-circle 1s ease-in both;
-}
-.ui-success-path {
-  stroke-dasharray: 60px 64px;
-  stroke-dashoffset: 62px;
-  stroke-linecap: round;
-  animation: ani-success-path 0.4s 1s ease-in both;
-}
+  .parent{
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    background: chartreuse;
+    height: 100%;
+    width: 100%;
+    font-size: 2rem;
+    font-style: bold;
+  }
+  .child{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+  }
+  span:nth-child(1){
+    animation: s 1s ease 0s 1 none;
+    animation-fill-mode: ease;
+    /* animation: name duration(5s) timing-function(linear) delay(2s) iteration-count(infinite) animation-direction(alternate); */
+  }
+  span:nth-child(2){
+    animation: u 1.2s ease .2s 1 none;
+    animation-fill-mode: ease;
+  }
+   span:nth-child(3){
+    animation: l 1.4s ease .4s 1 none;
+    animation-fill-mode: ease;
+  }
+   span:nth-child(4){
+   animation: t 1.6s ease .6s 1 none;
+   animation-fill-mode: ease;
+  }
+  span:nth-child(5){
+   animation: a 1.8s ease .8s 1 none;
+    animation-fill-mode: ease;
+  }
+  span:nth-child(6){
+   animation: n 2s ease 1s 1 none;
+    animation-fill-mode: ease;
+  }
+  /* 7th no space */
+  span:nth-child(8){
+   animation: a2 2s ease 1s 1 none;
+    animation-fill-mode: ease;
+  }
+  span:nth-child(9){
+   animation: h 2.2s ease 1.2s 1 none;
+    animation-fill-mode: ease;
+  }
+  span:nth-child(10){
+   animation: m 2.4s ease 1.4s 1 none;
+    animation-fill-mode: ease;
+  }
+  span:nth-child(11){
+   animation: e 2.6s ease 1.6s 1 none;
+    animation-fill-mode: ease;
+  }
+  span:nth-child(12){
+   animation: d 2.8s ease 1.8s 1 none;
+    animation-fill-mode: ease;
+  }
 
-@keyframes ani-success-circle {
-  to {
-    stroke-dashoffset: 780px;
+  @keyframes s {
+  0%   {color: black; transform: rotate(0deg);}
+  50%  {color: red; font-size: 3rem;}
+  100%  {color: black; font-size: 2rem;}
   }
-  100% {
-    stroke-width: 0;
+  @keyframes u {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.9rem;}
+  100%  {color:black;  font-size: 2rem;}
   }
-}
+  @keyframes l {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.8rem;}
+  100%  {color:black;  font-size: 2rem;}
+  }
+  @keyframes t {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.4rem;}
+  100%  {color:black;  font-size: 2rem;}
+  }
+  @keyframes a {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.4rem;}
+  100%  {color:black;  font-size: 2rem;}
+  }
+  @keyframes n {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.2rem;}
+  100%  {color:black;  font-size: 2rem;}
+  }
 
-@keyframes ani-success-path {
-  0% {
-    stroke-dashoffset: 62px;
+  @keyframes a2 {
+  0%   {color:black; }
+  50%  {color: red; font-size: 3rem;}
+  100%  {color:black;  font-size: 2rem;}
   }
-  65% {
-    stroke-dashoffset: -5px;
-  }
-  84% {
-    stroke-dashoffset: 4px;
-  }
-  100% {
-    stroke-dashoffset: -2px;
-  }
-}
 
-  </style>
-  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <g id="Group-3" transform="translate(2.000000, 2.000000)">
-      <circle stroke="rgba(165, 220, 134, 0.2)" stroke-width="4" cx="41.5" cy="41.5" r="41.5"></circle>
-      <circle class="ui-success-circle" stroke="#A5DC86" stroke-width="4" cx="46" cy="43.5" r="41.5"></circle>
-      <polyline class="ui-success-path" id="Path-2" stroke="#A5DC86" stroke-width="4" points="19 38.8036813 31.1020744 54.8046875 63.299221 28"></polyline>
-    </g>
-  </g>
-</svg>
-</div>
+  @keyframes h {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.8rem;}
+  100%  {color:black;  font-size: 2rem;}
+  }
+
+  @keyframes m {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.6rem;}
+  100%  {color:black;  font-size: 2rem;}
+  }
+
+  @keyframes e {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.4rem;}
+  100%  {color:black;  font-size: 2rem;}
+  }
+
+  @keyframes d {
+  0%   {color:black; }
+  50%  {color: red; font-size: 2.2rem;}
+  100%  {color:black;  font-size: 2rem;}
+  }
+</style> 

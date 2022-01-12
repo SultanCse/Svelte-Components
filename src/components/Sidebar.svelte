@@ -1,19 +1,9 @@
 <!-- Sidebar -->
 <script>
-import { Litepicker } from 'litepicker';
-import { slide } from 'svelte/transition';
-import Sidebar from './Sidebar.svelte';
-import AppPoll from '../pollevent/AppPoll.svelte';
-import QuoteGenerator from './QuoteGenerator.svelte';
-import Toggle from './../elements/Toggle.svelte';
-import Circle from './Circle.svelte';
-import Calculator from './Calculator.svelte';
-import { onMount } from 'svelte';
-import ActionTest from './ActionTest.svelte';
-import DateRange from './DateRange.svelte';
-import InfiniteScroll from './InfiniteScroll.svelte';
-import TestCode from './TestCode.svelte';
-import LoadingCircle from './LoadingCircle.svelte';
+import {AppPoll,QuoteGenerator,Toggle,Circle,Calculator,
+    ActionTest,DateRange,InfiniteScroll,TestCode,
+    LoadingCircle} from '../services/appList.js'
+    
 let value=false;
 
     // let list = ['TestCode','InfiniteScroll','QuoteGenerator','Calculator',
@@ -21,6 +11,7 @@ let value=false;
     // 'Circle','Toggle','AppPoll',];
     let sidebarItems=[
         {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
+        {name:'LoadingCircle', icon:'fas fa-tachometer-alt', component:'LoadingCircle'},
         {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
         {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
         {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
@@ -40,7 +31,7 @@ let value=false;
         {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
     ]
 
-    let activeTab = 'TestCode';
+    let activeTab = 'LoadingCircle';
 
     $: if(value){
         console.log(value);
@@ -68,6 +59,8 @@ let value=false;
         <div class="content">  
             {#if activeTab == 'TestCode'}
                 <TestCode on:click={()=>{console.log(activeTab)}}/>
+            {:else if activeTab == 'LoadingCircle'}
+                <LoadingCircle/>
             {:else if activeTab == 'InfiniteScroll'}
                 <InfiniteScroll/>
             {:else if activeTab == 'QuoteGenerator'}
