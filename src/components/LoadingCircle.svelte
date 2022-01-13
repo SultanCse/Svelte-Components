@@ -1,5 +1,4 @@
-<div class="parent">
-  <div class="child">
+<h1>
     <span>S</span>
     <span>U</span>
     <span>L</span>
@@ -12,26 +11,19 @@
     <span>M</span>
     <span>E</span>
     <span>D</span> 
-  </div>  
-</div>
+</h1>
 
 <style>
-  .parent{
-    margin: 0 auto;
+  h1{
+    /* margin: 0 auto;
     padding: 0;
     position: relative;
     background: chartreuse;
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
     font-size: 2rem;
-    font-style: bold;
-  }
-  .child{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    
+    font-style: bold; 
+    text-align: center;
   }
   span:nth-child(1){
     animation: s 1s ease 0s 1 none;

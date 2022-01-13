@@ -8,6 +8,7 @@ import DateRange from '../components/DateRange.svelte';
 import InfiniteScroll from '../components/InfiniteScroll.svelte';
 import TestCode from '../components/TestCode.svelte';
 import LoadingCircle from '../components/LoadingCircle.svelte';
+import JockTeller from '../components/JockTeller.svelte'
 
-export {AppPoll,QuoteGenerator,Toggle,Circle,Calculator,ActionTest,
+export {JockTeller, AppPoll,QuoteGenerator,Toggle,Circle,Calculator,ActionTest,
         DateRange,InfiniteScroll,TestCode,LoadingCircle}

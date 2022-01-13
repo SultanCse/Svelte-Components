@@ -1,4 +1,6 @@
 <script>
+import LoadingCircle from "./LoadingCircle.svelte";
+
   // header section
   let arrow = 'left'
   let navColSize = 2;
@@ -29,7 +31,8 @@
     <div class="col p-0">
       <div class="navbar navbar-light bg-light">        
         <a class="navbar-brand" href="#">
-          <i class="fas fa-arrow-{arrow} px-3" on:click={toggleArrow}></i></a>        
+          <i class="fas fa-arrow-{arrow} px-3" on:click={toggleArrow}></i></a>     
+          <LoadingCircle/>
       </div>      
     </div>
   </div>

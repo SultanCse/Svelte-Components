@@ -2,7 +2,7 @@
 <script>
 import {AppPoll,QuoteGenerator,Toggle,Circle,Calculator,
     ActionTest,DateRange,InfiniteScroll,TestCode,
-    LoadingCircle} from '../services/appList.js'
+    LoadingCircle, JockTeller} from '../services/appList.js'
     
 let value=false;
 
@@ -11,7 +11,8 @@ let value=false;
     // 'Circle','Toggle','AppPoll',];
     let sidebarItems=[
         {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
-        {name:'LoadingCircle', icon:'fas fa-tachometer-alt', component:'LoadingCircle'},
+        {name:'LoadingCircle', icon:'fas fa-tachometer-alt', component:'JockTeller'},
+        {name:'JockTeller', icon:'fas fa-tachometer-alt', component:'LoadingCircle'},
         {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
         {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
         {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
@@ -59,6 +60,8 @@ let value=false;
         <div class="content">  
             {#if activeTab == 'TestCode'}
                 <TestCode on:click={()=>{console.log(activeTab)}}/>
+            {:else if activeTab == 'JockTeller'}
+                <JockTeller/>
             {:else if activeTab == 'LoadingCircle'}
                 <LoadingCircle/>
             {:else if activeTab == 'InfiniteScroll'}
