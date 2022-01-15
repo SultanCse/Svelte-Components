@@ -161,9 +161,7 @@
         box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, .2);
         margin-bottom: 2rem;
     }
-    audio{
-        /* border: 3px solid #FF3482; */
-    }
+
 
     button:hover{
         filter: brightness(95%);

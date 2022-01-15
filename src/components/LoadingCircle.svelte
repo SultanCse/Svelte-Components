@@ -21,6 +21,11 @@
     background: chartreuse;
     /* height: 100%;
     width: 100%; */
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+
     font-size: 2rem;
     font-style: bold; 
     text-align: center;
