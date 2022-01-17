@@ -1,12 +1,13 @@
 <script lang="ts">
 import Navbar from "./components/Navbar.svelte";
-import Sidebar from "./components/Sidebar.svelte";
+import Template from "./components/Template.svelte";
+import Sidebar from "./components/Template.svelte";
 
 </script>
 
 <main >
 	<Navbar></Navbar>
-	<Sidebar></Sidebar>	
+	<Template/>	
 </main>
 
 <style>

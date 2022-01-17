@@ -9,6 +9,9 @@ import InfiniteScroll from '../components/InfiniteScroll.svelte';
 import TestCode from '../components/TestCode.svelte';
 import LoadingCircle from '../components/LoadingCircle.svelte';
 import JockTeller from '../components/JockTeller.svelte'
+import AnimatedButton from '../components/AnimatedButton.svelte'
+import LightDarkTheme from '../components/LightDarkTheme.svelte'
 
-export {JockTeller, AppPoll,QuoteGenerator,Toggle,Circle,Calculator,ActionTest,
+
+export {LightDarkTheme,AnimatedButton, JockTeller, AppPoll,QuoteGenerator,Toggle,Circle,Calculator,ActionTest,
         DateRange,InfiniteScroll,TestCode,LoadingCircle}

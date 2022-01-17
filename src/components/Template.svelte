@@ -1,6 +1,7 @@
 <!-- Sidebar -->
 <script>
-import {AppPoll,QuoteGenerator,Toggle,Circle,Calculator,
+	import SideBar from './../elements/SideBar.svelte';
+    import {LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,Toggle,Circle,Calculator,
     ActionTest,DateRange,InfiniteScroll,TestCode,
     LoadingCircle, JockTeller} from '../services/appList.js'
     
@@ -9,27 +10,21 @@ let value=false;
     // let list = ['TestCode','InfiniteScroll','QuoteGenerator','Calculator',
     // 'Circle','Toggle','AppPoll','LoadingCircle','InfiniteScroll','QuoteGenerator','Calculator',
     // 'Circle','Toggle','AppPoll',];
+    // <i class="fa-solid fa-face-angry-horns"></i>
     let sidebarItems=[
-        {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
-        {name:'LoadingCircle', icon:'fas fa-tachometer-alt', component:'JockTeller'},
-        {name:'JockTeller', icon:'fas fa-tachometer-alt', component:'LoadingCircle'},
-        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
-        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
-        {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
-        {name:'Circle', icon:'fas fa-tachometer-alt', component:'Circle'},
-        {name:'Toggle', icon:'fas fa-tachometer-alt', component:'Toggle'},
-        {name:'AppPoll', icon:'fas fa-tachometer-alt', component:'AppPoll'},
-        {name:'ActionTest', icon:'fas fa-tachometer-alt', component:'ActionTest'},
-        {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
-        {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
-        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
-        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
-        {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
-        {name:'Circle', icon:'fas fa-tachometer-alt', component:'Circle'},
-        {name:'Toggle', icon:'fas fa-tachometer-alt', component:'Toggle'},
-        {name:'AppPoll', icon:'fas fa-tachometer-alt', component:'AppPoll'},
-        {name:'ActionTest', icon:'fas fa-tachometer-alt', component:'ActionTest'},
-        {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
+        {name:'TestCode', icon:'fas fa-tachometer-alt', component: TestCode},
+        {name:'LightDarkTheme', icon:'fas fa-tachometer-alt', component: LightDarkTheme},
+        {name:'LoadingCircle', icon:'fas fa-tachometer-alt', component: JockTeller},
+        {name:'AnimatedButton', icon:"fab fa-medium", component: AnimatedButton},
+        {name:'JockTeller', icon:'fas fa-tachometer-alt', component: LoadingCircle},
+        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component: QuoteGenerator},
+        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component: InfiniteScroll},
+        {name:'Calculator', icon:'fas fa-tachometer-alt', component: Calculator},
+        {name:'Circle', icon:'fas fa-tachometer-alt', component: Circle},
+        {name:'Toggle', icon:'fas fa-tachometer-alt', component: Toggle},
+        {name:'AppPoll', icon:'fas fa-tachometer-alt', component: AppPoll},
+        {name:'ActionTest', icon:'fas fa-tachometer-alt', component: ActionTest},
+        {name:'DateRange', icon:'fas fa-tachometer-alt', component: DateRange},
     ]
 
     let activeTab = 'LoadingCircle';
@@ -41,27 +36,22 @@ let value=false;
 
 <div class="row g-0 m-0" >
     
-        <div class="col-2">
-            <div class="parent">
-            <TestCode list={sidebarItems} on:activeTab={(event)=>{activeTab=event.detail.activeTab}}/>
-            <!-- <div class="list-group rounded-0">
-                {#each list as item, index}
-                <div class="d-flex list-group-item text-center" on:click={()=>{activeTab=list[index]}}>
-                    <i class="fas fa-tachometer-alt icon"></i>
-                    <span class='itemText'>{list[index]}</span>
-                </div>
-                {/each}                 
-            </div>                        -->
+    <div class="col-2">
+        <div class="parent">
+            <SideBar list={sidebarItems} on:activeTab={(event)=>{activeTab=event.detail.activeTab}}/>
         </div>
     </div>
     <!-- content -->
-    <div class="col">   
-        
+    <div class="col">           
         <div class="content">  
             {#if activeTab == 'TestCode'}
                 <TestCode on:click={()=>{console.log(activeTab)}}/>
+            {:else if activeTab == 'LightDarkTheme'}
+                <LightDarkTheme/>
             {:else if activeTab == 'JockTeller'}
                 <JockTeller/>
+            {:else if activeTab == 'AnimatedButton'}
+                <AnimatedButton on:click={()=>console.log('animaed button')}/>
             {:else if activeTab == 'LoadingCircle'}
                 <LoadingCircle/>
             {:else if activeTab == 'InfiniteScroll'}
