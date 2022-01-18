@@ -2,11 +2,11 @@
     export let onText = '';
     export let offText = '';
     export let width = '80px';
-    export let value = false;
+    export let checkedValue = false;
     
 </script>
 <label class='toggle' for='mytoggle' style="--width: {width}">
-    <input class='toggle__input' type='checkbox' id='mytoggle' bind:checked={value}>
+    <input class='toggle__input' type='checkbox' id='mytoggle' bind:checked={checkedValue}>
     <div class="toggle__fill ">
         <div class="row g-0 h-100 mw-50 text-center">
             <div class="on col"><p >{onText}</p></div>

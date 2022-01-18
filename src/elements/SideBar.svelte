@@ -32,6 +32,7 @@
     }
     .item{
         cursor: pointer;
+        color:  #FF4205;
     }
     .item:hover{
         background: #f0764d;

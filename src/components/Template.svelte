@@ -5,12 +5,10 @@
     ActionTest,DateRange,InfiniteScroll,TestCode,
     LoadingCircle, JockTeller} from '../services/appList.js'
     
-let value=false;
+let toggleValue=false;
+$: console.log(toggleValue);
 
-    // let list = ['TestCode','InfiniteScroll','QuoteGenerator','Calculator',
-    // 'Circle','Toggle','AppPoll','LoadingCircle','InfiniteScroll','QuoteGenerator','Calculator',
-    // 'Circle','Toggle','AppPoll',];
-    // <i class="fa-solid fa-face-angry-horns"></i>
+let activeTab = 'TestCode';
     let sidebarItems=[
         {name:'TestCode', icon:'fas fa-tachometer-alt', component: TestCode},
         {name:'LightDarkTheme', icon:'fas fa-tachometer-alt', component: LightDarkTheme},
@@ -27,11 +25,6 @@ let value=false;
         {name:'DateRange', icon:'fas fa-tachometer-alt', component: DateRange},
     ]
 
-    let activeTab = 'LoadingCircle';
-
-    $: if(value){
-        console.log(value);
-    }
 </script>
 
 <div class="row g-0 m-0" >
@@ -63,7 +56,7 @@ let value=false;
             {:else if activeTab == "Calculator"}
                 <Calculator/>
             {:else if activeTab == 'Toggle'}
-                <Toggle width='10rem' onText='on' offText='off' bind:value/>
+                <Toggle width='10rem' onText='on' offText='off' bind:checkedValue={toggleValue}/>
             {:else if activeTab == 'Circle'}
                 <Circle/>
             {:else if activeTab == 'ActionTest'}
@@ -148,25 +141,3 @@ let value=false;
      } */
 </style>
 
-
-
-    <!-- let sidebarItems=[
-        {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
-        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
-        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
-        {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
-        {name:'Circle', icon:'fas fa-tachometer-alt', component:'Circle'},
-        {name:'Toggle', icon:'fas fa-tachometer-alt', component:'Toggle'},
-        {name:'AppPoll', icon:'fas fa-tachometer-alt', component:'AppPoll'},
-        {name:'ActionTest', icon:'fas fa-tachometer-alt', component:'ActionTest'},
-        {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
-        {name:'TestCode', icon:'fas fa-tachometer-alt', component:'TestCode'},
-        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component:'QuoteGenerator'},
-        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component:'InfiniteScroll'},
-        {name:'Calculator', icon:'fas fa-tachometer-alt', component:'Calculator'},
-        {name:'Circle', icon:'fas fa-tachometer-alt', component:'Circle'},
-        {name:'Toggle', icon:'fas fa-tachometer-alt', component:'Toggle'},
-        {name:'AppPoll', icon:'fas fa-tachometer-alt', component:'AppPoll'},
-        {name:'ActionTest', icon:'fas fa-tachometer-alt', component:'ActionTest'},
-        {name:'DateRange', icon:'fas fa-tachometer-alt', component:'DateRange'},
-    ] -->
