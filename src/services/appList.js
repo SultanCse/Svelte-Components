@@ -11,7 +11,8 @@ import LoadingCircle from '../components/LoadingCircle.svelte';
 import JockTeller from '../components/JockTeller.svelte'
 import AnimatedButton from '../components/AnimatedButton.svelte'
 import LightDarkTheme from '../components/LightDarkTheme.svelte'
+import LoadingBar from '../elements/LoadingBar.svelte'
 
 
-export {LightDarkTheme,AnimatedButton, JockTeller, AppPoll,QuoteGenerator,Toggle,Circle,Calculator,ActionTest,
+export {LoadingBar, LightDarkTheme,AnimatedButton, JockTeller, AppPoll,QuoteGenerator,Toggle,Circle,Calculator,ActionTest,
         DateRange,InfiniteScroll,TestCode,LoadingCircle}

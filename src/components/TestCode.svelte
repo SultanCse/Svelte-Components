@@ -1,43 +1,49 @@
-<script>
-	let questions = [
-		{ id: 1, text: `Where did you go to school?` },
-		{ id: 2, text: `What is your mother's name?` },
-		{ id: 3, text: `What is another personal fact that an attacker could easily find with Google?` }
-	];
+<div class="parent">
+    <div class="circle">
+        <div class="dot">
 
-	let selected;
-
-	let answer = '';
-
-	function handleSubmit() {
-		alert(`answered question ${selected.id} (${selected.text}) with "${answer}"`);
-	}
-</script>
-
-<h2>Insecurity questions</h2>
-
-<form on:submit|preventDefault={handleSubmit}>
-	<select bind:value={selected} on:change="{() => answer = ''}">
-		{#each questions as question}
-			<option value={question}>
-				{question.text}
-			</option>
-		{/each}
-	</select>
-
-	<input bind:value={answer}>
-
-	<button disabled={!answer} type=submit>
-		Submit
-	</button>
-</form>
-
-<p>selected question {selected ? selected.id : '[waiting...]'}</p>
+        </div>
+    </div>
+</div>
 
 <style>
-	input {
-		display: block;
-		width: 500px;
-		max-width: 100%;
+    .parent{
+        height: 100%;
+        width: 100%;
+        background: rgb(80, 75, 75);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+		margin: 0;
+		padding: 0;
+    }
+    .circle{
+        height: 200px;
+        width: 200px;
+		/* display: flex;
+		justify-content: center;
+        align-items: center; */
+        position: relative;
+        border-radius: 50%;
+        border: 30px solid white;
+		
+    }
+	.dot{
+		height: 30px;
+		width: 30px;
+		background: black;
+		position: absolute;
+		top: 50%;
+		left: -30px;
+		border-radius: 50%;
+		transform: translateY(-50%);
+		transform-origin: 100px 50%;
+		transition: 2s linear;
+		animation: ani 2s infinite linear;
+	}
+
+	@keyframes ani{
+		0%{ transform: translateY(-50%) rotate(0deg);}
+		100%{transform: translateY(-50%) rotate(360deg);}
 	}
 </style>
