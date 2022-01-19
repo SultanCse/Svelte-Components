@@ -5911,51 +5911,232 @@ var app = (function () {
     const file$6 = "src\\components\\TestCode.svelte";
 
     function create_fragment$6(ctx) {
-    	let div4;
-    	let div3;
+    	let div24;
+    	let div23;
     	let div0;
     	let t0;
     	let div1;
     	let t1;
     	let div2;
+    	let t2;
+    	let div3;
+    	let t3;
+    	let div4;
+    	let t4;
+    	let div5;
+    	let t5;
+    	let div6;
+    	let t6;
+    	let div7;
+    	let t7;
+    	let div8;
+    	let t8;
+    	let div9;
+    	let t9;
+    	let div10;
+    	let t10;
+    	let div11;
+    	let t11;
+    	let div12;
+    	let t12;
+    	let div13;
+    	let t13;
+    	let div14;
+    	let t14;
+    	let div15;
+    	let t15;
+    	let div16;
+    	let t16;
+    	let div17;
+    	let t17;
+    	let div18;
+    	let t18;
+    	let div19;
+    	let t19;
+    	let div20;
+    	let t20;
+    	let div21;
+    	let t21;
+    	let div22;
 
     	const block = {
     		c: function create() {
-    			div4 = element("div");
-    			div3 = element("div");
+    			div24 = element("div");
+    			div23 = element("div");
     			div0 = element("div");
     			t0 = space();
     			div1 = element("div");
     			t1 = space();
     			div2 = element("div");
-    			attr_dev(div0, "class", "circle svelte-jfw7oi");
+    			t2 = space();
+    			div3 = element("div");
+    			t3 = space();
+    			div4 = element("div");
+    			t4 = space();
+    			div5 = element("div");
+    			t5 = space();
+    			div6 = element("div");
+    			t6 = space();
+    			div7 = element("div");
+    			t7 = space();
+    			div8 = element("div");
+    			t8 = space();
+    			div9 = element("div");
+    			t9 = space();
+    			div10 = element("div");
+    			t10 = space();
+    			div11 = element("div");
+    			t11 = space();
+    			div12 = element("div");
+    			t12 = space();
+    			div13 = element("div");
+    			t13 = space();
+    			div14 = element("div");
+    			t14 = space();
+    			div15 = element("div");
+    			t15 = space();
+    			div16 = element("div");
+    			t16 = space();
+    			div17 = element("div");
+    			t17 = space();
+    			div18 = element("div");
+    			t18 = space();
+    			div19 = element("div");
+    			t19 = space();
+    			div20 = element("div");
+    			t20 = space();
+    			div21 = element("div");
+    			t21 = space();
+    			div22 = element("div");
+    			attr_dev(div0, "class", "circle svelte-1ovcvo");
     			add_location(div0, file$6, 2, 2, 45);
-    			attr_dev(div1, "class", "circle svelte-jfw7oi");
+    			attr_dev(div1, "class", "circle svelte-1ovcvo");
     			add_location(div1, file$6, 3, 2, 75);
-    			attr_dev(div2, "class", "dot svelte-jfw7oi");
+    			attr_dev(div2, "class", "dot svelte-1ovcvo");
+    			set_style(div2, "--i", "0");
     			add_location(div2, file$6, 4, 2, 105);
-    			attr_dev(div3, "class", "parent svelte-jfw7oi");
-    			add_location(div3, file$6, 1, 1, 21);
-    			attr_dev(div4, "class", "body svelte-jfw7oi");
-    			add_location(div4, file$6, 0, 0, 0);
+    			attr_dev(div3, "class", "dot svelte-1ovcvo");
+    			set_style(div3, "--i", "1");
+    			add_location(div3, file$6, 5, 2, 146);
+    			attr_dev(div4, "class", "dot svelte-1ovcvo");
+    			set_style(div4, "--i", "2");
+    			add_location(div4, file$6, 6, 2, 187);
+    			attr_dev(div5, "class", "dot svelte-1ovcvo");
+    			set_style(div5, "--i", "3");
+    			add_location(div5, file$6, 7, 2, 228);
+    			attr_dev(div6, "class", "dot svelte-1ovcvo");
+    			set_style(div6, "--i", "4");
+    			add_location(div6, file$6, 8, 2, 269);
+    			attr_dev(div7, "class", "dot svelte-1ovcvo");
+    			set_style(div7, "--i", "5");
+    			add_location(div7, file$6, 9, 2, 310);
+    			attr_dev(div8, "class", "dot svelte-1ovcvo");
+    			set_style(div8, "--i", "6");
+    			add_location(div8, file$6, 10, 2, 351);
+    			attr_dev(div9, "class", "dot svelte-1ovcvo");
+    			set_style(div9, "--i", "7");
+    			add_location(div9, file$6, 11, 2, 392);
+    			attr_dev(div10, "class", "dot svelte-1ovcvo");
+    			set_style(div10, "--i", "8");
+    			add_location(div10, file$6, 12, 2, 433);
+    			attr_dev(div11, "class", "dot svelte-1ovcvo");
+    			set_style(div11, "--i", "9");
+    			add_location(div11, file$6, 13, 2, 474);
+    			attr_dev(div12, "class", "dot svelte-1ovcvo");
+    			set_style(div12, "--i", "10");
+    			add_location(div12, file$6, 14, 2, 515);
+    			attr_dev(div13, "class", "dot svelte-1ovcvo");
+    			set_style(div13, "--i", "11");
+    			add_location(div13, file$6, 15, 2, 557);
+    			attr_dev(div14, "class", "dot svelte-1ovcvo");
+    			set_style(div14, "--i", "12");
+    			add_location(div14, file$6, 16, 2, 599);
+    			attr_dev(div15, "class", "dot svelte-1ovcvo");
+    			set_style(div15, "--i", "13");
+    			add_location(div15, file$6, 17, 2, 641);
+    			attr_dev(div16, "class", "dot svelte-1ovcvo");
+    			set_style(div16, "--i", "14");
+    			add_location(div16, file$6, 18, 2, 683);
+    			attr_dev(div17, "class", "dot svelte-1ovcvo");
+    			set_style(div17, "--i", "15");
+    			add_location(div17, file$6, 19, 2, 725);
+    			attr_dev(div18, "class", "dot svelte-1ovcvo");
+    			set_style(div18, "--i", "16");
+    			add_location(div18, file$6, 20, 2, 767);
+    			attr_dev(div19, "class", "dot svelte-1ovcvo");
+    			set_style(div19, "--i", "17");
+    			add_location(div19, file$6, 21, 2, 809);
+    			attr_dev(div20, "class", "dot svelte-1ovcvo");
+    			set_style(div20, "--i", "18");
+    			add_location(div20, file$6, 22, 2, 851);
+    			attr_dev(div21, "class", "dot svelte-1ovcvo");
+    			set_style(div21, "--i", "19");
+    			add_location(div21, file$6, 23, 2, 893);
+    			attr_dev(div22, "class", "dot svelte-1ovcvo");
+    			set_style(div22, "--i", "20");
+    			add_location(div22, file$6, 24, 2, 935);
+    			attr_dev(div23, "class", "parent svelte-1ovcvo");
+    			add_location(div23, file$6, 1, 1, 21);
+    			attr_dev(div24, "class", "body svelte-1ovcvo");
+    			add_location(div24, file$6, 0, 0, 0);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div4, anchor);
-    			append_dev(div4, div3);
-    			append_dev(div3, div0);
-    			append_dev(div3, t0);
-    			append_dev(div3, div1);
-    			append_dev(div3, t1);
-    			append_dev(div3, div2);
+    			insert_dev(target, div24, anchor);
+    			append_dev(div24, div23);
+    			append_dev(div23, div0);
+    			append_dev(div23, t0);
+    			append_dev(div23, div1);
+    			append_dev(div23, t1);
+    			append_dev(div23, div2);
+    			append_dev(div23, t2);
+    			append_dev(div23, div3);
+    			append_dev(div23, t3);
+    			append_dev(div23, div4);
+    			append_dev(div23, t4);
+    			append_dev(div23, div5);
+    			append_dev(div23, t5);
+    			append_dev(div23, div6);
+    			append_dev(div23, t6);
+    			append_dev(div23, div7);
+    			append_dev(div23, t7);
+    			append_dev(div23, div8);
+    			append_dev(div23, t8);
+    			append_dev(div23, div9);
+    			append_dev(div23, t9);
+    			append_dev(div23, div10);
+    			append_dev(div23, t10);
+    			append_dev(div23, div11);
+    			append_dev(div23, t11);
+    			append_dev(div23, div12);
+    			append_dev(div23, t12);
+    			append_dev(div23, div13);
+    			append_dev(div23, t13);
+    			append_dev(div23, div14);
+    			append_dev(div23, t14);
+    			append_dev(div23, div15);
+    			append_dev(div23, t15);
+    			append_dev(div23, div16);
+    			append_dev(div23, t16);
+    			append_dev(div23, div17);
+    			append_dev(div23, t17);
+    			append_dev(div23, div18);
+    			append_dev(div23, t18);
+    			append_dev(div23, div19);
+    			append_dev(div23, t19);
+    			append_dev(div23, div20);
+    			append_dev(div23, t20);
+    			append_dev(div23, div21);
+    			append_dev(div23, t21);
+    			append_dev(div23, div22);
     		},
     		p: noop$1,
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(div24);
     		}
     	};
 
@@ -6624,124 +6805,124 @@ var app = (function () {
     			i5 = element("i");
     			t48 = space();
     			i6 = element("i");
-    			attr_dev(span, "class", "toggle-text svelte-1i2joj3");
+    			attr_dev(span, "class", "toggle-text svelte-1cd8mav");
     			attr_dev(span, "id", "toggle-text");
     			add_location(span, file$3, 68, 12, 2914);
-    			attr_dev(i0, "class", "fas fa-sun svelte-1i2joj3");
+    			attr_dev(i0, "class", "fas fa-sun svelte-1cd8mav");
     			attr_dev(i0, "id", "toggle-icon");
     			add_location(i0, file$3, 69, 12, 2988);
     			add_location(div0, file$3, 67, 8, 2895);
     			attr_dev(input, "type", "checkbox");
-    			attr_dev(input, "class", "svelte-1i2joj3");
+    			attr_dev(input, "class", "svelte-1cd8mav");
     			add_location(input, file$3, 72, 12, 3099);
-    			attr_dev(div1, "class", "slider round svelte-1i2joj3");
+    			attr_dev(div1, "class", "slider round svelte-1cd8mav");
     			add_location(div1, file$3, 73, 12, 3136);
-    			attr_dev(label, "class", "theme-switch svelte-1i2joj3");
+    			attr_dev(label, "class", "theme-switch svelte-1cd8mav");
     			add_location(label, file$3, 71, 8, 3057);
-    			attr_dev(div2, "class", "theme-switch-wrapper svelte-1i2joj3");
+    			attr_dev(div2, "class", "theme-switch-wrapper svelte-1cd8mav");
     			add_location(div2, file$3, 66, 4, 2851);
     			attr_dev(a0, "href", "#home");
-    			attr_dev(a0, "class", "svelte-1i2joj3");
+    			attr_dev(a0, "class", "svelte-1cd8mav");
     			add_location(a0, file$3, 78, 8, 3254);
     			attr_dev(a1, "href", "#about");
-    			attr_dev(a1, "class", "svelte-1i2joj3");
+    			attr_dev(a1, "class", "svelte-1cd8mav");
     			add_location(a1, file$3, 79, 8, 3288);
     			attr_dev(a2, "href", "#projects");
-    			attr_dev(a2, "class", "svelte-1i2joj3");
+    			attr_dev(a2, "class", "svelte-1cd8mav");
     			add_location(a2, file$3, 80, 8, 3324);
     			attr_dev(a3, "href", "#contact");
-    			attr_dev(a3, "class", "svelte-1i2joj3");
+    			attr_dev(a3, "class", "svelte-1cd8mav");
     			add_location(a3, file$3, 81, 8, 3366);
     			attr_dev(nav_1, "id", "nav");
-    			attr_dev(nav_1, "class", "svelte-1i2joj3");
+    			attr_dev(nav_1, "class", "svelte-1cd8mav");
     			add_location(nav_1, file$3, 77, 4, 3230);
-    			attr_dev(h10, "class", "svelte-1i2joj3");
+    			attr_dev(h10, "class", "svelte-1cd8mav");
     			add_location(h10, file$3, 86, 12, 3509);
-    			attr_dev(h20, "class", "svelte-1i2joj3");
+    			attr_dev(h20, "class", "svelte-1cd8mav");
     			add_location(h20, file$3, 87, 12, 3550);
-    			attr_dev(div3, "class", "title-group svelte-1i2joj3");
+    			attr_dev(div3, "class", "title-group svelte-1cd8mav");
     			add_location(div3, file$3, 85, 8, 3470);
     			attr_dev(section0, "id", "home");
-    			attr_dev(section0, "class", "svelte-1i2joj3");
+    			attr_dev(section0, "class", "svelte-1cd8mav");
     			add_location(section0, file$3, 84, 4, 3441);
-    			attr_dev(h11, "class", "svelte-1i2joj3");
+    			attr_dev(h11, "class", "svelte-1cd8mav");
     			add_location(h11, file$3, 91, 8, 3679);
-    			attr_dev(h21, "class", "svelte-1i2joj3");
+    			attr_dev(h21, "class", "svelte-1cd8mav");
     			add_location(h21, file$3, 94, 16, 3810);
     			if (!src_url_equal(img0.src, img0_src_value = "images/undraw_proud_coder_light.svg")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "proud coder");
     			attr_dev(img0, "id", "image1");
-    			attr_dev(img0, "class", "svelte-1i2joj3");
+    			attr_dev(img0, "class", "svelte-1cd8mav");
     			add_location(img0, file$3, 95, 16, 3850);
-    			attr_dev(div4, "class", "image-container svelte-1i2joj3");
+    			attr_dev(div4, "class", "image-container svelte-1cd8mav");
     			add_location(div4, file$3, 93, 12, 3763);
-    			attr_dev(h22, "class", "svelte-1i2joj3");
+    			attr_dev(h22, "class", "svelte-1cd8mav");
     			add_location(h22, file$3, 99, 16, 4025);
     			if (!src_url_equal(img1.src, img1_src_value = "images/undraw_feeling_proud_light.svg")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "proud coder");
     			attr_dev(img1, "id", "image2");
-    			attr_dev(img1, "class", "svelte-1i2joj3");
+    			attr_dev(img1, "class", "svelte-1cd8mav");
     			add_location(img1, file$3, 100, 16, 4067);
-    			attr_dev(div5, "class", "image-container svelte-1i2joj3");
+    			attr_dev(div5, "class", "image-container svelte-1cd8mav");
     			add_location(div5, file$3, 98, 12, 3978);
-    			attr_dev(h23, "class", "svelte-1i2joj3");
+    			attr_dev(h23, "class", "svelte-1cd8mav");
     			add_location(h23, file$3, 104, 16, 4245);
     			if (!src_url_equal(img2.src, img2_src_value = "images/undraw_conceptual_idea_light.svg")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "proud coder");
     			attr_dev(img2, "id", "image3");
-    			attr_dev(img2, "class", "svelte-1i2joj3");
+    			attr_dev(img2, "class", "svelte-1cd8mav");
     			add_location(img2, file$3, 105, 16, 4284);
-    			attr_dev(div6, "class", "image-container svelte-1i2joj3");
+    			attr_dev(div6, "class", "image-container svelte-1cd8mav");
     			add_location(div6, file$3, 103, 12, 4198);
-    			attr_dev(div7, "class", "about-container svelte-1i2joj3");
+    			attr_dev(div7, "class", "about-container svelte-1cd8mav");
     			add_location(div7, file$3, 92, 8, 3720);
     			attr_dev(section1, "id", "about");
-    			attr_dev(section1, "class", "svelte-1i2joj3");
+    			attr_dev(section1, "class", "svelte-1cd8mav");
     			add_location(section1, file$3, 90, 4, 3648);
-    			attr_dev(h12, "class", "svelte-1i2joj3");
+    			attr_dev(h12, "class", "svelte-1cd8mav");
     			add_location(h12, file$3, 111, 8, 4474);
-    			attr_dev(button0, "class", "primary svelte-1i2joj3");
+    			attr_dev(button0, "class", "primary svelte-1cd8mav");
     			add_location(button0, file$3, 113, 12, 4539);
-    			attr_dev(button1, "class", "secondary svelte-1i2joj3");
+    			attr_dev(button1, "class", "secondary svelte-1cd8mav");
     			add_location(button1, file$3, 114, 12, 4593);
-    			attr_dev(button2, "class", "primary svelte-1i2joj3");
+    			attr_dev(button2, "class", "primary svelte-1cd8mav");
     			button2.disabled = true;
     			add_location(button2, file$3, 115, 12, 4651);
-    			attr_dev(button3, "class", "outline svelte-1i2joj3");
+    			attr_dev(button3, "class", "outline svelte-1cd8mav");
     			add_location(button3, file$3, 116, 12, 4715);
-    			attr_dev(button4, "class", "secondary outline svelte-1i2joj3");
+    			attr_dev(button4, "class", "secondary outline svelte-1cd8mav");
     			add_location(button4, file$3, 117, 12, 4769);
-    			attr_dev(button5, "class", "outline svelte-1i2joj3");
+    			attr_dev(button5, "class", "outline svelte-1cd8mav");
     			button5.disabled = true;
     			add_location(button5, file$3, 118, 12, 4837);
-    			attr_dev(div8, "class", "buttons svelte-1i2joj3");
+    			attr_dev(div8, "class", "buttons svelte-1cd8mav");
     			add_location(div8, file$3, 112, 8, 4504);
-    			attr_dev(p, "class", "svelte-1i2joj3");
+    			attr_dev(p, "class", "svelte-1cd8mav");
     			add_location(p, file$3, 121, 12, 4963);
-    			attr_dev(div9, "class", "text-box svelte-1i2joj3");
+    			attr_dev(div9, "class", "text-box svelte-1cd8mav");
     			attr_dev(div9, "id", "text-box");
     			add_location(div9, file$3, 120, 8, 4913);
     			attr_dev(section2, "id", "projects");
-    			attr_dev(section2, "class", "svelte-1i2joj3");
+    			attr_dev(section2, "class", "svelte-1cd8mav");
     			add_location(section2, file$3, 110, 4, 4441);
-    			attr_dev(i1, "class", "fab fa-github svelte-1i2joj3");
+    			attr_dev(i1, "class", "fab fa-github svelte-1cd8mav");
     			add_location(i1, file$3, 126, 12, 5481);
-    			attr_dev(i2, "class", "fab fa-codepen svelte-1i2joj3");
+    			attr_dev(i2, "class", "fab fa-codepen svelte-1cd8mav");
     			add_location(i2, file$3, 127, 12, 5524);
-    			attr_dev(i3, "class", "fab fa-linkedin svelte-1i2joj3");
+    			attr_dev(i3, "class", "fab fa-linkedin svelte-1cd8mav");
     			add_location(i3, file$3, 128, 12, 5568);
-    			attr_dev(i4, "class", "fab fa-medium svelte-1i2joj3");
+    			attr_dev(i4, "class", "fab fa-medium svelte-1cd8mav");
     			add_location(i4, file$3, 129, 12, 5613);
-    			attr_dev(i5, "class", "fab fa-instagram svelte-1i2joj3");
+    			attr_dev(i5, "class", "fab fa-instagram svelte-1cd8mav");
     			add_location(i5, file$3, 130, 12, 5656);
-    			attr_dev(i6, "class", "fab fa-youtube svelte-1i2joj3");
+    			attr_dev(i6, "class", "fab fa-youtube svelte-1cd8mav");
     			add_location(i6, file$3, 131, 12, 5702);
     			attr_dev(div10, "class", "social-icons");
     			add_location(div10, file$3, 125, 8, 5441);
     			attr_dev(section3, "id", "contact");
-    			attr_dev(section3, "class", "svelte-1i2joj3");
+    			attr_dev(section3, "class", "svelte-1cd8mav");
     			add_location(section3, file$3, 124, 4, 5407);
-    			attr_dev(div11, "class", "parent svelte-1i2joj3");
+    			attr_dev(div11, "class", "parent svelte-1cd8mav");
     			attr_dev(div11, "style", /*dark*/ ctx[0]);
     			attr_dev(div11, "id", "parent");
     			add_location(div11, file$3, 65, 0, 2797);
@@ -11555,7 +11736,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (55:12) {#each tableData as data, index }
+    // (49:12) {#each tableData as data, index }
     function create_each_block(ctx) {
     	let tr;
     	let th;
@@ -11583,11 +11764,11 @@ var app = (function () {
     			td2.textContent = "@mdo";
     			t7 = space();
     			attr_dev(th, "scope", "row");
-    			add_location(th, file$2, 56, 12, 1715);
-    			add_location(td0, file$2, 57, 12, 1751);
-    			add_location(td1, file$2, 58, 12, 1778);
-    			add_location(td2, file$2, 59, 12, 1805);
-    			add_location(tr, file$2, 55, 12, 1697);
+    			add_location(th, file$2, 50, 12, 1469);
+    			add_location(td0, file$2, 51, 12, 1505);
+    			add_location(td1, file$2, 52, 12, 1532);
+    			add_location(td2, file$2, 53, 12, 1559);
+    			add_location(tr, file$2, 49, 12, 1451);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -11609,7 +11790,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(55:12) {#each tableData as data, index }",
+    		source: "(49:12) {#each tableData as data, index }",
     		ctx
     	});
 
@@ -11682,32 +11863,32 @@ var app = (function () {
     			h11.textContent = "Light Picker Package";
     			t13 = space();
     			input = element("input");
-    			add_location(h10, file$2, 42, 0, 1262);
+    			add_location(h10, file$2, 36, 0, 1016);
     			attr_dev(th0, "scope", "col");
-    			add_location(th0, file$2, 47, 12, 1440);
+    			add_location(th0, file$2, 41, 12, 1194);
     			attr_dev(th1, "scope", "col");
-    			add_location(th1, file$2, 48, 12, 1476);
+    			add_location(th1, file$2, 42, 12, 1230);
     			attr_dev(th2, "scope", "col");
-    			add_location(th2, file$2, 49, 12, 1516);
+    			add_location(th2, file$2, 43, 12, 1270);
     			attr_dev(th3, "scope", "col");
-    			add_location(th3, file$2, 50, 12, 1555);
-    			add_location(tr, file$2, 46, 12, 1422);
-    			add_location(thead, file$2, 45, 8, 1401);
-    			add_location(tbody, file$2, 53, 8, 1629);
+    			add_location(th3, file$2, 44, 12, 1309);
+    			add_location(tr, file$2, 40, 12, 1176);
+    			add_location(thead, file$2, 39, 8, 1155);
+    			add_location(tbody, file$2, 47, 8, 1383);
     			attr_dev(table, "class", "table table-striped");
-    			add_location(table, file$2, 44, 4, 1356);
+    			add_location(table, file$2, 38, 4, 1110);
     			attr_dev(div0, "class", "scrollbar-thumb scrollbar-thumb-y");
-    			add_location(div0, file$2, 68, 8, 2090);
+    			add_location(div0, file$2, 62, 8, 1844);
     			attr_dev(div1, "class", "scrollbar-track scrollbar-track-y");
-    			add_location(div1, file$2, 67, 4, 2033);
+    			add_location(div1, file$2, 61, 4, 1787);
     			attr_dev(div2, "class", "scroll-content ms-4 me-4 svelte-ejli0b");
     			attr_dev(div2, "id", "my-scrollbar");
-    			add_location(div2, file$2, 43, 0, 1294);
-    			add_location(h11, file$2, 72, 0, 2167);
+    			add_location(div2, file$2, 37, 0, 1048);
+    			add_location(h11, file$2, 66, 0, 1921);
     			attr_dev(input, "type", "text");
     			set_style(input, "min-width", "10rem");
     			attr_dev(input, "id", "datepicker");
-    			add_location(input, file$2, 73, 0, 2198);
+    			add_location(input, file$2, 67, 0, 1952);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -11774,7 +11955,6 @@ var app = (function () {
     	let tableData = [1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3];
 
     	const options = {
-    		element: document.getElementById('datepicker'),
     		singleMode: false,
     		delimiter: ' - ',
     		format: 'DD/MM/YYYY',
@@ -11791,12 +11971,7 @@ var app = (function () {
     		if (document.getElementById('datepicker')) {
     			new Litepicker({
     					element: document.getElementById('datepicker'),
-    					singleMode: false,
-    					delimiter: ' - ',
-    					format: 'DD/MM/YYYY',
-    					inlinemode: true,
-    					numberOfMonths: 1,
-    					position: 'top'
+    					...options
     				});
     		}
     	});

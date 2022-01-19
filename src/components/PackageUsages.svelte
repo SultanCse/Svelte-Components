@@ -5,7 +5,6 @@
     let prop;
     let tableData =[1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3]
     const options ={ 
-        element: document.getElementById('datepicker'),
         singleMode: false,
         delimiter : ' - ',
         format : 'DD/MM/YYYY',
@@ -22,12 +21,7 @@
         if(document.getElementById('datepicker')){
             const picker = new Litepicker({
                 element: document.getElementById('datepicker'),
-                singleMode: false,
-                delimiter : ' - ',
-                format : 'DD/MM/YYYY',
-                inlinemode: true,
-                numberOfMonths: 1,
-                position: 'top',
+                ...options
             })
         }
     })
