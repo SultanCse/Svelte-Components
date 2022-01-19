@@ -3,7 +3,7 @@
 var app = (function () {
     'use strict';
 
-    function noop() { }
+    function noop$1() { }
     const identity = x => x;
     function assign(tar, src) {
         // @ts-ignore
@@ -49,7 +49,7 @@ var app = (function () {
     }
     function subscribe(store, ...callbacks) {
         if (store == null) {
-            return noop;
+            return noop$1;
         }
         const unsub = store.subscribe(...callbacks);
         return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
@@ -107,14 +107,14 @@ var app = (function () {
         return value == null ? '' : value;
     }
     function action_destroyer(action_result) {
-        return action_result && is_function(action_result.destroy) ? action_result.destroy : noop;
+        return action_result && is_function(action_result.destroy) ? action_result.destroy : noop$1;
     }
 
     const is_client = typeof window !== 'undefined';
-    let now = is_client
+    let now$2 = is_client
         ? () => window.performance.now()
         : () => Date.now();
-    let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+    let raf = is_client ? cb => requestAnimationFrame(cb) : noop$1;
 
     const tasks = new Set();
     function run_tasks(now) {
@@ -185,7 +185,7 @@ var app = (function () {
     function space() {
         return text(' ');
     }
-    function empty() {
+    function empty$1() {
         return text('');
     }
     function listen(node, event, handler, options) {
@@ -286,15 +286,15 @@ var app = (function () {
 
     function create_animation(node, from, fn, params) {
         if (!from)
-            return noop;
+            return noop$1;
         const to = node.getBoundingClientRect();
         if (from.left === to.left && from.right === to.right && from.top === to.top && from.bottom === to.bottom)
-            return noop;
+            return noop$1;
         const { delay = 0, duration = 300, easing = identity, 
         // @ts-ignore todo: should this be separated from destructuring? Or start/end added to public api and documentation?
-        start: start_time = now() + delay, 
+        start: start_time = now$2() + delay, 
         // @ts-ignore todo:
-        end = start_time + duration, tick = noop, css } = fn(node, { from, to }, params);
+        end = start_time + duration, tick = noop$1, css } = fn(node, { from, to }, params);
         let running = true;
         let started = false;
         let name;
@@ -368,6 +368,9 @@ var app = (function () {
     function afterUpdate(fn) {
         get_current_component().$$.after_update.push(fn);
     }
+    function onDestroy(fn) {
+        get_current_component().$$.on_destroy.push(fn);
+    }
     function createEventDispatcher() {
         const component = get_current_component();
         return (type, detail) => {
@@ -440,7 +443,7 @@ var app = (function () {
                 const component = dirty_components[flushidx];
                 flushidx++;
                 set_current_component(component);
-                update(component.$$);
+                update$1(component.$$);
             }
             set_current_component(null);
             dirty_components.length = 0;
@@ -467,7 +470,7 @@ var app = (function () {
         seen_callbacks.clear();
         set_current_component(saved_component);
     }
-    function update($$) {
+    function update$1($$) {
         if ($$.fragment !== null) {
             $$.update();
             run_all($$.before_update);
@@ -540,11 +543,11 @@ var app = (function () {
                 delete_rule(node, animation_name);
         }
         function go() {
-            const { delay = 0, duration = 300, easing = identity, tick = noop, css } = config || null_transition;
+            const { delay = 0, duration = 300, easing = identity, tick = noop$1, css } = config || null_transition;
             if (css)
                 animation_name = create_rule(node, 0, 1, duration, delay, easing, css, uid++);
             tick(0, 1);
-            const start_time = now() + delay;
+            const start_time = now$2() + delay;
             const end_time = start_time + duration;
             if (task)
                 task.abort();
@@ -599,10 +602,10 @@ var app = (function () {
         const group = outros;
         group.r += 1;
         function go() {
-            const { delay = 0, duration = 300, easing = identity, tick = noop, css } = config || null_transition;
+            const { delay = 0, duration = 300, easing = identity, tick = noop$1, css } = config || null_transition;
             if (css)
                 animation_name = create_rule(node, 1, 0, duration, delay, easing, css);
-            const start_time = now() + delay;
+            const start_time = now$2() + delay;
             const end_time = start_time + duration;
             add_render_callback(() => dispatch(node, false, 'start'));
             loop(now => {
@@ -749,7 +752,7 @@ var app = (function () {
         }
     }
 
-    function bind(component, name, callback) {
+    function bind$2(component, name, callback) {
         const index = component.$$.props[name];
         if (index !== undefined) {
             component.$$.bound[index] = callback;
@@ -806,7 +809,7 @@ var app = (function () {
             ctx: null,
             // state
             props,
-            update: noop,
+            update: noop$1,
             not_equal,
             bound: blank_object(),
             // lifecycle
@@ -865,7 +868,7 @@ var app = (function () {
     class SvelteComponent {
         $destroy() {
             destroy_component(this, 1);
-            this.$destroy = noop;
+            this.$destroy = noop$1;
         }
         $on(type, callback) {
             const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
@@ -965,9 +968,9 @@ var app = (function () {
 
     /* src\components\LoadingCircle.svelte generated by Svelte v3.44.3 */
 
-    const file$o = "src\\components\\LoadingCircle.svelte";
+    const file$p = "src\\components\\LoadingCircle.svelte";
 
-    function create_fragment$o(ctx) {
+    function create_fragment$p(ctx) {
     	let h1;
     	let span0;
     	let t1;
@@ -1007,21 +1010,21 @@ var app = (function () {
     			span6 = element("span");
     			span6.textContent = "E";
     			attr_dev(span0, "class", "svelte-2caswi");
-    			add_location(span0, file$o, 1, 4, 10);
+    			add_location(span0, file$p, 1, 4, 10);
     			attr_dev(span1, "class", "svelte-2caswi");
-    			add_location(span1, file$o, 2, 4, 30);
+    			add_location(span1, file$p, 2, 4, 30);
     			attr_dev(span2, "class", "svelte-2caswi");
-    			add_location(span2, file$o, 3, 4, 50);
+    			add_location(span2, file$p, 3, 4, 50);
     			attr_dev(span3, "class", "svelte-2caswi");
-    			add_location(span3, file$o, 4, 4, 70);
+    			add_location(span3, file$p, 4, 4, 70);
     			attr_dev(span4, "class", "svelte-2caswi");
-    			add_location(span4, file$o, 5, 4, 90);
+    			add_location(span4, file$p, 5, 4, 90);
     			attr_dev(span5, "class", "svelte-2caswi");
-    			add_location(span5, file$o, 6, 4, 110);
+    			add_location(span5, file$p, 6, 4, 110);
     			attr_dev(span6, "class", "svelte-2caswi");
-    			add_location(span6, file$o, 7, 4, 130);
+    			add_location(span6, file$p, 7, 4, 130);
     			attr_dev(h1, "class", "svelte-2caswi");
-    			add_location(h1, file$o, 0, 0, 0);
+    			add_location(h1, file$p, 0, 0, 0);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1042,9 +1045,9 @@ var app = (function () {
     			append_dev(h1, t11);
     			append_dev(h1, span6);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h1);
     		}
@@ -1052,7 +1055,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$o.name,
+    		id: create_fragment$p.name,
     		type: "component",
     		source: "",
     		ctx
@@ -1061,7 +1064,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$o($$self, $$props) {
+    function instance$p($$self, $$props) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('LoadingCircle', slots, []);
     	const writable_props = [];
@@ -1076,21 +1079,21 @@ var app = (function () {
     class LoadingCircle extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$o, create_fragment$o, safe_not_equal, {});
+    		init(this, options, instance$p, create_fragment$p, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "LoadingCircle",
     			options,
-    			id: create_fragment$o.name
+    			id: create_fragment$p.name
     		});
     	}
     }
 
     /* src\components\Navbar.svelte generated by Svelte v3.44.3 */
-    const file$n = "src\\components\\Navbar.svelte";
+    const file$o = "src\\components\\Navbar.svelte";
 
-    function create_fragment$n(ctx) {
+    function create_fragment$o(ctx) {
     	let div4;
     	let div1;
     	let nav;
@@ -1132,29 +1135,29 @@ var app = (function () {
     			attr_dev(img, "width", "30px");
     			attr_dev(img, "height", "24px");
     			attr_dev(img, "class", "img-thumbnail");
-    			add_location(img, file$n, 25, 12, 641);
+    			add_location(img, file$o, 25, 12, 641);
     			attr_dev(a0, "class", "navbar-brand");
     			attr_dev(a0, "href", "https://www.google.com");
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$n, 24, 10, 553);
+    			add_location(a0, file$o, 24, 10, 553);
     			attr_dev(div0, "class", "container-fluid justify-content-center");
-    			add_location(div0, file$n, 23, 8, 487);
+    			add_location(div0, file$o, 23, 8, 487);
     			attr_dev(nav, "class", "navbar navbar-light bg-danger ");
-    			add_location(nav, file$n, 22, 6, 433);
+    			add_location(nav, file$o, 22, 6, 433);
     			attr_dev(div1, "class", div1_class_value = "col-" + /*navColSize*/ ctx[1] + " p-0" + " svelte-5dgimf");
     			attr_dev(div1, "id", "col");
-    			add_location(div1, file$n, 21, 4, 382);
+    			add_location(div1, file$o, 21, 4, 382);
     			attr_dev(i, "class", i_class_value = "fas fa-arrow-" + /*arrow*/ ctx[0] + " px-3");
-    			add_location(i, file$n, 33, 10, 929);
+    			add_location(i, file$o, 33, 10, 929);
     			attr_dev(a1, "class", "navbar-brand");
     			attr_dev(a1, "href", "#");
-    			add_location(a1, file$n, 32, 8, 884);
+    			add_location(a1, file$o, 32, 8, 884);
     			attr_dev(div2, "class", "navbar navbar-light bg-light");
-    			add_location(div2, file$n, 31, 6, 824);
+    			add_location(div2, file$o, 31, 6, 824);
     			attr_dev(div3, "class", "col p-0");
-    			add_location(div3, file$n, 30, 4, 795);
+    			add_location(div3, file$o, 30, 4, 795);
     			attr_dev(div4, "class", "row g-0 m-0 sticky-top");
-    			add_location(div4, file$n, 20, 2, 339);
+    			add_location(div4, file$o, 20, 2, 339);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1208,7 +1211,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$n.name,
+    		id: create_fragment$o.name,
     		type: "component",
     		source: "",
     		ctx
@@ -1217,7 +1220,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$n($$self, $$props, $$invalidate) {
+    function instance$o($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Navbar', slots, []);
     	let arrow = 'left';
@@ -1261,28 +1264,28 @@ var app = (function () {
     class Navbar extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$n, create_fragment$n, safe_not_equal, {});
+    		init(this, options, instance$o, create_fragment$o, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Navbar",
     			options,
-    			id: create_fragment$n.name
+    			id: create_fragment$o.name
     		});
     	}
     }
 
     /* src\elements\SideBar.svelte generated by Svelte v3.44.3 */
-    const file$m = "src\\elements\\SideBar.svelte";
+    const file$n = "src\\elements\\SideBar.svelte";
 
-    function get_each_context$3(ctx, list, i) {
+    function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[3] = list[i];
     	return child_ctx;
     }
 
     // (12:0) {#each list as item}
-    function create_each_block$3(ctx) {
+    function create_each_block$4(ctx) {
     	let div2;
     	let div0;
     	let i;
@@ -1313,14 +1316,14 @@ var app = (function () {
     			t1 = text(t1_value);
     			t2 = space();
     			attr_dev(i, "class", i_class_value = "" + (/*item*/ ctx[3].icon + " icon" + " svelte-1biwtz"));
-    			add_location(i, file$m, 14, 8, 702);
+    			add_location(i, file$n, 14, 8, 702);
     			attr_dev(div0, "class", "col-lg-4 col-md-12 d-flex justify-content-center");
-    			add_location(div0, file$m, 13, 4, 630);
+    			add_location(div0, file$n, 13, 4, 630);
     			attr_dev(div1, "class", "col-lg-8 col-md-12 d-sm-none d-md-block d-flex text-lg-start text-md-center title svelte-1biwtz");
-    			add_location(div1, file$m, 16, 4, 753);
+    			add_location(div1, file$n, 16, 4, 753);
     			attr_dev(div2, "class", "row g-0 shadow-sm item svelte-1biwtz");
     			attr_dev(div2, "tabindex", "1");
-    			add_location(div2, file$m, 12, 0, 513);
+    			add_location(div2, file$n, 12, 0, 513);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -1356,7 +1359,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$3.name,
+    		id: create_each_block$4.name,
     		type: "each",
     		source: "(12:0) {#each list as item}",
     		ctx
@@ -1365,14 +1368,14 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$m(ctx) {
+    function create_fragment$n(ctx) {
     	let each_1_anchor;
     	let each_value = /*list*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$4(get_each_context$4(ctx, each_value, i));
     	}
 
     	const block = {
@@ -1381,7 +1384,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			each_1_anchor = empty();
+    			each_1_anchor = empty$1();
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1400,12 +1403,12 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$3(ctx, each_value, i);
+    					const child_ctx = get_each_context$4(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block$3(child_ctx);
+    						each_blocks[i] = create_each_block$4(child_ctx);
     						each_blocks[i].c();
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
     					}
@@ -1418,8 +1421,8 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
     		},
-    		i: noop,
-    		o: noop,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			destroy_each(each_blocks, detaching);
     			if (detaching) detach_dev(each_1_anchor);
@@ -1428,7 +1431,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$m.name,
+    		id: create_fragment$n.name,
     		type: "component",
     		source: "",
     		ctx
@@ -1437,7 +1440,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$m($$self, $$props, $$invalidate) {
+    function instance$n($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('SideBar', slots, []);
     	let { list = [] } = $$props; // {name: 'TestCode',icon: 'fas fa-tachometer-alt', component: AppPoll},
@@ -1477,13 +1480,13 @@ var app = (function () {
     class SideBar extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$m, create_fragment$m, safe_not_equal, { list: 0 });
+    		init(this, options, instance$n, create_fragment$n, safe_not_equal, { list: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "SideBar",
     			options,
-    			id: create_fragment$m.name
+    			id: create_fragment$n.name
     		});
     	}
 
@@ -1498,9 +1501,9 @@ var app = (function () {
 
     /* src\pollevent\Header.svelte generated by Svelte v3.44.3 */
 
-    const file$l = "src\\pollevent\\Header.svelte";
+    const file$m = "src\\pollevent\\Header.svelte";
 
-    function create_fragment$l(ctx) {
+    function create_fragment$m(ctx) {
     	let header;
     	let h1;
     	let img;
@@ -1514,11 +1517,11 @@ var app = (function () {
     			if (!src_url_equal(img.src, img_src_value = "./images/slogo.jpg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "image");
     			attr_dev(img, "class", "svelte-fu2kfn");
-    			add_location(img, file$l, 2, 8, 28);
+    			add_location(img, file$m, 2, 8, 28);
     			attr_dev(h1, "class", "svelte-fu2kfn");
-    			add_location(h1, file$l, 1, 4, 14);
+    			add_location(h1, file$m, 1, 4, 14);
     			attr_dev(header, "class", "svelte-fu2kfn");
-    			add_location(header, file$l, 0, 0, 0);
+    			add_location(header, file$m, 0, 0, 0);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1528,11 +1531,81 @@ var app = (function () {
     			append_dev(header, h1);
     			append_dev(h1, img);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(header);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$m.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$m($$self, $$props) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Header', slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Header> was created with unknown prop '${key}'`);
+    	});
+
+    	return [];
+    }
+
+    class Header extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$m, create_fragment$m, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Header",
+    			options,
+    			id: create_fragment$m.name
+    		});
+    	}
+    }
+
+    /* src\pollevent\Footer.svelte generated by Svelte v3.44.3 */
+
+    const file$l = "src\\pollevent\\Footer.svelte";
+
+    function create_fragment$l(ctx) {
+    	let footer;
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			footer = element("footer");
+    			div = element("div");
+    			div.textContent = "@Copyright 2021 Poll";
+    			attr_dev(div, "class", "copyright svelte-15ik3qo");
+    			add_location(div, file$l, 1, 4, 14);
+    			attr_dev(footer, "class", "svelte-15ik3qo");
+    			add_location(footer, file$l, 0, 0, 0);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, footer, anchor);
+    			append_dev(footer, div);
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(footer);
     		}
     	};
 
@@ -1549,76 +1622,6 @@ var app = (function () {
 
     function instance$l($$self, $$props) {
     	let { $$slots: slots = {}, $$scope } = $$props;
-    	validate_slots('Header', slots, []);
-    	const writable_props = [];
-
-    	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Header> was created with unknown prop '${key}'`);
-    	});
-
-    	return [];
-    }
-
-    class Header extends SvelteComponentDev {
-    	constructor(options) {
-    		super(options);
-    		init(this, options, instance$l, create_fragment$l, safe_not_equal, {});
-
-    		dispatch_dev("SvelteRegisterComponent", {
-    			component: this,
-    			tagName: "Header",
-    			options,
-    			id: create_fragment$l.name
-    		});
-    	}
-    }
-
-    /* src\pollevent\Footer.svelte generated by Svelte v3.44.3 */
-
-    const file$k = "src\\pollevent\\Footer.svelte";
-
-    function create_fragment$k(ctx) {
-    	let footer;
-    	let div;
-
-    	const block = {
-    		c: function create() {
-    			footer = element("footer");
-    			div = element("div");
-    			div.textContent = "@Copyright 2021 Poll";
-    			attr_dev(div, "class", "copyright svelte-15ik3qo");
-    			add_location(div, file$k, 1, 4, 14);
-    			attr_dev(footer, "class", "svelte-15ik3qo");
-    			add_location(footer, file$k, 0, 0, 0);
-    		},
-    		l: function claim(nodes) {
-    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, footer, anchor);
-    			append_dev(footer, div);
-    		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(footer);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_fragment$k.name,
-    		type: "component",
-    		source: "",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    function instance$k($$self, $$props) {
-    	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Footer', slots, []);
     	const writable_props = [];
 
@@ -1632,13 +1635,13 @@ var app = (function () {
     class Footer extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$k, create_fragment$k, safe_not_equal, {});
+    		init(this, options, instance$l, create_fragment$l, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Footer",
     			options,
-    			id: create_fragment$k.name
+    			id: create_fragment$l.name
     		});
     	}
     }
@@ -1714,16 +1717,16 @@ var app = (function () {
     }
 
     /* src\elements\Tabs.svelte generated by Svelte v3.44.3 */
-    const file$j = "src\\elements\\Tabs.svelte";
+    const file$k = "src\\elements\\Tabs.svelte";
 
-    function get_each_context$2(ctx, list, i) {
+    function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[4] = list[i];
     	return child_ctx;
     }
 
     // (11:8) {#each items as item}
-    function create_each_block$2(ctx) {
+    function create_each_block$3(ctx) {
     	let li;
     	let div;
     	let t0_value = /*item*/ ctx[4] + "";
@@ -1744,9 +1747,9 @@ var app = (function () {
     			t1 = space();
     			attr_dev(div, "class", "svelte-7s9uir");
     			toggle_class(div, "active", /*item*/ ctx[4] == /*activeItem*/ ctx[1]);
-    			add_location(div, file$j, 12, 16, 351);
+    			add_location(div, file$k, 12, 16, 351);
     			attr_dev(li, "class", "svelte-7s9uir");
-    			add_location(li, file$j, 11, 12, 286);
+    			add_location(li, file$k, 11, 12, 286);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -1776,7 +1779,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$2.name,
+    		id: create_each_block$3.name,
     		type: "each",
     		source: "(11:8) {#each items as item}",
     		ctx
@@ -1785,7 +1788,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$j(ctx) {
+    function create_fragment$k(ctx) {
     	let div;
     	let ul;
     	let each_value = /*items*/ ctx[0];
@@ -1793,7 +1796,7 @@ var app = (function () {
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
     	}
 
     	const block = {
@@ -1806,8 +1809,8 @@ var app = (function () {
     			}
 
     			attr_dev(ul, "class", "svelte-7s9uir");
-    			add_location(ul, file$j, 9, 4, 237);
-    			add_location(div, file$j, 8, 0, 226);
+    			add_location(ul, file$k, 9, 4, 237);
+    			add_location(div, file$k, 8, 0, 226);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1827,12 +1830,12 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$2(ctx, each_value, i);
+    					const child_ctx = get_each_context$3(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block$2(child_ctx);
+    						each_blocks[i] = create_each_block$3(child_ctx);
     						each_blocks[i].c();
     						each_blocks[i].m(ul, null);
     					}
@@ -1845,8 +1848,8 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
     		},
-    		i: noop,
-    		o: noop,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
     			destroy_each(each_blocks, detaching);
@@ -1855,7 +1858,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$j.name,
+    		id: create_fragment$k.name,
     		type: "component",
     		source: "",
     		ctx
@@ -1864,7 +1867,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$j($$self, $$props, $$invalidate) {
+    function instance$k($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Tabs', slots, []);
     	let { items } = $$props;
@@ -1907,13 +1910,13 @@ var app = (function () {
     class Tabs extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$j, create_fragment$j, safe_not_equal, { items: 0, activeItem: 1 });
+    		init(this, options, instance$k, create_fragment$k, safe_not_equal, { items: 0, activeItem: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Tabs",
     			options,
-    			id: create_fragment$j.name
+    			id: create_fragment$k.name
     		});
 
     		const { ctx } = this.$$;
@@ -1951,7 +1954,7 @@ var app = (function () {
      * @param {*=}value initial value
      * @param {StartStopNotifier=}start start and stop notifications for subscriptions
      */
-    function writable(value, start = noop) {
+    function writable(value, start = noop$1) {
         let stop;
         const subscribers = new Set();
         function set(new_value) {
@@ -1975,11 +1978,11 @@ var app = (function () {
         function update(fn) {
             set(fn(value));
         }
-        function subscribe(run, invalidate = noop) {
+        function subscribe(run, invalidate = noop$1) {
             const subscriber = [run, invalidate];
             subscribers.add(subscriber);
             if (subscribers.size === 1) {
-                stop = start(set) || noop;
+                stop = start(set) || noop$1;
             }
             run(value);
             return () => {
@@ -2016,9 +2019,9 @@ var app = (function () {
 
     /* src\elements\Button.svelte generated by Svelte v3.44.3 */
 
-    const file$i = "src\\elements\\Button.svelte";
+    const file$j = "src\\elements\\Button.svelte";
 
-    function create_fragment$i(ctx) {
+    function create_fragment$j(ctx) {
     	let button;
     	let button_class_value;
     	let current;
@@ -2034,7 +2037,7 @@ var app = (function () {
     			attr_dev(button, "class", button_class_value = "" + (null_to_empty(/*type*/ ctx[0]) + " svelte-te3x3w"));
     			toggle_class(button, "flat", /*flat*/ ctx[1]);
     			toggle_class(button, "inverse", /*inverse*/ ctx[2]);
-    			add_location(button, file$i, 7, 0, 121);
+    			add_location(button, file$j, 7, 0, 121);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2100,7 +2103,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$i.name,
+    		id: create_fragment$j.name,
     		type: "component",
     		source: "",
     		ctx
@@ -2109,7 +2112,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$i($$self, $$props, $$invalidate) {
+    function instance$j($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Button', slots, ['default']);
     	let { type = "primary" } = $$props;
@@ -2150,13 +2153,13 @@ var app = (function () {
     class Button extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$i, create_fragment$i, safe_not_equal, { type: 0, flat: 1, inverse: 2 });
+    		init(this, options, instance$j, create_fragment$j, safe_not_equal, { type: 0, flat: 1, inverse: 2 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Button",
     			options,
-    			id: create_fragment$i.name
+    			id: create_fragment$j.name
     		});
     	}
 
@@ -2188,7 +2191,7 @@ var app = (function () {
     /* src\pollevent\CreatePollForm.svelte generated by Svelte v3.44.3 */
 
     const { console: console_1$7 } = globals;
-    const file$h = "src\\pollevent\\CreatePollForm.svelte";
+    const file$i = "src\\pollevent\\CreatePollForm.svelte";
 
     // (68:8) <Button type="secondary" >
     function create_default_slot$1(ctx) {
@@ -2217,7 +2220,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$h(ctx) {
+    function create_fragment$i(ctx) {
     	let div6;
     	let form;
     	let div1;
@@ -2296,43 +2299,43 @@ var app = (function () {
     			create_component(button.$$.fragment);
     			attr_dev(label0, "for", "question");
     			attr_dev(label0, "class", "svelte-ed1edj");
-    			add_location(label0, file$h, 53, 12, 1797);
+    			add_location(label0, file$i, 53, 12, 1797);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "question");
     			attr_dev(input0, "class", "svelte-ed1edj");
     			toggle_class(input0, "valid", /*invalid*/ ctx[2]);
-    			add_location(input0, file$h, 54, 12, 1855);
+    			add_location(input0, file$i, 54, 12, 1855);
     			attr_dev(div0, "class", "error svelte-ed1edj");
-    			add_location(div0, file$h, 55, 12, 1953);
+    			add_location(div0, file$i, 55, 12, 1953);
     			attr_dev(div1, "class", "form-field svelte-ed1edj");
-    			add_location(div1, file$h, 52, 8, 1759);
+    			add_location(div1, file$i, 52, 8, 1759);
     			attr_dev(label1, "for", "answer1");
     			attr_dev(label1, "class", "svelte-ed1edj");
-    			add_location(label1, file$h, 58, 12, 2059);
+    			add_location(label1, file$i, 58, 12, 2059);
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "id", "answer1");
     			attr_dev(input1, "class", "svelte-ed1edj");
     			toggle_class(input1, "valid", /*invalid*/ ctx[2]);
-    			add_location(input1, file$h, 59, 12, 2111);
+    			add_location(input1, file$i, 59, 12, 2111);
     			attr_dev(div2, "class", "error svelte-ed1edj");
-    			add_location(div2, file$h, 60, 12, 2207);
+    			add_location(div2, file$i, 60, 12, 2207);
     			attr_dev(div3, "class", "form-field svelte-ed1edj");
-    			add_location(div3, file$h, 57, 8, 2021);
+    			add_location(div3, file$i, 57, 8, 2021);
     			attr_dev(label2, "for", "answer2");
     			attr_dev(label2, "class", "svelte-ed1edj");
-    			add_location(label2, file$h, 63, 12, 2312);
+    			add_location(label2, file$i, 63, 12, 2312);
     			attr_dev(input2, "type", "text");
     			attr_dev(input2, "id", "answer2");
     			attr_dev(input2, "class", "svelte-ed1edj");
     			toggle_class(input2, "valid", /*invalid*/ ctx[2]);
-    			add_location(input2, file$h, 64, 12, 2364);
+    			add_location(input2, file$i, 64, 12, 2364);
     			attr_dev(div4, "class", "error svelte-ed1edj");
-    			add_location(div4, file$h, 65, 12, 2460);
+    			add_location(div4, file$i, 65, 12, 2460);
     			attr_dev(div5, "class", "form-field svelte-ed1edj");
-    			add_location(div5, file$h, 62, 8, 2274);
+    			add_location(div5, file$i, 62, 8, 2274);
     			attr_dev(form, "class", "svelte-ed1edj");
-    			add_location(form, file$h, 51, 4, 1698);
-    			add_location(div6, file$h, 50, 0, 1662);
+    			add_location(form, file$i, 51, 4, 1698);
+    			add_location(div6, file$i, 50, 0, 1662);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2446,7 +2449,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$h.name,
+    		id: create_fragment$i.name,
     		type: "component",
     		source: "",
     		ctx
@@ -2455,7 +2458,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$h($$self, $$props, $$invalidate) {
+    function instance$i($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('CreatePollForm', slots, []);
     	const dispatch = createEventDispatcher();
@@ -2573,22 +2576,22 @@ var app = (function () {
     class CreatePollForm extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$h, create_fragment$h, safe_not_equal, {});
+    		init(this, options, instance$i, create_fragment$i, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "CreatePollForm",
     			options,
-    			id: create_fragment$h.name
+    			id: create_fragment$i.name
     		});
     	}
     }
 
     /* src\elements\Card.svelte generated by Svelte v3.44.3 */
 
-    const file$g = "src\\elements\\Card.svelte";
+    const file$h = "src\\elements\\Card.svelte";
 
-    function create_fragment$g(ctx) {
+    function create_fragment$h(ctx) {
     	let div;
     	let current;
     	const default_slot_template = /*#slots*/ ctx[1].default;
@@ -2599,7 +2602,7 @@ var app = (function () {
     			div = element("div");
     			if (default_slot) default_slot.c();
     			attr_dev(div, "class", "card svelte-cdnta8");
-    			add_location(div, file$g, 2, 0, 21);
+    			add_location(div, file$h, 2, 0, 21);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2646,7 +2649,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$g.name,
+    		id: create_fragment$h.name,
     		type: "component",
     		source: "",
     		ctx
@@ -2655,7 +2658,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$g($$self, $$props, $$invalidate) {
+    function instance$h($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Card', slots, ['default']);
     	const writable_props = [];
@@ -2674,13 +2677,13 @@ var app = (function () {
     class Card extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$g, create_fragment$g, safe_not_equal, {});
+    		init(this, options, instance$h, create_fragment$h, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Card",
     			options,
-    			id: create_fragment$g.name
+    			id: create_fragment$h.name
     		});
     	}
     }
@@ -2751,7 +2754,7 @@ var app = (function () {
                 store.set(value = target_value);
                 return Promise.resolve();
             }
-            const start = now() + delay;
+            const start = now$2() + delay;
             let fn;
             task = loop(now => {
                 if (now < start)
@@ -2785,7 +2788,7 @@ var app = (function () {
     }
 
     /* src\pollevent\PollDetails.svelte generated by Svelte v3.44.3 */
-    const file$f = "src\\pollevent\\PollDetails.svelte";
+    const file$g = "src\\pollevent\\PollDetails.svelte";
 
     // (51:12) <Button flat={true} on:click={()=>deleteHandeller(poll.id)}>
     function create_default_slot_1(ctx) {
@@ -2895,27 +2898,27 @@ var app = (function () {
     			div4 = element("div");
     			create_component(button.$$.fragment);
     			attr_dev(h3, "class", "svelte-a8769z");
-    			add_location(h3, file$f, 39, 8, 1227);
+    			add_location(h3, file$g, 39, 8, 1227);
     			attr_dev(p, "class", "svelte-a8769z");
-    			add_location(p, file$f, 40, 8, 1261);
+    			add_location(p, file$g, 40, 8, 1261);
     			attr_dev(div0, "class", "percent percent-1 svelte-a8769z");
     			set_style(div0, "width", /*$value1*/ ctx[2] + "%");
-    			add_location(div0, file$f, 42, 12, 1379);
+    			add_location(div0, file$g, 42, 12, 1379);
     			attr_dev(span0, "class", "svelte-a8769z");
-    			add_location(span0, file$f, 43, 12, 1456);
+    			add_location(span0, file$g, 43, 12, 1456);
     			attr_dev(div1, "class", "answer svelte-a8769z");
-    			add_location(div1, file$f, 41, 8, 1301);
+    			add_location(div1, file$g, 41, 8, 1301);
     			attr_dev(div2, "class", "percent percent-2 svelte-a8769z");
     			set_style(div2, "width", /*$value2*/ ctx[3] + "%");
-    			add_location(div2, file$f, 46, 12, 1598);
+    			add_location(div2, file$g, 46, 12, 1598);
     			attr_dev(span1, "class", "svelte-a8769z");
-    			add_location(span1, file$f, 47, 12, 1675);
+    			add_location(span1, file$g, 47, 12, 1675);
     			attr_dev(div3, "class", "answer svelte-a8769z");
-    			add_location(div3, file$f, 45, 8, 1524);
+    			add_location(div3, file$g, 45, 8, 1524);
     			attr_dev(div4, "class", "delete svelte-a8769z");
-    			add_location(div4, file$f, 49, 8, 1755);
+    			add_location(div4, file$g, 49, 8, 1755);
     			attr_dev(div5, "class", "poll");
-    			add_location(div5, file$f, 38, 4, 1199);
+    			add_location(div5, file$g, 38, 4, 1199);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div5, anchor);
@@ -3020,7 +3023,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$f(ctx) {
+    function create_fragment$g(ctx) {
     	let card;
     	let current;
 
@@ -3068,7 +3071,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$f.name,
+    		id: create_fragment$g.name,
     		type: "component",
     		source: "",
     		ctx
@@ -3077,7 +3080,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$f($$self, $$props, $$invalidate) {
+    function instance$g($$self, $$props, $$invalidate) {
     	let totalVote;
     	let percent1;
     	let percent2;
@@ -3202,13 +3205,13 @@ var app = (function () {
     class PollDetails extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$f, create_fragment$f, safe_not_equal, { poll: 0 });
+    		init(this, options, instance$g, create_fragment$g, safe_not_equal, { poll: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "PollDetails",
     			options,
-    			id: create_fragment$f.name
+    			id: create_fragment$g.name
     		});
 
     		const { ctx } = this.$$;
@@ -3250,23 +3253,23 @@ var app = (function () {
     }
 
     /* src\pollevent\PollList.svelte generated by Svelte v3.44.3 */
-    const file$e = "src\\pollevent\\PollList.svelte";
+    const file$f = "src\\pollevent\\PollList.svelte";
 
-    function get_each_context$1(ctx, list, i) {
+    function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[1] = list[i];
     	return child_ctx;
     }
 
     // (9:4) {#each $PollStore as poll (poll.id)}
-    function create_each_block$1(key_1, ctx) {
+    function create_each_block$2(key_1, ctx) {
     	let div;
     	let polldetails;
     	let t;
     	let div_intro;
     	let div_outro;
     	let rect;
-    	let stop_animation = noop;
+    	let stop_animation = noop$1;
     	let current;
 
     	polldetails = new PollDetails({
@@ -3281,7 +3284,7 @@ var app = (function () {
     			div = element("div");
     			create_component(polldetails.$$.fragment);
     			t = space();
-    			add_location(div, file$e, 9, 4, 297);
+    			add_location(div, file$f, 9, 4, 297);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -3339,7 +3342,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$1.name,
+    		id: create_each_block$2.name,
     		type: "each",
     		source: "(9:4) {#each $PollStore as poll (poll.id)}",
     		ctx
@@ -3348,7 +3351,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$e(ctx) {
+    function create_fragment$f(ctx) {
     	let div;
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -3356,12 +3359,12 @@ var app = (function () {
     	let each_value = /*$PollStore*/ ctx[0];
     	validate_each_argument(each_value);
     	const get_key = ctx => /*poll*/ ctx[1].id;
-    	validate_each_keys(ctx, each_value, get_each_context$1, get_key);
+    	validate_each_keys(ctx, each_value, get_each_context$2, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$1(ctx, each_value, i);
+    		let child_ctx = get_each_context$2(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$1(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$2(key, child_ctx));
     	}
 
     	const block = {
@@ -3373,7 +3376,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "poll-list svelte-1yuzuh4");
-    			add_location(div, file$e, 7, 0, 226);
+    			add_location(div, file$f, 7, 0, 226);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3393,8 +3396,8 @@ var app = (function () {
     				validate_each_argument(each_value);
     				group_outros();
     				for (let i = 0; i < each_blocks.length; i += 1) each_blocks[i].r();
-    				validate_each_keys(ctx, each_value, get_each_context$1, get_key);
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, fix_and_outro_and_destroy_block, create_each_block$1, null, get_each_context$1);
+    				validate_each_keys(ctx, each_value, get_each_context$2, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, fix_and_outro_and_destroy_block, create_each_block$2, null, get_each_context$2);
     				for (let i = 0; i < each_blocks.length; i += 1) each_blocks[i].a();
     				check_outros();
     			}
@@ -3426,7 +3429,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$e.name,
+    		id: create_fragment$f.name,
     		type: "component",
     		source: "",
     		ctx
@@ -3435,7 +3438,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$e($$self, $$props, $$invalidate) {
+    function instance$f($$self, $$props, $$invalidate) {
     	let $PollStore;
     	validate_store(PollStore, 'PollStore');
     	component_subscribe($$self, PollStore, $$value => $$invalidate(0, $PollStore = $$value));
@@ -3464,19 +3467,19 @@ var app = (function () {
     class PollList extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$e, create_fragment$e, safe_not_equal, {});
+    		init(this, options, instance$f, create_fragment$f, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "PollList",
     			options,
-    			id: create_fragment$e.name
+    			id: create_fragment$f.name
     		});
     	}
     }
 
     /* src\pollevent\AppPoll.svelte generated by Svelte v3.44.3 */
-    const file$d = "src\\pollevent\\AppPoll.svelte";
+    const file$e = "src\\pollevent\\AppPoll.svelte";
 
     // (19:41) 
     function create_if_block_1$1(ctx) {
@@ -3493,7 +3496,7 @@ var app = (function () {
     			mount_component(createpollform, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(createpollform.$$.fragment, local);
@@ -3533,7 +3536,7 @@ var app = (function () {
     			mount_component(polllist, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(polllist.$$.fragment, local);
@@ -3559,7 +3562,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$d(ctx) {
+    function create_fragment$e(ctx) {
     	let header;
     	let t0;
     	let main;
@@ -3607,7 +3610,7 @@ var app = (function () {
     			t2 = space();
     			create_component(footer.$$.fragment);
     			attr_dev(main, "class", "svelte-wab5tg");
-    			add_location(main, file$d, 14, 0, 419);
+    			add_location(main, file$e, 14, 0, 419);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3698,7 +3701,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$d.name,
+    		id: create_fragment$e.name,
     		type: "component",
     		source: "",
     		ctx
@@ -3707,7 +3710,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$d($$self, $$props, $$invalidate) {
+    function instance$e($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('AppPoll', slots, []);
     	let items = ["Current Polls", "Add a new poll"];
@@ -3754,13 +3757,13 @@ var app = (function () {
     class AppPoll extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$d, create_fragment$d, safe_not_equal, {});
+    		init(this, options, instance$e, create_fragment$e, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "AppPoll",
     			options,
-    			id: create_fragment$d.name
+    			id: create_fragment$e.name
     		});
     	}
     }
@@ -3768,9 +3771,9 @@ var app = (function () {
     /* src\components\QuoteGenerator.svelte generated by Svelte v3.44.3 */
 
     const { console: console_1$6 } = globals;
-    const file$c = "src\\components\\QuoteGenerator.svelte";
+    const file$d = "src\\components\\QuoteGenerator.svelte";
 
-    function create_fragment$c(ctx) {
+    function create_fragment$d(ctx) {
     	let div5;
     	let div4;
     	let div0;
@@ -3820,35 +3823,35 @@ var app = (function () {
     			t9 = text("New Quote");
     			attr_dev(h5, "class", "card-title transition text-center svelte-1xrmoqj");
     			set_style(h5, "color", /*colors*/ ctx[3][/*colorIndex*/ ctx[0]]);
-    			add_location(h5, file$c, 33, 6, 1187);
+    			add_location(h5, file$d, 33, 6, 1187);
     			attr_dev(p0, "class", "card-text float-end");
     			set_style(p0, "color", /*colors*/ ctx[3][/*colorIndex*/ ctx[0]]);
-    			add_location(p0, file$c, 34, 6, 1292);
+    			add_location(p0, file$d, 34, 6, 1292);
     			attr_dev(div0, "class", "card-body transition svelte-1xrmoqj");
-    			add_location(div0, file$c, 32, 4, 1145);
+    			add_location(div0, file$d, 32, 4, 1145);
     			attr_dev(i0, "class", "bi bi-twitter p-2 rounded transition svelte-1xrmoqj");
     			set_style(i0, "cursor", "pointer");
     			set_style(i0, "background", /*colors*/ ctx[3][/*colorIndex*/ ctx[0]]);
-    			add_location(i0, file$c, 38, 6, 1509);
+    			add_location(i0, file$d, 38, 6, 1509);
     			attr_dev(i1, "class", "bi bi-whatsapp p-2 rounded transition svelte-1xrmoqj");
     			set_style(i1, "cursor", "pointer");
     			set_style(i1, "background", /*colors*/ ctx[3][/*colorIndex*/ ctx[0]]);
-    			add_location(i1, file$c, 39, 6, 1627);
+    			add_location(i1, file$d, 39, 6, 1627);
     			attr_dev(div1, "class", "float-start mt-2 te");
-    			add_location(div1, file$c, 37, 6, 1467);
+    			add_location(div1, file$d, 37, 6, 1467);
     			attr_dev(p1, "class", "rounded p-2 transition svelte-1xrmoqj");
     			set_style(p1, "cursor", "pointer");
     			set_style(p1, "background", /*colors*/ ctx[3][/*colorIndex*/ ctx[0]]);
-    			add_location(p1, file$c, 43, 8, 1843);
+    			add_location(p1, file$d, 43, 8, 1843);
     			attr_dev(div2, "class", "float-end");
-    			add_location(div2, file$c, 42, 6, 1810);
+    			add_location(div2, file$d, 42, 6, 1810);
     			attr_dev(div3, "class", "card-footer text-white mt-2 border-top-0 bg-transparent");
-    			add_location(div3, file$c, 36, 4, 1390);
+    			add_location(div3, file$d, 36, 4, 1390);
     			attr_dev(div4, "class", "card transition border-success py-4 px-2 mb-3 svelte-1xrmoqj");
-    			add_location(div4, file$c, 31, 2, 1080);
+    			add_location(div4, file$d, 31, 2, 1080);
     			attr_dev(div5, "class", "container mother transition d-flex justify-content-center svelte-1xrmoqj");
     			set_style(div5, "background", /*colors*/ ctx[3][/*colorIndex*/ ctx[0]]);
-    			add_location(div5, file$c, 30, 0, 964);
+    			add_location(div5, file$d, 30, 0, 964);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3910,8 +3913,8 @@ var app = (function () {
     				set_style(div5, "background", /*colors*/ ctx[3][/*colorIndex*/ ctx[0]]);
     			}
     		},
-    		i: noop,
-    		o: noop,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div5);
     			mounted = false;
@@ -3921,7 +3924,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$c.name,
+    		id: create_fragment$d.name,
     		type: "component",
     		source: "",
     		ctx
@@ -3930,7 +3933,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$c($$self, $$props, $$invalidate) {
+    function instance$d($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('QuoteGenerator', slots, []);
 
@@ -4003,22 +4006,22 @@ var app = (function () {
     class QuoteGenerator extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$c, create_fragment$c, safe_not_equal, {});
+    		init(this, options, instance$d, create_fragment$d, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "QuoteGenerator",
     			options,
-    			id: create_fragment$c.name
+    			id: create_fragment$d.name
     		});
     	}
     }
 
     /* src\elements\Toggle.svelte generated by Svelte v3.44.3 */
 
-    const file$b = "src\\elements\\Toggle.svelte";
+    const file$c = "src\\elements\\Toggle.svelte";
 
-    function create_fragment$b(ctx) {
+    function create_fragment$c(ctx) {
     	let label;
     	let input;
     	let t0;
@@ -4051,23 +4054,23 @@ var app = (function () {
     			attr_dev(input, "class", "toggle__input svelte-kbm3bv");
     			attr_dev(input, "type", "checkbox");
     			attr_dev(input, "id", "mytoggle");
-    			add_location(input, file$b, 8, 4, 224);
+    			add_location(input, file$c, 8, 4, 224);
     			attr_dev(p0, "class", "svelte-kbm3bv");
-    			add_location(p0, file$b, 11, 32, 433);
+    			add_location(p0, file$c, 11, 32, 433);
     			attr_dev(div0, "class", "on col");
-    			add_location(div0, file$b, 11, 12, 413);
+    			add_location(div0, file$c, 11, 12, 413);
     			attr_dev(p1, "class", "svelte-kbm3bv");
-    			add_location(p1, file$b, 12, 33, 490);
+    			add_location(p1, file$c, 12, 33, 490);
     			attr_dev(div1, "class", "off col");
-    			add_location(div1, file$b, 12, 12, 469);
+    			add_location(div1, file$c, 12, 12, 469);
     			attr_dev(div2, "class", "row g-0 h-100 mw-50 text-center");
-    			add_location(div2, file$b, 10, 8, 354);
+    			add_location(div2, file$c, 10, 8, 354);
     			attr_dev(div3, "class", "toggle__fill  svelte-kbm3bv");
-    			add_location(div3, file$b, 9, 4, 317);
+    			add_location(div3, file$c, 9, 4, 317);
     			attr_dev(label, "class", "toggle svelte-kbm3bv");
     			attr_dev(label, "for", "mytoggle");
     			set_style(label, "--width", /*width*/ ctx[3]);
-    			add_location(label, file$b, 7, 0, 156);
+    			add_location(label, file$c, 7, 0, 156);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4104,8 +4107,8 @@ var app = (function () {
     				set_style(label, "--width", /*width*/ ctx[3]);
     			}
     		},
-    		i: noop,
-    		o: noop,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(label);
     			mounted = false;
@@ -4115,7 +4118,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$b.name,
+    		id: create_fragment$c.name,
     		type: "component",
     		source: "",
     		ctx
@@ -4124,7 +4127,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$b($$self, $$props, $$invalidate) {
+    function instance$c($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Toggle', slots, []);
     	let { onText = '' } = $$props;
@@ -4169,7 +4172,7 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {
+    		init(this, options, instance$c, create_fragment$c, safe_not_equal, {
     			onText: 1,
     			offText: 2,
     			width: 3,
@@ -4180,7 +4183,7 @@ var app = (function () {
     			component: this,
     			tagName: "Toggle",
     			options,
-    			id: create_fragment$b.name
+    			id: create_fragment$c.name
     		});
     	}
 
@@ -4219,9 +4222,9 @@ var app = (function () {
 
     /* src\components\Circle.svelte generated by Svelte v3.44.3 */
 
-    const file$a = "src\\components\\Circle.svelte";
+    const file$b = "src\\components\\Circle.svelte";
 
-    function create_fragment$a(ctx) {
+    function create_fragment$b(ctx) {
     	let div2;
     	let div1;
     	let div0;
@@ -4332,95 +4335,95 @@ var app = (function () {
     			t16 = space();
     			div34 = element("div");
     			attr_dev(div0, "class", "circle2 svelte-g5ikdr");
-    			add_location(div0, file$a, 2, 8, 59);
+    			add_location(div0, file$b, 2, 8, 59);
     			attr_dev(div1, "class", "circle svelte-g5ikdr");
-    			add_location(div1, file$a, 1, 4, 29);
+    			add_location(div1, file$b, 1, 4, 29);
     			attr_dev(div2, "class", "circlediv");
-    			add_location(div2, file$a, 0, 0, 0);
+    			add_location(div2, file$b, 0, 0, 0);
     			attr_dev(div3, "class", "div2 svelte-g5ikdr");
     			attr_dev(div3, "style", "");
-    			add_location(div3, file$a, 7, 2, 149);
+    			add_location(div3, file$b, 7, 2, 149);
     			attr_dev(div4, "class", "div3 svelte-g5ikdr");
     			attr_dev(div4, "style", "");
-    			add_location(div4, file$a, 8, 2, 186);
+    			add_location(div4, file$b, 8, 2, 186);
     			attr_dev(div5, "class", "div1 svelte-g5ikdr");
     			attr_dev(div5, "style", "");
-    			add_location(div5, file$a, 6, 0, 118);
+    			add_location(div5, file$b, 6, 0, 118);
     			attr_dev(div6, "class", "circle2 svelte-g5ikdr");
-    			add_location(div6, file$a, 12, 8, 288);
+    			add_location(div6, file$b, 12, 8, 288);
     			attr_dev(div7, "class", "circle svelte-g5ikdr");
-    			add_location(div7, file$a, 11, 4, 258);
+    			add_location(div7, file$b, 11, 4, 258);
     			attr_dev(div8, "class", "circlediv");
-    			add_location(div8, file$a, 10, 0, 229);
+    			add_location(div8, file$b, 10, 0, 229);
     			attr_dev(div9, "class", "div2 svelte-g5ikdr");
     			attr_dev(div9, "style", "");
-    			add_location(div9, file$a, 17, 2, 378);
+    			add_location(div9, file$b, 17, 2, 378);
     			attr_dev(div10, "class", "div3 svelte-g5ikdr");
     			attr_dev(div10, "style", "");
-    			add_location(div10, file$a, 18, 2, 415);
+    			add_location(div10, file$b, 18, 2, 415);
     			attr_dev(div11, "class", "div1 svelte-g5ikdr");
     			attr_dev(div11, "style", "");
-    			add_location(div11, file$a, 16, 0, 347);
+    			add_location(div11, file$b, 16, 0, 347);
     			attr_dev(div12, "class", "circle2 svelte-g5ikdr");
-    			add_location(div12, file$a, 22, 8, 517);
+    			add_location(div12, file$b, 22, 8, 517);
     			attr_dev(div13, "class", "circle svelte-g5ikdr");
-    			add_location(div13, file$a, 21, 4, 487);
+    			add_location(div13, file$b, 21, 4, 487);
     			attr_dev(div14, "class", "circlediv");
-    			add_location(div14, file$a, 20, 0, 458);
+    			add_location(div14, file$b, 20, 0, 458);
     			attr_dev(div15, "class", "div2 svelte-g5ikdr");
     			attr_dev(div15, "style", "");
-    			add_location(div15, file$a, 27, 2, 607);
+    			add_location(div15, file$b, 27, 2, 607);
     			attr_dev(div16, "class", "div3 svelte-g5ikdr");
     			attr_dev(div16, "style", "");
-    			add_location(div16, file$a, 28, 2, 644);
+    			add_location(div16, file$b, 28, 2, 644);
     			attr_dev(div17, "class", "div1 svelte-g5ikdr");
     			attr_dev(div17, "style", "");
-    			add_location(div17, file$a, 26, 0, 576);
+    			add_location(div17, file$b, 26, 0, 576);
     			attr_dev(div18, "class", "circle2 svelte-g5ikdr");
-    			add_location(div18, file$a, 32, 8, 746);
+    			add_location(div18, file$b, 32, 8, 746);
     			attr_dev(div19, "class", "circle svelte-g5ikdr");
-    			add_location(div19, file$a, 31, 4, 716);
+    			add_location(div19, file$b, 31, 4, 716);
     			attr_dev(div20, "class", "circlediv");
-    			add_location(div20, file$a, 30, 0, 687);
+    			add_location(div20, file$b, 30, 0, 687);
     			attr_dev(div21, "class", "div2 svelte-g5ikdr");
     			attr_dev(div21, "style", "");
-    			add_location(div21, file$a, 37, 2, 836);
+    			add_location(div21, file$b, 37, 2, 836);
     			attr_dev(div22, "class", "div3 svelte-g5ikdr");
     			attr_dev(div22, "style", "");
-    			add_location(div22, file$a, 38, 2, 873);
+    			add_location(div22, file$b, 38, 2, 873);
     			attr_dev(div23, "class", "div1 svelte-g5ikdr");
     			attr_dev(div23, "style", "");
-    			add_location(div23, file$a, 36, 0, 805);
+    			add_location(div23, file$b, 36, 0, 805);
     			attr_dev(div24, "class", "circle2 svelte-g5ikdr");
-    			add_location(div24, file$a, 42, 8, 975);
+    			add_location(div24, file$b, 42, 8, 975);
     			attr_dev(div25, "class", "circle svelte-g5ikdr");
-    			add_location(div25, file$a, 41, 4, 945);
+    			add_location(div25, file$b, 41, 4, 945);
     			attr_dev(div26, "class", "circlediv");
-    			add_location(div26, file$a, 40, 0, 916);
+    			add_location(div26, file$b, 40, 0, 916);
     			attr_dev(div27, "class", "div2 svelte-g5ikdr");
     			attr_dev(div27, "style", "");
-    			add_location(div27, file$a, 47, 2, 1065);
+    			add_location(div27, file$b, 47, 2, 1065);
     			attr_dev(div28, "class", "div3 svelte-g5ikdr");
     			attr_dev(div28, "style", "");
-    			add_location(div28, file$a, 48, 2, 1102);
+    			add_location(div28, file$b, 48, 2, 1102);
     			attr_dev(div29, "class", "div1 svelte-g5ikdr");
     			attr_dev(div29, "style", "");
-    			add_location(div29, file$a, 46, 0, 1034);
+    			add_location(div29, file$b, 46, 0, 1034);
     			attr_dev(div30, "class", "circle2 svelte-g5ikdr");
-    			add_location(div30, file$a, 52, 8, 1204);
+    			add_location(div30, file$b, 52, 8, 1204);
     			attr_dev(div31, "class", "circle svelte-g5ikdr");
-    			add_location(div31, file$a, 51, 4, 1174);
+    			add_location(div31, file$b, 51, 4, 1174);
     			attr_dev(div32, "class", "circlediv");
-    			add_location(div32, file$a, 50, 0, 1145);
+    			add_location(div32, file$b, 50, 0, 1145);
     			attr_dev(div33, "class", "div2 svelte-g5ikdr");
     			attr_dev(div33, "style", "");
-    			add_location(div33, file$a, 57, 2, 1294);
+    			add_location(div33, file$b, 57, 2, 1294);
     			attr_dev(div34, "class", "div3 svelte-g5ikdr");
     			attr_dev(div34, "style", "");
-    			add_location(div34, file$a, 58, 2, 1331);
+    			add_location(div34, file$b, 58, 2, 1331);
     			attr_dev(div35, "class", "div1 svelte-g5ikdr");
     			attr_dev(div35, "style", "");
-    			add_location(div35, file$a, 56, 0, 1263);
+    			add_location(div35, file$b, 56, 0, 1263);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4480,9 +4483,9 @@ var app = (function () {
     			append_dev(div35, t16);
     			append_dev(div35, div34);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div2);
     			if (detaching) detach_dev(t0);
@@ -4512,7 +4515,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$a.name,
+    		id: create_fragment$b.name,
     		type: "component",
     		source: "",
     		ctx
@@ -4521,7 +4524,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$a($$self, $$props) {
+    function instance$b($$self, $$props) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Circle', slots, []);
     	const writable_props = [];
@@ -4536,22 +4539,22 @@ var app = (function () {
     class Circle extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {});
+    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Circle",
     			options,
-    			id: create_fragment$a.name
+    			id: create_fragment$b.name
     		});
     	}
     }
 
     /* src\components\Calculator.svelte generated by Svelte v3.44.3 */
 
-    const file$9 = "src\\components\\Calculator.svelte";
+    const file$a = "src\\components\\Calculator.svelte";
 
-    function create_fragment$9(ctx) {
+    function create_fragment$a(ctx) {
     	let div33;
     	let div32;
     	let div31;
@@ -4725,187 +4728,187 @@ var app = (function () {
     			div29 = element("div");
     			input21 = element("input");
     			attr_dev(span0, "class", "glyphicon glyphicon glyphicon-menu-hamburger svelte-17go6fw");
-    			add_location(span0, file$9, 26, 10, 640);
+    			add_location(span0, file$a, 26, 10, 640);
     			attr_dev(div0, "class", "col-md-2");
-    			add_location(div0, file$9, 25, 8, 606);
+    			add_location(div0, file$a, 25, 8, 606);
     			attr_dev(p, "class", "svelte-17go6fw");
-    			add_location(p, file$9, 29, 10, 761);
+    			add_location(p, file$a, 29, 10, 761);
     			attr_dev(div1, "class", "col-md-8");
-    			add_location(div1, file$9, 28, 8, 727);
+    			add_location(div1, file$a, 28, 8, 727);
     			attr_dev(span1, "class", "glyphicon glyphicon glyphicon-cog svelte-17go6fw");
-    			add_location(span1, file$9, 32, 10, 838);
+    			add_location(span1, file$a, 32, 10, 838);
     			attr_dev(div2, "class", "col-md-2");
-    			add_location(div2, file$9, 31, 8, 804);
+    			add_location(div2, file$a, 31, 8, 804);
     			attr_dev(div3, "class", "row header svelte-17go6fw");
-    			add_location(div3, file$9, 24, 6, 572);
+    			add_location(div3, file$a, 24, 6, 572);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "name", "");
     			attr_dev(input0, "class", "svelte-17go6fw");
-    			add_location(input0, file$9, 40, 10, 1109);
+    			add_location(input0, file$a, 40, 10, 1109);
     			attr_dev(div4, "class", "col-md-12 padding-reset svelte-17go6fw");
-    			add_location(div4, file$9, 39, 8, 1060);
+    			add_location(div4, file$a, 39, 8, 1060);
     			attr_dev(div5, "class", "row teaxtbox svelte-17go6fw");
-    			add_location(div5, file$9, 38, 6, 1024);
+    			add_location(div5, file$a, 38, 6, 1024);
     			attr_dev(input1, "type", "submit");
     			attr_dev(input1, "name", "");
     			input1.value = "√";
     			attr_dev(input1, "class", " svelte-17go6fw");
-    			add_location(input1, file$9, 49, 10, 1369);
+    			add_location(input1, file$a, 49, 10, 1369);
     			attr_dev(div6, "class", "col-3");
-    			add_location(div6, file$9, 48, 8, 1338);
+    			add_location(div6, file$a, 48, 8, 1338);
     			attr_dev(input2, "type", "submit");
     			attr_dev(input2, "name", "");
     			input2.value = "(";
     			attr_dev(input2, "class", " svelte-17go6fw");
-    			add_location(input2, file$9, 52, 10, 1482);
+    			add_location(input2, file$a, 52, 10, 1482);
     			attr_dev(div7, "class", "col-3");
-    			add_location(div7, file$9, 51, 8, 1451);
+    			add_location(div7, file$a, 51, 8, 1451);
     			attr_dev(input3, "type", "submit");
     			attr_dev(input3, "name", "");
     			input3.value = ")";
     			attr_dev(input3, "class", " svelte-17go6fw");
-    			add_location(input3, file$9, 55, 10, 1589);
+    			add_location(input3, file$a, 55, 10, 1589);
     			attr_dev(div8, "class", "col-3");
-    			add_location(div8, file$9, 54, 8, 1558);
+    			add_location(div8, file$a, 54, 8, 1558);
     			attr_dev(input4, "type", "submit");
     			attr_dev(input4, "name", "");
     			input4.value = "%";
     			attr_dev(input4, "class", " svelte-17go6fw");
-    			add_location(input4, file$9, 58, 10, 1696);
+    			add_location(input4, file$a, 58, 10, 1696);
     			attr_dev(div9, "class", "col-3");
-    			add_location(div9, file$9, 57, 8, 1665);
+    			add_location(div9, file$a, 57, 8, 1665);
     			attr_dev(input5, "type", "submit");
     			attr_dev(input5, "name", "");
     			attr_dev(input5, "class", "svelte-17go6fw");
-    			add_location(input5, file$9, 62, 10, 1832);
+    			add_location(input5, file$a, 62, 10, 1832);
     			attr_dev(div10, "class", "col-3");
-    			add_location(div10, file$9, 61, 8, 1801);
+    			add_location(div10, file$a, 61, 8, 1801);
     			attr_dev(input6, "type", "submit");
     			attr_dev(input6, "name", "");
     			attr_dev(input6, "class", "svelte-17go6fw");
-    			add_location(input6, file$9, 65, 10, 1966);
+    			add_location(input6, file$a, 65, 10, 1966);
     			attr_dev(div11, "class", "col-3");
-    			add_location(div11, file$9, 64, 8, 1935);
+    			add_location(div11, file$a, 64, 8, 1935);
     			attr_dev(input7, "type", "submit");
     			attr_dev(input7, "name", "");
     			attr_dev(input7, "class", "svelte-17go6fw");
-    			add_location(input7, file$9, 68, 10, 2099);
+    			add_location(input7, file$a, 68, 10, 2099);
     			attr_dev(div12, "class", "col-3");
-    			add_location(div12, file$9, 67, 8, 2068);
+    			add_location(div12, file$a, 67, 8, 2068);
     			attr_dev(input8, "type", "submit");
     			attr_dev(input8, "name", "");
     			attr_dev(input8, "class", " svelte-17go6fw");
-    			add_location(input8, file$9, 71, 10, 2232);
+    			add_location(input8, file$a, 71, 10, 2232);
     			attr_dev(div13, "class", "col-3");
-    			add_location(div13, file$9, 70, 8, 2201);
+    			add_location(div13, file$a, 70, 8, 2201);
     			attr_dev(input9, "type", "submit");
     			attr_dev(input9, "name", "");
     			input9.value = "4";
     			attr_dev(input9, "class", " svelte-17go6fw");
-    			add_location(input9, file$9, 75, 10, 2407);
+    			add_location(input9, file$a, 75, 10, 2407);
     			attr_dev(div14, "class", "col-3");
-    			add_location(div14, file$9, 74, 8, 2376);
+    			add_location(div14, file$a, 74, 8, 2376);
     			attr_dev(input10, "type", "submit");
     			attr_dev(input10, "name", "");
     			input10.value = "5";
     			attr_dev(input10, "class", " svelte-17go6fw");
-    			add_location(input10, file$9, 78, 10, 2542);
+    			add_location(input10, file$a, 78, 10, 2542);
     			attr_dev(div15, "class", "col-3");
-    			add_location(div15, file$9, 77, 8, 2511);
+    			add_location(div15, file$a, 77, 8, 2511);
     			attr_dev(input11, "type", "submit");
     			attr_dev(input11, "name", "");
     			input11.value = "6";
     			attr_dev(input11, "class", " svelte-17go6fw");
-    			add_location(input11, file$9, 81, 10, 2676);
+    			add_location(input11, file$a, 81, 10, 2676);
     			attr_dev(div16, "class", "col-3");
-    			add_location(div16, file$9, 80, 8, 2645);
+    			add_location(div16, file$a, 80, 8, 2645);
     			attr_dev(input12, "type", "submit");
     			attr_dev(input12, "name", "");
     			input12.value = "X";
     			attr_dev(input12, "class", " svelte-17go6fw");
-    			add_location(input12, file$9, 84, 10, 2810);
+    			add_location(input12, file$a, 84, 10, 2810);
     			attr_dev(div17, "class", "col-3");
-    			add_location(div17, file$9, 83, 8, 2779);
+    			add_location(div17, file$a, 83, 8, 2779);
     			attr_dev(input13, "type", "submit");
     			attr_dev(input13, "name", "");
     			input13.value = "1";
     			attr_dev(input13, "class", " svelte-17go6fw");
-    			add_location(input13, file$9, 88, 10, 2973);
+    			add_location(input13, file$a, 88, 10, 2973);
     			attr_dev(div18, "class", "col-3");
-    			add_location(div18, file$9, 87, 8, 2942);
+    			add_location(div18, file$a, 87, 8, 2942);
     			attr_dev(input14, "type", "submit");
     			attr_dev(input14, "name", "");
     			input14.value = "2";
     			attr_dev(input14, "class", " svelte-17go6fw");
-    			add_location(input14, file$9, 91, 10, 3107);
+    			add_location(input14, file$a, 91, 10, 3107);
     			attr_dev(div19, "class", "col-3");
-    			add_location(div19, file$9, 90, 8, 3076);
+    			add_location(div19, file$a, 90, 8, 3076);
     			attr_dev(input15, "type", "submit");
     			attr_dev(input15, "name", "");
     			input15.value = "3";
     			attr_dev(input15, "class", " svelte-17go6fw");
-    			add_location(input15, file$9, 94, 10, 3241);
+    			add_location(input15, file$a, 94, 10, 3241);
     			attr_dev(div20, "class", "col-3");
-    			add_location(div20, file$9, 93, 8, 3210);
+    			add_location(div20, file$a, 93, 8, 3210);
     			attr_dev(input16, "type", "submit");
     			attr_dev(input16, "name", "");
     			input16.value = "-";
     			attr_dev(input16, "class", " svelte-17go6fw");
-    			add_location(input16, file$9, 97, 10, 3375);
+    			add_location(input16, file$a, 97, 10, 3375);
     			attr_dev(div21, "class", "col-3");
-    			add_location(div21, file$9, 96, 8, 3344);
+    			add_location(div21, file$a, 96, 8, 3344);
     			attr_dev(div22, "class", "row commonbutton svelte-17go6fw");
-    			add_location(div22, file$9, 46, 6, 1270);
+    			add_location(div22, file$a, 46, 6, 1270);
     			attr_dev(input17, "type", "submit");
     			attr_dev(input17, "name", "");
     			input17.value = "0";
     			attr_dev(input17, "class", " svelte-17go6fw");
-    			add_location(input17, file$9, 107, 14, 3727);
+    			add_location(input17, file$a, 107, 14, 3727);
     			attr_dev(div23, "class", "col-md-8");
-    			add_location(div23, file$9, 106, 12, 3689);
+    			add_location(div23, file$a, 106, 12, 3689);
     			attr_dev(input18, "type", "submit");
     			attr_dev(input18, "name", "");
     			input18.value = ".";
     			attr_dev(input18, "class", " svelte-17go6fw");
-    			add_location(input18, file$9, 110, 14, 3849);
+    			add_location(input18, file$a, 110, 14, 3849);
     			attr_dev(div24, "class", "col-md-4");
-    			add_location(div24, file$9, 109, 12, 3811);
+    			add_location(div24, file$a, 109, 12, 3811);
     			attr_dev(input19, "type", "submit");
     			attr_dev(input19, "name", "");
     			input19.value = "Del";
     			attr_dev(input19, "id", "del");
     			attr_dev(input19, "class", "svelte-17go6fw");
-    			add_location(input19, file$9, 113, 14, 3971);
+    			add_location(input19, file$a, 113, 14, 3971);
     			attr_dev(div25, "class", "col-md-4");
-    			add_location(div25, file$9, 112, 12, 3933);
+    			add_location(div25, file$a, 112, 12, 3933);
     			attr_dev(input20, "type", "submit");
     			attr_dev(input20, "name", "");
     			input20.value = "=";
     			attr_dev(input20, "id", "equal");
     			attr_dev(input20, "class", "svelte-17go6fw");
-    			add_location(input20, file$9, 116, 14, 4095);
+    			add_location(input20, file$a, 116, 14, 4095);
     			attr_dev(div26, "class", "col-md-8");
-    			add_location(div26, file$9, 115, 12, 4057);
+    			add_location(div26, file$a, 115, 12, 4057);
     			attr_dev(div27, "class", "row");
-    			add_location(div27, file$9, 105, 10, 3658);
+    			add_location(div27, file$a, 105, 10, 3658);
     			attr_dev(div28, "class", "col-md-9");
-    			add_location(div28, file$9, 104, 8, 3624);
+    			add_location(div28, file$a, 104, 8, 3624);
     			attr_dev(input21, "type", "submit");
     			attr_dev(input21, "name", "");
     			input21.value = "+";
     			attr_dev(input21, "id", "plus");
     			attr_dev(input21, "class", "svelte-17go6fw");
-    			add_location(input21, file$9, 122, 10, 4302);
+    			add_location(input21, file$a, 122, 10, 4302);
     			attr_dev(div29, "class", "col-md-3");
-    			add_location(div29, file$9, 121, 8, 4268);
+    			add_location(div29, file$a, 121, 8, 4268);
     			attr_dev(div30, "class", "row conflict svelte-17go6fw");
-    			add_location(div30, file$9, 103, 6, 3588);
+    			add_location(div30, file$a, 103, 6, 3588);
     			attr_dev(div31, "class", "col-md-4 col-md-offset-4");
-    			add_location(div31, file$9, 22, 4, 486);
+    			add_location(div31, file$a, 22, 4, 486);
     			attr_dev(div32, "class", "row g-0 justify-content-center");
-    			add_location(div32, file$9, 21, 2, 436);
+    			add_location(div32, file$a, 21, 2, 436);
     			attr_dev(div33, "class", "container-fluid");
-    			add_location(div33, file$9, 20, 0, 403);
+    			add_location(div33, file$a, 20, 0, 403);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5044,8 +5047,8 @@ var app = (function () {
     				set_input_value(input8, /*numHash*/ ctx[3]);
     			}
     		},
-    		i: noop,
-    		o: noop,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div33);
     			mounted = false;
@@ -5055,7 +5058,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$9.name,
+    		id: create_fragment$a.name,
     		type: "component",
     		source: "",
     		ctx
@@ -5064,7 +5067,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$9($$self, $$props, $$invalidate) {
+    function instance$a($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Calculator', slots, []);
     	let num1 = 1, num2 = 2, num3 = 3, num7 = 7, num8 = 8, num9 = 9;
@@ -5188,13 +5191,13 @@ var app = (function () {
     class Calculator extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$9, create_fragment$9, safe_not_equal, {});
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Calculator",
     			options,
-    			id: create_fragment$9.name
+    			id: create_fragment$a.name
     		});
     	}
     }
@@ -5202,7 +5205,7 @@ var app = (function () {
     /* src\components\ActionTest.svelte generated by Svelte v3.44.3 */
 
     const { console: console_1$5 } = globals;
-    const file$8 = "src\\components\\ActionTest.svelte";
+    const file$9 = "src\\components\\ActionTest.svelte";
 
     // (15:0) {#if show}
     function create_if_block$2(ctx) {
@@ -5214,7 +5217,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			h1.textContent = "hello";
-    			add_location(h1, file$8, 15, 0, 298);
+    			add_location(h1, file$9, 15, 0, 298);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -5242,7 +5245,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$8(ctx) {
+    function create_fragment$9(ctx) {
     	let input;
     	let t;
     	let if_block_anchor;
@@ -5255,9 +5258,9 @@ var app = (function () {
     			input = element("input");
     			t = space();
     			if (if_block) if_block.c();
-    			if_block_anchor = empty();
+    			if_block_anchor = empty$1();
     			attr_dev(input, "type", "checkbox");
-    			add_location(input, file$8, 12, 0, 238);
+    			add_location(input, file$9, 12, 0, 238);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5290,8 +5293,8 @@ var app = (function () {
     				if_block = null;
     			}
     		},
-    		i: noop,
-    		o: noop,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(input);
     			if (detaching) detach_dev(t);
@@ -5304,7 +5307,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$8.name,
+    		id: create_fragment$9.name,
     		type: "component",
     		source: "",
     		ctx
@@ -5313,7 +5316,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$8($$self, $$props, $$invalidate) {
+    function instance$9($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('ActionTest', slots, []);
     	let show = false;
@@ -5355,13 +5358,13 @@ var app = (function () {
     class ActionTest extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {});
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "ActionTest",
     			options,
-    			id: create_fragment$8.name
+    			id: create_fragment$9.name
     		});
     	}
     }
@@ -5411,9 +5414,9 @@ var app = (function () {
     var Litepicker = /*@__PURE__*/getDefaultExportFromCjs(litepicker_umd);
 
     /* src\components\DateRange.svelte generated by Svelte v3.44.3 */
-    const file$7 = "src\\components\\DateRange.svelte";
+    const file$8 = "src\\components\\DateRange.svelte";
 
-    function create_fragment$7(ctx) {
+    function create_fragment$8(ctx) {
     	let p;
     	let t1;
     	let input;
@@ -5424,10 +5427,10 @@ var app = (function () {
     			p.textContent = "hi";
     			t1 = space();
     			input = element("input");
-    			add_location(p, file$7, 11, 0, 245);
+    			add_location(p, file$8, 11, 0, 245);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "id", "litepicker");
-    			add_location(input, file$7, 12, 0, 256);
+    			add_location(input, file$8, 12, 0, 256);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5437,9 +5440,9 @@ var app = (function () {
     			insert_dev(target, t1, anchor);
     			insert_dev(target, input, anchor);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
     			if (detaching) detach_dev(t1);
@@ -5449,7 +5452,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$7.name,
+    		id: create_fragment$8.name,
     		type: "component",
     		source: "",
     		ctx
@@ -5458,7 +5461,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$7($$self, $$props, $$invalidate) {
+    function instance$8($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('DateRange', slots, []);
 
@@ -5481,13 +5484,13 @@ var app = (function () {
     class DateRange extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "DateRange",
     			options,
-    			id: create_fragment$7.name
+    			id: create_fragment$8.name
     		});
     	}
     }
@@ -5495,9 +5498,9 @@ var app = (function () {
     /* src\components\InfiniteScroll.svelte generated by Svelte v3.44.3 */
 
     const { console: console_1$4 } = globals;
-    const file$6 = "src\\components\\InfiniteScroll.svelte";
+    const file$7 = "src\\components\\InfiniteScroll.svelte";
 
-    function get_each_context(ctx, list, i) {
+    function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[11] = list[i];
     	return child_ctx;
@@ -5511,7 +5514,7 @@ var app = (function () {
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
     	}
 
     	const block = {
@@ -5520,7 +5523,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			each_1_anchor = empty();
+    			each_1_anchor = empty$1();
     		},
     		m: function mount(target, anchor) {
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -5536,13 +5539,13 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context(ctx, each_value, i);
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     						transition_in(each_blocks[i], 1);
     					} else {
-    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
@@ -5561,7 +5564,7 @@ var app = (function () {
     				transition_in(each_blocks[i]);
     			}
     		},
-    		o: noop,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			destroy_each(each_blocks, detaching);
     			if (detaching) detach_dev(each_1_anchor);
@@ -5580,7 +5583,7 @@ var app = (function () {
     }
 
     // (61:16) {#each data as image}
-    function create_each_block(ctx) {
+    function create_each_block$1(ctx) {
     	let div;
     	let a;
     	let img_1;
@@ -5605,11 +5608,11 @@ var app = (function () {
     			if (!src_url_equal(img_1.src, img_1_src_value = /*image*/ ctx[11].urls.regular)) attr_dev(img_1, "src", img_1_src_value);
     			attr_dev(img_1, "alt", img_1_alt_value = /*image*/ ctx[11].alt_description);
     			attr_dev(img_1, "title", img_1_title_value = /*image*/ ctx[11].alt_description);
-    			add_location(img_1, file$6, 63, 16, 1997);
+    			add_location(img_1, file$7, 63, 16, 1997);
     			attr_dev(a, "href", a_href_value = /*image*/ ctx[11].links.html);
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$6, 62, 16, 1936);
-    			add_location(div, file$6, 61, 16, 1887);
+    			add_location(a, file$7, 62, 16, 1936);
+    			add_location(div, file$7, 61, 16, 1887);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5654,7 +5657,7 @@ var app = (function () {
     				});
     			}
     		},
-    		o: noop,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
     			mounted = false;
@@ -5664,7 +5667,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block.name,
+    		id: create_each_block$1.name,
     		type: "each",
     		source: "(61:16) {#each data as image}",
     		ctx
@@ -5673,7 +5676,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$6(ctx) {
+    function create_fragment$7(ctx) {
     	let div4;
     	let div3;
     	let div0;
@@ -5701,24 +5704,24 @@ var app = (function () {
     			div2 = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "title svelte-1e171vo");
-    			add_location(div0, file$6, 54, 8, 1585);
+    			add_location(div0, file$7, 54, 8, 1585);
     			if (!src_url_equal(img_1.src, img_1_src_value = "./images/loader.svg")) attr_dev(img_1, "src", img_1_src_value);
     			attr_dev(img_1, "alt", "loader img");
     			attr_dev(img_1, "class", "svelte-1e171vo");
-    			add_location(img_1, file$6, 56, 12, 1692);
+    			add_location(img_1, file$7, 56, 12, 1692);
     			attr_dev(div1, "class", div1_class_value = "loader " + /*loader*/ ctx[0] + " svelte-1e171vo");
-    			add_location(div1, file$6, 55, 8, 1649);
+    			add_location(div1, file$7, 55, 8, 1649);
     			attr_dev(div2, "class", "image-container svelte-1e171vo");
-    			add_location(div2, file$6, 58, 8, 1767);
+    			add_location(div2, file$7, 58, 8, 1767);
     			attr_dev(div3, "class", "elements svelte-1e171vo");
     			attr_dev(div3, "id", "elements");
     			set_style(div3, "height", /*height*/ ctx[1]);
-    			add_location(div3, file$6, 53, 4, 1513);
+    			add_location(div3, file$7, 53, 4, 1513);
     			attr_dev(div4, "class", "body");
     			attr_dev(div4, "id", "body");
     			set_style(div4, "height", "100vh");
     			set_style(div4, "overflow-x", "auto");
-    			add_location(div4, file$6, 52, 0, 1415);
+    			add_location(div4, file$7, 52, 0, 1415);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5769,7 +5772,7 @@ var app = (function () {
     		i: function intro(local) {
     			transition_in(if_block);
     		},
-    		o: noop,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
     			if (if_block) if_block.d();
@@ -5780,7 +5783,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$6.name,
+    		id: create_fragment$7.name,
     		type: "component",
     		source: "",
     		ctx
@@ -5792,7 +5795,7 @@ var app = (function () {
     const api_key = 'WWsBOsSnXbn9GJv3gucUMHYWJ3YHryd2uZMN1wWlIHk';
     const count = 10;
 
-    function instance$6($$self, $$props, $$invalidate) {
+    function instance$7($$self, $$props, $$invalidate) {
     	let data;
     	let height;
     	let { $$slots: slots = {}, $$scope } = $$props;
@@ -5892,57 +5895,73 @@ var app = (function () {
     class InfiniteScroll extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$6, create_fragment$6, safe_not_equal, {});
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "InfiniteScroll",
     			options,
-    			id: create_fragment$6.name
+    			id: create_fragment$7.name
     		});
     	}
     }
 
     /* src\components\TestCode.svelte generated by Svelte v3.44.3 */
 
-    const file$5 = "src\\components\\TestCode.svelte";
+    const file$6 = "src\\components\\TestCode.svelte";
 
-    function create_fragment$5(ctx) {
-    	let div2;
-    	let div1;
+    function create_fragment$6(ctx) {
+    	let div4;
+    	let div3;
     	let div0;
+    	let t0;
+    	let div1;
+    	let t1;
+    	let div2;
 
     	const block = {
     		c: function create() {
-    			div2 = element("div");
-    			div1 = element("div");
+    			div4 = element("div");
+    			div3 = element("div");
     			div0 = element("div");
-    			attr_dev(div0, "class", "dot svelte-zihgq3");
-    			add_location(div0, file$5, 2, 8, 56);
-    			attr_dev(div1, "class", "circle svelte-zihgq3");
-    			add_location(div1, file$5, 1, 4, 26);
-    			attr_dev(div2, "class", "parent svelte-zihgq3");
-    			add_location(div2, file$5, 0, 0, 0);
+    			t0 = space();
+    			div1 = element("div");
+    			t1 = space();
+    			div2 = element("div");
+    			attr_dev(div0, "class", "circle svelte-jfw7oi");
+    			add_location(div0, file$6, 2, 2, 45);
+    			attr_dev(div1, "class", "circle svelte-jfw7oi");
+    			add_location(div1, file$6, 3, 2, 75);
+    			attr_dev(div2, "class", "dot svelte-jfw7oi");
+    			add_location(div2, file$6, 4, 2, 105);
+    			attr_dev(div3, "class", "parent svelte-jfw7oi");
+    			add_location(div3, file$6, 1, 1, 21);
+    			attr_dev(div4, "class", "body svelte-jfw7oi");
+    			add_location(div4, file$6, 0, 0, 0);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div2, anchor);
-    			append_dev(div2, div1);
-    			append_dev(div1, div0);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div3);
+    			append_dev(div3, div0);
+    			append_dev(div3, t0);
+    			append_dev(div3, div1);
+    			append_dev(div3, t1);
+    			append_dev(div3, div2);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div2);
+    			if (detaching) detach_dev(div4);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$5.name,
+    		id: create_fragment$6.name,
     		type: "component",
     		source: "",
     		ctx
@@ -5951,7 +5970,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$5($$self, $$props) {
+    function instance$6($$self, $$props) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('TestCode', slots, []);
     	const writable_props = [];
@@ -5966,13 +5985,13 @@ var app = (function () {
     class TestCode extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
+    		init(this, options, instance$6, create_fragment$6, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "TestCode",
     			options,
-    			id: create_fragment$5.name
+    			id: create_fragment$6.name
     		});
     	}
     }
@@ -5980,9 +5999,9 @@ var app = (function () {
     /* src\components\JockTeller.svelte generated by Svelte v3.44.3 */
 
     const { console: console_1$3 } = globals;
-    const file$4 = "src\\components\\JockTeller.svelte";
+    const file$5 = "src\\components\\JockTeller.svelte";
 
-    function create_fragment$4(ctx) {
+    function create_fragment$5(ctx) {
     	let div1;
     	let button_1;
     	let t1;
@@ -6006,17 +6025,17 @@ var app = (function () {
     			img = element("img");
     			attr_dev(button_1, "id", "button");
     			attr_dev(button_1, "class", "svelte-136ekeo");
-    			add_location(button_1, file$4, 132, 4, 5498);
+    			add_location(button_1, file$5, 132, 4, 5498);
     			attr_dev(audio, "id", "audio");
     			audio.controls = true;
-    			add_location(audio, file$4, 133, 4, 5547);
+    			add_location(audio, file$5, 133, 4, 5547);
     			if (!src_url_equal(img.src, img_src_value = "images/spinner.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			add_location(img, file$4, 134, 22, 5692);
+    			add_location(img, file$5, 134, 22, 5692);
     			attr_dev(div0, "id", "loading");
-    			add_location(div0, file$4, 134, 4, 5674);
+    			add_location(div0, file$5, 134, 4, 5674);
     			attr_dev(div1, "class", "container svelte-136ekeo");
-    			add_location(div1, file$4, 131, 0, 5469);
+    			add_location(div1, file$5, 131, 0, 5469);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6035,9 +6054,9 @@ var app = (function () {
     				mounted = true;
     			}
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div1);
     			mounted = false;
@@ -6047,7 +6066,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$4.name,
+    		id: create_fragment$5.name,
     		type: "component",
     		source: "",
     		ctx
@@ -6058,7 +6077,7 @@ var app = (function () {
 
     const jockAudioAPIkey = '06d028ad85324cd89d340dfd22ace56b';
 
-    function instance$4($$self, $$props, $$invalidate) {
+    function instance$5($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('JockTeller', slots, []);
     	let button = null;
@@ -6275,13 +6294,13 @@ var app = (function () {
     class JockTeller extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$4, create_fragment$4, safe_not_equal, {});
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "JockTeller",
     			options,
-    			id: create_fragment$4.name
+    			id: create_fragment$5.name
     		});
     	}
     }
@@ -6289,9 +6308,9 @@ var app = (function () {
     /* src\components\AnimatedButton.svelte generated by Svelte v3.44.3 */
 
     const { console: console_1$2 } = globals;
-    const file$3 = "src\\components\\AnimatedButton.svelte";
+    const file$4 = "src\\components\\AnimatedButton.svelte";
 
-    function create_fragment$3(ctx) {
+    function create_fragment$4(ctx) {
     	let div;
     	let a0;
     	let span0;
@@ -6319,28 +6338,28 @@ var app = (function () {
     			span2 = element("span");
     			span2.textContent = "button3";
     			attr_dev(span0, "class", "svelte-1yvwctb");
-    			add_location(span0, file$3, 9, 48, 197);
+    			add_location(span0, file$4, 9, 48, 197);
     			attr_dev(a0, "href", "#");
     			set_style(a0, "--color", "#ff22bb");
     			set_style(a0, "--i", "0");
     			attr_dev(a0, "class", "svelte-1yvwctb");
-    			add_location(a0, file$3, 9, 4, 153);
+    			add_location(a0, file$4, 9, 4, 153);
     			attr_dev(span1, "class", "svelte-1yvwctb");
-    			add_location(span1, file$3, 10, 48, 271);
+    			add_location(span1, file$4, 10, 48, 271);
     			attr_dev(a1, "href", "#");
     			set_style(a1, "--color", "#00ccff");
     			set_style(a1, "--i", "1");
     			attr_dev(a1, "class", "svelte-1yvwctb");
-    			add_location(a1, file$3, 10, 4, 227);
+    			add_location(a1, file$4, 10, 4, 227);
     			attr_dev(span2, "class", "svelte-1yvwctb");
-    			add_location(span2, file$3, 11, 48, 345);
+    			add_location(span2, file$4, 11, 48, 345);
     			attr_dev(a2, "href", "#");
     			set_style(a2, "--color", "#22e622");
     			set_style(a2, "--i", "2");
     			attr_dev(a2, "class", "svelte-1yvwctb");
-    			add_location(a2, file$3, 11, 4, 301);
+    			add_location(a2, file$4, 11, 4, 301);
     			attr_dev(div, "class", "parent svelte-1yvwctb");
-    			add_location(div, file$3, 8, 0, 118);
+    			add_location(div, file$4, 8, 0, 118);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6361,9 +6380,9 @@ var app = (function () {
     				mounted = true;
     			}
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
     			mounted = false;
@@ -6373,7 +6392,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$3.name,
+    		id: create_fragment$4.name,
     		type: "component",
     		source: "",
     		ctx
@@ -6382,7 +6401,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$3($$self, $$props, $$invalidate) {
+    function instance$4($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('AnimatedButton', slots, []);
 
@@ -6407,13 +6426,13 @@ var app = (function () {
     class AnimatedButton extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "AnimatedButton",
     			options,
-    			id: create_fragment$3.name
+    			id: create_fragment$4.name
     		});
     	}
     }
@@ -6421,9 +6440,9 @@ var app = (function () {
     /* src\components\LightDarkTheme.svelte generated by Svelte v3.44.3 */
 
     const { console: console_1$1 } = globals;
-    const file$2 = "src\\components\\LightDarkTheme.svelte";
+    const file$3 = "src\\components\\LightDarkTheme.svelte";
 
-    function create_fragment$2(ctx) {
+    function create_fragment$3(ctx) {
     	let div11;
     	let div2;
     	let div0;
@@ -6607,125 +6626,125 @@ var app = (function () {
     			i6 = element("i");
     			attr_dev(span, "class", "toggle-text svelte-1i2joj3");
     			attr_dev(span, "id", "toggle-text");
-    			add_location(span, file$2, 68, 12, 2914);
+    			add_location(span, file$3, 68, 12, 2914);
     			attr_dev(i0, "class", "fas fa-sun svelte-1i2joj3");
     			attr_dev(i0, "id", "toggle-icon");
-    			add_location(i0, file$2, 69, 12, 2988);
-    			add_location(div0, file$2, 67, 8, 2895);
+    			add_location(i0, file$3, 69, 12, 2988);
+    			add_location(div0, file$3, 67, 8, 2895);
     			attr_dev(input, "type", "checkbox");
     			attr_dev(input, "class", "svelte-1i2joj3");
-    			add_location(input, file$2, 72, 12, 3099);
+    			add_location(input, file$3, 72, 12, 3099);
     			attr_dev(div1, "class", "slider round svelte-1i2joj3");
-    			add_location(div1, file$2, 73, 12, 3136);
+    			add_location(div1, file$3, 73, 12, 3136);
     			attr_dev(label, "class", "theme-switch svelte-1i2joj3");
-    			add_location(label, file$2, 71, 8, 3057);
+    			add_location(label, file$3, 71, 8, 3057);
     			attr_dev(div2, "class", "theme-switch-wrapper svelte-1i2joj3");
-    			add_location(div2, file$2, 66, 4, 2851);
+    			add_location(div2, file$3, 66, 4, 2851);
     			attr_dev(a0, "href", "#home");
     			attr_dev(a0, "class", "svelte-1i2joj3");
-    			add_location(a0, file$2, 78, 8, 3254);
+    			add_location(a0, file$3, 78, 8, 3254);
     			attr_dev(a1, "href", "#about");
     			attr_dev(a1, "class", "svelte-1i2joj3");
-    			add_location(a1, file$2, 79, 8, 3288);
+    			add_location(a1, file$3, 79, 8, 3288);
     			attr_dev(a2, "href", "#projects");
     			attr_dev(a2, "class", "svelte-1i2joj3");
-    			add_location(a2, file$2, 80, 8, 3324);
+    			add_location(a2, file$3, 80, 8, 3324);
     			attr_dev(a3, "href", "#contact");
     			attr_dev(a3, "class", "svelte-1i2joj3");
-    			add_location(a3, file$2, 81, 8, 3366);
+    			add_location(a3, file$3, 81, 8, 3366);
     			attr_dev(nav_1, "id", "nav");
     			attr_dev(nav_1, "class", "svelte-1i2joj3");
-    			add_location(nav_1, file$2, 77, 4, 3230);
+    			add_location(nav_1, file$3, 77, 4, 3230);
     			attr_dev(h10, "class", "svelte-1i2joj3");
-    			add_location(h10, file$2, 86, 12, 3509);
+    			add_location(h10, file$3, 86, 12, 3509);
     			attr_dev(h20, "class", "svelte-1i2joj3");
-    			add_location(h20, file$2, 87, 12, 3550);
+    			add_location(h20, file$3, 87, 12, 3550);
     			attr_dev(div3, "class", "title-group svelte-1i2joj3");
-    			add_location(div3, file$2, 85, 8, 3470);
+    			add_location(div3, file$3, 85, 8, 3470);
     			attr_dev(section0, "id", "home");
     			attr_dev(section0, "class", "svelte-1i2joj3");
-    			add_location(section0, file$2, 84, 4, 3441);
+    			add_location(section0, file$3, 84, 4, 3441);
     			attr_dev(h11, "class", "svelte-1i2joj3");
-    			add_location(h11, file$2, 91, 8, 3679);
+    			add_location(h11, file$3, 91, 8, 3679);
     			attr_dev(h21, "class", "svelte-1i2joj3");
-    			add_location(h21, file$2, 94, 16, 3810);
+    			add_location(h21, file$3, 94, 16, 3810);
     			if (!src_url_equal(img0.src, img0_src_value = "images/undraw_proud_coder_light.svg")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "proud coder");
     			attr_dev(img0, "id", "image1");
     			attr_dev(img0, "class", "svelte-1i2joj3");
-    			add_location(img0, file$2, 95, 16, 3850);
+    			add_location(img0, file$3, 95, 16, 3850);
     			attr_dev(div4, "class", "image-container svelte-1i2joj3");
-    			add_location(div4, file$2, 93, 12, 3763);
+    			add_location(div4, file$3, 93, 12, 3763);
     			attr_dev(h22, "class", "svelte-1i2joj3");
-    			add_location(h22, file$2, 99, 16, 4025);
+    			add_location(h22, file$3, 99, 16, 4025);
     			if (!src_url_equal(img1.src, img1_src_value = "images/undraw_feeling_proud_light.svg")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "proud coder");
     			attr_dev(img1, "id", "image2");
     			attr_dev(img1, "class", "svelte-1i2joj3");
-    			add_location(img1, file$2, 100, 16, 4067);
+    			add_location(img1, file$3, 100, 16, 4067);
     			attr_dev(div5, "class", "image-container svelte-1i2joj3");
-    			add_location(div5, file$2, 98, 12, 3978);
+    			add_location(div5, file$3, 98, 12, 3978);
     			attr_dev(h23, "class", "svelte-1i2joj3");
-    			add_location(h23, file$2, 104, 16, 4245);
+    			add_location(h23, file$3, 104, 16, 4245);
     			if (!src_url_equal(img2.src, img2_src_value = "images/undraw_conceptual_idea_light.svg")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "proud coder");
     			attr_dev(img2, "id", "image3");
     			attr_dev(img2, "class", "svelte-1i2joj3");
-    			add_location(img2, file$2, 105, 16, 4284);
+    			add_location(img2, file$3, 105, 16, 4284);
     			attr_dev(div6, "class", "image-container svelte-1i2joj3");
-    			add_location(div6, file$2, 103, 12, 4198);
+    			add_location(div6, file$3, 103, 12, 4198);
     			attr_dev(div7, "class", "about-container svelte-1i2joj3");
-    			add_location(div7, file$2, 92, 8, 3720);
+    			add_location(div7, file$3, 92, 8, 3720);
     			attr_dev(section1, "id", "about");
     			attr_dev(section1, "class", "svelte-1i2joj3");
-    			add_location(section1, file$2, 90, 4, 3648);
+    			add_location(section1, file$3, 90, 4, 3648);
     			attr_dev(h12, "class", "svelte-1i2joj3");
-    			add_location(h12, file$2, 111, 8, 4474);
+    			add_location(h12, file$3, 111, 8, 4474);
     			attr_dev(button0, "class", "primary svelte-1i2joj3");
-    			add_location(button0, file$2, 113, 12, 4539);
+    			add_location(button0, file$3, 113, 12, 4539);
     			attr_dev(button1, "class", "secondary svelte-1i2joj3");
-    			add_location(button1, file$2, 114, 12, 4593);
+    			add_location(button1, file$3, 114, 12, 4593);
     			attr_dev(button2, "class", "primary svelte-1i2joj3");
     			button2.disabled = true;
-    			add_location(button2, file$2, 115, 12, 4651);
+    			add_location(button2, file$3, 115, 12, 4651);
     			attr_dev(button3, "class", "outline svelte-1i2joj3");
-    			add_location(button3, file$2, 116, 12, 4715);
+    			add_location(button3, file$3, 116, 12, 4715);
     			attr_dev(button4, "class", "secondary outline svelte-1i2joj3");
-    			add_location(button4, file$2, 117, 12, 4769);
+    			add_location(button4, file$3, 117, 12, 4769);
     			attr_dev(button5, "class", "outline svelte-1i2joj3");
     			button5.disabled = true;
-    			add_location(button5, file$2, 118, 12, 4837);
+    			add_location(button5, file$3, 118, 12, 4837);
     			attr_dev(div8, "class", "buttons svelte-1i2joj3");
-    			add_location(div8, file$2, 112, 8, 4504);
+    			add_location(div8, file$3, 112, 8, 4504);
     			attr_dev(p, "class", "svelte-1i2joj3");
-    			add_location(p, file$2, 121, 12, 4963);
+    			add_location(p, file$3, 121, 12, 4963);
     			attr_dev(div9, "class", "text-box svelte-1i2joj3");
     			attr_dev(div9, "id", "text-box");
-    			add_location(div9, file$2, 120, 8, 4913);
+    			add_location(div9, file$3, 120, 8, 4913);
     			attr_dev(section2, "id", "projects");
     			attr_dev(section2, "class", "svelte-1i2joj3");
-    			add_location(section2, file$2, 110, 4, 4441);
+    			add_location(section2, file$3, 110, 4, 4441);
     			attr_dev(i1, "class", "fab fa-github svelte-1i2joj3");
-    			add_location(i1, file$2, 126, 12, 5481);
+    			add_location(i1, file$3, 126, 12, 5481);
     			attr_dev(i2, "class", "fab fa-codepen svelte-1i2joj3");
-    			add_location(i2, file$2, 127, 12, 5524);
+    			add_location(i2, file$3, 127, 12, 5524);
     			attr_dev(i3, "class", "fab fa-linkedin svelte-1i2joj3");
-    			add_location(i3, file$2, 128, 12, 5568);
+    			add_location(i3, file$3, 128, 12, 5568);
     			attr_dev(i4, "class", "fab fa-medium svelte-1i2joj3");
-    			add_location(i4, file$2, 129, 12, 5613);
+    			add_location(i4, file$3, 129, 12, 5613);
     			attr_dev(i5, "class", "fab fa-instagram svelte-1i2joj3");
-    			add_location(i5, file$2, 130, 12, 5656);
+    			add_location(i5, file$3, 130, 12, 5656);
     			attr_dev(i6, "class", "fab fa-youtube svelte-1i2joj3");
-    			add_location(i6, file$2, 131, 12, 5702);
+    			add_location(i6, file$3, 131, 12, 5702);
     			attr_dev(div10, "class", "social-icons");
-    			add_location(div10, file$2, 125, 8, 5441);
+    			add_location(div10, file$3, 125, 8, 5441);
     			attr_dev(section3, "id", "contact");
     			attr_dev(section3, "class", "svelte-1i2joj3");
-    			add_location(section3, file$2, 124, 4, 5407);
+    			add_location(section3, file$3, 124, 4, 5407);
     			attr_dev(div11, "class", "parent svelte-1i2joj3");
     			attr_dev(div11, "style", /*dark*/ ctx[0]);
     			attr_dev(div11, "id", "parent");
-    			add_location(div11, file$2, 65, 0, 2797);
+    			add_location(div11, file$3, 65, 0, 2797);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6815,8 +6834,8 @@ var app = (function () {
     				attr_dev(div11, "style", /*dark*/ ctx[0]);
     			}
     		},
-    		i: noop,
-    		o: noop,
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div11);
     		}
@@ -6824,7 +6843,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$2.name,
+    		id: create_fragment$3.name,
     		type: "component",
     		source: "",
     		ctx
@@ -6833,7 +6852,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$2($$self, $$props, $$invalidate) {
+    function instance$3($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('LightDarkTheme', slots, []);
     	let dark = null;
@@ -6961,11 +6980,4869 @@ var app = (function () {
     class LightDarkTheme extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "LightDarkTheme",
+    			options,
+    			id: create_fragment$3.name
+    		});
+    	}
+    }
+
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
+
+    var __assign = function() {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
+    };
+
+    function __decorate(decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    }
+
+    function __spreadArrays() {
+        for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+        for (var r = Array(s), k = 0, i = 0; i < il; i++)
+            for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+                r[k] = a[j];
+        return r;
+    }
+
+    var check = function (it) {
+      return it && it.Math == Math && it;
+    };
+
+    // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+    var global$1 =
+      // eslint-disable-next-line es/no-global-this -- safe
+      check(typeof globalThis == 'object' && globalThis) ||
+      check(typeof window == 'object' && window) ||
+      // eslint-disable-next-line no-restricted-globals -- safe
+      check(typeof self == 'object' && self) ||
+      check(typeof commonjsGlobal == 'object' && commonjsGlobal) ||
+      // eslint-disable-next-line no-new-func -- fallback
+      (function () { return this; })() || Function('return this')();
+
+    var fails = function (exec) {
+      try {
+        return !!exec();
+      } catch (error) {
+        return true;
+      }
+    };
+
+    var functionBindNative = !fails(function () {
+      var test = (function () { /* empty */ }).bind();
+      // eslint-disable-next-line no-prototype-builtins -- safe
+      return typeof test != 'function' || test.hasOwnProperty('prototype');
+    });
+
+    var FunctionPrototype$1 = Function.prototype;
+    var bind$1 = FunctionPrototype$1.bind;
+    var call$1 = FunctionPrototype$1.call;
+    var uncurryThis = functionBindNative && bind$1.bind(call$1, call$1);
+
+    var functionUncurryThis = functionBindNative ? function (fn) {
+      return fn && uncurryThis(fn);
+    } : function (fn) {
+      return fn && function () {
+        return call$1.apply(fn, arguments);
+      };
+    };
+
+    var toString$2 = functionUncurryThis({}.toString);
+    var stringSlice$1 = functionUncurryThis(''.slice);
+
+    var classofRaw = function (it) {
+      return stringSlice$1(toString$2(it), 8, -1);
+    };
+
+    var Object$5 = global$1.Object;
+    var split = functionUncurryThis(''.split);
+
+    // fallback for non-array-like ES3 and non-enumerable old V8 strings
+    var indexedObject = fails(function () {
+      // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
+      // eslint-disable-next-line no-prototype-builtins -- safe
+      return !Object$5('z').propertyIsEnumerable(0);
+    }) ? function (it) {
+      return classofRaw(it) == 'String' ? split(it, '') : Object$5(it);
+    } : Object$5;
+
+    var TypeError$b = global$1.TypeError;
+
+    // `RequireObjectCoercible` abstract operation
+    // https://tc39.es/ecma262/#sec-requireobjectcoercible
+    var requireObjectCoercible = function (it) {
+      if (it == undefined) throw TypeError$b("Can't call method on " + it);
+      return it;
+    };
+
+    // toObject with fallback for non-array-like ES3 strings
+
+
+
+    var toIndexedObject = function (it) {
+      return indexedObject(requireObjectCoercible(it));
+    };
+
+    // eslint-disable-next-line es/no-object-defineproperty -- safe
+    var defineProperty$4 = Object.defineProperty;
+
+    var setGlobal = function (key, value) {
+      try {
+        defineProperty$4(global$1, key, { value: value, configurable: true, writable: true });
+      } catch (error) {
+        global$1[key] = value;
+      } return value;
+    };
+
+    var SHARED = '__core-js_shared__';
+    var store$1 = global$1[SHARED] || setGlobal(SHARED, {});
+
+    var sharedStore = store$1;
+
+    var shared = createCommonjsModule(function (module) {
+    (module.exports = function (key, value) {
+      return sharedStore[key] || (sharedStore[key] = value !== undefined ? value : {});
+    })('versions', []).push({
+      version: '3.20.3',
+      mode: 'global',
+      copyright: '© 2014-2022 Denis Pushkarev (zloirock.ru)',
+      license: 'https://github.com/zloirock/core-js/blob/v3.20.3/LICENSE',
+      source: 'https://github.com/zloirock/core-js'
+    });
+    });
+
+    var Object$4 = global$1.Object;
+
+    // `ToObject` abstract operation
+    // https://tc39.es/ecma262/#sec-toobject
+    var toObject = function (argument) {
+      return Object$4(requireObjectCoercible(argument));
+    };
+
+    var hasOwnProperty$1 = functionUncurryThis({}.hasOwnProperty);
+
+    // `HasOwnProperty` abstract operation
+    // https://tc39.es/ecma262/#sec-hasownproperty
+    var hasOwnProperty_1 = Object.hasOwn || function hasOwn(it, key) {
+      return hasOwnProperty$1(toObject(it), key);
+    };
+
+    var id$1 = 0;
+    var postfix = Math.random();
+    var toString$1 = functionUncurryThis(1.0.toString);
+
+    var uid = function (key) {
+      return 'Symbol(' + (key === undefined ? '' : key) + ')_' + toString$1(++id$1 + postfix, 36);
+    };
+
+    // `IsCallable` abstract operation
+    // https://tc39.es/ecma262/#sec-iscallable
+    var isCallable = function (argument) {
+      return typeof argument == 'function';
+    };
+
+    var aFunction = function (argument) {
+      return isCallable(argument) ? argument : undefined;
+    };
+
+    var getBuiltIn = function (namespace, method) {
+      return arguments.length < 2 ? aFunction(global$1[namespace]) : global$1[namespace] && global$1[namespace][method];
+    };
+
+    var engineUserAgent = getBuiltIn('navigator', 'userAgent') || '';
+
+    var process$1 = global$1.process;
+    var Deno = global$1.Deno;
+    var versions = process$1 && process$1.versions || Deno && Deno.version;
+    var v8 = versions && versions.v8;
+    var match, version;
+
+    if (v8) {
+      match = v8.split('.');
+      // in old Chrome, versions of V8 isn't V8 = Chrome / 10
+      // but their correct versions are not interesting for us
+      version = match[0] > 0 && match[0] < 4 ? 1 : +(match[0] + match[1]);
+    }
+
+    // BrowserFS NodeJS `process` polyfill incorrectly set `.v8` to `0.0`
+    // so check `userAgent` even if `.v8` exists, but 0
+    if (!version && engineUserAgent) {
+      match = engineUserAgent.match(/Edge\/(\d+)/);
+      if (!match || match[1] >= 74) {
+        match = engineUserAgent.match(/Chrome\/(\d+)/);
+        if (match) version = +match[1];
+      }
+    }
+
+    var engineV8Version = version;
+
+    /* eslint-disable es/no-symbol -- required for testing */
+
+    // eslint-disable-next-line es/no-object-getownpropertysymbols -- required for testing
+    var nativeSymbol = !!Object.getOwnPropertySymbols && !fails(function () {
+      var symbol = Symbol();
+      // Chrome 38 Symbol has incorrect toString conversion
+      // `get-own-property-symbols` polyfill symbols converted to object are not Symbol instances
+      return !String(symbol) || !(Object(symbol) instanceof Symbol) ||
+        // Chrome 38-40 symbols are not inherited from DOM collections prototypes to instances
+        !Symbol.sham && engineV8Version && engineV8Version < 41;
+    });
+
+    /* eslint-disable es/no-symbol -- required for testing */
+
+    var useSymbolAsUid = nativeSymbol
+      && !Symbol.sham
+      && typeof Symbol.iterator == 'symbol';
+
+    var WellKnownSymbolsStore = shared('wks');
+    var Symbol$3 = global$1.Symbol;
+    var symbolFor = Symbol$3 && Symbol$3['for'];
+    var createWellKnownSymbol = useSymbolAsUid ? Symbol$3 : Symbol$3 && Symbol$3.withoutSetter || uid;
+
+    var wellKnownSymbol = function (name) {
+      if (!hasOwnProperty_1(WellKnownSymbolsStore, name) || !(nativeSymbol || typeof WellKnownSymbolsStore[name] == 'string')) {
+        var description = 'Symbol.' + name;
+        if (nativeSymbol && hasOwnProperty_1(Symbol$3, name)) {
+          WellKnownSymbolsStore[name] = Symbol$3[name];
+        } else if (useSymbolAsUid && symbolFor) {
+          WellKnownSymbolsStore[name] = symbolFor(description);
+        } else {
+          WellKnownSymbolsStore[name] = createWellKnownSymbol(description);
+        }
+      } return WellKnownSymbolsStore[name];
+    };
+
+    var isObject$1 = function (it) {
+      return typeof it == 'object' ? it !== null : isCallable(it);
+    };
+
+    var String$4 = global$1.String;
+    var TypeError$a = global$1.TypeError;
+
+    // `Assert: Type(argument) is Object`
+    var anObject = function (argument) {
+      if (isObject$1(argument)) return argument;
+      throw TypeError$a(String$4(argument) + ' is not an object');
+    };
+
+    // Detect IE8's incomplete defineProperty implementation
+    var descriptors = !fails(function () {
+      // eslint-disable-next-line es/no-object-defineproperty -- required for testing
+      return Object.defineProperty({}, 1, { get: function () { return 7; } })[1] != 7;
+    });
+
+    // V8 ~ Chrome 36-
+    // https://bugs.chromium.org/p/v8/issues/detail?id=3334
+    var v8PrototypeDefineBug = descriptors && fails(function () {
+      // eslint-disable-next-line es/no-object-defineproperty -- required for testing
+      return Object.defineProperty(function () { /* empty */ }, 'prototype', {
+        value: 42,
+        writable: false
+      }).prototype != 42;
+    });
+
+    var document$1 = global$1.document;
+    // typeof document.createElement is 'object' in old IE
+    var EXISTS$1 = isObject$1(document$1) && isObject$1(document$1.createElement);
+
+    var documentCreateElement = function (it) {
+      return EXISTS$1 ? document$1.createElement(it) : {};
+    };
+
+    // Thanks to IE8 for its funny defineProperty
+    var ie8DomDefine = !descriptors && !fails(function () {
+      // eslint-disable-next-line es/no-object-defineproperty -- required for testing
+      return Object.defineProperty(documentCreateElement('div'), 'a', {
+        get: function () { return 7; }
+      }).a != 7;
+    });
+
+    var call = Function.prototype.call;
+
+    var functionCall = functionBindNative ? call.bind(call) : function () {
+      return call.apply(call, arguments);
+    };
+
+    var objectIsPrototypeOf = functionUncurryThis({}.isPrototypeOf);
+
+    var Object$3 = global$1.Object;
+
+    var isSymbol$1 = useSymbolAsUid ? function (it) {
+      return typeof it == 'symbol';
+    } : function (it) {
+      var $Symbol = getBuiltIn('Symbol');
+      return isCallable($Symbol) && objectIsPrototypeOf($Symbol.prototype, Object$3(it));
+    };
+
+    var String$3 = global$1.String;
+
+    var tryToString = function (argument) {
+      try {
+        return String$3(argument);
+      } catch (error) {
+        return 'Object';
+      }
+    };
+
+    var TypeError$9 = global$1.TypeError;
+
+    // `Assert: IsCallable(argument) is true`
+    var aCallable = function (argument) {
+      if (isCallable(argument)) return argument;
+      throw TypeError$9(tryToString(argument) + ' is not a function');
+    };
+
+    // `GetMethod` abstract operation
+    // https://tc39.es/ecma262/#sec-getmethod
+    var getMethod = function (V, P) {
+      var func = V[P];
+      return func == null ? undefined : aCallable(func);
+    };
+
+    var TypeError$8 = global$1.TypeError;
+
+    // `OrdinaryToPrimitive` abstract operation
+    // https://tc39.es/ecma262/#sec-ordinarytoprimitive
+    var ordinaryToPrimitive = function (input, pref) {
+      var fn, val;
+      if (pref === 'string' && isCallable(fn = input.toString) && !isObject$1(val = functionCall(fn, input))) return val;
+      if (isCallable(fn = input.valueOf) && !isObject$1(val = functionCall(fn, input))) return val;
+      if (pref !== 'string' && isCallable(fn = input.toString) && !isObject$1(val = functionCall(fn, input))) return val;
+      throw TypeError$8("Can't convert object to primitive value");
+    };
+
+    var TypeError$7 = global$1.TypeError;
+    var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
+
+    // `ToPrimitive` abstract operation
+    // https://tc39.es/ecma262/#sec-toprimitive
+    var toPrimitive = function (input, pref) {
+      if (!isObject$1(input) || isSymbol$1(input)) return input;
+      var exoticToPrim = getMethod(input, TO_PRIMITIVE);
+      var result;
+      if (exoticToPrim) {
+        if (pref === undefined) pref = 'default';
+        result = functionCall(exoticToPrim, input, pref);
+        if (!isObject$1(result) || isSymbol$1(result)) return result;
+        throw TypeError$7("Can't convert object to primitive value");
+      }
+      if (pref === undefined) pref = 'number';
+      return ordinaryToPrimitive(input, pref);
+    };
+
+    // `ToPropertyKey` abstract operation
+    // https://tc39.es/ecma262/#sec-topropertykey
+    var toPropertyKey = function (argument) {
+      var key = toPrimitive(argument, 'string');
+      return isSymbol$1(key) ? key : key + '';
+    };
+
+    var TypeError$6 = global$1.TypeError;
+    // eslint-disable-next-line es/no-object-defineproperty -- safe
+    var $defineProperty = Object.defineProperty;
+    // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+    var $getOwnPropertyDescriptor$1 = Object.getOwnPropertyDescriptor;
+    var ENUMERABLE = 'enumerable';
+    var CONFIGURABLE$1 = 'configurable';
+    var WRITABLE = 'writable';
+
+    // `Object.defineProperty` method
+    // https://tc39.es/ecma262/#sec-object.defineproperty
+    var f$6 = descriptors ? v8PrototypeDefineBug ? function defineProperty(O, P, Attributes) {
+      anObject(O);
+      P = toPropertyKey(P);
+      anObject(Attributes);
+      if (typeof O === 'function' && P === 'prototype' && 'value' in Attributes && WRITABLE in Attributes && !Attributes[WRITABLE]) {
+        var current = $getOwnPropertyDescriptor$1(O, P);
+        if (current && current[WRITABLE]) {
+          O[P] = Attributes.value;
+          Attributes = {
+            configurable: CONFIGURABLE$1 in Attributes ? Attributes[CONFIGURABLE$1] : current[CONFIGURABLE$1],
+            enumerable: ENUMERABLE in Attributes ? Attributes[ENUMERABLE] : current[ENUMERABLE],
+            writable: false
+          };
+        }
+      } return $defineProperty(O, P, Attributes);
+    } : $defineProperty : function defineProperty(O, P, Attributes) {
+      anObject(O);
+      P = toPropertyKey(P);
+      anObject(Attributes);
+      if (ie8DomDefine) try {
+        return $defineProperty(O, P, Attributes);
+      } catch (error) { /* empty */ }
+      if ('get' in Attributes || 'set' in Attributes) throw TypeError$6('Accessors not supported');
+      if ('value' in Attributes) O[P] = Attributes.value;
+      return O;
+    };
+
+    var objectDefineProperty = {
+    	f: f$6
+    };
+
+    var ceil = Math.ceil;
+    var floor = Math.floor;
+
+    // `ToIntegerOrInfinity` abstract operation
+    // https://tc39.es/ecma262/#sec-tointegerorinfinity
+    var toIntegerOrInfinity = function (argument) {
+      var number = +argument;
+      // eslint-disable-next-line no-self-compare -- safe
+      return number !== number || number === 0 ? 0 : (number > 0 ? floor : ceil)(number);
+    };
+
+    var max$2 = Math.max;
+    var min$2 = Math.min;
+
+    // Helper for a popular repeating case of the spec:
+    // Let integer be ? ToInteger(index).
+    // If integer < 0, let result be max((length + integer), 0); else let result be min(integer, length).
+    var toAbsoluteIndex = function (index, length) {
+      var integer = toIntegerOrInfinity(index);
+      return integer < 0 ? max$2(integer + length, 0) : min$2(integer, length);
+    };
+
+    var min$1 = Math.min;
+
+    // `ToLength` abstract operation
+    // https://tc39.es/ecma262/#sec-tolength
+    var toLength = function (argument) {
+      return argument > 0 ? min$1(toIntegerOrInfinity(argument), 0x1FFFFFFFFFFFFF) : 0; // 2 ** 53 - 1 == 9007199254740991
+    };
+
+    // `LengthOfArrayLike` abstract operation
+    // https://tc39.es/ecma262/#sec-lengthofarraylike
+    var lengthOfArrayLike = function (obj) {
+      return toLength(obj.length);
+    };
+
+    // `Array.prototype.{ indexOf, includes }` methods implementation
+    var createMethod$2 = function (IS_INCLUDES) {
+      return function ($this, el, fromIndex) {
+        var O = toIndexedObject($this);
+        var length = lengthOfArrayLike(O);
+        var index = toAbsoluteIndex(fromIndex, length);
+        var value;
+        // Array#includes uses SameValueZero equality algorithm
+        // eslint-disable-next-line no-self-compare -- NaN check
+        if (IS_INCLUDES && el != el) while (length > index) {
+          value = O[index++];
+          // eslint-disable-next-line no-self-compare -- NaN check
+          if (value != value) return true;
+        // Array#indexOf ignores holes, Array#includes - not
+        } else for (;length > index; index++) {
+          if ((IS_INCLUDES || index in O) && O[index] === el) return IS_INCLUDES || index || 0;
+        } return !IS_INCLUDES && -1;
+      };
+    };
+
+    var arrayIncludes = {
+      // `Array.prototype.includes` method
+      // https://tc39.es/ecma262/#sec-array.prototype.includes
+      includes: createMethod$2(true),
+      // `Array.prototype.indexOf` method
+      // https://tc39.es/ecma262/#sec-array.prototype.indexof
+      indexOf: createMethod$2(false)
+    };
+
+    var hiddenKeys$1 = {};
+
+    var indexOf = arrayIncludes.indexOf;
+
+
+    var push$1 = functionUncurryThis([].push);
+
+    var objectKeysInternal = function (object, names) {
+      var O = toIndexedObject(object);
+      var i = 0;
+      var result = [];
+      var key;
+      for (key in O) !hasOwnProperty_1(hiddenKeys$1, key) && hasOwnProperty_1(O, key) && push$1(result, key);
+      // Don't enum bug & hidden keys
+      while (names.length > i) if (hasOwnProperty_1(O, key = names[i++])) {
+        ~indexOf(result, key) || push$1(result, key);
+      }
+      return result;
+    };
+
+    // IE8- don't enum bug keys
+    var enumBugKeys = [
+      'constructor',
+      'hasOwnProperty',
+      'isPrototypeOf',
+      'propertyIsEnumerable',
+      'toLocaleString',
+      'toString',
+      'valueOf'
+    ];
+
+    // `Object.keys` method
+    // https://tc39.es/ecma262/#sec-object.keys
+    // eslint-disable-next-line es/no-object-keys -- safe
+    var objectKeys = Object.keys || function keys(O) {
+      return objectKeysInternal(O, enumBugKeys);
+    };
+
+    // `Object.defineProperties` method
+    // https://tc39.es/ecma262/#sec-object.defineproperties
+    // eslint-disable-next-line es/no-object-defineproperties -- safe
+    var f$5 = descriptors && !v8PrototypeDefineBug ? Object.defineProperties : function defineProperties(O, Properties) {
+      anObject(O);
+      var props = toIndexedObject(Properties);
+      var keys = objectKeys(Properties);
+      var length = keys.length;
+      var index = 0;
+      var key;
+      while (length > index) objectDefineProperty.f(O, key = keys[index++], props[key]);
+      return O;
+    };
+
+    var objectDefineProperties = {
+    	f: f$5
+    };
+
+    var html = getBuiltIn('document', 'documentElement');
+
+    var keys = shared('keys');
+
+    var sharedKey = function (key) {
+      return keys[key] || (keys[key] = uid(key));
+    };
+
+    /* global ActiveXObject -- old IE, WSH */
+
+    var GT = '>';
+    var LT = '<';
+    var PROTOTYPE = 'prototype';
+    var SCRIPT = 'script';
+    var IE_PROTO$1 = sharedKey('IE_PROTO');
+
+    var EmptyConstructor = function () { /* empty */ };
+
+    var scriptTag = function (content) {
+      return LT + SCRIPT + GT + content + LT + '/' + SCRIPT + GT;
+    };
+
+    // Create object with fake `null` prototype: use ActiveX Object with cleared prototype
+    var NullProtoObjectViaActiveX = function (activeXDocument) {
+      activeXDocument.write(scriptTag(''));
+      activeXDocument.close();
+      var temp = activeXDocument.parentWindow.Object;
+      activeXDocument = null; // avoid memory leak
+      return temp;
+    };
+
+    // Create object with fake `null` prototype: use iframe Object with cleared prototype
+    var NullProtoObjectViaIFrame = function () {
+      // Thrash, waste and sodomy: IE GC bug
+      var iframe = documentCreateElement('iframe');
+      var JS = 'java' + SCRIPT + ':';
+      var iframeDocument;
+      iframe.style.display = 'none';
+      html.appendChild(iframe);
+      // https://github.com/zloirock/core-js/issues/475
+      iframe.src = String(JS);
+      iframeDocument = iframe.contentWindow.document;
+      iframeDocument.open();
+      iframeDocument.write(scriptTag('document.F=Object'));
+      iframeDocument.close();
+      return iframeDocument.F;
+    };
+
+    // Check for document.domain and active x support
+    // No need to use active x approach when document.domain is not set
+    // see https://github.com/es-shims/es5-shim/issues/150
+    // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
+    // avoid IE GC bug
+    var activeXDocument;
+    var NullProtoObject = function () {
+      try {
+        activeXDocument = new ActiveXObject('htmlfile');
+      } catch (error) { /* ignore */ }
+      NullProtoObject = typeof document != 'undefined'
+        ? document.domain && activeXDocument
+          ? NullProtoObjectViaActiveX(activeXDocument) // old IE
+          : NullProtoObjectViaIFrame()
+        : NullProtoObjectViaActiveX(activeXDocument); // WSH
+      var length = enumBugKeys.length;
+      while (length--) delete NullProtoObject[PROTOTYPE][enumBugKeys[length]];
+      return NullProtoObject();
+    };
+
+    hiddenKeys$1[IE_PROTO$1] = true;
+
+    // `Object.create` method
+    // https://tc39.es/ecma262/#sec-object.create
+    var objectCreate = Object.create || function create(O, Properties) {
+      var result;
+      if (O !== null) {
+        EmptyConstructor[PROTOTYPE] = anObject(O);
+        result = new EmptyConstructor();
+        EmptyConstructor[PROTOTYPE] = null;
+        // add "__proto__" for Object.getPrototypeOf polyfill
+        result[IE_PROTO$1] = O;
+      } else result = NullProtoObject();
+      return Properties === undefined ? result : objectDefineProperties.f(result, Properties);
+    };
+
+    var UNSCOPABLES = wellKnownSymbol('unscopables');
+    var ArrayPrototype$1 = Array.prototype;
+
+    // Array.prototype[@@unscopables]
+    // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+    if (ArrayPrototype$1[UNSCOPABLES] == undefined) {
+      objectDefineProperty.f(ArrayPrototype$1, UNSCOPABLES, {
+        configurable: true,
+        value: objectCreate(null)
+      });
+    }
+
+    // add a key to Array.prototype[@@unscopables]
+    var addToUnscopables = function (key) {
+      ArrayPrototype$1[UNSCOPABLES][key] = true;
+    };
+
+    var iterators = {};
+
+    var functionToString = functionUncurryThis(Function.toString);
+
+    // this helper broken in `core-js@3.4.1-3.4.4`, so we can't use `shared` helper
+    if (!isCallable(sharedStore.inspectSource)) {
+      sharedStore.inspectSource = function (it) {
+        return functionToString(it);
+      };
+    }
+
+    var inspectSource = sharedStore.inspectSource;
+
+    var WeakMap$2 = global$1.WeakMap;
+
+    var nativeWeakMap = isCallable(WeakMap$2) && /native code/.test(inspectSource(WeakMap$2));
+
+    var createPropertyDescriptor = function (bitmap, value) {
+      return {
+        enumerable: !(bitmap & 1),
+        configurable: !(bitmap & 2),
+        writable: !(bitmap & 4),
+        value: value
+      };
+    };
+
+    var createNonEnumerableProperty = descriptors ? function (object, key, value) {
+      return objectDefineProperty.f(object, key, createPropertyDescriptor(1, value));
+    } : function (object, key, value) {
+      object[key] = value;
+      return object;
+    };
+
+    var OBJECT_ALREADY_INITIALIZED = 'Object already initialized';
+    var TypeError$5 = global$1.TypeError;
+    var WeakMap$1 = global$1.WeakMap;
+    var set, get, has;
+
+    var enforce = function (it) {
+      return has(it) ? get(it) : set(it, {});
+    };
+
+    var getterFor = function (TYPE) {
+      return function (it) {
+        var state;
+        if (!isObject$1(it) || (state = get(it)).type !== TYPE) {
+          throw TypeError$5('Incompatible receiver, ' + TYPE + ' required');
+        } return state;
+      };
+    };
+
+    if (nativeWeakMap || sharedStore.state) {
+      var store = sharedStore.state || (sharedStore.state = new WeakMap$1());
+      var wmget = functionUncurryThis(store.get);
+      var wmhas = functionUncurryThis(store.has);
+      var wmset = functionUncurryThis(store.set);
+      set = function (it, metadata) {
+        if (wmhas(store, it)) throw new TypeError$5(OBJECT_ALREADY_INITIALIZED);
+        metadata.facade = it;
+        wmset(store, it, metadata);
+        return metadata;
+      };
+      get = function (it) {
+        return wmget(store, it) || {};
+      };
+      has = function (it) {
+        return wmhas(store, it);
+      };
+    } else {
+      var STATE = sharedKey('state');
+      hiddenKeys$1[STATE] = true;
+      set = function (it, metadata) {
+        if (hasOwnProperty_1(it, STATE)) throw new TypeError$5(OBJECT_ALREADY_INITIALIZED);
+        metadata.facade = it;
+        createNonEnumerableProperty(it, STATE, metadata);
+        return metadata;
+      };
+      get = function (it) {
+        return hasOwnProperty_1(it, STATE) ? it[STATE] : {};
+      };
+      has = function (it) {
+        return hasOwnProperty_1(it, STATE);
+      };
+    }
+
+    var internalState = {
+      set: set,
+      get: get,
+      has: has,
+      enforce: enforce,
+      getterFor: getterFor
+    };
+
+    var $propertyIsEnumerable = {}.propertyIsEnumerable;
+    // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+    var getOwnPropertyDescriptor$1 = Object.getOwnPropertyDescriptor;
+
+    // Nashorn ~ JDK8 bug
+    var NASHORN_BUG = getOwnPropertyDescriptor$1 && !$propertyIsEnumerable.call({ 1: 2 }, 1);
+
+    // `Object.prototype.propertyIsEnumerable` method implementation
+    // https://tc39.es/ecma262/#sec-object.prototype.propertyisenumerable
+    var f$4 = NASHORN_BUG ? function propertyIsEnumerable(V) {
+      var descriptor = getOwnPropertyDescriptor$1(this, V);
+      return !!descriptor && descriptor.enumerable;
+    } : $propertyIsEnumerable;
+
+    var objectPropertyIsEnumerable = {
+    	f: f$4
+    };
+
+    // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+    var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+
+    // `Object.getOwnPropertyDescriptor` method
+    // https://tc39.es/ecma262/#sec-object.getownpropertydescriptor
+    var f$3 = descriptors ? $getOwnPropertyDescriptor : function getOwnPropertyDescriptor(O, P) {
+      O = toIndexedObject(O);
+      P = toPropertyKey(P);
+      if (ie8DomDefine) try {
+        return $getOwnPropertyDescriptor(O, P);
+      } catch (error) { /* empty */ }
+      if (hasOwnProperty_1(O, P)) return createPropertyDescriptor(!functionCall(objectPropertyIsEnumerable.f, O, P), O[P]);
+    };
+
+    var objectGetOwnPropertyDescriptor = {
+    	f: f$3
+    };
+
+    var FunctionPrototype = Function.prototype;
+    // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+    var getDescriptor = descriptors && Object.getOwnPropertyDescriptor;
+
+    var EXISTS = hasOwnProperty_1(FunctionPrototype, 'name');
+    // additional protection from minified / mangled / dropped function names
+    var PROPER = EXISTS && (function something() { /* empty */ }).name === 'something';
+    var CONFIGURABLE = EXISTS && (!descriptors || (descriptors && getDescriptor(FunctionPrototype, 'name').configurable));
+
+    var functionName = {
+      EXISTS: EXISTS,
+      PROPER: PROPER,
+      CONFIGURABLE: CONFIGURABLE
+    };
+
+    var redefine = createCommonjsModule(function (module) {
+    var CONFIGURABLE_FUNCTION_NAME = functionName.CONFIGURABLE;
+
+    var getInternalState = internalState.get;
+    var enforceInternalState = internalState.enforce;
+    var TEMPLATE = String(String).split('String');
+
+    (module.exports = function (O, key, value, options) {
+      var unsafe = options ? !!options.unsafe : false;
+      var simple = options ? !!options.enumerable : false;
+      var noTargetGet = options ? !!options.noTargetGet : false;
+      var name = options && options.name !== undefined ? options.name : key;
+      var state;
+      if (isCallable(value)) {
+        if (String(name).slice(0, 7) === 'Symbol(') {
+          name = '[' + String(name).replace(/^Symbol\(([^)]*)\)/, '$1') + ']';
+        }
+        if (!hasOwnProperty_1(value, 'name') || (CONFIGURABLE_FUNCTION_NAME && value.name !== name)) {
+          createNonEnumerableProperty(value, 'name', name);
+        }
+        state = enforceInternalState(value);
+        if (!state.source) {
+          state.source = TEMPLATE.join(typeof name == 'string' ? name : '');
+        }
+      }
+      if (O === global$1) {
+        if (simple) O[key] = value;
+        else setGlobal(key, value);
+        return;
+      } else if (!unsafe) {
+        delete O[key];
+      } else if (!noTargetGet && O[key]) {
+        simple = true;
+      }
+      if (simple) O[key] = value;
+      else createNonEnumerableProperty(O, key, value);
+    // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+    })(Function.prototype, 'toString', function toString() {
+      return isCallable(this) && getInternalState(this).source || inspectSource(this);
+    });
+    });
+
+    var hiddenKeys = enumBugKeys.concat('length', 'prototype');
+
+    // `Object.getOwnPropertyNames` method
+    // https://tc39.es/ecma262/#sec-object.getownpropertynames
+    // eslint-disable-next-line es/no-object-getownpropertynames -- safe
+    var f$2 = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
+      return objectKeysInternal(O, hiddenKeys);
+    };
+
+    var objectGetOwnPropertyNames = {
+    	f: f$2
+    };
+
+    // eslint-disable-next-line es/no-object-getownpropertysymbols -- safe
+    var f$1 = Object.getOwnPropertySymbols;
+
+    var objectGetOwnPropertySymbols = {
+    	f: f$1
+    };
+
+    var concat$1 = functionUncurryThis([].concat);
+
+    // all object keys, includes non-enumerable and symbols
+    var ownKeys = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
+      var keys = objectGetOwnPropertyNames.f(anObject(it));
+      var getOwnPropertySymbols = objectGetOwnPropertySymbols.f;
+      return getOwnPropertySymbols ? concat$1(keys, getOwnPropertySymbols(it)) : keys;
+    };
+
+    var copyConstructorProperties = function (target, source, exceptions) {
+      var keys = ownKeys(source);
+      var defineProperty = objectDefineProperty.f;
+      var getOwnPropertyDescriptor = objectGetOwnPropertyDescriptor.f;
+      for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        if (!hasOwnProperty_1(target, key) && !(exceptions && hasOwnProperty_1(exceptions, key))) {
+          defineProperty(target, key, getOwnPropertyDescriptor(source, key));
+        }
+      }
+    };
+
+    var replacement = /#|\.prototype\./;
+
+    var isForced = function (feature, detection) {
+      var value = data[normalize(feature)];
+      return value == POLYFILL ? true
+        : value == NATIVE ? false
+        : isCallable(detection) ? fails(detection)
+        : !!detection;
+    };
+
+    var normalize = isForced.normalize = function (string) {
+      return String(string).replace(replacement, '.').toLowerCase();
+    };
+
+    var data = isForced.data = {};
+    var NATIVE = isForced.NATIVE = 'N';
+    var POLYFILL = isForced.POLYFILL = 'P';
+
+    var isForced_1 = isForced;
+
+    var getOwnPropertyDescriptor = objectGetOwnPropertyDescriptor.f;
+
+
+
+
+
+
+    /*
+      options.target      - name of the target object
+      options.global      - target is the global object
+      options.stat        - export as static methods of target
+      options.proto       - export as prototype methods of target
+      options.real        - real prototype method for the `pure` version
+      options.forced      - export even if the native feature is available
+      options.bind        - bind methods to the target, required for the `pure` version
+      options.wrap        - wrap constructors to preventing global pollution, required for the `pure` version
+      options.unsafe      - use the simple assignment of property instead of delete + defineProperty
+      options.sham        - add a flag to not completely full polyfills
+      options.enumerable  - export as enumerable property
+      options.noTargetGet - prevent calling a getter on target
+      options.name        - the .name of the function if it does not match the key
+    */
+    var _export = function (options, source) {
+      var TARGET = options.target;
+      var GLOBAL = options.global;
+      var STATIC = options.stat;
+      var FORCED, target, key, targetProperty, sourceProperty, descriptor;
+      if (GLOBAL) {
+        target = global$1;
+      } else if (STATIC) {
+        target = global$1[TARGET] || setGlobal(TARGET, {});
+      } else {
+        target = (global$1[TARGET] || {}).prototype;
+      }
+      if (target) for (key in source) {
+        sourceProperty = source[key];
+        if (options.noTargetGet) {
+          descriptor = getOwnPropertyDescriptor(target, key);
+          targetProperty = descriptor && descriptor.value;
+        } else targetProperty = target[key];
+        FORCED = isForced_1(GLOBAL ? key : TARGET + (STATIC ? '.' : '#') + key, options.forced);
+        // contained in target
+        if (!FORCED && targetProperty !== undefined) {
+          if (typeof sourceProperty == typeof targetProperty) continue;
+          copyConstructorProperties(sourceProperty, targetProperty);
+        }
+        // add a flag to not completely full polyfills
+        if (options.sham || (targetProperty && targetProperty.sham)) {
+          createNonEnumerableProperty(sourceProperty, 'sham', true);
+        }
+        // extend global
+        redefine(target, key, sourceProperty, options);
+      }
+    };
+
+    var correctPrototypeGetter = !fails(function () {
+      function F() { /* empty */ }
+      F.prototype.constructor = null;
+      // eslint-disable-next-line es/no-object-getprototypeof -- required for testing
+      return Object.getPrototypeOf(new F()) !== F.prototype;
+    });
+
+    var IE_PROTO = sharedKey('IE_PROTO');
+    var Object$2 = global$1.Object;
+    var ObjectPrototype = Object$2.prototype;
+
+    // `Object.getPrototypeOf` method
+    // https://tc39.es/ecma262/#sec-object.getprototypeof
+    var objectGetPrototypeOf = correctPrototypeGetter ? Object$2.getPrototypeOf : function (O) {
+      var object = toObject(O);
+      if (hasOwnProperty_1(object, IE_PROTO)) return object[IE_PROTO];
+      var constructor = object.constructor;
+      if (isCallable(constructor) && object instanceof constructor) {
+        return constructor.prototype;
+      } return object instanceof Object$2 ? ObjectPrototype : null;
+    };
+
+    var ITERATOR$4 = wellKnownSymbol('iterator');
+    var BUGGY_SAFARI_ITERATORS$1 = false;
+
+    // `%IteratorPrototype%` object
+    // https://tc39.es/ecma262/#sec-%iteratorprototype%-object
+    var IteratorPrototype$2, PrototypeOfArrayIteratorPrototype, arrayIterator;
+
+    /* eslint-disable es/no-array-prototype-keys -- safe */
+    if ([].keys) {
+      arrayIterator = [].keys();
+      // Safari 8 has buggy iterators w/o `next`
+      if (!('next' in arrayIterator)) BUGGY_SAFARI_ITERATORS$1 = true;
+      else {
+        PrototypeOfArrayIteratorPrototype = objectGetPrototypeOf(objectGetPrototypeOf(arrayIterator));
+        if (PrototypeOfArrayIteratorPrototype !== Object.prototype) IteratorPrototype$2 = PrototypeOfArrayIteratorPrototype;
+      }
+    }
+
+    var NEW_ITERATOR_PROTOTYPE = IteratorPrototype$2 == undefined || fails(function () {
+      var test = {};
+      // FF44- legacy iterators case
+      return IteratorPrototype$2[ITERATOR$4].call(test) !== test;
+    });
+
+    if (NEW_ITERATOR_PROTOTYPE) IteratorPrototype$2 = {};
+
+    // `%IteratorPrototype%[@@iterator]()` method
+    // https://tc39.es/ecma262/#sec-%iteratorprototype%-@@iterator
+    if (!isCallable(IteratorPrototype$2[ITERATOR$4])) {
+      redefine(IteratorPrototype$2, ITERATOR$4, function () {
+        return this;
+      });
+    }
+
+    var iteratorsCore = {
+      IteratorPrototype: IteratorPrototype$2,
+      BUGGY_SAFARI_ITERATORS: BUGGY_SAFARI_ITERATORS$1
+    };
+
+    var defineProperty$3 = objectDefineProperty.f;
+
+
+
+    var TO_STRING_TAG$2 = wellKnownSymbol('toStringTag');
+
+    var setToStringTag = function (target, TAG, STATIC) {
+      if (target && !STATIC) target = target.prototype;
+      if (target && !hasOwnProperty_1(target, TO_STRING_TAG$2)) {
+        defineProperty$3(target, TO_STRING_TAG$2, { configurable: true, value: TAG });
+      }
+    };
+
+    var IteratorPrototype$1 = iteratorsCore.IteratorPrototype;
+
+
+
+
+
+    var returnThis$1 = function () { return this; };
+
+    var createIteratorConstructor = function (IteratorConstructor, NAME, next, ENUMERABLE_NEXT) {
+      var TO_STRING_TAG = NAME + ' Iterator';
+      IteratorConstructor.prototype = objectCreate(IteratorPrototype$1, { next: createPropertyDescriptor(+!ENUMERABLE_NEXT, next) });
+      setToStringTag(IteratorConstructor, TO_STRING_TAG, false);
+      iterators[TO_STRING_TAG] = returnThis$1;
+      return IteratorConstructor;
+    };
+
+    var String$2 = global$1.String;
+    var TypeError$4 = global$1.TypeError;
+
+    var aPossiblePrototype = function (argument) {
+      if (typeof argument == 'object' || isCallable(argument)) return argument;
+      throw TypeError$4("Can't set " + String$2(argument) + ' as a prototype');
+    };
+
+    /* eslint-disable no-proto -- safe */
+
+    // `Object.setPrototypeOf` method
+    // https://tc39.es/ecma262/#sec-object.setprototypeof
+    // Works with __proto__ only. Old v8 can't work with null proto objects.
+    // eslint-disable-next-line es/no-object-setprototypeof -- safe
+    var objectSetPrototypeOf = Object.setPrototypeOf || ('__proto__' in {} ? function () {
+      var CORRECT_SETTER = false;
+      var test = {};
+      var setter;
+      try {
+        // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+        setter = functionUncurryThis(Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set);
+        setter(test, []);
+        CORRECT_SETTER = test instanceof Array;
+      } catch (error) { /* empty */ }
+      return function setPrototypeOf(O, proto) {
+        anObject(O);
+        aPossiblePrototype(proto);
+        if (CORRECT_SETTER) setter(O, proto);
+        else O.__proto__ = proto;
+        return O;
+      };
+    }() : undefined);
+
+    var PROPER_FUNCTION_NAME = functionName.PROPER;
+    var CONFIGURABLE_FUNCTION_NAME = functionName.CONFIGURABLE;
+    var IteratorPrototype = iteratorsCore.IteratorPrototype;
+    var BUGGY_SAFARI_ITERATORS = iteratorsCore.BUGGY_SAFARI_ITERATORS;
+    var ITERATOR$3 = wellKnownSymbol('iterator');
+    var KEYS = 'keys';
+    var VALUES = 'values';
+    var ENTRIES = 'entries';
+
+    var returnThis = function () { return this; };
+
+    var defineIterator = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, IS_SET, FORCED) {
+      createIteratorConstructor(IteratorConstructor, NAME, next);
+
+      var getIterationMethod = function (KIND) {
+        if (KIND === DEFAULT && defaultIterator) return defaultIterator;
+        if (!BUGGY_SAFARI_ITERATORS && KIND in IterablePrototype) return IterablePrototype[KIND];
+        switch (KIND) {
+          case KEYS: return function keys() { return new IteratorConstructor(this, KIND); };
+          case VALUES: return function values() { return new IteratorConstructor(this, KIND); };
+          case ENTRIES: return function entries() { return new IteratorConstructor(this, KIND); };
+        } return function () { return new IteratorConstructor(this); };
+      };
+
+      var TO_STRING_TAG = NAME + ' Iterator';
+      var INCORRECT_VALUES_NAME = false;
+      var IterablePrototype = Iterable.prototype;
+      var nativeIterator = IterablePrototype[ITERATOR$3]
+        || IterablePrototype['@@iterator']
+        || DEFAULT && IterablePrototype[DEFAULT];
+      var defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);
+      var anyNativeIterator = NAME == 'Array' ? IterablePrototype.entries || nativeIterator : nativeIterator;
+      var CurrentIteratorPrototype, methods, KEY;
+
+      // fix native
+      if (anyNativeIterator) {
+        CurrentIteratorPrototype = objectGetPrototypeOf(anyNativeIterator.call(new Iterable()));
+        if (CurrentIteratorPrototype !== Object.prototype && CurrentIteratorPrototype.next) {
+          if (objectGetPrototypeOf(CurrentIteratorPrototype) !== IteratorPrototype) {
+            if (objectSetPrototypeOf) {
+              objectSetPrototypeOf(CurrentIteratorPrototype, IteratorPrototype);
+            } else if (!isCallable(CurrentIteratorPrototype[ITERATOR$3])) {
+              redefine(CurrentIteratorPrototype, ITERATOR$3, returnThis);
+            }
+          }
+          // Set @@toStringTag to native iterators
+          setToStringTag(CurrentIteratorPrototype, TO_STRING_TAG, true);
+        }
+      }
+
+      // fix Array.prototype.{ values, @@iterator }.name in V8 / FF
+      if (PROPER_FUNCTION_NAME && DEFAULT == VALUES && nativeIterator && nativeIterator.name !== VALUES) {
+        if (CONFIGURABLE_FUNCTION_NAME) {
+          createNonEnumerableProperty(IterablePrototype, 'name', VALUES);
+        } else {
+          INCORRECT_VALUES_NAME = true;
+          defaultIterator = function values() { return functionCall(nativeIterator, this); };
+        }
+      }
+
+      // export additional methods
+      if (DEFAULT) {
+        methods = {
+          values: getIterationMethod(VALUES),
+          keys: IS_SET ? defaultIterator : getIterationMethod(KEYS),
+          entries: getIterationMethod(ENTRIES)
+        };
+        if (FORCED) for (KEY in methods) {
+          if (BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME || !(KEY in IterablePrototype)) {
+            redefine(IterablePrototype, KEY, methods[KEY]);
+          }
+        } else _export({ target: NAME, proto: true, forced: BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME }, methods);
+      }
+
+      // define iterator
+      if (IterablePrototype[ITERATOR$3] !== defaultIterator) {
+        redefine(IterablePrototype, ITERATOR$3, defaultIterator, { name: DEFAULT });
+      }
+      iterators[NAME] = defaultIterator;
+
+      return methods;
+    };
+
+    var defineProperty$2 = objectDefineProperty.f;
+
+
+
+
+    var ARRAY_ITERATOR = 'Array Iterator';
+    var setInternalState$3 = internalState.set;
+    var getInternalState$1 = internalState.getterFor(ARRAY_ITERATOR);
+
+    // `Array.prototype.entries` method
+    // https://tc39.es/ecma262/#sec-array.prototype.entries
+    // `Array.prototype.keys` method
+    // https://tc39.es/ecma262/#sec-array.prototype.keys
+    // `Array.prototype.values` method
+    // https://tc39.es/ecma262/#sec-array.prototype.values
+    // `Array.prototype[@@iterator]` method
+    // https://tc39.es/ecma262/#sec-array.prototype-@@iterator
+    // `CreateArrayIterator` internal method
+    // https://tc39.es/ecma262/#sec-createarrayiterator
+    defineIterator(Array, 'Array', function (iterated, kind) {
+      setInternalState$3(this, {
+        type: ARRAY_ITERATOR,
+        target: toIndexedObject(iterated), // target
+        index: 0,                          // next index
+        kind: kind                         // kind
+      });
+    // `%ArrayIteratorPrototype%.next` method
+    // https://tc39.es/ecma262/#sec-%arrayiteratorprototype%.next
+    }, function () {
+      var state = getInternalState$1(this);
+      var target = state.target;
+      var kind = state.kind;
+      var index = state.index++;
+      if (!target || index >= target.length) {
+        state.target = undefined;
+        return { value: undefined, done: true };
+      }
+      if (kind == 'keys') return { value: index, done: false };
+      if (kind == 'values') return { value: target[index], done: false };
+      return { value: [index, target[index]], done: false };
+    }, 'values');
+
+    // argumentsList[@@iterator] is %ArrayProto_values%
+    // https://tc39.es/ecma262/#sec-createunmappedargumentsobject
+    // https://tc39.es/ecma262/#sec-createmappedargumentsobject
+    var values = iterators.Arguments = iterators.Array;
+
+    // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+    addToUnscopables('keys');
+    addToUnscopables('values');
+    addToUnscopables('entries');
+
+    // V8 ~ Chrome 45- bug
+    if (descriptors && values.name !== 'values') try {
+      defineProperty$2(values, 'name', { value: 'values' });
+    } catch (error) { /* empty */ }
+
+    var createProperty = function (object, key, value) {
+      var propertyKey = toPropertyKey(key);
+      if (propertyKey in object) objectDefineProperty.f(object, propertyKey, createPropertyDescriptor(0, value));
+      else object[propertyKey] = value;
+    };
+
+    var Array$3 = global$1.Array;
+    var max$1 = Math.max;
+
+    var arraySliceSimple = function (O, start, end) {
+      var length = lengthOfArrayLike(O);
+      var k = toAbsoluteIndex(start, length);
+      var fin = toAbsoluteIndex(end === undefined ? length : end, length);
+      var result = Array$3(max$1(fin - k, 0));
+      for (var n = 0; k < fin; k++, n++) createProperty(result, n, O[k]);
+      result.length = n;
+      return result;
+    };
+
+    /* eslint-disable es/no-object-getownpropertynames -- safe */
+
+    var $getOwnPropertyNames = objectGetOwnPropertyNames.f;
+
+
+    var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
+      ? Object.getOwnPropertyNames(window) : [];
+
+    var getWindowNames = function (it) {
+      try {
+        return $getOwnPropertyNames(it);
+      } catch (error) {
+        return arraySliceSimple(windowNames);
+      }
+    };
+
+    // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+    var f = function getOwnPropertyNames(it) {
+      return windowNames && classofRaw(it) == 'Window'
+        ? getWindowNames(it)
+        : $getOwnPropertyNames(toIndexedObject(it));
+    };
+
+    var objectGetOwnPropertyNamesExternal = {
+    	f: f
+    };
+
+    // FF26- bug: ArrayBuffers are non-extensible, but Object.isExtensible does not report it
+
+
+    var arrayBufferNonExtensible = fails(function () {
+      if (typeof ArrayBuffer == 'function') {
+        var buffer = new ArrayBuffer(8);
+        // eslint-disable-next-line es/no-object-isextensible, es/no-object-defineproperty -- safe
+        if (Object.isExtensible(buffer)) Object.defineProperty(buffer, 'a', { value: 8 });
+      }
+    });
+
+    // eslint-disable-next-line es/no-object-isextensible -- safe
+    var $isExtensible = Object.isExtensible;
+    var FAILS_ON_PRIMITIVES = fails(function () { $isExtensible(1); });
+
+    // `Object.isExtensible` method
+    // https://tc39.es/ecma262/#sec-object.isextensible
+    var objectIsExtensible = (FAILS_ON_PRIMITIVES || arrayBufferNonExtensible) ? function isExtensible(it) {
+      if (!isObject$1(it)) return false;
+      if (arrayBufferNonExtensible && classofRaw(it) == 'ArrayBuffer') return false;
+      return $isExtensible ? $isExtensible(it) : true;
+    } : $isExtensible;
+
+    var freezing = !fails(function () {
+      // eslint-disable-next-line es/no-object-isextensible, es/no-object-preventextensions -- required for testing
+      return Object.isExtensible(Object.preventExtensions({}));
+    });
+
+    var internalMetadata = createCommonjsModule(function (module) {
+    var defineProperty = objectDefineProperty.f;
+
+
+
+
+
+
+    var REQUIRED = false;
+    var METADATA = uid('meta');
+    var id = 0;
+
+    var setMetadata = function (it) {
+      defineProperty(it, METADATA, { value: {
+        objectID: 'O' + id++, // object ID
+        weakData: {}          // weak collections IDs
+      } });
+    };
+
+    var fastKey = function (it, create) {
+      // return a primitive with prefix
+      if (!isObject$1(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+      if (!hasOwnProperty_1(it, METADATA)) {
+        // can't set metadata to uncaught frozen object
+        if (!objectIsExtensible(it)) return 'F';
+        // not necessary to add metadata
+        if (!create) return 'E';
+        // add missing metadata
+        setMetadata(it);
+      // return object ID
+      } return it[METADATA].objectID;
+    };
+
+    var getWeakData = function (it, create) {
+      if (!hasOwnProperty_1(it, METADATA)) {
+        // can't set metadata to uncaught frozen object
+        if (!objectIsExtensible(it)) return true;
+        // not necessary to add metadata
+        if (!create) return false;
+        // add missing metadata
+        setMetadata(it);
+      // return the store of weak collections IDs
+      } return it[METADATA].weakData;
+    };
+
+    // add metadata on freeze-family methods calling
+    var onFreeze = function (it) {
+      if (freezing && REQUIRED && objectIsExtensible(it) && !hasOwnProperty_1(it, METADATA)) setMetadata(it);
+      return it;
+    };
+
+    var enable = function () {
+      meta.enable = function () { /* empty */ };
+      REQUIRED = true;
+      var getOwnPropertyNames = objectGetOwnPropertyNames.f;
+      var splice = functionUncurryThis([].splice);
+      var test = {};
+      test[METADATA] = 1;
+
+      // prevent exposing of metadata key
+      if (getOwnPropertyNames(test).length) {
+        objectGetOwnPropertyNames.f = function (it) {
+          var result = getOwnPropertyNames(it);
+          for (var i = 0, length = result.length; i < length; i++) {
+            if (result[i] === METADATA) {
+              splice(result, i, 1);
+              break;
+            }
+          } return result;
+        };
+
+        _export({ target: 'Object', stat: true, forced: true }, {
+          getOwnPropertyNames: objectGetOwnPropertyNamesExternal.f
+        });
+      }
+    };
+
+    var meta = module.exports = {
+      enable: enable,
+      fastKey: fastKey,
+      getWeakData: getWeakData,
+      onFreeze: onFreeze
+    };
+
+    hiddenKeys$1[METADATA] = true;
+    });
+
+    var bind = functionUncurryThis(functionUncurryThis.bind);
+
+    // optional / simple context binding
+    var functionBindContext = function (fn, that) {
+      aCallable(fn);
+      return that === undefined ? fn : functionBindNative ? bind(fn, that) : function (/* ...args */) {
+        return fn.apply(that, arguments);
+      };
+    };
+
+    var ITERATOR$2 = wellKnownSymbol('iterator');
+    var ArrayPrototype = Array.prototype;
+
+    // check on default Array iterator
+    var isArrayIteratorMethod = function (it) {
+      return it !== undefined && (iterators.Array === it || ArrayPrototype[ITERATOR$2] === it);
+    };
+
+    var TO_STRING_TAG$1 = wellKnownSymbol('toStringTag');
+    var test = {};
+
+    test[TO_STRING_TAG$1] = 'z';
+
+    var toStringTagSupport = String(test) === '[object z]';
+
+    var TO_STRING_TAG = wellKnownSymbol('toStringTag');
+    var Object$1 = global$1.Object;
+
+    // ES3 wrong here
+    var CORRECT_ARGUMENTS = classofRaw(function () { return arguments; }()) == 'Arguments';
+
+    // fallback for IE11 Script Access Denied error
+    var tryGet = function (it, key) {
+      try {
+        return it[key];
+      } catch (error) { /* empty */ }
+    };
+
+    // getting tag from ES6+ `Object.prototype.toString`
+    var classof = toStringTagSupport ? classofRaw : function (it) {
+      var O, tag, result;
+      return it === undefined ? 'Undefined' : it === null ? 'Null'
+        // @@toStringTag case
+        : typeof (tag = tryGet(O = Object$1(it), TO_STRING_TAG)) == 'string' ? tag
+        // builtinTag case
+        : CORRECT_ARGUMENTS ? classofRaw(O)
+        // ES3 arguments fallback
+        : (result = classofRaw(O)) == 'Object' && isCallable(O.callee) ? 'Arguments' : result;
+    };
+
+    var ITERATOR$1 = wellKnownSymbol('iterator');
+
+    var getIteratorMethod = function (it) {
+      if (it != undefined) return getMethod(it, ITERATOR$1)
+        || getMethod(it, '@@iterator')
+        || iterators[classof(it)];
+    };
+
+    var TypeError$3 = global$1.TypeError;
+
+    var getIterator = function (argument, usingIterator) {
+      var iteratorMethod = arguments.length < 2 ? getIteratorMethod(argument) : usingIterator;
+      if (aCallable(iteratorMethod)) return anObject(functionCall(iteratorMethod, argument));
+      throw TypeError$3(tryToString(argument) + ' is not iterable');
+    };
+
+    var iteratorClose = function (iterator, kind, value) {
+      var innerResult, innerError;
+      anObject(iterator);
+      try {
+        innerResult = getMethod(iterator, 'return');
+        if (!innerResult) {
+          if (kind === 'throw') throw value;
+          return value;
+        }
+        innerResult = functionCall(innerResult, iterator);
+      } catch (error) {
+        innerError = true;
+        innerResult = error;
+      }
+      if (kind === 'throw') throw value;
+      if (innerError) throw innerResult;
+      anObject(innerResult);
+      return value;
+    };
+
+    var TypeError$2 = global$1.TypeError;
+
+    var Result = function (stopped, result) {
+      this.stopped = stopped;
+      this.result = result;
+    };
+
+    var ResultPrototype = Result.prototype;
+
+    var iterate = function (iterable, unboundFunction, options) {
+      var that = options && options.that;
+      var AS_ENTRIES = !!(options && options.AS_ENTRIES);
+      var IS_ITERATOR = !!(options && options.IS_ITERATOR);
+      var INTERRUPTED = !!(options && options.INTERRUPTED);
+      var fn = functionBindContext(unboundFunction, that);
+      var iterator, iterFn, index, length, result, next, step;
+
+      var stop = function (condition) {
+        if (iterator) iteratorClose(iterator, 'normal', condition);
+        return new Result(true, condition);
+      };
+
+      var callFn = function (value) {
+        if (AS_ENTRIES) {
+          anObject(value);
+          return INTERRUPTED ? fn(value[0], value[1], stop) : fn(value[0], value[1]);
+        } return INTERRUPTED ? fn(value, stop) : fn(value);
+      };
+
+      if (IS_ITERATOR) {
+        iterator = iterable;
+      } else {
+        iterFn = getIteratorMethod(iterable);
+        if (!iterFn) throw TypeError$2(tryToString(iterable) + ' is not iterable');
+        // optimisation for array iterators
+        if (isArrayIteratorMethod(iterFn)) {
+          for (index = 0, length = lengthOfArrayLike(iterable); length > index; index++) {
+            result = callFn(iterable[index]);
+            if (result && objectIsPrototypeOf(ResultPrototype, result)) return result;
+          } return new Result(false);
+        }
+        iterator = getIterator(iterable, iterFn);
+      }
+
+      next = iterator.next;
+      while (!(step = functionCall(next, iterator)).done) {
+        try {
+          result = callFn(step.value);
+        } catch (error) {
+          iteratorClose(iterator, 'throw', error);
+        }
+        if (typeof result == 'object' && result && objectIsPrototypeOf(ResultPrototype, result)) return result;
+      } return new Result(false);
+    };
+
+    var TypeError$1 = global$1.TypeError;
+
+    var anInstance = function (it, Prototype) {
+      if (objectIsPrototypeOf(Prototype, it)) return it;
+      throw TypeError$1('Incorrect invocation');
+    };
+
+    var ITERATOR = wellKnownSymbol('iterator');
+    var SAFE_CLOSING = false;
+
+    try {
+      var called = 0;
+      var iteratorWithReturn = {
+        next: function () {
+          return { done: !!called++ };
+        },
+        'return': function () {
+          SAFE_CLOSING = true;
+        }
+      };
+      iteratorWithReturn[ITERATOR] = function () {
+        return this;
+      };
+      // eslint-disable-next-line es/no-array-from, no-throw-literal -- required for testing
+      Array.from(iteratorWithReturn, function () { throw 2; });
+    } catch (error) { /* empty */ }
+
+    var checkCorrectnessOfIteration = function (exec, SKIP_CLOSING) {
+      if (!SKIP_CLOSING && !SAFE_CLOSING) return false;
+      var ITERATION_SUPPORT = false;
+      try {
+        var object = {};
+        object[ITERATOR] = function () {
+          return {
+            next: function () {
+              return { done: ITERATION_SUPPORT = true };
+            }
+          };
+        };
+        exec(object);
+      } catch (error) { /* empty */ }
+      return ITERATION_SUPPORT;
+    };
+
+    // makes subclassing work correct for wrapped built-ins
+    var inheritIfRequired = function ($this, dummy, Wrapper) {
+      var NewTarget, NewTargetPrototype;
+      if (
+        // it can work only with native `setPrototypeOf`
+        objectSetPrototypeOf &&
+        // we haven't completely correct pre-ES6 way for getting `new.target`, so use this
+        isCallable(NewTarget = dummy.constructor) &&
+        NewTarget !== Wrapper &&
+        isObject$1(NewTargetPrototype = NewTarget.prototype) &&
+        NewTargetPrototype !== Wrapper.prototype
+      ) objectSetPrototypeOf($this, NewTargetPrototype);
+      return $this;
+    };
+
+    var collection = function (CONSTRUCTOR_NAME, wrapper, common) {
+      var IS_MAP = CONSTRUCTOR_NAME.indexOf('Map') !== -1;
+      var IS_WEAK = CONSTRUCTOR_NAME.indexOf('Weak') !== -1;
+      var ADDER = IS_MAP ? 'set' : 'add';
+      var NativeConstructor = global$1[CONSTRUCTOR_NAME];
+      var NativePrototype = NativeConstructor && NativeConstructor.prototype;
+      var Constructor = NativeConstructor;
+      var exported = {};
+
+      var fixMethod = function (KEY) {
+        var uncurriedNativeMethod = functionUncurryThis(NativePrototype[KEY]);
+        redefine(NativePrototype, KEY,
+          KEY == 'add' ? function add(value) {
+            uncurriedNativeMethod(this, value === 0 ? 0 : value);
+            return this;
+          } : KEY == 'delete' ? function (key) {
+            return IS_WEAK && !isObject$1(key) ? false : uncurriedNativeMethod(this, key === 0 ? 0 : key);
+          } : KEY == 'get' ? function get(key) {
+            return IS_WEAK && !isObject$1(key) ? undefined : uncurriedNativeMethod(this, key === 0 ? 0 : key);
+          } : KEY == 'has' ? function has(key) {
+            return IS_WEAK && !isObject$1(key) ? false : uncurriedNativeMethod(this, key === 0 ? 0 : key);
+          } : function set(key, value) {
+            uncurriedNativeMethod(this, key === 0 ? 0 : key, value);
+            return this;
+          }
+        );
+      };
+
+      var REPLACE = isForced_1(
+        CONSTRUCTOR_NAME,
+        !isCallable(NativeConstructor) || !(IS_WEAK || NativePrototype.forEach && !fails(function () {
+          new NativeConstructor().entries().next();
+        }))
+      );
+
+      if (REPLACE) {
+        // create collection constructor
+        Constructor = common.getConstructor(wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER);
+        internalMetadata.enable();
+      } else if (isForced_1(CONSTRUCTOR_NAME, true)) {
+        var instance = new Constructor();
+        // early implementations not supports chaining
+        var HASNT_CHAINING = instance[ADDER](IS_WEAK ? {} : -0, 1) != instance;
+        // V8 ~ Chromium 40- weak-collections throws on primitives, but should return false
+        var THROWS_ON_PRIMITIVES = fails(function () { instance.has(1); });
+        // most early implementations doesn't supports iterables, most modern - not close it correctly
+        // eslint-disable-next-line no-new -- required for testing
+        var ACCEPT_ITERABLES = checkCorrectnessOfIteration(function (iterable) { new NativeConstructor(iterable); });
+        // for early implementations -0 and +0 not the same
+        var BUGGY_ZERO = !IS_WEAK && fails(function () {
+          // V8 ~ Chromium 42- fails only with 5+ elements
+          var $instance = new NativeConstructor();
+          var index = 5;
+          while (index--) $instance[ADDER](index, index);
+          return !$instance.has(-0);
+        });
+
+        if (!ACCEPT_ITERABLES) {
+          Constructor = wrapper(function (dummy, iterable) {
+            anInstance(dummy, NativePrototype);
+            var that = inheritIfRequired(new NativeConstructor(), dummy, Constructor);
+            if (iterable != undefined) iterate(iterable, that[ADDER], { that: that, AS_ENTRIES: IS_MAP });
+            return that;
+          });
+          Constructor.prototype = NativePrototype;
+          NativePrototype.constructor = Constructor;
+        }
+
+        if (THROWS_ON_PRIMITIVES || BUGGY_ZERO) {
+          fixMethod('delete');
+          fixMethod('has');
+          IS_MAP && fixMethod('get');
+        }
+
+        if (BUGGY_ZERO || HASNT_CHAINING) fixMethod(ADDER);
+
+        // weak collections should not contains .clear method
+        if (IS_WEAK && NativePrototype.clear) delete NativePrototype.clear;
+      }
+
+      exported[CONSTRUCTOR_NAME] = Constructor;
+      _export({ global: true, forced: Constructor != NativeConstructor }, exported);
+
+      setToStringTag(Constructor, CONSTRUCTOR_NAME);
+
+      if (!IS_WEAK) common.setStrong(Constructor, CONSTRUCTOR_NAME, IS_MAP);
+
+      return Constructor;
+    };
+
+    var redefineAll = function (target, src, options) {
+      for (var key in src) redefine(target, key, src[key], options);
+      return target;
+    };
+
+    var SPECIES$1 = wellKnownSymbol('species');
+
+    var setSpecies = function (CONSTRUCTOR_NAME) {
+      var Constructor = getBuiltIn(CONSTRUCTOR_NAME);
+      var defineProperty = objectDefineProperty.f;
+
+      if (descriptors && Constructor && !Constructor[SPECIES$1]) {
+        defineProperty(Constructor, SPECIES$1, {
+          configurable: true,
+          get: function () { return this; }
+        });
+      }
+    };
+
+    var defineProperty$1 = objectDefineProperty.f;
+
+
+
+
+
+
+
+
+    var fastKey = internalMetadata.fastKey;
+
+
+    var setInternalState$2 = internalState.set;
+    var internalStateGetterFor$1 = internalState.getterFor;
+
+    var collectionStrong = {
+      getConstructor: function (wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER) {
+        var Constructor = wrapper(function (that, iterable) {
+          anInstance(that, Prototype);
+          setInternalState$2(that, {
+            type: CONSTRUCTOR_NAME,
+            index: objectCreate(null),
+            first: undefined,
+            last: undefined,
+            size: 0
+          });
+          if (!descriptors) that.size = 0;
+          if (iterable != undefined) iterate(iterable, that[ADDER], { that: that, AS_ENTRIES: IS_MAP });
+        });
+
+        var Prototype = Constructor.prototype;
+
+        var getInternalState = internalStateGetterFor$1(CONSTRUCTOR_NAME);
+
+        var define = function (that, key, value) {
+          var state = getInternalState(that);
+          var entry = getEntry(that, key);
+          var previous, index;
+          // change existing entry
+          if (entry) {
+            entry.value = value;
+          // create new entry
+          } else {
+            state.last = entry = {
+              index: index = fastKey(key, true),
+              key: key,
+              value: value,
+              previous: previous = state.last,
+              next: undefined,
+              removed: false
+            };
+            if (!state.first) state.first = entry;
+            if (previous) previous.next = entry;
+            if (descriptors) state.size++;
+            else that.size++;
+            // add to index
+            if (index !== 'F') state.index[index] = entry;
+          } return that;
+        };
+
+        var getEntry = function (that, key) {
+          var state = getInternalState(that);
+          // fast case
+          var index = fastKey(key);
+          var entry;
+          if (index !== 'F') return state.index[index];
+          // frozen object case
+          for (entry = state.first; entry; entry = entry.next) {
+            if (entry.key == key) return entry;
+          }
+        };
+
+        redefineAll(Prototype, {
+          // `{ Map, Set }.prototype.clear()` methods
+          // https://tc39.es/ecma262/#sec-map.prototype.clear
+          // https://tc39.es/ecma262/#sec-set.prototype.clear
+          clear: function clear() {
+            var that = this;
+            var state = getInternalState(that);
+            var data = state.index;
+            var entry = state.first;
+            while (entry) {
+              entry.removed = true;
+              if (entry.previous) entry.previous = entry.previous.next = undefined;
+              delete data[entry.index];
+              entry = entry.next;
+            }
+            state.first = state.last = undefined;
+            if (descriptors) state.size = 0;
+            else that.size = 0;
+          },
+          // `{ Map, Set }.prototype.delete(key)` methods
+          // https://tc39.es/ecma262/#sec-map.prototype.delete
+          // https://tc39.es/ecma262/#sec-set.prototype.delete
+          'delete': function (key) {
+            var that = this;
+            var state = getInternalState(that);
+            var entry = getEntry(that, key);
+            if (entry) {
+              var next = entry.next;
+              var prev = entry.previous;
+              delete state.index[entry.index];
+              entry.removed = true;
+              if (prev) prev.next = next;
+              if (next) next.previous = prev;
+              if (state.first == entry) state.first = next;
+              if (state.last == entry) state.last = prev;
+              if (descriptors) state.size--;
+              else that.size--;
+            } return !!entry;
+          },
+          // `{ Map, Set }.prototype.forEach(callbackfn, thisArg = undefined)` methods
+          // https://tc39.es/ecma262/#sec-map.prototype.foreach
+          // https://tc39.es/ecma262/#sec-set.prototype.foreach
+          forEach: function forEach(callbackfn /* , that = undefined */) {
+            var state = getInternalState(this);
+            var boundFunction = functionBindContext(callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+            var entry;
+            while (entry = entry ? entry.next : state.first) {
+              boundFunction(entry.value, entry.key, this);
+              // revert to the last existing entry
+              while (entry && entry.removed) entry = entry.previous;
+            }
+          },
+          // `{ Map, Set}.prototype.has(key)` methods
+          // https://tc39.es/ecma262/#sec-map.prototype.has
+          // https://tc39.es/ecma262/#sec-set.prototype.has
+          has: function has(key) {
+            return !!getEntry(this, key);
+          }
+        });
+
+        redefineAll(Prototype, IS_MAP ? {
+          // `Map.prototype.get(key)` method
+          // https://tc39.es/ecma262/#sec-map.prototype.get
+          get: function get(key) {
+            var entry = getEntry(this, key);
+            return entry && entry.value;
+          },
+          // `Map.prototype.set(key, value)` method
+          // https://tc39.es/ecma262/#sec-map.prototype.set
+          set: function set(key, value) {
+            return define(this, key === 0 ? 0 : key, value);
+          }
+        } : {
+          // `Set.prototype.add(value)` method
+          // https://tc39.es/ecma262/#sec-set.prototype.add
+          add: function add(value) {
+            return define(this, value = value === 0 ? 0 : value, value);
+          }
+        });
+        if (descriptors) defineProperty$1(Prototype, 'size', {
+          get: function () {
+            return getInternalState(this).size;
+          }
+        });
+        return Constructor;
+      },
+      setStrong: function (Constructor, CONSTRUCTOR_NAME, IS_MAP) {
+        var ITERATOR_NAME = CONSTRUCTOR_NAME + ' Iterator';
+        var getInternalCollectionState = internalStateGetterFor$1(CONSTRUCTOR_NAME);
+        var getInternalIteratorState = internalStateGetterFor$1(ITERATOR_NAME);
+        // `{ Map, Set }.prototype.{ keys, values, entries, @@iterator }()` methods
+        // https://tc39.es/ecma262/#sec-map.prototype.entries
+        // https://tc39.es/ecma262/#sec-map.prototype.keys
+        // https://tc39.es/ecma262/#sec-map.prototype.values
+        // https://tc39.es/ecma262/#sec-map.prototype-@@iterator
+        // https://tc39.es/ecma262/#sec-set.prototype.entries
+        // https://tc39.es/ecma262/#sec-set.prototype.keys
+        // https://tc39.es/ecma262/#sec-set.prototype.values
+        // https://tc39.es/ecma262/#sec-set.prototype-@@iterator
+        defineIterator(Constructor, CONSTRUCTOR_NAME, function (iterated, kind) {
+          setInternalState$2(this, {
+            type: ITERATOR_NAME,
+            target: iterated,
+            state: getInternalCollectionState(iterated),
+            kind: kind,
+            last: undefined
+          });
+        }, function () {
+          var state = getInternalIteratorState(this);
+          var kind = state.kind;
+          var entry = state.last;
+          // revert to the last existing entry
+          while (entry && entry.removed) entry = entry.previous;
+          // get next entry
+          if (!state.target || !(state.last = entry = entry ? entry.next : state.state.first)) {
+            // or finish the iteration
+            state.target = undefined;
+            return { value: undefined, done: true };
+          }
+          // return step by kind
+          if (kind == 'keys') return { value: entry.key, done: false };
+          if (kind == 'values') return { value: entry.value, done: false };
+          return { value: [entry.key, entry.value], done: false };
+        }, IS_MAP ? 'entries' : 'values', !IS_MAP, true);
+
+        // `{ Map, Set }.prototype[@@species]` accessors
+        // https://tc39.es/ecma262/#sec-get-map-@@species
+        // https://tc39.es/ecma262/#sec-get-set-@@species
+        setSpecies(CONSTRUCTOR_NAME);
+      }
+    };
+
+    // `Map` constructor
+    // https://tc39.es/ecma262/#sec-map-objects
+    collection('Map', function (init) {
+      return function Map() { return init(this, arguments.length ? arguments[0] : undefined); };
+    }, collectionStrong);
+
+    // `Object.prototype.toString` method implementation
+    // https://tc39.es/ecma262/#sec-object.prototype.tostring
+    var objectToString$1 = toStringTagSupport ? {}.toString : function toString() {
+      return '[object ' + classof(this) + ']';
+    };
+
+    // `Object.prototype.toString` method
+    // https://tc39.es/ecma262/#sec-object.prototype.tostring
+    if (!toStringTagSupport) {
+      redefine(Object.prototype, 'toString', objectToString$1, { unsafe: true });
+    }
+
+    var String$1 = global$1.String;
+
+    var toString = function (argument) {
+      if (classof(argument) === 'Symbol') throw TypeError('Cannot convert a Symbol value to a string');
+      return String$1(argument);
+    };
+
+    var charAt$1 = functionUncurryThis(''.charAt);
+    var charCodeAt = functionUncurryThis(''.charCodeAt);
+    var stringSlice = functionUncurryThis(''.slice);
+
+    var createMethod$1 = function (CONVERT_TO_STRING) {
+      return function ($this, pos) {
+        var S = toString(requireObjectCoercible($this));
+        var position = toIntegerOrInfinity(pos);
+        var size = S.length;
+        var first, second;
+        if (position < 0 || position >= size) return CONVERT_TO_STRING ? '' : undefined;
+        first = charCodeAt(S, position);
+        return first < 0xD800 || first > 0xDBFF || position + 1 === size
+          || (second = charCodeAt(S, position + 1)) < 0xDC00 || second > 0xDFFF
+            ? CONVERT_TO_STRING
+              ? charAt$1(S, position)
+              : first
+            : CONVERT_TO_STRING
+              ? stringSlice(S, position, position + 2)
+              : (first - 0xD800 << 10) + (second - 0xDC00) + 0x10000;
+      };
+    };
+
+    var stringMultibyte = {
+      // `String.prototype.codePointAt` method
+      // https://tc39.es/ecma262/#sec-string.prototype.codepointat
+      codeAt: createMethod$1(false),
+      // `String.prototype.at` method
+      // https://github.com/mathiasbynens/String.prototype.at
+      charAt: createMethod$1(true)
+    };
+
+    var charAt = stringMultibyte.charAt;
+
+
+
+
+    var STRING_ITERATOR = 'String Iterator';
+    var setInternalState$1 = internalState.set;
+    var getInternalState = internalState.getterFor(STRING_ITERATOR);
+
+    // `String.prototype[@@iterator]` method
+    // https://tc39.es/ecma262/#sec-string.prototype-@@iterator
+    defineIterator(String, 'String', function (iterated) {
+      setInternalState$1(this, {
+        type: STRING_ITERATOR,
+        string: toString(iterated),
+        index: 0
+      });
+    // `%StringIteratorPrototype%.next` method
+    // https://tc39.es/ecma262/#sec-%stringiteratorprototype%.next
+    }, function next() {
+      var state = getInternalState(this);
+      var string = state.string;
+      var index = state.index;
+      var point;
+      if (index >= string.length) return { value: undefined, done: true };
+      point = charAt(string, index);
+      state.index += point.length;
+      return { value: point, done: false };
+    });
+
+    var path = global$1;
+
+    path.Map;
+
+    // `Set` constructor
+    // https://tc39.es/ecma262/#sec-set-objects
+    collection('Set', function (init) {
+      return function Set() { return init(this, arguments.length ? arguments[0] : undefined); };
+    }, collectionStrong);
+
+    path.Set;
+
+    // `IsArray` abstract operation
+    // https://tc39.es/ecma262/#sec-isarray
+    // eslint-disable-next-line es/no-array-isarray -- safe
+    var isArray = Array.isArray || function isArray(argument) {
+      return classofRaw(argument) == 'Array';
+    };
+
+    var noop = function () { /* empty */ };
+    var empty = [];
+    var construct = getBuiltIn('Reflect', 'construct');
+    var constructorRegExp = /^\s*(?:class|function)\b/;
+    var exec = functionUncurryThis(constructorRegExp.exec);
+    var INCORRECT_TO_STRING = !constructorRegExp.exec(noop);
+
+    var isConstructorModern = function isConstructor(argument) {
+      if (!isCallable(argument)) return false;
+      try {
+        construct(noop, empty, argument);
+        return true;
+      } catch (error) {
+        return false;
+      }
+    };
+
+    var isConstructorLegacy = function isConstructor(argument) {
+      if (!isCallable(argument)) return false;
+      switch (classof(argument)) {
+        case 'AsyncFunction':
+        case 'GeneratorFunction':
+        case 'AsyncGeneratorFunction': return false;
+      }
+      try {
+        // we can't check .prototype since constructors produced by .bind haven't it
+        // `Function#toString` throws on some built-it function in some legacy engines
+        // (for example, `DOMQuad` and similar in FF41-)
+        return INCORRECT_TO_STRING || !!exec(constructorRegExp, inspectSource(argument));
+      } catch (error) {
+        return true;
+      }
+    };
+
+    isConstructorLegacy.sham = true;
+
+    // `IsConstructor` abstract operation
+    // https://tc39.es/ecma262/#sec-isconstructor
+    var isConstructor = !construct || fails(function () {
+      var called;
+      return isConstructorModern(isConstructorModern.call)
+        || !isConstructorModern(Object)
+        || !isConstructorModern(function () { called = true; })
+        || called;
+    }) ? isConstructorLegacy : isConstructorModern;
+
+    var SPECIES = wellKnownSymbol('species');
+    var Array$2 = global$1.Array;
+
+    // a part of `ArraySpeciesCreate` abstract operation
+    // https://tc39.es/ecma262/#sec-arrayspeciescreate
+    var arraySpeciesConstructor = function (originalArray) {
+      var C;
+      if (isArray(originalArray)) {
+        C = originalArray.constructor;
+        // cross-realm fallback
+        if (isConstructor(C) && (C === Array$2 || isArray(C.prototype))) C = undefined;
+        else if (isObject$1(C)) {
+          C = C[SPECIES];
+          if (C === null) C = undefined;
+        }
+      } return C === undefined ? Array$2 : C;
+    };
+
+    // `ArraySpeciesCreate` abstract operation
+    // https://tc39.es/ecma262/#sec-arrayspeciescreate
+    var arraySpeciesCreate = function (originalArray, length) {
+      return new (arraySpeciesConstructor(originalArray))(length === 0 ? 0 : length);
+    };
+
+    var push = functionUncurryThis([].push);
+
+    // `Array.prototype.{ forEach, map, filter, some, every, find, findIndex, filterReject }` methods implementation
+    var createMethod = function (TYPE) {
+      var IS_MAP = TYPE == 1;
+      var IS_FILTER = TYPE == 2;
+      var IS_SOME = TYPE == 3;
+      var IS_EVERY = TYPE == 4;
+      var IS_FIND_INDEX = TYPE == 6;
+      var IS_FILTER_REJECT = TYPE == 7;
+      var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
+      return function ($this, callbackfn, that, specificCreate) {
+        var O = toObject($this);
+        var self = indexedObject(O);
+        var boundFunction = functionBindContext(callbackfn, that);
+        var length = lengthOfArrayLike(self);
+        var index = 0;
+        var create = specificCreate || arraySpeciesCreate;
+        var target = IS_MAP ? create($this, length) : IS_FILTER || IS_FILTER_REJECT ? create($this, 0) : undefined;
+        var value, result;
+        for (;length > index; index++) if (NO_HOLES || index in self) {
+          value = self[index];
+          result = boundFunction(value, index, O);
+          if (TYPE) {
+            if (IS_MAP) target[index] = result; // map
+            else if (result) switch (TYPE) {
+              case 3: return true;              // some
+              case 5: return value;             // find
+              case 6: return index;             // findIndex
+              case 2: push(target, value);      // filter
+            } else switch (TYPE) {
+              case 4: return false;             // every
+              case 7: push(target, value);      // filterReject
+            }
+          }
+        }
+        return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : target;
+      };
+    };
+
+    var arrayIteration = {
+      // `Array.prototype.forEach` method
+      // https://tc39.es/ecma262/#sec-array.prototype.foreach
+      forEach: createMethod(0),
+      // `Array.prototype.map` method
+      // https://tc39.es/ecma262/#sec-array.prototype.map
+      map: createMethod(1),
+      // `Array.prototype.filter` method
+      // https://tc39.es/ecma262/#sec-array.prototype.filter
+      filter: createMethod(2),
+      // `Array.prototype.some` method
+      // https://tc39.es/ecma262/#sec-array.prototype.some
+      some: createMethod(3),
+      // `Array.prototype.every` method
+      // https://tc39.es/ecma262/#sec-array.prototype.every
+      every: createMethod(4),
+      // `Array.prototype.find` method
+      // https://tc39.es/ecma262/#sec-array.prototype.find
+      find: createMethod(5),
+      // `Array.prototype.findIndex` method
+      // https://tc39.es/ecma262/#sec-array.prototype.findIndex
+      findIndex: createMethod(6),
+      // `Array.prototype.filterReject` method
+      // https://github.com/tc39/proposal-array-filtering
+      filterReject: createMethod(7)
+    };
+
+    var getWeakData = internalMetadata.getWeakData;
+
+
+
+
+
+
+
+
+    var setInternalState = internalState.set;
+    var internalStateGetterFor = internalState.getterFor;
+    var find = arrayIteration.find;
+    var findIndex = arrayIteration.findIndex;
+    var splice = functionUncurryThis([].splice);
+    var id = 0;
+
+    // fallback for uncaught frozen keys
+    var uncaughtFrozenStore = function (store) {
+      return store.frozen || (store.frozen = new UncaughtFrozenStore());
+    };
+
+    var UncaughtFrozenStore = function () {
+      this.entries = [];
+    };
+
+    var findUncaughtFrozen = function (store, key) {
+      return find(store.entries, function (it) {
+        return it[0] === key;
+      });
+    };
+
+    UncaughtFrozenStore.prototype = {
+      get: function (key) {
+        var entry = findUncaughtFrozen(this, key);
+        if (entry) return entry[1];
+      },
+      has: function (key) {
+        return !!findUncaughtFrozen(this, key);
+      },
+      set: function (key, value) {
+        var entry = findUncaughtFrozen(this, key);
+        if (entry) entry[1] = value;
+        else this.entries.push([key, value]);
+      },
+      'delete': function (key) {
+        var index = findIndex(this.entries, function (it) {
+          return it[0] === key;
+        });
+        if (~index) splice(this.entries, index, 1);
+        return !!~index;
+      }
+    };
+
+    var collectionWeak = {
+      getConstructor: function (wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER) {
+        var Constructor = wrapper(function (that, iterable) {
+          anInstance(that, Prototype);
+          setInternalState(that, {
+            type: CONSTRUCTOR_NAME,
+            id: id++,
+            frozen: undefined
+          });
+          if (iterable != undefined) iterate(iterable, that[ADDER], { that: that, AS_ENTRIES: IS_MAP });
+        });
+
+        var Prototype = Constructor.prototype;
+
+        var getInternalState = internalStateGetterFor(CONSTRUCTOR_NAME);
+
+        var define = function (that, key, value) {
+          var state = getInternalState(that);
+          var data = getWeakData(anObject(key), true);
+          if (data === true) uncaughtFrozenStore(state).set(key, value);
+          else data[state.id] = value;
+          return that;
+        };
+
+        redefineAll(Prototype, {
+          // `{ WeakMap, WeakSet }.prototype.delete(key)` methods
+          // https://tc39.es/ecma262/#sec-weakmap.prototype.delete
+          // https://tc39.es/ecma262/#sec-weakset.prototype.delete
+          'delete': function (key) {
+            var state = getInternalState(this);
+            if (!isObject$1(key)) return false;
+            var data = getWeakData(key);
+            if (data === true) return uncaughtFrozenStore(state)['delete'](key);
+            return data && hasOwnProperty_1(data, state.id) && delete data[state.id];
+          },
+          // `{ WeakMap, WeakSet }.prototype.has(key)` methods
+          // https://tc39.es/ecma262/#sec-weakmap.prototype.has
+          // https://tc39.es/ecma262/#sec-weakset.prototype.has
+          has: function has(key) {
+            var state = getInternalState(this);
+            if (!isObject$1(key)) return false;
+            var data = getWeakData(key);
+            if (data === true) return uncaughtFrozenStore(state).has(key);
+            return data && hasOwnProperty_1(data, state.id);
+          }
+        });
+
+        redefineAll(Prototype, IS_MAP ? {
+          // `WeakMap.prototype.get(key)` method
+          // https://tc39.es/ecma262/#sec-weakmap.prototype.get
+          get: function get(key) {
+            var state = getInternalState(this);
+            if (isObject$1(key)) {
+              var data = getWeakData(key);
+              if (data === true) return uncaughtFrozenStore(state).get(key);
+              return data ? data[state.id] : undefined;
+            }
+          },
+          // `WeakMap.prototype.set(key, value)` method
+          // https://tc39.es/ecma262/#sec-weakmap.prototype.set
+          set: function set(key, value) {
+            return define(this, key, value);
+          }
+        } : {
+          // `WeakSet.prototype.add(value)` method
+          // https://tc39.es/ecma262/#sec-weakset.prototype.add
+          add: function add(value) {
+            return define(this, value, true);
+          }
+        });
+
+        return Constructor;
+      }
+    };
+
+    var enforceInternalState = internalState.enforce;
+
+
+    var IS_IE11 = !global$1.ActiveXObject && 'ActiveXObject' in global$1;
+    var InternalWeakMap;
+
+    var wrapper = function (init) {
+      return function WeakMap() {
+        return init(this, arguments.length ? arguments[0] : undefined);
+      };
+    };
+
+    // `WeakMap` constructor
+    // https://tc39.es/ecma262/#sec-weakmap-constructor
+    var $WeakMap = collection('WeakMap', wrapper, collectionWeak);
+
+    // IE11 WeakMap frozen keys fix
+    // We can't use feature detection because it crash some old IE builds
+    // https://github.com/zloirock/core-js/issues/485
+    if (nativeWeakMap && IS_IE11) {
+      InternalWeakMap = collectionWeak.getConstructor(wrapper, 'WeakMap', true);
+      internalMetadata.enable();
+      var WeakMapPrototype = $WeakMap.prototype;
+      var nativeDelete = functionUncurryThis(WeakMapPrototype['delete']);
+      var nativeHas = functionUncurryThis(WeakMapPrototype.has);
+      var nativeGet = functionUncurryThis(WeakMapPrototype.get);
+      var nativeSet = functionUncurryThis(WeakMapPrototype.set);
+      redefineAll(WeakMapPrototype, {
+        'delete': function (key) {
+          if (isObject$1(key) && !objectIsExtensible(key)) {
+            var state = enforceInternalState(this);
+            if (!state.frozen) state.frozen = new InternalWeakMap();
+            return nativeDelete(this, key) || state.frozen['delete'](key);
+          } return nativeDelete(this, key);
+        },
+        has: function has(key) {
+          if (isObject$1(key) && !objectIsExtensible(key)) {
+            var state = enforceInternalState(this);
+            if (!state.frozen) state.frozen = new InternalWeakMap();
+            return nativeHas(this, key) || state.frozen.has(key);
+          } return nativeHas(this, key);
+        },
+        get: function get(key) {
+          if (isObject$1(key) && !objectIsExtensible(key)) {
+            var state = enforceInternalState(this);
+            if (!state.frozen) state.frozen = new InternalWeakMap();
+            return nativeHas(this, key) ? nativeGet(this, key) : state.frozen.get(key);
+          } return nativeGet(this, key);
+        },
+        set: function set(key, value) {
+          if (isObject$1(key) && !objectIsExtensible(key)) {
+            var state = enforceInternalState(this);
+            if (!state.frozen) state.frozen = new InternalWeakMap();
+            nativeHas(this, key) ? nativeSet(this, key, value) : state.frozen.set(key, value);
+          } else nativeSet(this, key, value);
+          return this;
+        }
+      });
+    }
+
+    path.WeakMap;
+
+    // call something on iterator step with safe closing on error
+    var callWithSafeIterationClosing = function (iterator, fn, value, ENTRIES) {
+      try {
+        return ENTRIES ? fn(anObject(value)[0], value[1]) : fn(value);
+      } catch (error) {
+        iteratorClose(iterator, 'throw', error);
+      }
+    };
+
+    var Array$1 = global$1.Array;
+
+    // `Array.from` method implementation
+    // https://tc39.es/ecma262/#sec-array.from
+    var arrayFrom = function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
+      var O = toObject(arrayLike);
+      var IS_CONSTRUCTOR = isConstructor(this);
+      var argumentsLength = arguments.length;
+      var mapfn = argumentsLength > 1 ? arguments[1] : undefined;
+      var mapping = mapfn !== undefined;
+      if (mapping) mapfn = functionBindContext(mapfn, argumentsLength > 2 ? arguments[2] : undefined);
+      var iteratorMethod = getIteratorMethod(O);
+      var index = 0;
+      var length, result, step, iterator, next, value;
+      // if the target is not iterable or it's an array with the default iterator - use a simple case
+      if (iteratorMethod && !(this == Array$1 && isArrayIteratorMethod(iteratorMethod))) {
+        iterator = getIterator(O, iteratorMethod);
+        next = iterator.next;
+        result = IS_CONSTRUCTOR ? new this() : [];
+        for (;!(step = functionCall(next, iterator)).done; index++) {
+          value = mapping ? callWithSafeIterationClosing(iterator, mapfn, [step.value, index], true) : step.value;
+          createProperty(result, index, value);
+        }
+      } else {
+        length = lengthOfArrayLike(O);
+        result = IS_CONSTRUCTOR ? new this(length) : Array$1(length);
+        for (;length > index; index++) {
+          value = mapping ? mapfn(O[index], index) : O[index];
+          createProperty(result, index, value);
+        }
+      }
+      result.length = index;
+      return result;
+    };
+
+    var INCORRECT_ITERATION = !checkCorrectnessOfIteration(function (iterable) {
+      // eslint-disable-next-line es/no-array-from -- required for testing
+      Array.from(iterable);
+    });
+
+    // `Array.from` method
+    // https://tc39.es/ecma262/#sec-array.from
+    _export({ target: 'Array', stat: true, forced: INCORRECT_ITERATION }, {
+      from: arrayFrom
+    });
+
+    path.Array.from;
+
+    // eslint-disable-next-line es/no-object-assign -- safe
+    var $assign = Object.assign;
+    // eslint-disable-next-line es/no-object-defineproperty -- required for testing
+    var defineProperty = Object.defineProperty;
+    var concat = functionUncurryThis([].concat);
+
+    // `Object.assign` method
+    // https://tc39.es/ecma262/#sec-object.assign
+    var objectAssign = !$assign || fails(function () {
+      // should have correct order of operations (Edge bug)
+      if (descriptors && $assign({ b: 1 }, $assign(defineProperty({}, 'a', {
+        enumerable: true,
+        get: function () {
+          defineProperty(this, 'b', {
+            value: 3,
+            enumerable: false
+          });
+        }
+      }), { b: 2 })).b !== 1) return true;
+      // should work with symbols and should have deterministic property order (V8 bug)
+      var A = {};
+      var B = {};
+      // eslint-disable-next-line es/no-symbol -- safe
+      var symbol = Symbol();
+      var alphabet = 'abcdefghijklmnopqrst';
+      A[symbol] = 7;
+      alphabet.split('').forEach(function (chr) { B[chr] = chr; });
+      return $assign({}, A)[symbol] != 7 || objectKeys($assign({}, B)).join('') != alphabet;
+    }) ? function assign(target, source) { // eslint-disable-line no-unused-vars -- required for `.length`
+      var T = toObject(target);
+      var argumentsLength = arguments.length;
+      var index = 1;
+      var getOwnPropertySymbols = objectGetOwnPropertySymbols.f;
+      var propertyIsEnumerable = objectPropertyIsEnumerable.f;
+      while (argumentsLength > index) {
+        var S = indexedObject(arguments[index++]);
+        var keys = getOwnPropertySymbols ? concat(objectKeys(S), getOwnPropertySymbols(S)) : objectKeys(S);
+        var length = keys.length;
+        var j = 0;
+        var key;
+        while (length > j) {
+          key = keys[j++];
+          if (!descriptors || functionCall(propertyIsEnumerable, S, key)) T[key] = S[key];
+        }
+      } return T;
+    } : $assign;
+
+    // `Object.assign` method
+    // https://tc39.es/ecma262/#sec-object.assign
+    // eslint-disable-next-line es/no-object-assign -- required for testing
+    _export({ target: 'Object', stat: true, forced: Object.assign !== objectAssign }, {
+      assign: objectAssign
+    });
+
+    path.Object.assign;
+
+    /**
+     * The base implementation of `_.clamp` which doesn't coerce arguments.
+     *
+     * @private
+     * @param {number} number The number to clamp.
+     * @param {number} [lower] The lower bound.
+     * @param {number} upper The upper bound.
+     * @returns {number} Returns the clamped number.
+     */
+    function baseClamp(number, lower, upper) {
+      if (number === number) {
+        if (upper !== undefined) {
+          number = number <= upper ? number : upper;
+        }
+        if (lower !== undefined) {
+          number = number >= lower ? number : lower;
+        }
+      }
+      return number;
+    }
+
+    /** Used to match a single whitespace character. */
+    var reWhitespace = /\s/;
+
+    /**
+     * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
+     * character of `string`.
+     *
+     * @private
+     * @param {string} string The string to inspect.
+     * @returns {number} Returns the index of the last non-whitespace character.
+     */
+    function trimmedEndIndex(string) {
+      var index = string.length;
+
+      while (index-- && reWhitespace.test(string.charAt(index))) {}
+      return index;
+    }
+
+    /** Used to match leading whitespace. */
+    var reTrimStart = /^\s+/;
+
+    /**
+     * The base implementation of `_.trim`.
+     *
+     * @private
+     * @param {string} string The string to trim.
+     * @returns {string} Returns the trimmed string.
+     */
+    function baseTrim(string) {
+      return string
+        ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, '')
+        : string;
+    }
+
+    /**
+     * Checks if `value` is the
+     * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+     * @example
+     *
+     * _.isObject({});
+     * // => true
+     *
+     * _.isObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isObject(_.noop);
+     * // => true
+     *
+     * _.isObject(null);
+     * // => false
+     */
+    function isObject(value) {
+      var type = typeof value;
+      return value != null && (type == 'object' || type == 'function');
+    }
+
+    /** Detect free variable `global` from Node.js. */
+    var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+    var freeGlobal$1 = freeGlobal;
+
+    /** Detect free variable `self`. */
+    var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+    /** Used as a reference to the global object. */
+    var root = freeGlobal$1 || freeSelf || Function('return this')();
+
+    var root$1 = root;
+
+    /** Built-in value references. */
+    var Symbol$1 = root$1.Symbol;
+
+    var Symbol$2 = Symbol$1;
+
+    /** Used for built-in method references. */
+    var objectProto$1 = Object.prototype;
+
+    /** Used to check objects for own properties. */
+    var hasOwnProperty = objectProto$1.hasOwnProperty;
+
+    /**
+     * Used to resolve the
+     * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+     * of values.
+     */
+    var nativeObjectToString$1 = objectProto$1.toString;
+
+    /** Built-in value references. */
+    var symToStringTag$1 = Symbol$2 ? Symbol$2.toStringTag : undefined;
+
+    /**
+     * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+     *
+     * @private
+     * @param {*} value The value to query.
+     * @returns {string} Returns the raw `toStringTag`.
+     */
+    function getRawTag(value) {
+      var isOwn = hasOwnProperty.call(value, symToStringTag$1),
+          tag = value[symToStringTag$1];
+
+      try {
+        value[symToStringTag$1] = undefined;
+        var unmasked = true;
+      } catch (e) {}
+
+      var result = nativeObjectToString$1.call(value);
+      if (unmasked) {
+        if (isOwn) {
+          value[symToStringTag$1] = tag;
+        } else {
+          delete value[symToStringTag$1];
+        }
+      }
+      return result;
+    }
+
+    /** Used for built-in method references. */
+    var objectProto = Object.prototype;
+
+    /**
+     * Used to resolve the
+     * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+     * of values.
+     */
+    var nativeObjectToString = objectProto.toString;
+
+    /**
+     * Converts `value` to a string using `Object.prototype.toString`.
+     *
+     * @private
+     * @param {*} value The value to convert.
+     * @returns {string} Returns the converted string.
+     */
+    function objectToString(value) {
+      return nativeObjectToString.call(value);
+    }
+
+    /** `Object#toString` result references. */
+    var nullTag = '[object Null]',
+        undefinedTag = '[object Undefined]';
+
+    /** Built-in value references. */
+    var symToStringTag = Symbol$2 ? Symbol$2.toStringTag : undefined;
+
+    /**
+     * The base implementation of `getTag` without fallbacks for buggy environments.
+     *
+     * @private
+     * @param {*} value The value to query.
+     * @returns {string} Returns the `toStringTag`.
+     */
+    function baseGetTag(value) {
+      if (value == null) {
+        return value === undefined ? undefinedTag : nullTag;
+      }
+      return (symToStringTag && symToStringTag in Object(value))
+        ? getRawTag(value)
+        : objectToString(value);
+    }
+
+    /**
+     * Checks if `value` is object-like. A value is object-like if it's not `null`
+     * and has a `typeof` result of "object".
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+     * @example
+     *
+     * _.isObjectLike({});
+     * // => true
+     *
+     * _.isObjectLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isObjectLike(_.noop);
+     * // => false
+     *
+     * _.isObjectLike(null);
+     * // => false
+     */
+    function isObjectLike(value) {
+      return value != null && typeof value == 'object';
+    }
+
+    /** `Object#toString` result references. */
+    var symbolTag = '[object Symbol]';
+
+    /**
+     * Checks if `value` is classified as a `Symbol` primitive or object.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+     * @example
+     *
+     * _.isSymbol(Symbol.iterator);
+     * // => true
+     *
+     * _.isSymbol('abc');
+     * // => false
+     */
+    function isSymbol(value) {
+      return typeof value == 'symbol' ||
+        (isObjectLike(value) && baseGetTag(value) == symbolTag);
+    }
+
+    /** Used as references for various `Number` constants. */
+    var NAN = 0 / 0;
+
+    /** Used to detect bad signed hexadecimal string values. */
+    var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+    /** Used to detect binary string values. */
+    var reIsBinary = /^0b[01]+$/i;
+
+    /** Used to detect octal string values. */
+    var reIsOctal = /^0o[0-7]+$/i;
+
+    /** Built-in method references without a dependency on `root`. */
+    var freeParseInt = parseInt;
+
+    /**
+     * Converts `value` to a number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to process.
+     * @returns {number} Returns the number.
+     * @example
+     *
+     * _.toNumber(3.2);
+     * // => 3.2
+     *
+     * _.toNumber(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toNumber(Infinity);
+     * // => Infinity
+     *
+     * _.toNumber('3.2');
+     * // => 3.2
+     */
+    function toNumber(value) {
+      if (typeof value == 'number') {
+        return value;
+      }
+      if (isSymbol(value)) {
+        return NAN;
+      }
+      if (isObject(value)) {
+        var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+        value = isObject(other) ? (other + '') : other;
+      }
+      if (typeof value != 'string') {
+        return value === 0 ? value : +value;
+      }
+      value = baseTrim(value);
+      var isBinary = reIsBinary.test(value);
+      return (isBinary || reIsOctal.test(value))
+        ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+        : (reIsBadHex.test(value) ? NAN : +value);
+    }
+
+    /**
+     * Clamps `number` within the inclusive `lower` and `upper` bounds.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Number
+     * @param {number} number The number to clamp.
+     * @param {number} [lower] The lower bound.
+     * @param {number} upper The upper bound.
+     * @returns {number} Returns the clamped number.
+     * @example
+     *
+     * _.clamp(-10, -5, 5);
+     * // => -5
+     *
+     * _.clamp(10, -5, 5);
+     * // => 5
+     */
+    function clamp(number, lower, upper) {
+      if (upper === undefined) {
+        upper = lower;
+        lower = undefined;
+      }
+      if (upper !== undefined) {
+        upper = toNumber(upper);
+        upper = upper === upper ? upper : 0;
+      }
+      if (lower !== undefined) {
+        lower = toNumber(lower);
+        lower = lower === lower ? lower : 0;
+      }
+      return baseClamp(toNumber(number), lower, upper);
+    }
+
+    function range(min, max) {
+        if (min === void 0) { min = -Infinity; }
+        if (max === void 0) { max = Infinity; }
+        return function (proto, key) {
+            var alias = "_" + key;
+            Object.defineProperty(proto, key, {
+                get: function () {
+                    return this[alias];
+                },
+                set: function (val) {
+                    Object.defineProperty(this, alias, {
+                        value: clamp(val, min, max),
+                        enumerable: false,
+                        writable: true,
+                        configurable: true,
+                    });
+                },
+                enumerable: true,
+                configurable: true,
+            });
+        };
+    }
+
+    function boolean(proto, key) {
+        var alias = "_" + key;
+        Object.defineProperty(proto, key, {
+            get: function () {
+                return this[alias];
+            },
+            set: function (val) {
+                Object.defineProperty(this, alias, {
+                    value: !!val,
+                    enumerable: false,
+                    writable: true,
+                    configurable: true,
+                });
+            },
+            enumerable: true,
+            configurable: true,
+        });
+    }
+
+    /**
+     * Gets the timestamp of the number of milliseconds that have elapsed since
+     * the Unix epoch (1 January 1970 00:00:00 UTC).
+     *
+     * @static
+     * @memberOf _
+     * @since 2.4.0
+     * @category Date
+     * @returns {number} Returns the timestamp.
+     * @example
+     *
+     * _.defer(function(stamp) {
+     *   console.log(_.now() - stamp);
+     * }, _.now());
+     * // => Logs the number of milliseconds it took for the deferred invocation.
+     */
+    var now = function() {
+      return root$1.Date.now();
+    };
+
+    var now$1 = now;
+
+    /** Error message constants. */
+    var FUNC_ERROR_TEXT = 'Expected a function';
+
+    /* Built-in method references for those with the same name as other `lodash` methods. */
+    var nativeMax = Math.max,
+        nativeMin = Math.min;
+
+    /**
+     * Creates a debounced function that delays invoking `func` until after `wait`
+     * milliseconds have elapsed since the last time the debounced function was
+     * invoked. The debounced function comes with a `cancel` method to cancel
+     * delayed `func` invocations and a `flush` method to immediately invoke them.
+     * Provide `options` to indicate whether `func` should be invoked on the
+     * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+     * with the last arguments provided to the debounced function. Subsequent
+     * calls to the debounced function return the result of the last `func`
+     * invocation.
+     *
+     * **Note:** If `leading` and `trailing` options are `true`, `func` is
+     * invoked on the trailing edge of the timeout only if the debounced function
+     * is invoked more than once during the `wait` timeout.
+     *
+     * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+     * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+     *
+     * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+     * for details over the differences between `_.debounce` and `_.throttle`.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Function
+     * @param {Function} func The function to debounce.
+     * @param {number} [wait=0] The number of milliseconds to delay.
+     * @param {Object} [options={}] The options object.
+     * @param {boolean} [options.leading=false]
+     *  Specify invoking on the leading edge of the timeout.
+     * @param {number} [options.maxWait]
+     *  The maximum time `func` is allowed to be delayed before it's invoked.
+     * @param {boolean} [options.trailing=true]
+     *  Specify invoking on the trailing edge of the timeout.
+     * @returns {Function} Returns the new debounced function.
+     * @example
+     *
+     * // Avoid costly calculations while the window size is in flux.
+     * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+     *
+     * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+     * jQuery(element).on('click', _.debounce(sendMail, 300, {
+     *   'leading': true,
+     *   'trailing': false
+     * }));
+     *
+     * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+     * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
+     * var source = new EventSource('/stream');
+     * jQuery(source).on('message', debounced);
+     *
+     * // Cancel the trailing debounced invocation.
+     * jQuery(window).on('popstate', debounced.cancel);
+     */
+    function debounce$2(func, wait, options) {
+      var lastArgs,
+          lastThis,
+          maxWait,
+          result,
+          timerId,
+          lastCallTime,
+          lastInvokeTime = 0,
+          leading = false,
+          maxing = false,
+          trailing = true;
+
+      if (typeof func != 'function') {
+        throw new TypeError(FUNC_ERROR_TEXT);
+      }
+      wait = toNumber(wait) || 0;
+      if (isObject(options)) {
+        leading = !!options.leading;
+        maxing = 'maxWait' in options;
+        maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+        trailing = 'trailing' in options ? !!options.trailing : trailing;
+      }
+
+      function invokeFunc(time) {
+        var args = lastArgs,
+            thisArg = lastThis;
+
+        lastArgs = lastThis = undefined;
+        lastInvokeTime = time;
+        result = func.apply(thisArg, args);
+        return result;
+      }
+
+      function leadingEdge(time) {
+        // Reset any `maxWait` timer.
+        lastInvokeTime = time;
+        // Start the timer for the trailing edge.
+        timerId = setTimeout(timerExpired, wait);
+        // Invoke the leading edge.
+        return leading ? invokeFunc(time) : result;
+      }
+
+      function remainingWait(time) {
+        var timeSinceLastCall = time - lastCallTime,
+            timeSinceLastInvoke = time - lastInvokeTime,
+            timeWaiting = wait - timeSinceLastCall;
+
+        return maxing
+          ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke)
+          : timeWaiting;
+      }
+
+      function shouldInvoke(time) {
+        var timeSinceLastCall = time - lastCallTime,
+            timeSinceLastInvoke = time - lastInvokeTime;
+
+        // Either this is the first call, activity has stopped and we're at the
+        // trailing edge, the system time has gone backwards and we're treating
+        // it as the trailing edge, or we've hit the `maxWait` limit.
+        return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
+          (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
+      }
+
+      function timerExpired() {
+        var time = now$1();
+        if (shouldInvoke(time)) {
+          return trailingEdge(time);
+        }
+        // Restart the timer.
+        timerId = setTimeout(timerExpired, remainingWait(time));
+      }
+
+      function trailingEdge(time) {
+        timerId = undefined;
+
+        // Only invoke if we have `lastArgs` which means `func` has been
+        // debounced at least once.
+        if (trailing && lastArgs) {
+          return invokeFunc(time);
+        }
+        lastArgs = lastThis = undefined;
+        return result;
+      }
+
+      function cancel() {
+        if (timerId !== undefined) {
+          clearTimeout(timerId);
+        }
+        lastInvokeTime = 0;
+        lastArgs = lastCallTime = lastThis = timerId = undefined;
+      }
+
+      function flush() {
+        return timerId === undefined ? result : trailingEdge(now$1());
+      }
+
+      function debounced() {
+        var time = now$1(),
+            isInvoking = shouldInvoke(time);
+
+        lastArgs = arguments;
+        lastThis = this;
+        lastCallTime = time;
+
+        if (isInvoking) {
+          if (timerId === undefined) {
+            return leadingEdge(lastCallTime);
+          }
+          if (maxing) {
+            // Handle invocations in a tight loop.
+            clearTimeout(timerId);
+            timerId = setTimeout(timerExpired, wait);
+            return invokeFunc(lastCallTime);
+          }
+        }
+        if (timerId === undefined) {
+          timerId = setTimeout(timerExpired, wait);
+        }
+        return result;
+      }
+      debounced.cancel = cancel;
+      debounced.flush = flush;
+      return debounced;
+    }
+
+    function debounce$1() {
+        var options = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            options[_i] = arguments[_i];
+        }
+        return function (_proto, key, descriptor) {
+            var fn = descriptor.value;
+            return {
+                get: function () {
+                    if (!this.hasOwnProperty(key)) {
+                        Object.defineProperty(this, key, {
+                            value: debounce$2.apply(void 0, __spreadArrays([fn], options)),
+                        });
+                    }
+                    return this[key];
+                },
+            };
+        };
+    }
+
+    var Options = /** @class */ (function () {
+        function Options(config) {
+            var _this = this;
+            if (config === void 0) { config = {}; }
+            /**
+             * Momentum reduction damping factor, a float value between `(0, 1)`.
+             * The lower the value is, the more smooth the scrolling will be
+             * (also the more paint frames).
+             */
+            this.damping = 0.1;
+            /**
+             * Minimal size for scrollbar thumbs.
+             */
+            this.thumbMinSize = 20;
+            /**
+             * Render every frame in integer pixel values
+             * set to `true` to improve scrolling performance.
+             */
+            this.renderByPixels = true;
+            /**
+             * Keep scrollbar tracks visible
+             */
+            this.alwaysShowTracks = false;
+            /**
+             * Set to `true` to allow outer scrollbars continue scrolling
+             * when current scrollbar reaches edge.
+             */
+            this.continuousScrolling = true;
+            /**
+             * Delegate wheel events and touch events to the given element.
+             * By default, the container element is used.
+             * This option will be useful for dealing with fixed elements.
+             */
+            this.delegateTo = null;
+            /**
+             * Options for plugins. Syntax:
+             *   plugins[pluginName] = pluginOptions: any
+             */
+            this.plugins = {};
+            Object.keys(config).forEach(function (prop) {
+                _this[prop] = config[prop];
+            });
+        }
+        Object.defineProperty(Options.prototype, "wheelEventTarget", {
+            get: function () {
+                return this.delegateTo;
+            },
+            set: function (el) {
+                console.warn('[smooth-scrollbar]: `options.wheelEventTarget` is deprecated and will be removed in the future, use `options.delegateTo` instead.');
+                this.delegateTo = el;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        __decorate([
+            range(0, 1)
+        ], Options.prototype, "damping", void 0);
+        __decorate([
+            range(0, Infinity)
+        ], Options.prototype, "thumbMinSize", void 0);
+        __decorate([
+            boolean
+        ], Options.prototype, "renderByPixels", void 0);
+        __decorate([
+            boolean
+        ], Options.prototype, "alwaysShowTracks", void 0);
+        __decorate([
+            boolean
+        ], Options.prototype, "continuousScrolling", void 0);
+        return Options;
+    }());
+
+    var eventListenerOptions;
+    var eventMap = new WeakMap();
+    function getOptions() {
+        if (eventListenerOptions !== undefined) {
+            return eventListenerOptions;
+        }
+        var supportPassiveEvent = false;
+        try {
+            var noop = function () { };
+            var options = Object.defineProperty({}, 'passive', {
+                get: function () {
+                    supportPassiveEvent = true;
+                },
+            });
+            window.addEventListener('testPassive', noop, options);
+            window.removeEventListener('testPassive', noop, options);
+        }
+        catch (e) { }
+        eventListenerOptions = supportPassiveEvent ? { passive: false } : false;
+        return eventListenerOptions;
+    }
+    function eventScope(scrollbar) {
+        var configs = eventMap.get(scrollbar) || [];
+        eventMap.set(scrollbar, configs);
+        return function addEvent(elem, events, fn) {
+            function handler(event) {
+                // ignore default prevented events
+                if (event.defaultPrevented) {
+                    return;
+                }
+                fn(event);
+            }
+            events.split(/\s+/g).forEach(function (eventName) {
+                configs.push({ elem: elem, eventName: eventName, handler: handler });
+                elem.addEventListener(eventName, handler, getOptions());
+            });
+        };
+    }
+    function clearEventsOn(scrollbar) {
+        var configs = eventMap.get(scrollbar);
+        if (!configs) {
+            return;
+        }
+        configs.forEach(function (_a) {
+            var elem = _a.elem, eventName = _a.eventName, handler = _a.handler;
+            elem.removeEventListener(eventName, handler, getOptions());
+        });
+        eventMap.delete(scrollbar);
+    }
+
+    /**
+     * Get pointer/touch data
+     */
+    function getPointerData(evt) {
+        // if is touch event, return last item in touchList
+        // else return original event
+        return evt.touches ? evt.touches[evt.touches.length - 1] : evt;
+    }
+
+    /**
+     * Get pointer/finger position
+     */
+    function getPosition(evt) {
+        var data = getPointerData(evt);
+        return {
+            x: data.clientX,
+            y: data.clientY,
+        };
+    }
+
+    /**
+     * Check if `a` is one of `[...b]`
+     */
+    function isOneOf(a, b) {
+        if (b === void 0) { b = []; }
+        return b.some(function (v) { return a === v; });
+    }
+
+    var VENDOR_PREFIX = [
+        'webkit',
+        'moz',
+        'ms',
+        'o',
+    ];
+    var RE = new RegExp("^-(?!(?:" + VENDOR_PREFIX.join('|') + ")-)");
+    function autoPrefix(styles) {
+        var res = {};
+        Object.keys(styles).forEach(function (prop) {
+            if (!RE.test(prop)) {
+                res[prop] = styles[prop];
+                return;
+            }
+            var val = styles[prop];
+            prop = prop.replace(/^-/, '');
+            res[prop] = val;
+            VENDOR_PREFIX.forEach(function (prefix) {
+                res["-" + prefix + "-" + prop] = val;
+            });
+        });
+        return res;
+    }
+    function setStyle(elem, styles) {
+        styles = autoPrefix(styles);
+        Object.keys(styles).forEach(function (prop) {
+            var cssProp = prop.replace(/^-/, '').replace(/-([a-z])/g, function (_, $1) { return $1.toUpperCase(); });
+            elem.style[cssProp] = styles[prop];
+        });
+    }
+
+    var Tracker = /** @class */ (function () {
+        function Tracker(touch) {
+            this.velocityMultiplier = /Android/.test(navigator.userAgent) ? window.devicePixelRatio : 1;
+            this.updateTime = Date.now();
+            this.delta = { x: 0, y: 0 };
+            this.velocity = { x: 0, y: 0 };
+            this.lastPosition = { x: 0, y: 0 };
+            this.lastPosition = getPosition(touch);
+        }
+        Tracker.prototype.update = function (touch) {
+            var _a = this, velocity = _a.velocity, updateTime = _a.updateTime, lastPosition = _a.lastPosition;
+            var now = Date.now();
+            var position = getPosition(touch);
+            var delta = {
+                x: -(position.x - lastPosition.x),
+                y: -(position.y - lastPosition.y),
+            };
+            var duration = (now - updateTime) || 16.7;
+            var vx = delta.x / duration * 16.7;
+            var vy = delta.y / duration * 16.7;
+            velocity.x = vx * this.velocityMultiplier;
+            velocity.y = vy * this.velocityMultiplier;
+            this.delta = delta;
+            this.updateTime = now;
+            this.lastPosition = position;
+        };
+        return Tracker;
+    }());
+    var TouchRecord = /** @class */ (function () {
+        function TouchRecord() {
+            this._touchList = {};
+        }
+        Object.defineProperty(TouchRecord.prototype, "_primitiveValue", {
+            get: function () {
+                return { x: 0, y: 0 };
+            },
+            enumerable: true,
+            configurable: true
+        });
+        TouchRecord.prototype.isActive = function () {
+            return this._activeTouchID !== undefined;
+        };
+        TouchRecord.prototype.getDelta = function () {
+            var tracker = this._getActiveTracker();
+            if (!tracker) {
+                return this._primitiveValue;
+            }
+            return __assign({}, tracker.delta);
+        };
+        TouchRecord.prototype.getVelocity = function () {
+            var tracker = this._getActiveTracker();
+            if (!tracker) {
+                return this._primitiveValue;
+            }
+            return __assign({}, tracker.velocity);
+        };
+        TouchRecord.prototype.getEasingDistance = function (damping) {
+            var deAcceleration = 1 - damping;
+            var distance = {
+                x: 0,
+                y: 0,
+            };
+            var vel = this.getVelocity();
+            Object.keys(vel).forEach(function (dir) {
+                // ignore small velocity
+                var v = Math.abs(vel[dir]) <= 10 ? 0 : vel[dir];
+                while (v !== 0) {
+                    distance[dir] += v;
+                    v = (v * deAcceleration) | 0;
+                }
+            });
+            return distance;
+        };
+        TouchRecord.prototype.track = function (evt) {
+            var _this = this;
+            var targetTouches = evt.targetTouches;
+            Array.from(targetTouches).forEach(function (touch) {
+                _this._add(touch);
+            });
+            return this._touchList;
+        };
+        TouchRecord.prototype.update = function (evt) {
+            var _this = this;
+            var touches = evt.touches, changedTouches = evt.changedTouches;
+            Array.from(touches).forEach(function (touch) {
+                _this._renew(touch);
+            });
+            this._setActiveID(changedTouches);
+            return this._touchList;
+        };
+        TouchRecord.prototype.release = function (evt) {
+            var _this = this;
+            delete this._activeTouchID;
+            Array.from(evt.changedTouches).forEach(function (touch) {
+                _this._delete(touch);
+            });
+        };
+        TouchRecord.prototype._add = function (touch) {
+            if (this._has(touch)) {
+                return;
+            }
+            var tracker = new Tracker(touch);
+            this._touchList[touch.identifier] = tracker;
+        };
+        TouchRecord.prototype._renew = function (touch) {
+            if (!this._has(touch)) {
+                return;
+            }
+            var tracker = this._touchList[touch.identifier];
+            tracker.update(touch);
+        };
+        TouchRecord.prototype._delete = function (touch) {
+            delete this._touchList[touch.identifier];
+        };
+        TouchRecord.prototype._has = function (touch) {
+            return this._touchList.hasOwnProperty(touch.identifier);
+        };
+        TouchRecord.prototype._setActiveID = function (touches) {
+            this._activeTouchID = touches[touches.length - 1].identifier;
+        };
+        TouchRecord.prototype._getActiveTracker = function () {
+            var _a = this, _touchList = _a._touchList, _activeTouchID = _a._activeTouchID;
+            return _touchList[_activeTouchID];
+        };
+        return TouchRecord;
+    }());
+
+    var TrackDirection;
+    (function (TrackDirection) {
+        TrackDirection["X"] = "x";
+        TrackDirection["Y"] = "y";
+    })(TrackDirection || (TrackDirection = {}));
+
+    var ScrollbarThumb = /** @class */ (function () {
+        function ScrollbarThumb(_direction, _minSize) {
+            if (_minSize === void 0) { _minSize = 0; }
+            this._direction = _direction;
+            this._minSize = _minSize;
+            /**
+             * Thumb element
+             */
+            this.element = document.createElement('div');
+            /**
+             * Display size of the thumb
+             * will always be greater than `scrollbar.options.thumbMinSize`
+             */
+            this.displaySize = 0;
+            /**
+             * Actual size of the thumb
+             */
+            this.realSize = 0;
+            /**
+             * Thumb offset to the top
+             */
+            this.offset = 0;
+            this.element.className = "scrollbar-thumb scrollbar-thumb-" + _direction;
+        }
+        /**
+         * Attach to track element
+         *
+         * @param trackEl Track element
+         */
+        ScrollbarThumb.prototype.attachTo = function (trackEl) {
+            trackEl.appendChild(this.element);
+        };
+        ScrollbarThumb.prototype.update = function (scrollOffset, containerSize, pageSize) {
+            // calculate thumb size
+            // pageSize > containerSize -> scrollable
+            this.realSize = Math.min(containerSize / pageSize, 1) * containerSize;
+            this.displaySize = Math.max(this.realSize, this._minSize);
+            // calculate thumb offset
+            this.offset = scrollOffset / pageSize * (containerSize + (this.realSize - this.displaySize));
+            setStyle(this.element, this._getStyle());
+        };
+        ScrollbarThumb.prototype._getStyle = function () {
+            switch (this._direction) {
+                case TrackDirection.X:
+                    return {
+                        width: this.displaySize + "px",
+                        '-transform': "translate3d(" + this.offset + "px, 0, 0)",
+                    };
+                case TrackDirection.Y:
+                    return {
+                        height: this.displaySize + "px",
+                        '-transform': "translate3d(0, " + this.offset + "px, 0)",
+                    };
+                default:
+                    return null;
+            }
+        };
+        return ScrollbarThumb;
+    }());
+
+    var ScrollbarTrack = /** @class */ (function () {
+        function ScrollbarTrack(direction, thumbMinSize) {
+            if (thumbMinSize === void 0) { thumbMinSize = 0; }
+            /**
+             * Track element
+             */
+            this.element = document.createElement('div');
+            this._isShown = false;
+            this.element.className = "scrollbar-track scrollbar-track-" + direction;
+            this.thumb = new ScrollbarThumb(direction, thumbMinSize);
+            this.thumb.attachTo(this.element);
+        }
+        /**
+         * Attach to scrollbar container element
+         *
+         * @param scrollbarContainer Scrollbar container element
+         */
+        ScrollbarTrack.prototype.attachTo = function (scrollbarContainer) {
+            scrollbarContainer.appendChild(this.element);
+        };
+        /**
+         * Show track immediately
+         */
+        ScrollbarTrack.prototype.show = function () {
+            if (this._isShown) {
+                return;
+            }
+            this._isShown = true;
+            this.element.classList.add('show');
+        };
+        /**
+         * Hide track immediately
+         */
+        ScrollbarTrack.prototype.hide = function () {
+            if (!this._isShown) {
+                return;
+            }
+            this._isShown = false;
+            this.element.classList.remove('show');
+        };
+        ScrollbarTrack.prototype.update = function (scrollOffset, containerSize, pageSize) {
+            setStyle(this.element, {
+                display: pageSize <= containerSize ? 'none' : 'block',
+            });
+            this.thumb.update(scrollOffset, containerSize, pageSize);
+        };
+        return ScrollbarTrack;
+    }());
+
+    var TrackController = /** @class */ (function () {
+        function TrackController(_scrollbar) {
+            this._scrollbar = _scrollbar;
+            var thumbMinSize = _scrollbar.options.thumbMinSize;
+            this.xAxis = new ScrollbarTrack(TrackDirection.X, thumbMinSize);
+            this.yAxis = new ScrollbarTrack(TrackDirection.Y, thumbMinSize);
+            this.xAxis.attachTo(_scrollbar.containerEl);
+            this.yAxis.attachTo(_scrollbar.containerEl);
+            if (_scrollbar.options.alwaysShowTracks) {
+                this.xAxis.show();
+                this.yAxis.show();
+            }
+        }
+        /**
+         * Updates track appearance
+         */
+        TrackController.prototype.update = function () {
+            var _a = this._scrollbar, size = _a.size, offset = _a.offset;
+            this.xAxis.update(offset.x, size.container.width, size.content.width);
+            this.yAxis.update(offset.y, size.container.height, size.content.height);
+        };
+        /**
+         * Automatically hide tracks when scrollbar is in idle state
+         */
+        TrackController.prototype.autoHideOnIdle = function () {
+            if (this._scrollbar.options.alwaysShowTracks) {
+                return;
+            }
+            this.xAxis.hide();
+            this.yAxis.hide();
+        };
+        __decorate([
+            debounce$1(300)
+        ], TrackController.prototype, "autoHideOnIdle", null);
+        return TrackController;
+    }());
+
+    function getSize(scrollbar) {
+        var containerEl = scrollbar.containerEl, contentEl = scrollbar.contentEl;
+        var containerStyles = getComputedStyle(containerEl);
+        var paddings = [
+            'paddingTop',
+            'paddingBottom',
+            'paddingLeft',
+            'paddingRight',
+        ].map(function (prop) {
+            return containerStyles[prop] ? parseFloat(containerStyles[prop]) : 0;
+        });
+        var verticalPadding = paddings[0] + paddings[1];
+        var horizontalPadding = paddings[2] + paddings[3];
+        return {
+            container: {
+                // requires `overflow: hidden`
+                width: containerEl.clientWidth,
+                height: containerEl.clientHeight,
+            },
+            content: {
+                // border width and paddings should be included
+                width: contentEl.offsetWidth - contentEl.clientWidth + contentEl.scrollWidth + horizontalPadding,
+                height: contentEl.offsetHeight - contentEl.clientHeight + contentEl.scrollHeight + verticalPadding,
+            },
+        };
+    }
+
+    function isVisible(scrollbar, elem) {
+        var bounding = scrollbar.bounding;
+        var targetBounding = elem.getBoundingClientRect();
+        // check overlapping
+        var top = Math.max(bounding.top, targetBounding.top);
+        var left = Math.max(bounding.left, targetBounding.left);
+        var right = Math.min(bounding.right, targetBounding.right);
+        var bottom = Math.min(bounding.bottom, targetBounding.bottom);
+        return top < bottom && left < right;
+    }
+
+    function update(scrollbar) {
+        var newSize = scrollbar.getSize();
+        var limit = {
+            x: Math.max(newSize.content.width - newSize.container.width, 0),
+            y: Math.max(newSize.content.height - newSize.container.height, 0),
+        };
+        // metrics
+        var containerBounding = scrollbar.containerEl.getBoundingClientRect();
+        var bounding = {
+            top: Math.max(containerBounding.top, 0),
+            right: Math.min(containerBounding.right, window.innerWidth),
+            bottom: Math.min(containerBounding.bottom, window.innerHeight),
+            left: Math.max(containerBounding.left, 0),
+        };
+        // assign props
+        scrollbar.size = newSize;
+        scrollbar.limit = limit;
+        scrollbar.bounding = bounding;
+        // update tracks
+        scrollbar.track.update();
+        // re-positioning
+        scrollbar.setPosition();
+    }
+
+    function setPosition(scrollbar, x, y) {
+        var options = scrollbar.options, offset = scrollbar.offset, limit = scrollbar.limit, track = scrollbar.track, contentEl = scrollbar.contentEl;
+        if (options.renderByPixels) {
+            x = Math.round(x);
+            y = Math.round(y);
+        }
+        x = clamp(x, 0, limit.x);
+        y = clamp(y, 0, limit.y);
+        // position changed -> show track for 300ms
+        if (x !== offset.x)
+            track.xAxis.show();
+        if (y !== offset.y)
+            track.yAxis.show();
+        if (!options.alwaysShowTracks) {
+            track.autoHideOnIdle();
+        }
+        if (x === offset.x && y === offset.y) {
+            return null;
+        }
+        offset.x = x;
+        offset.y = y;
+        setStyle(contentEl, {
+            '-transform': "translate3d(" + -x + "px, " + -y + "px, 0)",
+        });
+        track.update();
+        return {
+            offset: __assign({}, offset),
+            limit: __assign({}, limit),
+        };
+    }
+
+    var animationIDStorage = new WeakMap();
+    function scrollTo(scrollbar, x, y, duration, _a) {
+        if (duration === void 0) { duration = 0; }
+        var _b = _a === void 0 ? {} : _a, _c = _b.easing, easing = _c === void 0 ? defaultEasing : _c, callback = _b.callback;
+        var options = scrollbar.options, offset = scrollbar.offset, limit = scrollbar.limit;
+        if (options.renderByPixels) {
+            // ensure resolved with integer
+            x = Math.round(x);
+            y = Math.round(y);
+        }
+        var startX = offset.x;
+        var startY = offset.y;
+        var disX = clamp(x, 0, limit.x) - startX;
+        var disY = clamp(y, 0, limit.y) - startY;
+        var start = Date.now();
+        function scroll() {
+            var elapse = Date.now() - start;
+            var progress = duration ? easing(Math.min(elapse / duration, 1)) : 1;
+            scrollbar.setPosition(startX + disX * progress, startY + disY * progress);
+            if (elapse >= duration) {
+                if (typeof callback === 'function') {
+                    callback.call(scrollbar);
+                }
+            }
+            else {
+                var animationID = requestAnimationFrame(scroll);
+                animationIDStorage.set(scrollbar, animationID);
+            }
+        }
+        cancelAnimationFrame(animationIDStorage.get(scrollbar));
+        scroll();
+    }
+    /**
+     * easeOutCubic
+     */
+    function defaultEasing(t) {
+        return Math.pow((t - 1), 3) + 1;
+    }
+
+    function scrollIntoView(scrollbar, elem, _a) {
+        var _b = _a === void 0 ? {} : _a, _c = _b.alignToTop, alignToTop = _c === void 0 ? true : _c, _d = _b.onlyScrollIfNeeded, onlyScrollIfNeeded = _d === void 0 ? false : _d, _e = _b.offsetTop, offsetTop = _e === void 0 ? 0 : _e, _f = _b.offsetLeft, offsetLeft = _f === void 0 ? 0 : _f, _g = _b.offsetBottom, offsetBottom = _g === void 0 ? 0 : _g;
+        var containerEl = scrollbar.containerEl, bounding = scrollbar.bounding, offset = scrollbar.offset, limit = scrollbar.limit;
+        if (!elem || !containerEl.contains(elem))
+            return;
+        var targetBounding = elem.getBoundingClientRect();
+        if (onlyScrollIfNeeded && scrollbar.isVisible(elem))
+            return;
+        var delta = alignToTop ? targetBounding.top - bounding.top - offsetTop : targetBounding.bottom - bounding.bottom + offsetBottom;
+        scrollbar.setMomentum(targetBounding.left - bounding.left - offsetLeft, clamp(delta, -offset.y, limit.y - offset.y));
+    }
+
+    var ScrollbarPlugin = /** @class */ (function () {
+        function ScrollbarPlugin(scrollbar, options) {
+            var _newTarget = this.constructor;
+            this.scrollbar = scrollbar;
+            this.name = _newTarget.pluginName;
+            this.options = __assign(__assign({}, _newTarget.defaultOptions), options);
+        }
+        ScrollbarPlugin.prototype.onInit = function () { };
+        ScrollbarPlugin.prototype.onDestroy = function () { };
+        ScrollbarPlugin.prototype.onUpdate = function () { };
+        ScrollbarPlugin.prototype.onRender = function (_remainMomentum) { };
+        ScrollbarPlugin.prototype.transformDelta = function (delta, _evt) {
+            return __assign({}, delta);
+        };
+        ScrollbarPlugin.pluginName = '';
+        ScrollbarPlugin.defaultOptions = {};
+        return ScrollbarPlugin;
+    }());
+    var globalPlugins = {
+        order: new Set(),
+        constructors: {},
+    };
+    function addPlugins() {
+        var Plugins = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            Plugins[_i] = arguments[_i];
+        }
+        Plugins.forEach(function (P) {
+            var pluginName = P.pluginName;
+            if (!pluginName) {
+                throw new TypeError("plugin name is required");
+            }
+            globalPlugins.order.add(pluginName);
+            globalPlugins.constructors[pluginName] = P;
+        });
+    }
+    function initPlugins(scrollbar, options) {
+        return Array.from(globalPlugins.order)
+            .filter(function (pluginName) {
+            return options[pluginName] !== false;
+        })
+            .map(function (pluginName) {
+            var Plugin = globalPlugins.constructors[pluginName];
+            var instance = new Plugin(scrollbar, options[pluginName]);
+            // bind plugin options to `scrollbar.options`
+            options[pluginName] = instance.options;
+            return instance;
+        });
+    }
+
+    var KEY_CODE;
+    (function (KEY_CODE) {
+        KEY_CODE[KEY_CODE["TAB"] = 9] = "TAB";
+        KEY_CODE[KEY_CODE["SPACE"] = 32] = "SPACE";
+        KEY_CODE[KEY_CODE["PAGE_UP"] = 33] = "PAGE_UP";
+        KEY_CODE[KEY_CODE["PAGE_DOWN"] = 34] = "PAGE_DOWN";
+        KEY_CODE[KEY_CODE["END"] = 35] = "END";
+        KEY_CODE[KEY_CODE["HOME"] = 36] = "HOME";
+        KEY_CODE[KEY_CODE["LEFT"] = 37] = "LEFT";
+        KEY_CODE[KEY_CODE["UP"] = 38] = "UP";
+        KEY_CODE[KEY_CODE["RIGHT"] = 39] = "RIGHT";
+        KEY_CODE[KEY_CODE["DOWN"] = 40] = "DOWN";
+    })(KEY_CODE || (KEY_CODE = {}));
+    function keyboardHandler(scrollbar) {
+        var addEvent = eventScope(scrollbar);
+        var container = scrollbar.containerEl;
+        addEvent(container, 'keydown', function (evt) {
+            var activeElement = document.activeElement;
+            if (activeElement !== container && !container.contains(activeElement)) {
+                return;
+            }
+            if (isEditable(activeElement)) {
+                return;
+            }
+            var delta = getKeyDelta(scrollbar, evt.keyCode || evt.which);
+            if (!delta) {
+                return;
+            }
+            var x = delta[0], y = delta[1];
+            scrollbar.addTransformableMomentum(x, y, evt, function (willScroll) {
+                if (willScroll) {
+                    evt.preventDefault();
+                }
+                else {
+                    scrollbar.containerEl.blur();
+                    if (scrollbar.parent) {
+                        scrollbar.parent.containerEl.focus();
+                    }
+                }
+            });
+        });
+    }
+    function getKeyDelta(scrollbar, keyCode) {
+        var size = scrollbar.size, limit = scrollbar.limit, offset = scrollbar.offset;
+        switch (keyCode) {
+            case KEY_CODE.TAB:
+                return handleTabKey(scrollbar);
+            case KEY_CODE.SPACE:
+                return [0, 200];
+            case KEY_CODE.PAGE_UP:
+                return [0, -size.container.height + 40];
+            case KEY_CODE.PAGE_DOWN:
+                return [0, size.container.height - 40];
+            case KEY_CODE.END:
+                return [0, limit.y - offset.y];
+            case KEY_CODE.HOME:
+                return [0, -offset.y];
+            case KEY_CODE.LEFT:
+                return [-40, 0];
+            case KEY_CODE.UP:
+                return [0, -40];
+            case KEY_CODE.RIGHT:
+                return [40, 0];
+            case KEY_CODE.DOWN:
+                return [0, 40];
+            default:
+                return null;
+        }
+    }
+    function handleTabKey(scrollbar) {
+        // handle in next frame
+        requestAnimationFrame(function () {
+            scrollbar.scrollIntoView(document.activeElement, {
+                offsetTop: scrollbar.size.container.height / 2,
+                onlyScrollIfNeeded: true,
+            });
+        });
+    }
+    function isEditable(elem) {
+        if (elem.tagName === 'INPUT' ||
+            elem.tagName === 'SELECT' ||
+            elem.tagName === 'TEXTAREA' ||
+            elem.isContentEditable) {
+            return !elem.disabled;
+        }
+        return false;
+    }
+
+    var Direction;
+    (function (Direction) {
+        Direction[Direction["X"] = 0] = "X";
+        Direction[Direction["Y"] = 1] = "Y";
+    })(Direction || (Direction = {}));
+    function mouseHandler(scrollbar) {
+        var addEvent = eventScope(scrollbar);
+        var container = scrollbar.containerEl;
+        var _a = scrollbar.track, xAxis = _a.xAxis, yAxis = _a.yAxis;
+        function calcMomentum(direction, clickPosition) {
+            var size = scrollbar.size, limit = scrollbar.limit, offset = scrollbar.offset;
+            if (direction === Direction.X) {
+                var totalWidth = size.container.width + (xAxis.thumb.realSize - xAxis.thumb.displaySize);
+                return clamp(clickPosition / totalWidth * size.content.width, 0, limit.x) - offset.x;
+            }
+            if (direction === Direction.Y) {
+                var totalHeight = size.container.height + (yAxis.thumb.realSize - yAxis.thumb.displaySize);
+                return clamp(clickPosition / totalHeight * size.content.height, 0, limit.y) - offset.y;
+            }
+            return 0;
+        }
+        function getTrackDirection(elem) {
+            if (isOneOf(elem, [xAxis.element, xAxis.thumb.element])) {
+                return Direction.X;
+            }
+            if (isOneOf(elem, [yAxis.element, yAxis.thumb.element])) {
+                return Direction.Y;
+            }
+            return void 0;
+        }
+        var isMouseDown;
+        var isMouseMoving;
+        var startOffsetToThumb;
+        var trackDirection;
+        var containerRect;
+        addEvent(container, 'click', function (evt) {
+            if (isMouseMoving || !isOneOf(evt.target, [xAxis.element, yAxis.element])) {
+                return;
+            }
+            var track = evt.target;
+            var direction = getTrackDirection(track);
+            var rect = track.getBoundingClientRect();
+            var clickPos = getPosition(evt);
+            if (direction === Direction.X) {
+                var offsetOnTrack = clickPos.x - rect.left - xAxis.thumb.displaySize / 2;
+                scrollbar.setMomentum(calcMomentum(direction, offsetOnTrack), 0);
+            }
+            if (direction === Direction.Y) {
+                var offsetOnTrack = clickPos.y - rect.top - yAxis.thumb.displaySize / 2;
+                scrollbar.setMomentum(0, calcMomentum(direction, offsetOnTrack));
+            }
+        });
+        addEvent(container, 'mousedown', function (evt) {
+            if (!isOneOf(evt.target, [xAxis.thumb.element, yAxis.thumb.element])) {
+                return;
+            }
+            isMouseDown = true;
+            var thumb = evt.target;
+            var cursorPos = getPosition(evt);
+            var thumbRect = thumb.getBoundingClientRect();
+            trackDirection = getTrackDirection(thumb);
+            // pointer offset to thumb
+            startOffsetToThumb = {
+                x: cursorPos.x - thumbRect.left,
+                y: cursorPos.y - thumbRect.top,
+            };
+            // container bounding rectangle
+            containerRect = container.getBoundingClientRect();
+            // prevent selection, see:
+            // https://github.com/idiotWu/smooth-scrollbar/issues/48
+            setStyle(scrollbar.containerEl, {
+                '-user-select': 'none',
+            });
+        });
+        addEvent(window, 'mousemove', function (evt) {
+            if (!isMouseDown)
+                return;
+            isMouseMoving = true;
+            var cursorPos = getPosition(evt);
+            if (trackDirection === Direction.X) {
+                // get percentage of pointer position in track
+                // then tranform to px
+                // don't need easing
+                var offsetOnTrack = cursorPos.x - startOffsetToThumb.x - containerRect.left;
+                scrollbar.setMomentum(calcMomentum(trackDirection, offsetOnTrack), 0);
+            }
+            if (trackDirection === Direction.Y) {
+                var offsetOnTrack = cursorPos.y - startOffsetToThumb.y - containerRect.top;
+                scrollbar.setMomentum(0, calcMomentum(trackDirection, offsetOnTrack));
+            }
+        });
+        addEvent(window, 'mouseup blur', function () {
+            isMouseDown = isMouseMoving = false;
+            setStyle(scrollbar.containerEl, {
+                '-user-select': '',
+            });
+        });
+    }
+
+    function resizeHandler(scrollbar) {
+        var addEvent = eventScope(scrollbar);
+        addEvent(window, 'resize', debounce$2(scrollbar.update.bind(scrollbar), 300));
+    }
+
+    function selectHandler(scrollbar) {
+        var addEvent = eventScope(scrollbar);
+        var containerEl = scrollbar.containerEl, contentEl = scrollbar.contentEl;
+        var isSelected = false;
+        var animationID;
+        function scroll(_a) {
+            var x = _a.x, y = _a.y;
+            if (!x && !y)
+                return;
+            var offset = scrollbar.offset, limit = scrollbar.limit;
+            // DISALLOW delta transformation
+            scrollbar.setMomentum(clamp(offset.x + x, 0, limit.x) - offset.x, clamp(offset.y + y, 0, limit.y) - offset.y);
+            animationID = requestAnimationFrame(function () {
+                scroll({ x: x, y: y });
+            });
+        }
+        addEvent(window, 'mousemove', function (evt) {
+            if (!isSelected)
+                return;
+            cancelAnimationFrame(animationID);
+            var dir = calcMomentum(scrollbar, evt);
+            scroll(dir);
+        });
+        addEvent(contentEl, 'selectstart', function (evt) {
+            evt.stopPropagation();
+            cancelAnimationFrame(animationID);
+            isSelected = true;
+        });
+        addEvent(window, 'mouseup blur', function () {
+            cancelAnimationFrame(animationID);
+            isSelected = false;
+        });
+        // patch for touch devices
+        addEvent(containerEl, 'scroll', function (evt) {
+            evt.preventDefault();
+            containerEl.scrollTop = containerEl.scrollLeft = 0;
+        });
+    }
+    function calcMomentum(scrollbar, evt) {
+        var _a = scrollbar.bounding, top = _a.top, right = _a.right, bottom = _a.bottom, left = _a.left;
+        var _b = getPosition(evt), x = _b.x, y = _b.y;
+        var res = {
+            x: 0,
+            y: 0,
+        };
+        var padding = 20;
+        if (x === 0 && y === 0)
+            return res;
+        if (x > right - padding) {
+            res.x = (x - right + padding);
+        }
+        else if (x < left + padding) {
+            res.x = (x - left - padding);
+        }
+        if (y > bottom - padding) {
+            res.y = (y - bottom + padding);
+        }
+        else if (y < top + padding) {
+            res.y = (y - top - padding);
+        }
+        res.x *= 2;
+        res.y *= 2;
+        return res;
+    }
+
+    var activeScrollbar;
+    function touchHandler(scrollbar) {
+        var target = scrollbar.options.delegateTo || scrollbar.containerEl;
+        var touchRecord = new TouchRecord();
+        var addEvent = eventScope(scrollbar);
+        var damping;
+        var pointerCount = 0;
+        addEvent(target, 'touchstart', function (evt) {
+            // start records
+            touchRecord.track(evt);
+            // stop scrolling
+            scrollbar.setMomentum(0, 0);
+            // save damping
+            if (pointerCount === 0) {
+                damping = scrollbar.options.damping;
+                scrollbar.options.damping = Math.max(damping, 0.5); // less frames on touchmove
+            }
+            pointerCount++;
+        });
+        addEvent(target, 'touchmove', function (evt) {
+            if (activeScrollbar && activeScrollbar !== scrollbar)
+                return;
+            touchRecord.update(evt);
+            var _a = touchRecord.getDelta(), x = _a.x, y = _a.y;
+            scrollbar.addTransformableMomentum(x, y, evt, function (willScroll) {
+                if (willScroll && evt.cancelable) {
+                    evt.preventDefault();
+                    activeScrollbar = scrollbar;
+                }
+            });
+        });
+        addEvent(target, 'touchcancel touchend', function (evt) {
+            var delta = touchRecord.getEasingDistance(damping);
+            scrollbar.addTransformableMomentum(delta.x, delta.y, evt);
+            pointerCount--;
+            // restore damping
+            if (pointerCount === 0) {
+                scrollbar.options.damping = damping;
+            }
+            touchRecord.release(evt);
+            activeScrollbar = null;
+        });
+    }
+
+    function wheelHandler(scrollbar) {
+        var addEvent = eventScope(scrollbar);
+        var target = scrollbar.options.delegateTo || scrollbar.containerEl;
+        var eventName = ('onwheel' in window || document.implementation.hasFeature('Events.wheel', '3.0')) ? 'wheel' : 'mousewheel';
+        addEvent(target, eventName, function (evt) {
+            var _a = normalizeDelta(evt), x = _a.x, y = _a.y;
+            scrollbar.addTransformableMomentum(x, y, evt, function (willScroll) {
+                if (willScroll) {
+                    evt.preventDefault();
+                }
+            });
+        });
+    }
+    // Normalizing wheel delta
+    var DELTA_SCALE = {
+        STANDARD: 1,
+        OTHERS: -3,
+    };
+    var DELTA_MODE = [1.0, 28.0, 500.0];
+    var getDeltaMode = function (mode) { return DELTA_MODE[mode] || DELTA_MODE[0]; };
+    function normalizeDelta(evt) {
+        if ('deltaX' in evt) {
+            var mode = getDeltaMode(evt.deltaMode);
+            return {
+                x: evt.deltaX / DELTA_SCALE.STANDARD * mode,
+                y: evt.deltaY / DELTA_SCALE.STANDARD * mode,
+            };
+        }
+        if ('wheelDeltaX' in evt) {
+            return {
+                x: evt.wheelDeltaX / DELTA_SCALE.OTHERS,
+                y: evt.wheelDeltaY / DELTA_SCALE.OTHERS,
+            };
+        }
+        // ie with touchpad
+        return {
+            x: 0,
+            y: evt.wheelDelta / DELTA_SCALE.OTHERS,
+        };
+    }
+
+    var eventHandlers = /*#__PURE__*/Object.freeze({
+        __proto__: null,
+        keyboardHandler: keyboardHandler,
+        mouseHandler: mouseHandler,
+        resizeHandler: resizeHandler,
+        selectHandler: selectHandler,
+        touchHandler: touchHandler,
+        wheelHandler: wheelHandler
+    });
+
+    // DO NOT use WeakMap here
+    // .getAll() methods requires `scrollbarMap.values()`
+    var scrollbarMap = new Map();
+    var Scrollbar = /** @class */ (function () {
+        function Scrollbar(containerEl, options) {
+            var _this = this;
+            /**
+             * Current scrolling offsets
+             */
+            this.offset = {
+                x: 0,
+                y: 0,
+            };
+            /**
+             * Max-allowed scrolling offsets
+             */
+            this.limit = {
+                x: Infinity,
+                y: Infinity,
+            };
+            /**
+             * Container bounding rect
+             */
+            this.bounding = {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+            };
+            // private _observer: ResizeObserver;
+            this._plugins = [];
+            this._momentum = { x: 0, y: 0 };
+            this._listeners = new Set();
+            this.containerEl = containerEl;
+            var contentEl = this.contentEl = document.createElement('div');
+            this.options = new Options(options);
+            // mark as a scroll element
+            containerEl.setAttribute('data-scrollbar', 'true');
+            // make container focusable
+            containerEl.setAttribute('tabindex', '-1');
+            setStyle(containerEl, {
+                overflow: 'hidden',
+                outline: 'none',
+            });
+            // enable touch event capturing in IE, see:
+            // https://github.com/idiotWu/smooth-scrollbar/issues/39
+            if (window.navigator.msPointerEnabled) {
+                containerEl.style.msTouchAction = 'none';
+            }
+            // mount content
+            contentEl.className = 'scroll-content';
+            Array.from(containerEl.childNodes).forEach(function (node) {
+                contentEl.appendChild(node);
+            });
+            containerEl.appendChild(contentEl);
+            // attach track
+            this.track = new TrackController(this);
+            // initial measuring
+            this.size = this.getSize();
+            // init plugins
+            this._plugins = initPlugins(this, this.options.plugins);
+            // preserve scroll offset
+            var scrollLeft = containerEl.scrollLeft, scrollTop = containerEl.scrollTop;
+            containerEl.scrollLeft = containerEl.scrollTop = 0;
+            this.setPosition(scrollLeft, scrollTop, {
+                withoutCallbacks: true,
+            });
+            // FIXME: update typescript
+            var ResizeObserver = window.ResizeObserver;
+            // observe
+            if (typeof ResizeObserver === 'function') {
+                this._observer = new ResizeObserver(function () {
+                    _this.update();
+                });
+                this._observer.observe(contentEl);
+            }
+            scrollbarMap.set(containerEl, this);
+            // wait for DOM ready
+            requestAnimationFrame(function () {
+                _this._init();
+            });
+        }
+        Object.defineProperty(Scrollbar.prototype, "parent", {
+            /**
+             * Parent scrollbar
+             */
+            get: function () {
+                var elem = this.containerEl.parentElement;
+                while (elem) {
+                    var parentScrollbar = scrollbarMap.get(elem);
+                    if (parentScrollbar) {
+                        return parentScrollbar;
+                    }
+                    elem = elem.parentElement;
+                }
+                return null;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Scrollbar.prototype, "scrollTop", {
+            /**
+             * Gets or sets `scrollbar.offset.y`
+             */
+            get: function () {
+                return this.offset.y;
+            },
+            set: function (y) {
+                this.setPosition(this.scrollLeft, y);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Scrollbar.prototype, "scrollLeft", {
+            /**
+             * Gets or sets `scrollbar.offset.x`
+             */
+            get: function () {
+                return this.offset.x;
+            },
+            set: function (x) {
+                this.setPosition(x, this.scrollTop);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /**
+         * Returns the size of the scrollbar container element
+         * and the content wrapper element
+         */
+        Scrollbar.prototype.getSize = function () {
+            return getSize(this);
+        };
+        /**
+         * Forces scrollbar to update geometry infomation.
+         *
+         * By default, scrollbars are automatically updated with `100ms` debounce (or `MutationObserver` fires).
+         * You can call this method to force an update when you modified contents
+         */
+        Scrollbar.prototype.update = function () {
+            update(this);
+            this._plugins.forEach(function (plugin) {
+                plugin.onUpdate();
+            });
+        };
+        /**
+         * Checks if an element is visible in the current view area
+         */
+        Scrollbar.prototype.isVisible = function (elem) {
+            return isVisible(this, elem);
+        };
+        /**
+         * Sets the scrollbar to the given offset without easing
+         */
+        Scrollbar.prototype.setPosition = function (x, y, options) {
+            var _this = this;
+            if (x === void 0) { x = this.offset.x; }
+            if (y === void 0) { y = this.offset.y; }
+            if (options === void 0) { options = {}; }
+            var status = setPosition(this, x, y);
+            if (!status || options.withoutCallbacks) {
+                return;
+            }
+            this._listeners.forEach(function (fn) {
+                fn.call(_this, status);
+            });
+        };
+        /**
+         * Scrolls to given position with easing function
+         */
+        Scrollbar.prototype.scrollTo = function (x, y, duration, options) {
+            if (x === void 0) { x = this.offset.x; }
+            if (y === void 0) { y = this.offset.y; }
+            if (duration === void 0) { duration = 0; }
+            if (options === void 0) { options = {}; }
+            scrollTo(this, x, y, duration, options);
+        };
+        /**
+         * Scrolls the target element into visible area of scrollbar,
+         * likes the DOM method `element.scrollIntoView().
+         */
+        Scrollbar.prototype.scrollIntoView = function (elem, options) {
+            if (options === void 0) { options = {}; }
+            scrollIntoView(this, elem, options);
+        };
+        /**
+         * Adds scrolling listener
+         */
+        Scrollbar.prototype.addListener = function (fn) {
+            if (typeof fn !== 'function') {
+                throw new TypeError('[smooth-scrollbar] scrolling listener should be a function');
+            }
+            this._listeners.add(fn);
+        };
+        /**
+         * Removes listener previously registered with `scrollbar.addListener()`
+         */
+        Scrollbar.prototype.removeListener = function (fn) {
+            this._listeners.delete(fn);
+        };
+        /**
+         * Adds momentum and applys delta transformers.
+         */
+        Scrollbar.prototype.addTransformableMomentum = function (x, y, fromEvent, callback) {
+            this._updateDebounced();
+            var finalDelta = this._plugins.reduce(function (delta, plugin) {
+                return plugin.transformDelta(delta, fromEvent) || delta;
+            }, { x: x, y: y });
+            var willScroll = !this._shouldPropagateMomentum(finalDelta.x, finalDelta.y);
+            if (willScroll) {
+                this.addMomentum(finalDelta.x, finalDelta.y);
+            }
+            if (callback) {
+                callback.call(this, willScroll);
+            }
+        };
+        /**
+         * Increases scrollbar's momentum
+         */
+        Scrollbar.prototype.addMomentum = function (x, y) {
+            this.setMomentum(this._momentum.x + x, this._momentum.y + y);
+        };
+        /**
+         * Sets scrollbar's momentum to given value
+         */
+        Scrollbar.prototype.setMomentum = function (x, y) {
+            if (this.limit.x === 0) {
+                x = 0;
+            }
+            if (this.limit.y === 0) {
+                y = 0;
+            }
+            if (this.options.renderByPixels) {
+                x = Math.round(x);
+                y = Math.round(y);
+            }
+            this._momentum.x = x;
+            this._momentum.y = y;
+        };
+        /**
+         * Update options for specific plugin
+         *
+         * @param pluginName Name of the plugin
+         * @param [options] An object includes the properties that you want to update
+         */
+        Scrollbar.prototype.updatePluginOptions = function (pluginName, options) {
+            this._plugins.forEach(function (plugin) {
+                if (plugin.name === pluginName) {
+                    Object.assign(plugin.options, options);
+                }
+            });
+        };
+        Scrollbar.prototype.destroy = function () {
+            var _a = this, containerEl = _a.containerEl, contentEl = _a.contentEl;
+            clearEventsOn(this);
+            this._listeners.clear();
+            this.setMomentum(0, 0);
+            cancelAnimationFrame(this._renderID);
+            if (this._observer) {
+                this._observer.disconnect();
+            }
+            scrollbarMap.delete(this.containerEl);
+            // restore contents
+            var childNodes = Array.from(contentEl.childNodes);
+            while (containerEl.firstChild) {
+                containerEl.removeChild(containerEl.firstChild);
+            }
+            childNodes.forEach(function (el) {
+                containerEl.appendChild(el);
+            });
+            // reset scroll position
+            setStyle(containerEl, {
+                overflow: '',
+            });
+            containerEl.scrollTop = this.scrollTop;
+            containerEl.scrollLeft = this.scrollLeft;
+            // invoke plugin.onDestroy
+            this._plugins.forEach(function (plugin) {
+                plugin.onDestroy();
+            });
+            this._plugins.length = 0;
+        };
+        Scrollbar.prototype._init = function () {
+            var _this = this;
+            this.update();
+            // init evet handlers
+            Object.keys(eventHandlers).forEach(function (prop) {
+                eventHandlers[prop](_this);
+            });
+            // invoke `plugin.onInit`
+            this._plugins.forEach(function (plugin) {
+                plugin.onInit();
+            });
+            this._render();
+        };
+        Scrollbar.prototype._updateDebounced = function () {
+            this.update();
+        };
+        // check whether to propagate monmentum to parent scrollbar
+        // the following situations are considered as `true`:
+        //         1. continuous scrolling is enabled (automatically disabled when overscroll is enabled)
+        //         2. scrollbar reaches one side and is not about to scroll on the other direction
+        Scrollbar.prototype._shouldPropagateMomentum = function (deltaX, deltaY) {
+            if (deltaX === void 0) { deltaX = 0; }
+            if (deltaY === void 0) { deltaY = 0; }
+            var _a = this, options = _a.options, offset = _a.offset, limit = _a.limit;
+            if (!options.continuousScrolling)
+                return false;
+            // force an update when scrollbar is "unscrollable", see #106
+            if (limit.x === 0 && limit.y === 0) {
+                this._updateDebounced();
+            }
+            var destX = clamp(deltaX + offset.x, 0, limit.x);
+            var destY = clamp(deltaY + offset.y, 0, limit.y);
+            var res = true;
+            // offsets are not about to change
+            // `&=` operator is not allowed for boolean types
+            res = res && (destX === offset.x);
+            res = res && (destY === offset.y);
+            // current offsets are on the edge
+            res = res && (offset.x === limit.x || offset.x === 0 || offset.y === limit.y || offset.y === 0);
+            return res;
+        };
+        Scrollbar.prototype._render = function () {
+            var _momentum = this._momentum;
+            if (_momentum.x || _momentum.y) {
+                var nextX = this._nextTick('x');
+                var nextY = this._nextTick('y');
+                _momentum.x = nextX.momentum;
+                _momentum.y = nextY.momentum;
+                this.setPosition(nextX.position, nextY.position);
+            }
+            var remain = __assign({}, this._momentum);
+            this._plugins.forEach(function (plugin) {
+                plugin.onRender(remain);
+            });
+            this._renderID = requestAnimationFrame(this._render.bind(this));
+        };
+        Scrollbar.prototype._nextTick = function (direction) {
+            var _a = this, options = _a.options, offset = _a.offset, _momentum = _a._momentum;
+            var current = offset[direction];
+            var remain = _momentum[direction];
+            if (Math.abs(remain) <= 0.1) {
+                return {
+                    momentum: 0,
+                    position: current + remain,
+                };
+            }
+            var nextMomentum = remain * (1 - options.damping);
+            if (options.renderByPixels) {
+                nextMomentum |= 0;
+            }
+            return {
+                momentum: nextMomentum,
+                position: current + remain - nextMomentum,
+            };
+        };
+        __decorate([
+            debounce$1(100, { leading: true })
+        ], Scrollbar.prototype, "_updateDebounced", null);
+        return Scrollbar;
+    }());
+
+    var TRACK_BG = 'rgba(222, 222, 222, .75)';
+    var THUMB_BG = 'rgba(0, 0, 0, .5)';
+    // sets content's display type to `flow-root` to suppress margin collapsing
+    var SCROLLBAR_STYLE = "\n[data-scrollbar] {\n  display: block;\n  position: relative;\n}\n\n.scroll-content {\n  display: flow-root;\n  -webkit-transform: translate3d(0, 0, 0);\n          transform: translate3d(0, 0, 0);\n}\n\n.scrollbar-track {\n  position: absolute;\n  opacity: 0;\n  z-index: 1;\n  background: " + TRACK_BG + ";\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-transition: opacity 0.5s 0.5s ease-out;\n          transition: opacity 0.5s 0.5s ease-out;\n}\n.scrollbar-track.show,\n.scrollbar-track:hover {\n  opacity: 1;\n  -webkit-transition-delay: 0s;\n          transition-delay: 0s;\n}\n\n.scrollbar-track-x {\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 8px;\n}\n.scrollbar-track-y {\n  top: 0;\n  right: 0;\n  width: 8px;\n  height: 100%;\n}\n.scrollbar-thumb {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 8px;\n  height: 8px;\n  background: " + THUMB_BG + ";\n  border-radius: 4px;\n}\n";
+    var STYLE_ID = 'smooth-scrollbar-style';
+    var isStyleAttached = false;
+    function attachStyle() {
+        if (isStyleAttached || typeof window === 'undefined') {
+            return;
+        }
+        var styleEl = document.createElement('style');
+        styleEl.id = STYLE_ID;
+        styleEl.textContent = SCROLLBAR_STYLE;
+        if (document.head) {
+            document.head.appendChild(styleEl);
+        }
+        isStyleAttached = true;
+    }
+    function detachStyle() {
+        if (!isStyleAttached || typeof window === 'undefined') {
+            return;
+        }
+        var styleEl = document.getElementById(STYLE_ID);
+        if (!styleEl || !styleEl.parentNode) {
+            return;
+        }
+        styleEl.parentNode.removeChild(styleEl);
+        isStyleAttached = false;
+    }
+
+    /**
+     * cast `I.Scrollbar` to `Scrollbar` to avoid error
+     *
+     * `I.Scrollbar` is not assignable to `Scrollbar`:
+     *     "privateProp" is missing in `I.Scrollbar`
+     *
+     * @see https://github.com/Microsoft/TypeScript/issues/2672
+     */
+    var SmoothScrollbar = /** @class */ (function (_super) {
+        __extends(SmoothScrollbar, _super);
+        function SmoothScrollbar() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        /**
+         * Initializes a scrollbar on the given element.
+         *
+         * @param elem The DOM element that you want to initialize scrollbar to
+         * @param [options] Initial options
+         */
+        SmoothScrollbar.init = function (elem, options) {
+            if (!elem || elem.nodeType !== 1) {
+                throw new TypeError("expect element to be DOM Element, but got " + elem);
+            }
+            // attach stylesheet
+            attachStyle();
+            if (scrollbarMap.has(elem)) {
+                return scrollbarMap.get(elem);
+            }
+            return new Scrollbar(elem, options);
+        };
+        /**
+         * Automatically init scrollbar on all elements base on the selector `[data-scrollbar]`
+         *
+         * @param options Initial options
+         */
+        SmoothScrollbar.initAll = function (options) {
+            return Array.from(document.querySelectorAll('[data-scrollbar]'), function (elem) {
+                return SmoothScrollbar.init(elem, options);
+            });
+        };
+        /**
+         * Check if there is a scrollbar on given element
+         *
+         * @param elem The DOM element that you want to check
+         */
+        SmoothScrollbar.has = function (elem) {
+            return scrollbarMap.has(elem);
+        };
+        /**
+         * Gets scrollbar on the given element.
+         * If no scrollbar instance exsits, returns `undefined`
+         *
+         * @param elem The DOM element that you want to check.
+         */
+        SmoothScrollbar.get = function (elem) {
+            return scrollbarMap.get(elem);
+        };
+        /**
+         * Returns an array that contains all scrollbar instances
+         */
+        SmoothScrollbar.getAll = function () {
+            return Array.from(scrollbarMap.values());
+        };
+        /**
+         * Removes scrollbar on the given element
+         */
+        SmoothScrollbar.destroy = function (elem) {
+            var scrollbar = scrollbarMap.get(elem);
+            if (scrollbar) {
+                scrollbar.destroy();
+            }
+        };
+        /**
+         * Removes all scrollbar instances from current document
+         */
+        SmoothScrollbar.destroyAll = function () {
+            scrollbarMap.forEach(function (scrollbar) {
+                scrollbar.destroy();
+            });
+        };
+        /**
+         * Attaches plugins to scrollbars
+         *
+         * @param ...Plugins Scrollbar plugin classes
+         */
+        SmoothScrollbar.use = function () {
+            var Plugins = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                Plugins[_i] = arguments[_i];
+            }
+            return addPlugins.apply(void 0, Plugins);
+        };
+        /**
+         * Attaches default style sheets to current document.
+         * You don't need to call this method manually unless
+         * you removed the default styles via `Scrollbar.detachStyle()`
+         */
+        SmoothScrollbar.attachStyle = function () {
+            return attachStyle();
+        };
+        /**
+         * Removes default styles from current document.
+         * Use this method when you want to use your own css for scrollbars.
+         */
+        SmoothScrollbar.detachStyle = function () {
+            return detachStyle();
+        };
+        SmoothScrollbar.version = "8.7.3";
+        SmoothScrollbar.ScrollbarPlugin = ScrollbarPlugin;
+        return SmoothScrollbar;
+    }(Scrollbar));
+
+    /* src\components\PackageUsages.svelte generated by Svelte v3.44.3 */
+    const file$2 = "src\\components\\PackageUsages.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[3] = list[i];
+    	child_ctx[5] = i;
+    	return child_ctx;
+    }
+
+    // (55:12) {#each tableData as data, index }
+    function create_each_block(ctx) {
+    	let tr;
+    	let th;
+    	let t1;
+    	let td0;
+    	let t3;
+    	let td1;
+    	let t5;
+    	let td2;
+    	let t7;
+
+    	const block = {
+    		c: function create() {
+    			tr = element("tr");
+    			th = element("th");
+    			th.textContent = "1";
+    			t1 = space();
+    			td0 = element("td");
+    			td0.textContent = "Mark";
+    			t3 = space();
+    			td1 = element("td");
+    			td1.textContent = "Otto";
+    			t5 = space();
+    			td2 = element("td");
+    			td2.textContent = "@mdo";
+    			t7 = space();
+    			attr_dev(th, "scope", "row");
+    			add_location(th, file$2, 56, 12, 1715);
+    			add_location(td0, file$2, 57, 12, 1751);
+    			add_location(td1, file$2, 58, 12, 1778);
+    			add_location(td2, file$2, 59, 12, 1805);
+    			add_location(tr, file$2, 55, 12, 1697);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, tr, anchor);
+    			append_dev(tr, th);
+    			append_dev(tr, t1);
+    			append_dev(tr, td0);
+    			append_dev(tr, t3);
+    			append_dev(tr, td1);
+    			append_dev(tr, t5);
+    			append_dev(tr, td2);
+    			append_dev(tr, t7);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(tr);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(55:12) {#each tableData as data, index }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$2(ctx) {
+    	let h10;
+    	let t1;
+    	let div2;
+    	let table;
+    	let thead;
+    	let tr;
+    	let th0;
+    	let t3;
+    	let th1;
+    	let t5;
+    	let th2;
+    	let t7;
+    	let th3;
+    	let t9;
+    	let tbody;
+    	let t10;
+    	let div1;
+    	let div0;
+    	let t11;
+    	let h11;
+    	let t13;
+    	let input;
+    	let each_value = /*tableData*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			h10 = element("h1");
+    			h10.textContent = "Smooth Scroll Package";
+    			t1 = space();
+    			div2 = element("div");
+    			table = element("table");
+    			thead = element("thead");
+    			tr = element("tr");
+    			th0 = element("th");
+    			th0.textContent = "#";
+    			t3 = space();
+    			th1 = element("th");
+    			th1.textContent = "First";
+    			t5 = space();
+    			th2 = element("th");
+    			th2.textContent = "Last";
+    			t7 = space();
+    			th3 = element("th");
+    			th3.textContent = "Handle";
+    			t9 = space();
+    			tbody = element("tbody");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t10 = space();
+    			div1 = element("div");
+    			div0 = element("div");
+    			t11 = space();
+    			h11 = element("h1");
+    			h11.textContent = "Light Picker Package";
+    			t13 = space();
+    			input = element("input");
+    			add_location(h10, file$2, 42, 0, 1262);
+    			attr_dev(th0, "scope", "col");
+    			add_location(th0, file$2, 47, 12, 1440);
+    			attr_dev(th1, "scope", "col");
+    			add_location(th1, file$2, 48, 12, 1476);
+    			attr_dev(th2, "scope", "col");
+    			add_location(th2, file$2, 49, 12, 1516);
+    			attr_dev(th3, "scope", "col");
+    			add_location(th3, file$2, 50, 12, 1555);
+    			add_location(tr, file$2, 46, 12, 1422);
+    			add_location(thead, file$2, 45, 8, 1401);
+    			add_location(tbody, file$2, 53, 8, 1629);
+    			attr_dev(table, "class", "table table-striped");
+    			add_location(table, file$2, 44, 4, 1356);
+    			attr_dev(div0, "class", "scrollbar-thumb scrollbar-thumb-y");
+    			add_location(div0, file$2, 68, 8, 2090);
+    			attr_dev(div1, "class", "scrollbar-track scrollbar-track-y");
+    			add_location(div1, file$2, 67, 4, 2033);
+    			attr_dev(div2, "class", "scroll-content ms-4 me-4 svelte-ejli0b");
+    			attr_dev(div2, "id", "my-scrollbar");
+    			add_location(div2, file$2, 43, 0, 1294);
+    			add_location(h11, file$2, 72, 0, 2167);
+    			attr_dev(input, "type", "text");
+    			set_style(input, "min-width", "10rem");
+    			attr_dev(input, "id", "datepicker");
+    			add_location(input, file$2, 73, 0, 2198);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h10, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, table);
+    			append_dev(table, thead);
+    			append_dev(thead, tr);
+    			append_dev(tr, th0);
+    			append_dev(tr, t3);
+    			append_dev(tr, th1);
+    			append_dev(tr, t5);
+    			append_dev(tr, th2);
+    			append_dev(tr, t7);
+    			append_dev(tr, th3);
+    			append_dev(table, t9);
+    			append_dev(table, tbody);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tbody, null);
+    			}
+
+    			append_dev(div2, t10);
+    			append_dev(div2, div1);
+    			append_dev(div1, div0);
+    			insert_dev(target, t11, anchor);
+    			insert_dev(target, h11, anchor);
+    			insert_dev(target, t13, anchor);
+    			insert_dev(target, input, anchor);
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h10);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(div2);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(t11);
+    			if (detaching) detach_dev(h11);
+    			if (detaching) detach_dev(t13);
+    			if (detaching) detach_dev(input);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('PackageUsages', slots, []);
+    	let prop;
+    	let tableData = [1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3];
+
+    	const options = {
+    		element: document.getElementById('datepicker'),
+    		singleMode: false,
+    		delimiter: ' - ',
+    		format: 'DD/MM/YYYY',
+    		inlinemode: true,
+    		numberOfMonths: 1,
+    		position: 'top'
+    	};
+
+    	onMount(() => {
+    		if (document.querySelector('#my-scrollbar')) {
+    			SmoothScrollbar.init(document.querySelector('#my-scrollbar'), { alwaysShowTracks: true });
+    		}
+
+    		if (document.getElementById('datepicker')) {
+    			new Litepicker({
+    					element: document.getElementById('datepicker'),
+    					singleMode: false,
+    					delimiter: ' - ',
+    					format: 'DD/MM/YYYY',
+    					inlinemode: true,
+    					numberOfMonths: 1,
+    					position: 'top'
+    				});
+    		}
+    	});
+
+    	onDestroy(() => {
+    		if (document.querySelector('#my-scrollbar')) {
+    			SmoothScrollbar.destroy(document.querySelector('#my-scrollbar'), {});
+    		}
+    	});
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<PackageUsages> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		Scrollbar: SmoothScrollbar,
+    		Litepicker,
+    		onDestroy,
+    		onMount,
+    		prop,
+    		tableData,
+    		options
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('prop' in $$props) prop = $$props.prop;
+    		if ('tableData' in $$props) $$invalidate(0, tableData = $$props.tableData);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [tableData];
+    }
+
+    class PackageUsages extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "PackageUsages",
     			options,
     			id: create_fragment$2.name
     		});
@@ -6978,8 +11855,8 @@ var app = (function () {
 
     const file$1 = "src\\components\\Template.svelte";
 
-    // (64:47) 
-    function create_if_block_12(ctx) {
+    // (67:47) 
+    function create_if_block_13(ctx) {
     	let daterange;
     	let current;
     	daterange = new DateRange({ $$inline: true });
@@ -6992,7 +11869,7 @@ var app = (function () {
     			mount_component(daterange, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(daterange.$$.fragment, local);
@@ -7009,16 +11886,56 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_12.name,
+    		id: create_if_block_13.name,
     		type: "if",
-    		source: "(64:47) ",
+    		source: "(67:47) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (62:48) 
+    // (65:51) 
+    function create_if_block_12(ctx) {
+    	let packageusages;
+    	let current;
+    	packageusages = new PackageUsages({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(packageusages.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(packageusages, target, anchor);
+    			current = true;
+    		},
+    		p: noop$1,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(packageusages.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(packageusages.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(packageusages, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_12.name,
+    		type: "if",
+    		source: "(65:51) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (63:48) 
     function create_if_block_11(ctx) {
     	let actiontest;
     	let current;
@@ -7032,7 +11949,7 @@ var app = (function () {
     			mount_component(actiontest, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(actiontest.$$.fragment, local);
@@ -7051,14 +11968,14 @@ var app = (function () {
     		block,
     		id: create_if_block_11.name,
     		type: "if",
-    		source: "(62:48) ",
+    		source: "(63:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:44) 
+    // (61:44) 
     function create_if_block_10(ctx) {
     	let circle;
     	let current;
@@ -7072,7 +11989,7 @@ var app = (function () {
     			mount_component(circle, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(circle.$$.fragment, local);
@@ -7091,14 +12008,14 @@ var app = (function () {
     		block,
     		id: create_if_block_10.name,
     		type: "if",
-    		source: "(60:44) ",
+    		source: "(61:44) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:44) 
+    // (59:44) 
     function create_if_block_9(ctx) {
     	let toggle;
     	let updating_checkedValue;
@@ -7119,7 +12036,7 @@ var app = (function () {
     	}
 
     	toggle = new Toggle({ props: toggle_props, $$inline: true });
-    	binding_callbacks.push(() => bind(toggle, 'checkedValue', toggle_checkedValue_binding));
+    	binding_callbacks.push(() => bind$2(toggle, 'checkedValue', toggle_checkedValue_binding));
 
     	const block = {
     		c: function create() {
@@ -7158,14 +12075,14 @@ var app = (function () {
     		block,
     		id: create_if_block_9.name,
     		type: "if",
-    		source: "(58:44) ",
+    		source: "(59:44) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:48) 
+    // (57:48) 
     function create_if_block_8(ctx) {
     	let calculator;
     	let current;
@@ -7179,7 +12096,7 @@ var app = (function () {
     			mount_component(calculator, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(calculator.$$.fragment, local);
@@ -7198,14 +12115,14 @@ var app = (function () {
     		block,
     		id: create_if_block_8.name,
     		type: "if",
-    		source: "(56:48) ",
+    		source: "(57:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (54:45) 
+    // (55:45) 
     function create_if_block_7(ctx) {
     	let apppoll;
     	let current;
@@ -7219,7 +12136,7 @@ var app = (function () {
     			mount_component(apppoll, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(apppoll.$$.fragment, local);
@@ -7238,14 +12155,14 @@ var app = (function () {
     		block,
     		id: create_if_block_7.name,
     		type: "if",
-    		source: "(54:45) ",
+    		source: "(55:45) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:52) 
+    // (53:52) 
     function create_if_block_6(ctx) {
     	let quotegenerator;
     	let current;
@@ -7259,7 +12176,7 @@ var app = (function () {
     			mount_component(quotegenerator, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(quotegenerator.$$.fragment, local);
@@ -7278,14 +12195,14 @@ var app = (function () {
     		block,
     		id: create_if_block_6.name,
     		type: "if",
-    		source: "(52:52) ",
+    		source: "(53:52) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:52) 
+    // (51:52) 
     function create_if_block_5(ctx) {
     	let infinitescroll;
     	let current;
@@ -7299,7 +12216,7 @@ var app = (function () {
     			mount_component(infinitescroll, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(infinitescroll.$$.fragment, local);
@@ -7318,14 +12235,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5.name,
     		type: "if",
-    		source: "(50:52) ",
+    		source: "(51:52) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (48:51) 
+    // (49:51) 
     function create_if_block_4(ctx) {
     	let loadingcircle;
     	let current;
@@ -7339,7 +12256,7 @@ var app = (function () {
     			mount_component(loadingcircle, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(loadingcircle.$$.fragment, local);
@@ -7358,14 +12275,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(48:51) ",
+    		source: "(49:51) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (46:52) 
+    // (47:52) 
     function create_if_block_3(ctx) {
     	let animatedbutton;
     	let current;
@@ -7380,7 +12297,7 @@ var app = (function () {
     			mount_component(animatedbutton, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(animatedbutton.$$.fragment, local);
@@ -7399,14 +12316,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(46:52) ",
+    		source: "(47:52) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (44:48) 
+    // (45:48) 
     function create_if_block_2(ctx) {
     	let jockteller;
     	let current;
@@ -7420,7 +12337,7 @@ var app = (function () {
     			mount_component(jockteller, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(jockteller.$$.fragment, local);
@@ -7439,14 +12356,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(44:48) ",
+    		source: "(45:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (42:52) 
+    // (43:52) 
     function create_if_block_1(ctx) {
     	let lightdarktheme;
     	let current;
@@ -7460,7 +12377,7 @@ var app = (function () {
     			mount_component(lightdarktheme, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(lightdarktheme.$$.fragment, local);
@@ -7479,14 +12396,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(42:52) ",
+    		source: "(43:52) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (40:12) {#if activeTab == 'TestCode'}
+    // (41:12) {#if activeTab == 'TestCode'}
     function create_if_block(ctx) {
     	let testcode;
     	let current;
@@ -7501,7 +12418,7 @@ var app = (function () {
     			mount_component(testcode, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(testcode.$$.fragment, local);
@@ -7520,7 +12437,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(40:12) {#if activeTab == 'TestCode'}",
+    		source: "(41:12) {#if activeTab == 'TestCode'}",
     		ctx
     	});
 
@@ -7559,7 +12476,8 @@ var app = (function () {
     		create_if_block_9,
     		create_if_block_10,
     		create_if_block_11,
-    		create_if_block_12
+    		create_if_block_12,
+    		create_if_block_13
     	];
 
     	const if_blocks = [];
@@ -7577,7 +12495,8 @@ var app = (function () {
     		if (/*activeTab*/ ctx[1] == 'Toggle') return 9;
     		if (/*activeTab*/ ctx[1] == 'Circle') return 10;
     		if (/*activeTab*/ ctx[1] == 'ActionTest') return 11;
-    		if (/*activeTab*/ ctx[1] == 'DateRange') return 12;
+    		if (/*activeTab*/ ctx[1] == 'PackageUsages') return 12;
+    		if (/*activeTab*/ ctx[1] == 'DateRange') return 13;
     		return -1;
     	}
 
@@ -7596,15 +12515,15 @@ var app = (function () {
     			div2 = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "parent svelte-1x0mfv1");
-    			add_location(div0, file$1, 32, 8, 1573);
+    			add_location(div0, file$1, 33, 8, 1676);
     			attr_dev(div1, "class", "col-2");
-    			add_location(div1, file$1, 31, 4, 1544);
+    			add_location(div1, file$1, 32, 4, 1647);
     			attr_dev(div2, "class", "content svelte-1x0mfv1");
-    			add_location(div2, file$1, 38, 8, 1790);
+    			add_location(div2, file$1, 39, 8, 1893);
     			attr_dev(div3, "class", "col");
-    			add_location(div3, file$1, 37, 4, 1752);
+    			add_location(div3, file$1, 38, 4, 1855);
     			attr_dev(div4, "class", "row g-0 m-0");
-    			add_location(div4, file$1, 29, 0, 1506);
+    			add_location(div4, file$1, 30, 0, 1609);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7763,6 +12682,11 @@ var app = (function () {
     			name: 'DateRange',
     			icon: 'fas fa-tachometer-alt',
     			component: DateRange
+    		},
+    		{
+    			name: 'PackageUsages',
+    			icon: 'fas fa-tachometer-alt',
+    			component: PackageUsages
     		}
     	];
 
@@ -7789,6 +12713,7 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		SideBar,
+    		PackageUsages,
     		LightDarkTheme,
     		AnimatedButton,
     		AppPoll,
@@ -7878,7 +12803,7 @@ var app = (function () {
     			mount_component(template, main, null);
     			current = true;
     		},
-    		p: noop,
+    		p: noop$1,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(navbar.$$.fragment, local);

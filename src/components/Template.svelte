@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <script>
 	import SideBar from './../elements/SideBar.svelte';
-    import {LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,Toggle,Circle,Calculator,
+    import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,Toggle,Circle,Calculator,
     ActionTest,DateRange,InfiniteScroll,TestCode,
     LoadingCircle, JockTeller} from '../services/appList.js'
     
@@ -23,6 +23,7 @@ let activeTab = 'TestCode';
         {name:'AppPoll', icon:'fas fa-tachometer-alt', component: AppPoll},
         {name:'ActionTest', icon:'fas fa-tachometer-alt', component: ActionTest},
         {name:'DateRange', icon:'fas fa-tachometer-alt', component: DateRange},
+        {name:'PackageUsages', icon:'fas fa-tachometer-alt', component: PackageUsages}
     ]
 
 </script>
@@ -61,6 +62,8 @@ let activeTab = 'TestCode';
                 <Circle/>
             {:else if activeTab == 'ActionTest'}
                 <ActionTest/>
+            {:else if activeTab == 'PackageUsages'}
+                <PackageUsages/>
             {:else if activeTab == 'DateRange'}
                 <DateRange/>
             {/if}
