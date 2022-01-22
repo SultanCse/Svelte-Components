@@ -232,8 +232,8 @@
     }
 
     img {
-    height: 200px;
-    width: 200px;
+    max-height: 200px;
+    max-width: 200px;
     }
 
     /* Projects Section */
@@ -390,4 +390,12 @@
     margin-right: 5px;
     color: var(--on-background)
     }
+
+    @media screen and (max-width: 980px) {
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    }
+
 </style>
