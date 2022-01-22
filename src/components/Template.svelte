@@ -92,35 +92,7 @@ let activeTab = 'TestCode';
 
         padding-bottom: 1rem;
     }
-    /* .icon{
-        padding: .5rem;
-        font-size: 2rem;
-    }
-    .itemText{
-        margin-top: auto;
-        margin-bottom: auto;
-        font-size: 1.3rem;        
-    } */
-    /* .list-group{
-        height: 89vh;
-        overflow-y: auto;
-        overflow-x: hidden;
-        text-decoration: none;
-    } */
-    /* .list-group-item{
-        font-family: Serif;
-        color: black;
-        cursor: pointer;
-    }
-    .list-group-item:hover{
-        background: rgb(149, 149, 248);
-        transition: .3s;
-        color: white
-    }
-    .list-group-item:focus{
-        background: rgb(149, 149, 248);
-        color: white
-    } */
+
     :global(::-webkit-scrollbar) {
     width: .1rem;
     }
@@ -137,10 +109,5 @@ let activeTab = 'TestCode';
     border-radius: .1rem;
     }
 
-    /* @media (max-width: 576px) { 
-        .Sidebar{
-            display: none;
-        }
-     } */
 </style>
 

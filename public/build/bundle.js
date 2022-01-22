@@ -1018,7 +1018,8 @@ var app = (function () {
     const file$q = "src\\components\\LoadingCircle.svelte";
 
     function create_fragment$r(ctx) {
-    	let h1;
+    	let div;
+    	let p;
     	let span0;
     	let t1;
     	let span1;
@@ -1032,71 +1033,142 @@ var app = (function () {
     	let span5;
     	let t11;
     	let span6;
+    	let t13;
+    	let span7;
+    	let t15;
+    	let span8;
+    	let t17;
+    	let span9;
+    	let t19;
+    	let span10;
+    	let t21;
+    	let span11;
+    	let t23;
+    	let span12;
 
     	const block = {
     		c: function create() {
-    			h1 = element("h1");
+    			div = element("div");
+    			p = element("p");
     			span0 = element("span");
-    			span0.textContent = "W";
+    			span0.textContent = ".";
     			t1 = space();
     			span1 = element("span");
-    			span1.textContent = "E";
+    			span1.textContent = ".";
     			t3 = space();
     			span2 = element("span");
-    			span2.textContent = "L";
+    			span2.textContent = ".";
     			t5 = space();
     			span3 = element("span");
-    			span3.textContent = "C";
+    			span3.textContent = "W";
     			t7 = space();
     			span4 = element("span");
-    			span4.textContent = "O";
+    			span4.textContent = "E";
     			t9 = space();
     			span5 = element("span");
-    			span5.textContent = "M";
+    			span5.textContent = "L";
     			t11 = space();
     			span6 = element("span");
-    			span6.textContent = "E";
-    			attr_dev(span0, "class", "svelte-2caswi");
-    			add_location(span0, file$q, 1, 4, 10);
-    			attr_dev(span1, "class", "svelte-2caswi");
-    			add_location(span1, file$q, 2, 4, 30);
-    			attr_dev(span2, "class", "svelte-2caswi");
-    			add_location(span2, file$q, 3, 4, 50);
-    			attr_dev(span3, "class", "svelte-2caswi");
-    			add_location(span3, file$q, 4, 4, 70);
-    			attr_dev(span4, "class", "svelte-2caswi");
-    			add_location(span4, file$q, 5, 4, 90);
-    			attr_dev(span5, "class", "svelte-2caswi");
-    			add_location(span5, file$q, 6, 4, 110);
-    			attr_dev(span6, "class", "svelte-2caswi");
-    			add_location(span6, file$q, 7, 4, 130);
-    			attr_dev(h1, "class", "svelte-2caswi");
-    			add_location(h1, file$q, 0, 0, 0);
+    			span6.textContent = "C";
+    			t13 = space();
+    			span7 = element("span");
+    			span7.textContent = "O";
+    			t15 = space();
+    			span8 = element("span");
+    			span8.textContent = "M";
+    			t17 = space();
+    			span9 = element("span");
+    			span9.textContent = "E";
+    			t19 = space();
+    			span10 = element("span");
+    			span10.textContent = ".";
+    			t21 = space();
+    			span11 = element("span");
+    			span11.textContent = ".";
+    			t23 = space();
+    			span12 = element("span");
+    			span12.textContent = ".";
+    			set_style(span0, "--i", "1");
+    			attr_dev(span0, "class", "svelte-leqs59");
+    			add_location(span0, file$q, 2, 6, 35);
+    			set_style(span1, "--i", "2");
+    			attr_dev(span1, "class", "svelte-leqs59");
+    			add_location(span1, file$q, 3, 6, 71);
+    			set_style(span2, "--i", "3");
+    			attr_dev(span2, "class", "svelte-leqs59");
+    			add_location(span2, file$q, 4, 6, 107);
+    			set_style(span3, "--i", "4");
+    			attr_dev(span3, "class", "svelte-leqs59");
+    			add_location(span3, file$q, 5, 6, 143);
+    			set_style(span4, "--i", "5");
+    			attr_dev(span4, "class", "svelte-leqs59");
+    			add_location(span4, file$q, 6, 6, 179);
+    			set_style(span5, "--i", "6");
+    			attr_dev(span5, "class", "svelte-leqs59");
+    			add_location(span5, file$q, 7, 6, 215);
+    			set_style(span6, "--i", "7");
+    			attr_dev(span6, "class", "svelte-leqs59");
+    			add_location(span6, file$q, 8, 6, 251);
+    			set_style(span7, "--i", "8");
+    			attr_dev(span7, "class", "svelte-leqs59");
+    			add_location(span7, file$q, 9, 6, 287);
+    			set_style(span8, "--i", "9");
+    			attr_dev(span8, "class", "svelte-leqs59");
+    			add_location(span8, file$q, 10, 6, 323);
+    			set_style(span9, "--i", "10");
+    			attr_dev(span9, "class", "svelte-leqs59");
+    			add_location(span9, file$q, 11, 6, 359);
+    			set_style(span10, "--i", "11");
+    			attr_dev(span10, "class", "svelte-leqs59");
+    			add_location(span10, file$q, 12, 6, 396);
+    			set_style(span11, "--i", "12");
+    			attr_dev(span11, "class", "svelte-leqs59");
+    			add_location(span11, file$q, 13, 6, 433);
+    			set_style(span12, "--i", "13");
+    			attr_dev(span12, "class", "svelte-leqs59");
+    			add_location(span12, file$q, 14, 6, 470);
+    			attr_dev(p, "class", "svelte-leqs59");
+    			add_location(p, file$q, 1, 2, 24);
+    			attr_dev(div, "class", "parent svelte-leqs59");
+    			add_location(div, file$q, 0, 0, 0);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, h1, anchor);
-    			append_dev(h1, span0);
-    			append_dev(h1, t1);
-    			append_dev(h1, span1);
-    			append_dev(h1, t3);
-    			append_dev(h1, span2);
-    			append_dev(h1, t5);
-    			append_dev(h1, span3);
-    			append_dev(h1, t7);
-    			append_dev(h1, span4);
-    			append_dev(h1, t9);
-    			append_dev(h1, span5);
-    			append_dev(h1, t11);
-    			append_dev(h1, span6);
+    			insert_dev(target, div, anchor);
+    			append_dev(div, p);
+    			append_dev(p, span0);
+    			append_dev(p, t1);
+    			append_dev(p, span1);
+    			append_dev(p, t3);
+    			append_dev(p, span2);
+    			append_dev(p, t5);
+    			append_dev(p, span3);
+    			append_dev(p, t7);
+    			append_dev(p, span4);
+    			append_dev(p, t9);
+    			append_dev(p, span5);
+    			append_dev(p, t11);
+    			append_dev(p, span6);
+    			append_dev(p, t13);
+    			append_dev(p, span7);
+    			append_dev(p, t15);
+    			append_dev(p, span8);
+    			append_dev(p, t17);
+    			append_dev(p, span9);
+    			append_dev(p, t19);
+    			append_dev(p, span10);
+    			append_dev(p, t21);
+    			append_dev(p, span11);
+    			append_dev(p, t23);
+    			append_dev(p, span12);
     		},
     		p: noop$1,
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(h1);
+    			if (detaching) detach_dev(div);
     		}
     	};
 
@@ -1141,7 +1213,7 @@ var app = (function () {
     const file$p = "src\\components\\Navbar.svelte";
 
     function create_fragment$q(ctx) {
-    	let div4;
+    	let div5;
     	let div1;
     	let nav;
     	let div0;
@@ -1150,13 +1222,15 @@ var app = (function () {
     	let img_src_value;
     	let div1_class_value;
     	let t0;
+    	let div4;
     	let div3;
-    	let div2;
     	let a1;
     	let i;
     	let i_class_value;
     	let t1;
     	let loadingcircle;
+    	let t2;
+    	let div2;
     	let current;
     	let mounted;
     	let dispose;
@@ -1164,65 +1238,70 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div4 = element("div");
+    			div5 = element("div");
     			div1 = element("div");
     			nav = element("nav");
     			div0 = element("div");
     			a0 = element("a");
     			img = element("img");
     			t0 = space();
+    			div4 = element("div");
     			div3 = element("div");
-    			div2 = element("div");
     			a1 = element("a");
     			i = element("i");
     			t1 = space();
     			create_component(loadingcircle.$$.fragment);
+    			t2 = space();
+    			div2 = element("div");
     			if (!src_url_equal(img.src, img_src_value = "images/svelte.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
     			attr_dev(img, "width", "30px");
     			attr_dev(img, "height", "24px");
     			attr_dev(img, "class", "img-thumbnail");
-    			add_location(img, file$p, 25, 12, 641);
+    			add_location(img, file$p, 25, 12, 640);
     			attr_dev(a0, "class", "navbar-brand");
     			attr_dev(a0, "href", "https://www.google.com");
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$p, 24, 10, 553);
+    			add_location(a0, file$p, 24, 10, 552);
     			attr_dev(div0, "class", "container-fluid justify-content-center");
-    			add_location(div0, file$p, 23, 8, 487);
-    			attr_dev(nav, "class", "navbar navbar-light bg-danger ");
+    			add_location(div0, file$p, 23, 8, 486);
+    			attr_dev(nav, "class", "navbar navbar-light bg-danger");
     			add_location(nav, file$p, 22, 6, 433);
     			attr_dev(div1, "class", div1_class_value = "col-" + /*navColSize*/ ctx[1] + " p-0" + " svelte-5dgimf");
     			attr_dev(div1, "id", "col");
     			add_location(div1, file$p, 21, 4, 382);
     			attr_dev(i, "class", i_class_value = "fas fa-arrow-" + /*arrow*/ ctx[0] + " px-3");
-    			add_location(i, file$p, 33, 10, 929);
+    			add_location(i, file$p, 33, 10, 932);
     			attr_dev(a1, "class", "navbar-brand");
     			attr_dev(a1, "href", "#");
-    			add_location(a1, file$p, 32, 8, 884);
-    			attr_dev(div2, "class", "navbar navbar-light bg-light");
-    			add_location(div2, file$p, 31, 6, 824);
-    			attr_dev(div3, "class", "col p-0");
-    			add_location(div3, file$p, 30, 4, 795);
-    			attr_dev(div4, "class", "row g-0 m-0 sticky-top");
-    			add_location(div4, file$p, 20, 2, 339);
+    			add_location(a1, file$p, 32, 8, 887);
+    			add_location(div2, file$p, 36, 10, 1053);
+    			attr_dev(div3, "class", "navbar navbar-light bg-light p-0");
+    			add_location(div3, file$p, 31, 6, 823);
+    			attr_dev(div4, "class", "col p-0");
+    			add_location(div4, file$p, 30, 4, 794);
+    			attr_dev(div5, "class", "row g-0 m-0 sticky-top");
+    			add_location(div5, file$p, 20, 2, 339);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div4, anchor);
-    			append_dev(div4, div1);
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, div1);
     			append_dev(div1, nav);
     			append_dev(nav, div0);
     			append_dev(div0, a0);
     			append_dev(a0, img);
-    			append_dev(div4, t0);
+    			append_dev(div5, t0);
+    			append_dev(div5, div4);
     			append_dev(div4, div3);
-    			append_dev(div3, div2);
-    			append_dev(div2, a1);
+    			append_dev(div3, a1);
     			append_dev(a1, i);
-    			append_dev(div2, t1);
-    			mount_component(loadingcircle, div2, null);
+    			append_dev(div3, t1);
+    			mount_component(loadingcircle, div3, null);
+    			append_dev(div3, t2);
+    			append_dev(div3, div2);
     			current = true;
 
     			if (!mounted) {
@@ -1249,7 +1328,7 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(div5);
     			destroy_component(loadingcircle);
     			mounted = false;
     			dispose();
@@ -13709,11 +13788,11 @@ var app = (function () {
     			div3 = element("div");
     			div2 = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div0, "class", "parent svelte-1x0mfv1");
+    			attr_dev(div0, "class", "parent svelte-1ns8ebz");
     			add_location(div0, file$1, 33, 8, 1676);
     			attr_dev(div1, "class", "col-2");
     			add_location(div1, file$1, 32, 4, 1647);
-    			attr_dev(div2, "class", "content svelte-1x0mfv1");
+    			attr_dev(div2, "class", "content svelte-1ns8ebz");
     			add_location(div2, file$1, 39, 8, 1893);
     			attr_dev(div3, "class", "col");
     			add_location(div3, file$1, 38, 4, 1855);

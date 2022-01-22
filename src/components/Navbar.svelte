@@ -20,7 +20,7 @@ import LoadingCircle from "./LoadingCircle.svelte";
 
   <div class="row g-0 m-0 sticky-top" >
     <div class="col-{navColSize} p-0" id='col'>
-      <nav class="navbar navbar-light bg-danger ">
+      <nav class="navbar navbar-light bg-danger">
         <div class="container-fluid justify-content-center">  
           <a class="navbar-brand" href="https://www.google.com" target="_blank">    
             <img src="images/svelte.png" alt="" width="30px" height="24px" class=" img-thumbnail">
@@ -29,10 +29,13 @@ import LoadingCircle from "./LoadingCircle.svelte";
       </nav>
     </div>
     <div class="col p-0">
-      <div class="navbar navbar-light bg-light">        
+      <div class="navbar navbar-light bg-light p-0">        
         <a class="navbar-brand" href="#">
-          <i class="fas fa-arrow-{arrow} px-3" on:click={toggleArrow}></i></a>     
+          <i class="fas fa-arrow-{arrow} px-3" on:click={toggleArrow}></i>
+        </a>   
           <LoadingCircle/>
+          <div></div> <!-- this div is to cope up with navbar to centerize the loading cercle -->
+          
       </div>      
     </div>
   </div>
