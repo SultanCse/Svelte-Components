@@ -2,8 +2,14 @@
     import Scrollbar from 'smooth-scrollbar'
     import Litepicker from 'litepicker';
     import { onDestroy, onMount } from 'svelte';
+    import { paginate, LightPaginationNav } from 'svelte-paginate'
     let prop;
     let tableData =[1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+
+    let items = [1,4,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5,6,7,8,9,10,11,12,1,4,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5,6,7,8,9,10,11,12,1,4,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5,6,7,8,9,10,11,12,];
+    let currentPage = 1
+    let pageSize = 4
+    
     const options ={ 
         singleMode: false,
         delimiter : ' - ',
@@ -66,6 +72,16 @@
 
 <h1>Light Picker Package</h1>
 <input type="text" style='min-width:10rem' id="datepicker">
+
+<h1>Paginate package</h1>
+<LightPaginationNav
+  totalItems="{items.length}"
+  pageSize="{pageSize}"
+  currentPage="{currentPage}"
+  limit="{1}"
+  showStepOptions="{true}"
+  on:setPage="{(e) => currentPage = e.detail.page}"
+/>
 
 
 <style>
