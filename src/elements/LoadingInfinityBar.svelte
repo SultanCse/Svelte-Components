@@ -66,7 +66,7 @@
 	.dot{
 		height: 40px;
 		width: 40px;
-		background: rgb(250, 250, 247);
+		background: #2edce8;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -75,7 +75,7 @@
 		transition: 2s linear;
 		animation: ani 2s infinite linear;
 		animation-delay: calc(var(--i) * .021s);
-		box-shadow: 0 0 15px rgb(250, 249, 247);
+		box-shadow: 0 0 5px #0aefff;
 	}
 
 	@keyframes ani{

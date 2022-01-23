@@ -28,7 +28,7 @@
     .title{
         margin-top: auto;
         margin-bottom: auto;
-        font-size: 1.3rem;        
+        font-size: 1rem;        
     }
     .item{
         cursor: pointer;

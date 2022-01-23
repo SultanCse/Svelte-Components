@@ -46,7 +46,7 @@ import { onMount } from "svelte";
     }
     a::before{
         content: '';
-        height: 200px;
+        height: 400px;
         width: 40px;
         position: absolute;
         background: var(--color);

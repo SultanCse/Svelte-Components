@@ -1,9 +1,9 @@
 <!-- Sidebar -->
 <script>
 	import SideBar from './../elements/SideBar.svelte';
-    import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,Toggle,Circle,Calculator,
-    ActionTest,DateRange,InfiniteScroll,TestCode,
-    LoadingCircle, JockTeller} from '../services/appList.js'
+    import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
+        Toggle,Circle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,
+        LoadingSquareBar, LoadingInfinityBar} from '../services/appList.js'
     
 let toggleValue=false;
 $: console.log(toggleValue);
@@ -12,17 +12,17 @@ let activeTab = 'TestCode';
     let sidebarItems=[
         {name:'TestCode', icon:'fas fa-tachometer-alt', component: TestCode},
         {name:'LightDarkTheme', icon:'fas fa-tachometer-alt', component: LightDarkTheme},
-        {name:'LoadingCircle', icon:'fas fa-tachometer-alt', component: JockTeller},
+        {name:'LoadingSquareBar', icon:'fas fa-tachometer-alt', component: LoadingSquareBar},
+        {name:'LoadingInfinityBar', icon:'fas fa-tachometer-alt', component: LoadingInfinityBar},
+        {name:'JockTeller', icon:'fas fa-tachometer-alt', component: JockTeller},
         {name:'AnimatedButton', icon:"fab fa-medium", component: AnimatedButton},
-        {name:'JockTeller', icon:'fas fa-tachometer-alt', component: LoadingCircle},
+        {name:'LoadingCircle', icon:'fas fa-tachometer-alt', component: LoadingCircle},
         {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component: QuoteGenerator},
         {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component: InfiniteScroll},
         {name:'Calculator', icon:'fas fa-tachometer-alt', component: Calculator},
         {name:'Circle', icon:'fas fa-tachometer-alt', component: Circle},
         {name:'Toggle', icon:'fas fa-tachometer-alt', component: Toggle},
         {name:'AppPoll', icon:'fas fa-tachometer-alt', component: AppPoll},
-        {name:'ActionTest', icon:'fas fa-tachometer-alt', component: ActionTest},
-        {name:'DateRange', icon:'fas fa-tachometer-alt', component: DateRange},
         {name:'PackageUsages', icon:'fas fa-tachometer-alt', component: PackageUsages}
     ]
 
@@ -44,6 +44,10 @@ let activeTab = 'TestCode';
                 <LightDarkTheme/>
             {:else if activeTab == 'JockTeller'}
                 <JockTeller/>
+            {:else if activeTab == 'LoadingInfinityBar'}
+                <LoadingInfinityBar/>
+            {:else if activeTab == 'LoadingSquareBar'}
+                <LoadingSquareBar/>
             {:else if activeTab == 'AnimatedButton'}
                 <AnimatedButton on:click={()=>console.log('animaed button')}/>
             {:else if activeTab == 'LoadingCircle'}
@@ -60,12 +64,8 @@ let activeTab = 'TestCode';
                 <Toggle width='10rem' onText='on' offText='off' bind:checkedValue={toggleValue}/>
             {:else if activeTab == 'Circle'}
                 <Circle/>
-            {:else if activeTab == 'ActionTest'}
-                <ActionTest/>
             {:else if activeTab == 'PackageUsages'}
                 <PackageUsages/>
-            {:else if activeTab == 'DateRange'}
-                <DateRange/>
             {/if}
             <!-- <div></div> -->
         </div>         
