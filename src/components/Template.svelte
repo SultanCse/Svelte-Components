@@ -2,7 +2,7 @@
 <script>
 	import SideBar from './../elements/SideBar.svelte';
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
-        Toggle,Circle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,
+        Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,
         LoadingSquareBar, LoadingInfinityBar, BounchingHeadline} from '../services/appList.js'
     
 let toggleValue=false;
@@ -20,7 +20,6 @@ let activeTab = 'TestCode';
         {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component: QuoteGenerator},
         {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component: InfiniteScroll},
         {name:'Calculator', icon:'fas fa-tachometer-alt', component: Calculator},
-        {name:'Circle', icon:'fas fa-tachometer-alt', component: Circle},
         {name:'Toggle', icon:'fas fa-tachometer-alt', component: Toggle},
         {name:'AppPoll', icon:'fas fa-tachometer-alt', component: AppPoll},
         {name:'PackageUsages', icon:'fas fa-tachometer-alt', component: PackageUsages}
@@ -62,8 +61,6 @@ let activeTab = 'TestCode';
                 <Calculator/>
             {:else if activeTab == 'Toggle'}
                 <Toggle width='10rem' onText='on' offText='off' bind:checkedValue={toggleValue}/>
-            {:else if activeTab == 'Circle'}
-                <Circle/>
             {:else if activeTab == 'PackageUsages'}
                 <PackageUsages/>
             {/if}
