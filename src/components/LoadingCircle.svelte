@@ -2,9 +2,15 @@
   <div class="child"></div>
   <div class="child"></div>
   <div class="child"></div>
+  <p class='loadingLabel'>Loading...</p>
 </div>
-
 <style>
+  .loadingLabel{
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translateX(-50%);
+  }
   .parent{
     height: 100%;
     width: 100%;

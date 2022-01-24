@@ -42,6 +42,11 @@
     box-shadow: 0 0 10px var(--color),
                 0 0 30px var(--color),
                 0 0 60px var(--color);
+    box-shadow: 0 0 0 5px #24ecff33,
+                0 0 0 10px #24ecff22,
+                0 0 0 20px #24ecff11,
+                0 0 20px #24ecff,
+                0 0 50px #24ecff;
     background: var(--color);  
     border-radius: 50%;
   }

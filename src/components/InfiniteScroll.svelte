@@ -1,5 +1,6 @@
 <script>
 import { onMount } from 'svelte';
+import LoadingCircle from './LoadingCircle.svelte';
 
 	import { fade } from 'svelte/transition';
     const api_key = 'WWsBOsSnXbn9GJv3gucUMHYWJ3YHryd2uZMN1wWlIHk';
@@ -54,7 +55,7 @@ import { onMount } from 'svelte';
     <div class="elements" id='elements' style="height: {height};">
         <div class='title' >UNSPLASH API-INFINITE SCROLL</div>
         <div class="loader {loader}">
-            <img src="./images/loader.svg" alt="loader img"/>
+            <LoadingCircle/>
         </div>
         <div class="image-container" >
             {#if data.length>0}
