@@ -1,5 +1,5 @@
 <script>
-import LoadingCircle from "./LoadingCircle.svelte";
+import BounchingHeadline from "./BounchingHeadline.svelte";
 
   // header section
   let arrow = 'left'
@@ -33,7 +33,7 @@ import LoadingCircle from "./LoadingCircle.svelte";
         <a class="navbar-brand" href="#">
           <i class="fas fa-arrow-{arrow} px-3" on:click={toggleArrow}></i>
         </a>   
-          <LoadingCircle/>
+          <BounchingHeadline/>
           <div></div> <!-- this div is to cope up with navbar to centerize the loading cercle -->
           
       </div>      

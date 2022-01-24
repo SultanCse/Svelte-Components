@@ -3,7 +3,7 @@
 	import SideBar from './../elements/SideBar.svelte';
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
         Toggle,Circle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,
-        LoadingSquareBar, LoadingInfinityBar} from '../services/appList.js'
+        LoadingSquareBar, LoadingInfinityBar, BounchingHeadline} from '../services/appList.js'
     
 let toggleValue=false;
 $: console.log(toggleValue);

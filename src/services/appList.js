@@ -12,8 +12,8 @@ import LightDarkTheme from '../components/LightDarkTheme.svelte'
 import LoadingInfinityBar from '../elements/LoadingInfinityBar.svelte'
 import PackageUsages from '../components/PackageUsages.svelte'
 import LoadingSquareBar from '../elements/LoadingSquareBar.svelte'
-
+import BounchingHeadline from '../components/BounchingHeadline.svelte'
 
 export {PackageUsages, LoadingInfinityBar, LightDarkTheme,AnimatedButton, JockTeller, AppPoll,
-        QuoteGenerator,Toggle,Circle,Calculator,
-        InfiniteScroll,TestCode,LoadingCircle, LoadingSquareBar}
+        QuoteGenerator,Toggle,Circle,Calculator,BounchingHeadline,
+        InfiniteScroll,TestCode,LoadingCircle, LoadingSquareBar,}
