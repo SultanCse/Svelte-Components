@@ -2,14 +2,15 @@
 <script>
 	import SideBar from './../elements/SideBar.svelte';
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
-        Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,
+        Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,TableDataPagination,
         LoadingSquareBar, LoadingInfinityBar, BounchingHeadline} from '../services/appList.js'
     
 let toggleValue=false;
 $: console.log(toggleValue);
 
-let activeTab = 'TestCode';
+let activeTab = 'TableDataPagination';
     let sidebarItems=[
+        {name:'TableDataPagination', icon:'fas fa-tachometer-alt', component: TableDataPagination},
         {name:'TestCode', icon:'fas fa-tachometer-alt', component: TestCode},
         {name:'LightDarkTheme', icon:'fas fa-tachometer-alt', component: LightDarkTheme},
         {name:'LoadingSquareBar', icon:'fas fa-tachometer-alt', component: LoadingSquareBar},
@@ -37,7 +38,9 @@ let activeTab = 'TestCode';
     <!-- content -->
     <div class="col">           
         <div class="content">  
-            {#if activeTab == 'TestCode'}
+            {#if activeTab == 'TableDataPagination'}
+                <TableDataPagination on:click={()=>{console.log(activeTab)}}/>
+            {:else if activeTab == 'TestCode'}
                 <TestCode on:click={()=>{console.log(activeTab)}}/>
             {:else if activeTab == 'LightDarkTheme'}
                 <LightDarkTheme/>

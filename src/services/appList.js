@@ -12,7 +12,8 @@ import LoadingInfinityBar from '../elements/LoadingInfinityBar.svelte'
 import PackageUsages from '../components/PackageUsages.svelte'
 import LoadingSquareBar from '../elements/LoadingSquareBar.svelte'
 import BounchingHeadline from '../components/BounchingHeadline.svelte'
+import TableDataPagination from '../components/TableDataPagination.svelte'
 
 export {PackageUsages, LoadingInfinityBar, LightDarkTheme,AnimatedButton, JockTeller, AppPoll,
-        QuoteGenerator,Toggle,Calculator,BounchingHeadline,
+        QuoteGenerator,Toggle,Calculator,BounchingHeadline,TableDataPagination,
         InfiniteScroll,TestCode,LoadingCircle, LoadingSquareBar,}
