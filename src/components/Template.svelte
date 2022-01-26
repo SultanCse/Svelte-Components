@@ -3,15 +3,18 @@
 	import SideBar from './../elements/SideBar.svelte';
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
         Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,TableDataPagination,
-        LoadingSquareBar, LoadingInfinityBar, BounchingHeadline} from '../services/appList.js'
+        LoadingSquareBar, LoadingInfinityBar, BounchingHeadline, SvgIcon,
+        LoadingSingleCircle} from '../services/appList.js'
     
 let toggleValue=false;
 $: console.log(toggleValue);
 
-let activeTab = 'TableDataPagination';
+let activeTab = 'TestCode';
     let sidebarItems=[
         {name:'TableDataPagination', icon:'fas fa-tachometer-alt', component: TableDataPagination},
+        {name:'LoadingSingleCircle', icon:'fas fa-tachometer-alt', component: LoadingSingleCircle},
         {name:'TestCode', icon:'fas fa-tachometer-alt', component: TestCode},
+        {name:'SvgIcon', icon:'fas fa-tachometer-alt', component: SvgIcon},
         {name:'LightDarkTheme', icon:'fas fa-tachometer-alt', component: LightDarkTheme},
         {name:'LoadingSquareBar', icon:'fas fa-tachometer-alt', component: LoadingSquareBar},
         {name:'LoadingInfinityBar', icon:'fas fa-tachometer-alt', component: LoadingInfinityBar},
@@ -42,6 +45,11 @@ let activeTab = 'TableDataPagination';
                 <TableDataPagination on:click={()=>{console.log(activeTab)}}/>
             {:else if activeTab == 'TestCode'}
                 <TestCode on:click={()=>{console.log(activeTab)}}/>
+            {:else if activeTab == 'LoadingSingleCircle'}
+                <LoadingSingleCircle on:click={()=>{console.log(activeTab)}}/>
+            {:else if activeTab == 'SvgIcon'}
+                <SvgIcon on:click={()=>{console.log(activeTab)}}/>
+            
             {:else if activeTab == 'LightDarkTheme'}
                 <LightDarkTheme/>
             {:else if activeTab == 'JockTeller'}
@@ -88,9 +96,9 @@ let activeTab = 'TableDataPagination';
     .content{
         height: 89vh;
         overflow: auto;
-        padding-left: 1rem;
-
-        padding-bottom: 1rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
+        padding-bottom: .5rem;
     }
 
     :global(::-webkit-scrollbar) {

@@ -1,52 +1,90 @@
 <div class="parent">
-  <div class="child"></div>
+    <div class="moon"></div>
+    <div class="cloud">
+        <img src="images/cloud/cloud1.png" alt="img..">
+        1
+    </div>
+    <div class="cloud">
+        <img src="images/cloud/cloud2.png" alt="img..">
+        2
+    </div>   
+    <div class="cloud">
+        <img src="images/cloud/cloud3.png" alt="img..">
+        3
+    </div>    
+    <div class="cloud"></div>   
 </div>
 
 <style>
     .parent{
         height: 100%;
         width: 100%;
-        background: black;
+        background: darkblue;
+        background-image: url('../images/cloud/forest.png');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        position: relative;
+        overflow-x: hidden;
+    }
+    .moon{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .80);
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
-        box-sizing: border-box;
+        left: 15%;
+        top: 15%;
     }
-    .child{
-        --height: 100px;
-        --width: 100px;
-        --color: rgb(87, 195, 245);
-        --time: .5s;
-        --background: none;
-        height: var(--height);
-        width: var(--width);
-        position: relative;
-        background: var(--background);
-        border-radius: 50%;
-        border: 5px solid #fce51455;
-        border-top: 5px solid #fce514;
-        animation: ani 2s infinite linear;
-    }
-    .child:nth-child(1)::after{
+    .moon::after{
         content: '';
-        display: block;
+        height: 80px;
+        width: 80px;
         position: absolute;
-        left: 100%;
-        height: 10px;
-        width: 10px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
         border-radius: 50%;
-        background: #fce514;
-        transform: translate(-145%, 100%);
-        box-shadow: 0 0 0 5px #fce51433,
-                    0 0 0 10px #fce51422,
-                    0 0 0 20px #fce51411,
-                    0 0 20px #fce514,
-                    0 0 50px #fce514;
+        background: darkblue;
+        left: 30%; 
+        bottom: 10%  
     }
-    @keyframes ani{
-        0%{transform: rotate(0deg);}
-        0%{transform: rotate(-360deg);}
+    .cloud{
+        height: 50%;
+        width: 50%;
+        position: absolute;
+        color: red;
+    }
+    .cloud:nth-child(1){
+        animation: cloud1 1s infinite linear;
+    }
+    .cloud:nth-child(2){
+        animation: cloud2 5s infinite linear;
+    }
+    
+    .cloud:nth-child(3){
+        animation: cloud3 10s infinite linear;
+    }
+    .cloud:nth-child(4){
+        animation: cloud4 10s infinite linear;
+    }
+    img{
+        height: 100%;
+        width: 100%;
+    }
+
+    @keyframes cloud1{
+        0%{left: -100%}
+        100%{left: 100%}
+    }
+    @keyframes cloud2{
+        0%{left: -50%}
+        100%{left: 100%}
+    }
+    @keyframes cloud3{
+        0%{left: 0%}
+        100%{left: 100%}
     }
 </style>
-
-

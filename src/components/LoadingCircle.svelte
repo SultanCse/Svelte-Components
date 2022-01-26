@@ -7,9 +7,14 @@
 <style>
   .loadingLabel{
     position: absolute;
-    left: 50%;
-    top: 70%;
-    transform: translateX(-50%);
+    /* left: 50%; */
+    top: 80%;
+    /* transform: translateX(-50%); */
+    font-size: 1.5rem;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    letter-spacing: 5px;
+    color: #fff;
+    opacity: .7;
   }
   .parent{
     height: 100%;
