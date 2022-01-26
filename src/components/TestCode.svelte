@@ -1,42 +1,84 @@
-<div class="parent">
+<script>
+import { onMount } from "svelte";
+    let data =[];
+    const stars = ()=>{
+        let count = 500;
+        // let parent = document.querySelector('.parent2');
+        // let i= 0;
+        
+        while(count--){
+            // star = document.createElement('i');
+            let x = Math.floor(Math.random() *window.innerWidth) * .87;
+            let y = Math.floor(Math.random() * window.innerHeight) * .87;
+            let duration = Math.random() * 10;
+            let size = Math.random() * 2;
+
+            data.push({x,y,duration,size});
+            
+            // star.style.left = x + 'px';
+            // star.style.top = y + 'px';
+            // star.style.width = 1+size+'px';
+            // star.style.height = 1+ size + 'px';
+            // star.style.animationDuration = 5 + duration + 's';
+            // star.style.animationDelay = duration + 's';
+            // star.style.zIndex = 1005;
+            // star.style.position = 'absolute';
+            // star.style.background = '#fff';
+            // star.style.borderRadius = '50%';
+            // star.style.animation = 'animate 2s linear infinite';
+            // parent.appendChild(star);
+            // i++;
+            // console.log(star);
+        }
+    }
+    stars();
+    onMount(()=>{
+        
+        console.log(data);
+    })
+</script>
+<div class="parent2">
     <div class="moon"></div>
-    <div class="cloud">
-        <img src="images/cloud/cloud1.png" alt="img..">
-        1
-    </div>
-    <div class="cloud">
-        <img src="images/cloud/cloud2.png" alt="img..">
-        2
-    </div>   
-    <div class="cloud">
-        <img src="images/cloud/cloud3.png" alt="img..">
-        3
-    </div>    
-    <div class="cloud"></div>   
+    <img src="images/cloud/forest.png" class='forest' alt="">
+    {#if data}
+    {#each data as item}
+    <i style="left: {item.x}px; top: {item.y}px; width: {1+item.size}px; height: {1+item.size}px; animation-duration: {5+item.duration}s; animation-delay: {item.duration}s"></i>
+    {/each}
+    {/if}
 </div>
 
 <style>
-    .parent{
+    .parent2{
         height: 100%;
         width: 100%;
-        background: darkblue;
-        background-image: url('../images/cloud/forest.png');
-        background-repeat: no-repeat;
-        background-position: bottom;
+        background: linear-gradient(#111425, #3751e0);
+        background-attachment: fixed;
         position: relative;
         overflow-x: hidden;
+    }
+    .parent2 i{ 
+        position: absolute; 
+        background: #fff; 
+        border-radius: 50%;
+        animation: animate 2s infinite;
+        z-index: 2000;
     }
     .moon{
         height: 80px;
         width: 80px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, .80);
+        background: #fff;
         position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
         left: 15%;
         top: 15%;
+        z-index: 1000;
+        box-shadow: 0 0 0 2px #fcfcfc33,
+                0 0 0 4px #ffffffe3,
+                0 0 0 8px #ffffff11,
+                0 0 8px #ffffff;
     }
     .moon::after{
         content: '';
@@ -47,44 +89,31 @@
         align-items: center;
         display: flex;
         border-radius: 50%;
-        background: darkblue;
+        background: linear-gradient(#111425, #3751e0);
+        background-attachment: fixed;
         left: 30%; 
         bottom: 10%  
     }
-    .cloud{
-        height: 50%;
-        width: 50%;
+    .forest{
         position: absolute;
-        color: red;
-    }
-    .cloud:nth-child(1){
-        animation: cloud1 1s infinite linear;
-    }
-    .cloud:nth-child(2){
-        animation: cloud2 5s infinite linear;
-    }
-    
-    .cloud:nth-child(3){
-        animation: cloud3 10s infinite linear;
-    }
-    .cloud:nth-child(4){
-        animation: cloud4 10s infinite linear;
-    }
-    img{
-        height: 100%;
+        left: 0;
+        bottom: 0;
         width: 100%;
+        z-index: 1000;
     }
 
-    @keyframes cloud1{
-        0%{left: -100%}
-        100%{left: 100%}
+    @keyframes animate{
+        0%{
+            opacity: 0;
+            transform: translateY(0);
+        }
+        10%,90%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+            transform: translateY(-100px);
+        }
     }
-    @keyframes cloud2{
-        0%{left: -50%}
-        100%{left: 100%}
-    }
-    @keyframes cloud3{
-        0%{left: 0%}
-        100%{left: 100%}
-    }
+
 </style>
