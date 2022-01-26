@@ -5549,29 +5549,29 @@ var app = (function () {
     			t5 = text("\r\n        3");
     			t6 = space();
     			div4 = element("div");
-    			attr_dev(div0, "class", "moon svelte-19c6f4w");
+    			attr_dev(div0, "class", "moon svelte-ad8qq8");
     			add_location(div0, file$d, 1, 4, 26);
     			if (!src_url_equal(img0.src, img0_src_value = "images/cloud/cloud1.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "img..");
-    			attr_dev(img0, "class", "svelte-19c6f4w");
+    			attr_dev(img0, "class", "svelte-ad8qq8");
     			add_location(img0, file$d, 3, 8, 85);
-    			attr_dev(div1, "class", "cloud svelte-19c6f4w");
+    			attr_dev(div1, "class", "cloud svelte-ad8qq8");
     			add_location(div1, file$d, 2, 4, 56);
     			if (!src_url_equal(img1.src, img1_src_value = "images/cloud/cloud2.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "img..");
-    			attr_dev(img1, "class", "svelte-19c6f4w");
+    			attr_dev(img1, "class", "svelte-ad8qq8");
     			add_location(img1, file$d, 7, 8, 190);
-    			attr_dev(div2, "class", "cloud svelte-19c6f4w");
+    			attr_dev(div2, "class", "cloud svelte-ad8qq8");
     			add_location(div2, file$d, 6, 4, 161);
     			if (!src_url_equal(img2.src, img2_src_value = "images/cloud/cloud3.png")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "img..");
-    			attr_dev(img2, "class", "svelte-19c6f4w");
+    			attr_dev(img2, "class", "svelte-ad8qq8");
     			add_location(img2, file$d, 11, 8, 298);
-    			attr_dev(div3, "class", "cloud svelte-19c6f4w");
+    			attr_dev(div3, "class", "cloud svelte-ad8qq8");
     			add_location(div3, file$d, 10, 4, 269);
-    			attr_dev(div4, "class", "cloud svelte-19c6f4w");
+    			attr_dev(div4, "class", "cloud svelte-ad8qq8");
     			add_location(div4, file$d, 14, 4, 378);
-    			attr_dev(div5, "class", "parent svelte-19c6f4w");
+    			attr_dev(div5, "class", "parent svelte-ad8qq8");
     			add_location(div5, file$d, 0, 0, 0);
     		},
     		l: function claim(nodes) {
