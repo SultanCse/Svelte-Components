@@ -4,7 +4,7 @@
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
         Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,TableDataPagination,
         LoadingSquareBar, LoadingInfinityBar, BounchingHeadline, SvgIcon,
-        LoadingSingleCircle} from '../services/appList.js'
+        LoadingSingleCircle, MoonLit} from '../services/appList.js'
     
 let toggleValue=false;
 $: console.log(toggleValue);
@@ -12,6 +12,7 @@ $: console.log(toggleValue);
 let activeTab = 'TestCode';
     let sidebarItems=[
         {name:'TableDataPagination', icon:'fas fa-tachometer-alt', component: TableDataPagination},
+        {name:'MoonLit', icon:'fas fa-tachometer-alt', component: MoonLit},
         {name:'LoadingSingleCircle', icon:'fas fa-tachometer-alt', component: LoadingSingleCircle},
         {name:'TestCode', icon:'fas fa-tachometer-alt', component: TestCode},
         {name:'SvgIcon', icon:'fas fa-tachometer-alt', component: SvgIcon},
@@ -74,6 +75,8 @@ let activeTab = 'TestCode';
         />
       {:else if activeTab == 'LightDarkTheme'}
         <LightDarkTheme />
+      {:else if activeTab == 'MoonLit'}
+        <MoonLit />
       {:else if activeTab == 'JockTeller'}
         <JockTeller />
       {:else if activeTab == 'LoadingInfinityBar'}
