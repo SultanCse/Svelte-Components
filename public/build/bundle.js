@@ -5549,14 +5549,16 @@ var app = (function () {
     function create_fragment$e(ctx) {
     	let kbd;
     	let t;
+    	let mounted;
+    	let dispose;
 
     	const block = {
     		c: function create() {
     			kbd = element("kbd");
     			t = text(/*key*/ ctx[0]);
-    			set_style(kbd, "padding", "1rem");
     			set_style(kbd, "font-size", "3rem");
-    			add_location(kbd, file$e, 7, 0, 124);
+    			set_style(kbd, "padding", "2rem");
+    			add_location(kbd, file$e, 10, 0, 116);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5564,6 +5566,11 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, kbd, anchor);
     			append_dev(kbd, t);
+
+    			if (!mounted) {
+    				dispose = listen_dev(window, "keydown", /*keydown_handler*/ ctx[1], false, false, false);
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*key*/ 1) set_data_dev(t, /*key*/ ctx[0]);
@@ -5572,6 +5579,8 @@ var app = (function () {
     		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(kbd);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -5590,16 +5599,15 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('TestCode', slots, []);
     	let key = '';
-
-    	document.addEventListener('keydown', event => {
-    		$$invalidate(0, key = event.key);
-    	});
-
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<TestCode> was created with unknown prop '${key}'`);
     	});
+
+    	const keydown_handler = event => {
+    		$$invalidate(0, key = event.key);
+    	};
 
     	$$self.$capture_state = () => ({ key });
 
@@ -5611,7 +5619,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [key];
+    	return [key, keydown_handler];
     }
 
     class TestCode extends SvelteComponentDev {
