@@ -1,6 +1,6 @@
-<!-- Sidebar -->
 <script>
 	import SideBar from './../elements/SideBar.svelte';
+  import NavBar from './NavBar.svelte';
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
         Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,TableDataPagination,
         LoadingSquareBar, LoadingInfinityBar, BounchingHeadline, SvgIcon,
@@ -32,6 +32,7 @@ let activeTab = 'TestCode';
 
 </script>
 
+<NavBar header={activeTab} />
 <div class="row g-0 m-0">
   <div class="col-2">
     <div class="parent">
