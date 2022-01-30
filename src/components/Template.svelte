@@ -32,7 +32,9 @@ let activeTab = 'TestCode';
 
 </script>
 
-<NavBar header={activeTab} />
+{#key activeTab}
+  <NavBar bind:header={activeTab} />
+{/key}
 <div class="row g-0 m-0">
   <div class="col-2">
     <div class="parent">
