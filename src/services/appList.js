@@ -16,6 +16,7 @@ import TableDataPagination from '../components/TableDataPagination.svelte';
 import SvgIcon from '../elements/SvgIcon.svelte';
 import LoadingSingleCircle from '../elements/LoadingSingleCircle.svelte';
 import MoonLit from '../components/MoonLit.svelte';
+import Wordle from '../components/Wordle.svelte';
 
 export {
   PackageUsages,
@@ -35,5 +36,6 @@ export {
   LoadingCircle,
   LoadingSquareBar,
   LoadingSingleCircle,
-  MoonLit
+  MoonLit,
+  Wordle
 };
