@@ -5555,22 +5555,22 @@ var app = (function () {
 
     function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i];
+    	child_ctx[10] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i];
-    	child_ctx[16] = i;
+    	child_ctx[10] = list[i];
+    	child_ctx[14] = i;
     	return child_ctx;
     }
 
-    // (86:4) {#each word as item, i}
+    // (42:6) {#each word as item, i}
     function create_each_block_1(ctx) {
     	let div1;
     	let div0;
-    	let t0_value = /*item*/ ctx[12] + "";
+    	let t0_value = /*item*/ ctx[10] + "";
     	let t0;
     	let div0_id_value;
     	let t1;
@@ -5581,12 +5581,12 @@ var app = (function () {
     			div0 = element("div");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(div0, "class", "p-1 h-2 w-100 border d-flex justify-content-center svelte-185fyym");
-    			attr_dev(div0, "id", div0_id_value = /*item*/ ctx[12].id);
-    			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[16]]);
-    			add_location(div0, file$e, 87, 8, 2196);
+    			attr_dev(div0, "class", "p-1 h-2 w-100 d-flex justify-content-center svelte-185fyym");
+    			attr_dev(div0, "id", div0_id_value = /*item*/ ctx[10].id);
+    			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[14]]);
+    			add_location(div0, file$e, 43, 10, 1106);
     			attr_dev(div1, "class", "col-2");
-    			add_location(div1, file$e, 86, 6, 2167);
+    			add_location(div1, file$e, 42, 8, 1075);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5595,14 +5595,14 @@ var app = (function () {
     			append_dev(div1, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[12] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[10] + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*word*/ 1 && div0_id_value !== (div0_id_value = /*item*/ ctx[12].id)) {
+    			if (dirty & /*word*/ 1 && div0_id_value !== (div0_id_value = /*item*/ ctx[10].id)) {
     				attr_dev(div0, "id", div0_id_value);
     			}
 
     			if (dirty & /*colors*/ 2) {
-    				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[16]]);
+    				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[14]]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -5614,14 +5614,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(86:4) {#each word as item, i}",
+    		source: "(42:6) {#each word as item, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:2) {#each falseArray as item}
+    // (56:4) {#each falseArray as item}
     function create_each_block$4(ctx) {
     	let div10;
     	let div1;
@@ -5656,28 +5656,28 @@ var app = (function () {
     			t3 = space();
     			div9 = element("div");
     			div8 = element("div");
-    			attr_dev(div0, "class", "p-1 h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div0, file$e, 102, 8, 2599);
-    			attr_dev(div1, "class", "col-2 border");
-    			add_location(div1, file$e, 101, 6, 2563);
-    			attr_dev(div2, "class", "p-1 h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div2, file$e, 105, 8, 2716);
-    			attr_dev(div3, "class", "col-2 border");
-    			add_location(div3, file$e, 104, 6, 2680);
-    			attr_dev(div4, "class", "p-1 h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div4, file$e, 108, 8, 2833);
-    			attr_dev(div5, "class", "col-2 border");
-    			add_location(div5, file$e, 107, 6, 2797);
-    			attr_dev(div6, "class", "p-1 h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div6, file$e, 111, 8, 2950);
-    			attr_dev(div7, "class", "col-2 border");
-    			add_location(div7, file$e, 110, 6, 2914);
-    			attr_dev(div8, "class", "p-1 h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div8, file$e, 114, 8, 3067);
-    			attr_dev(div9, "class", "col-2 border");
-    			add_location(div9, file$e, 113, 6, 3031);
-    			attr_dev(div10, "class", "row gx-1 mb-1 justify-content-center");
-    			add_location(div10, file$e, 100, 4, 2505);
+    			attr_dev(div0, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
+    			add_location(div0, file$e, 58, 10, 1521);
+    			attr_dev(div1, "class", "col-2 ");
+    			add_location(div1, file$e, 57, 8, 1489);
+    			attr_dev(div2, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
+    			add_location(div2, file$e, 61, 10, 1645);
+    			attr_dev(div3, "class", "col-2 ");
+    			add_location(div3, file$e, 60, 8, 1613);
+    			attr_dev(div4, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
+    			add_location(div4, file$e, 64, 10, 1769);
+    			attr_dev(div5, "class", "col-2 ");
+    			add_location(div5, file$e, 63, 8, 1737);
+    			attr_dev(div6, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
+    			add_location(div6, file$e, 67, 10, 1893);
+    			attr_dev(div7, "class", "col-2 ");
+    			add_location(div7, file$e, 66, 8, 1861);
+    			attr_dev(div8, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
+    			add_location(div8, file$e, 70, 10, 2017);
+    			attr_dev(div9, "class", "col-2 ");
+    			add_location(div9, file$e, 69, 8, 1985);
+    			attr_dev(div10, "class", "row mb-1 gx-1");
+    			add_location(div10, file$e, 56, 6, 1452);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -5705,7 +5705,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(100:2) {#each falseArray as item}",
+    		source: "(56:4) {#each falseArray as item}",
     		ctx
     	});
 
@@ -5713,126 +5713,13 @@ var app = (function () {
     }
 
     function create_fragment$e(ctx) {
-    	let div12;
-    	let div10;
+    	let div3;
     	let div1;
     	let div0;
-    	let t0_value = (/*word*/ ctx[0][0] ? /*word*/ ctx[0][0] : '') + "";
     	let t0;
-    	let t1;
-    	let div3;
     	let div2;
-    	let t2_value = (/*word*/ ctx[0][1] ? /*word*/ ctx[0][1] : '') + "";
-    	let t2;
-    	let t3;
-    	let div5;
-    	let div4;
-    	let t4_value = (/*word*/ ctx[0][2] ? /*word*/ ctx[0][2] : '') + "";
-    	let t4;
-    	let t5;
-    	let div7;
-    	let div6;
-    	let t6_value = (/*word*/ ctx[0][3] ? /*word*/ ctx[0][3] : '') + "";
-    	let t6;
-    	let t7;
-    	let div9;
-    	let div8;
-    	let t8_value = (/*word*/ ctx[0][4] ? /*word*/ ctx[0][4] : '') + "";
-    	let t8;
-    	let t9;
-    	let div11;
-    	let t10;
-    	let div13;
-    	let t11;
+    	let t1;
     	let button;
-    	let t13;
-    	let div73;
-    	let div34;
-    	let div15;
-    	let div14;
-    	let t15;
-    	let div17;
-    	let div16;
-    	let t17;
-    	let div19;
-    	let div18;
-    	let t19;
-    	let div21;
-    	let div20;
-    	let t21;
-    	let div23;
-    	let div22;
-    	let t23;
-    	let div25;
-    	let div24;
-    	let t25;
-    	let div27;
-    	let div26;
-    	let t27;
-    	let div29;
-    	let div28;
-    	let t29;
-    	let div31;
-    	let div30;
-    	let t31;
-    	let div33;
-    	let div32;
-    	let t33;
-    	let div53;
-    	let div36;
-    	let div35;
-    	let t35;
-    	let div38;
-    	let div37;
-    	let t37;
-    	let div40;
-    	let div39;
-    	let t39;
-    	let div42;
-    	let div41;
-    	let t41;
-    	let div44;
-    	let div43;
-    	let t43;
-    	let div46;
-    	let div45;
-    	let t45;
-    	let div48;
-    	let div47;
-    	let t47;
-    	let div50;
-    	let div49;
-    	let t49;
-    	let div52;
-    	let div51;
-    	let t51;
-    	let div72;
-    	let div55;
-    	let div54;
-    	let t53;
-    	let div57;
-    	let div56;
-    	let t55;
-    	let div59;
-    	let div58;
-    	let t57;
-    	let div61;
-    	let div60;
-    	let t59;
-    	let div63;
-    	let div62;
-    	let t61;
-    	let div65;
-    	let div64;
-    	let t63;
-    	let div67;
-    	let div66;
-    	let t65;
-    	let div69;
-    	let div68;
-    	let t67;
-    	let div71;
-    	let div70;
     	let mounted;
     	let dispose;
     	let each_value_1 = /*word*/ ctx[0];
@@ -5853,441 +5740,56 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div12 = element("div");
-    			div10 = element("div");
+    			div3 = element("div");
     			div1 = element("div");
     			div0 = element("div");
-    			t0 = text(t0_value);
-    			t1 = space();
-    			div3 = element("div");
-    			div2 = element("div");
-    			t2 = text(t2_value);
-    			t3 = space();
-    			div5 = element("div");
-    			div4 = element("div");
-    			t4 = text(t4_value);
-    			t5 = space();
-    			div7 = element("div");
-    			div6 = element("div");
-    			t6 = text(t6_value);
-    			t7 = space();
-    			div9 = element("div");
-    			div8 = element("div");
-    			t8 = text(t8_value);
-    			t9 = space();
-    			div11 = element("div");
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
     				each_blocks_1[i].c();
     			}
 
-    			t10 = space();
-    			div13 = element("div");
+    			t0 = space();
+    			div2 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t11 = space();
+    			t1 = space();
     			button = element("button");
     			button.textContent = "check";
-    			t13 = space();
-    			div73 = element("div");
-    			div34 = element("div");
-    			div15 = element("div");
-    			div14 = element("div");
-    			div14.textContent = "a";
-    			t15 = space();
-    			div17 = element("div");
-    			div16 = element("div");
-    			div16.textContent = "a";
-    			t17 = space();
-    			div19 = element("div");
-    			div18 = element("div");
-    			div18.textContent = "a";
-    			t19 = space();
-    			div21 = element("div");
-    			div20 = element("div");
-    			div20.textContent = "a";
-    			t21 = space();
-    			div23 = element("div");
-    			div22 = element("div");
-    			div22.textContent = "a";
-    			t23 = space();
-    			div25 = element("div");
-    			div24 = element("div");
-    			div24.textContent = "a";
-    			t25 = space();
-    			div27 = element("div");
-    			div26 = element("div");
-    			div26.textContent = "a";
-    			t27 = space();
-    			div29 = element("div");
-    			div28 = element("div");
-    			div28.textContent = "a";
-    			t29 = space();
-    			div31 = element("div");
-    			div30 = element("div");
-    			div30.textContent = "a";
-    			t31 = space();
-    			div33 = element("div");
-    			div32 = element("div");
-    			div32.textContent = "a";
-    			t33 = space();
-    			div53 = element("div");
-    			div36 = element("div");
-    			div35 = element("div");
-    			div35.textContent = "a";
-    			t35 = space();
-    			div38 = element("div");
-    			div37 = element("div");
-    			div37.textContent = "a";
-    			t37 = space();
-    			div40 = element("div");
-    			div39 = element("div");
-    			div39.textContent = "a";
-    			t39 = space();
-    			div42 = element("div");
-    			div41 = element("div");
-    			div41.textContent = "a";
-    			t41 = space();
-    			div44 = element("div");
-    			div43 = element("div");
-    			div43.textContent = "a";
-    			t43 = space();
-    			div46 = element("div");
-    			div45 = element("div");
-    			div45.textContent = "a";
-    			t45 = space();
-    			div48 = element("div");
-    			div47 = element("div");
-    			div47.textContent = "a";
-    			t47 = space();
-    			div50 = element("div");
-    			div49 = element("div");
-    			div49.textContent = "a";
-    			t49 = space();
-    			div52 = element("div");
-    			div51 = element("div");
-    			div51.textContent = "a";
-    			t51 = space();
-    			div72 = element("div");
-    			div55 = element("div");
-    			div54 = element("div");
-    			div54.textContent = "a";
-    			t53 = space();
-    			div57 = element("div");
-    			div56 = element("div");
-    			div56.textContent = "a";
-    			t55 = space();
-    			div59 = element("div");
-    			div58 = element("div");
-    			div58.textContent = "a";
-    			t57 = space();
-    			div61 = element("div");
-    			div60 = element("div");
-    			div60.textContent = "a";
-    			t59 = space();
-    			div63 = element("div");
-    			div62 = element("div");
-    			div62.textContent = "a";
-    			t61 = space();
-    			div65 = element("div");
-    			div64 = element("div");
-    			div64.textContent = "a";
-    			t63 = space();
-    			div67 = element("div");
-    			div66 = element("div");
-    			div66.textContent = "a";
-    			t65 = space();
-    			div69 = element("div");
-    			div68 = element("div");
-    			div68.textContent = "a";
-    			t67 = space();
-    			div71 = element("div");
-    			div70 = element("div");
-    			div70.textContent = "a";
-    			attr_dev(div0, "class", "p-1 h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			set_style(div0, "background", /*colors*/ ctx[1][0]);
-    			add_location(div0, file$e, 47, 6, 1112);
-    			attr_dev(div1, "class", "col-2 border");
-    			add_location(div1, file$e, 46, 4, 1078);
-    			attr_dev(div2, "class", "p-1 h-100 w-100 bg-light d-flex justify-content-center");
-    			set_style(div2, "background", /*colors*/ ctx[1][1]);
-    			add_location(div2, file$e, 55, 6, 1326);
-    			attr_dev(div3, "class", "col-2 border");
-    			add_location(div3, file$e, 54, 4, 1292);
-    			attr_dev(div4, "class", "p-1 h-100 w-100 border bg-light d-flex justify-content-center");
-    			add_location(div4, file$e, 63, 6, 1545);
-    			attr_dev(div5, "class", "col-2");
-    			add_location(div5, file$e, 62, 4, 1518);
-    			attr_dev(div6, "class", "p-1 h-100 w-100 border bg-light d-flex justify-content-center");
-    			add_location(div6, file$e, 70, 6, 1730);
-    			attr_dev(div7, "class", "col-2");
-    			add_location(div7, file$e, 69, 4, 1703);
-    			attr_dev(div8, "class", "p-1 h-100 w-100 border bg-light d-flex justify-content-center");
-    			add_location(div8, file$e, 77, 6, 1915);
-    			attr_dev(div9, "class", "col-2");
-    			add_location(div9, file$e, 76, 4, 1888);
-    			attr_dev(div10, "class", "row gx-1 mb-1 justify-content-center");
-    			add_location(div10, file$e, 45, 2, 1022);
-    			attr_dev(div11, "class", "row g-1 mb-1 justify-content-center");
-    			add_location(div11, file$e, 84, 2, 2081);
-    			attr_dev(div12, "class", "container w-50 mt-2");
-    			add_location(div12, file$e, 44, 0, 985);
-    			add_location(button, file$e, 118, 2, 3167);
-    			attr_dev(div13, "class", "container w-50 mt-2");
-    			add_location(div13, file$e, 98, 0, 2436);
-    			attr_dev(div14, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div14, file$e, 123, 6, 3347);
-    			attr_dev(div15, "class", "col-1");
-    			add_location(div15, file$e, 122, 4, 3320);
-    			attr_dev(div16, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div16, file$e, 126, 6, 3463);
-    			attr_dev(div17, "class", "col-1 ");
-    			add_location(div17, file$e, 125, 4, 3435);
-    			attr_dev(div18, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div18, file$e, 129, 6, 3578);
-    			attr_dev(div19, "class", "col-1");
-    			add_location(div19, file$e, 128, 4, 3551);
-    			attr_dev(div20, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div20, file$e, 132, 6, 3693);
-    			attr_dev(div21, "class", "col-1");
-    			add_location(div21, file$e, 131, 4, 3666);
-    			attr_dev(div22, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div22, file$e, 135, 6, 3808);
-    			attr_dev(div23, "class", "col-1");
-    			add_location(div23, file$e, 134, 4, 3781);
-    			attr_dev(div24, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div24, file$e, 138, 6, 3923);
-    			attr_dev(div25, "class", "col-1");
-    			add_location(div25, file$e, 137, 4, 3896);
-    			attr_dev(div26, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div26, file$e, 141, 6, 4039);
-    			attr_dev(div27, "class", "col-1 ");
-    			add_location(div27, file$e, 140, 4, 4011);
-    			attr_dev(div28, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div28, file$e, 144, 6, 4154);
-    			attr_dev(div29, "class", "col-1");
-    			add_location(div29, file$e, 143, 4, 4127);
-    			attr_dev(div30, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div30, file$e, 147, 6, 4269);
-    			attr_dev(div31, "class", "col-1");
-    			add_location(div31, file$e, 146, 4, 4242);
-    			attr_dev(div32, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div32, file$e, 150, 6, 4384);
-    			attr_dev(div33, "class", "col-1");
-    			add_location(div33, file$e, 149, 4, 4357);
-    			attr_dev(div34, "class", "row g-1 mb-1 justify-content-center");
-    			add_location(div34, file$e, 121, 2, 3265);
-    			attr_dev(div35, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div35, file$e, 155, 6, 4563);
-    			attr_dev(div36, "class", "col-1 ");
-    			add_location(div36, file$e, 154, 4, 4535);
-    			attr_dev(div37, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div37, file$e, 158, 6, 4678);
-    			attr_dev(div38, "class", "col-1");
-    			add_location(div38, file$e, 157, 4, 4651);
-    			attr_dev(div39, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div39, file$e, 161, 6, 4793);
-    			attr_dev(div40, "class", "col-1");
-    			add_location(div40, file$e, 160, 4, 4766);
-    			attr_dev(div41, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div41, file$e, 164, 6, 4908);
-    			attr_dev(div42, "class", "col-1");
-    			add_location(div42, file$e, 163, 4, 4881);
-    			attr_dev(div43, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div43, file$e, 167, 6, 5023);
-    			attr_dev(div44, "class", "col-1");
-    			add_location(div44, file$e, 166, 4, 4996);
-    			attr_dev(div45, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div45, file$e, 170, 6, 5139);
-    			attr_dev(div46, "class", "col-1 ");
-    			add_location(div46, file$e, 169, 4, 5111);
-    			attr_dev(div47, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div47, file$e, 173, 6, 5254);
-    			attr_dev(div48, "class", "col-1");
-    			add_location(div48, file$e, 172, 4, 5227);
-    			attr_dev(div49, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div49, file$e, 176, 6, 5369);
-    			attr_dev(div50, "class", "col-1");
-    			add_location(div50, file$e, 175, 4, 5342);
-    			attr_dev(div51, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div51, file$e, 179, 6, 5484);
-    			attr_dev(div52, "class", "col-1");
-    			add_location(div52, file$e, 178, 4, 5457);
-    			attr_dev(div53, "class", "row g-1 mb-1 justify-content-center");
-    			add_location(div53, file$e, 153, 2, 4480);
-    			attr_dev(div54, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div54, file$e, 184, 6, 5662);
-    			attr_dev(div55, "class", "col-1");
-    			add_location(div55, file$e, 183, 4, 5635);
-    			attr_dev(div56, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div56, file$e, 187, 6, 5778);
-    			attr_dev(div57, "class", "col-1 ");
-    			add_location(div57, file$e, 186, 4, 5750);
-    			attr_dev(div58, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div58, file$e, 190, 6, 5893);
-    			attr_dev(div59, "class", "col-1");
-    			add_location(div59, file$e, 189, 4, 5866);
-    			attr_dev(div60, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div60, file$e, 193, 6, 6008);
-    			attr_dev(div61, "class", "col-1");
-    			add_location(div61, file$e, 192, 4, 5981);
-    			attr_dev(div62, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div62, file$e, 196, 6, 6123);
-    			attr_dev(div63, "class", "col-1");
-    			add_location(div63, file$e, 195, 4, 6096);
-    			attr_dev(div64, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div64, file$e, 199, 6, 6238);
-    			attr_dev(div65, "class", "col-1");
-    			add_location(div65, file$e, 198, 4, 6211);
-    			attr_dev(div66, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div66, file$e, 202, 6, 6354);
-    			attr_dev(div67, "class", "col-1 ");
-    			add_location(div67, file$e, 201, 4, 6326);
-    			attr_dev(div68, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div68, file$e, 205, 6, 6469);
-    			attr_dev(div69, "class", "col-1");
-    			add_location(div69, file$e, 204, 4, 6442);
-    			attr_dev(div70, "class", "p-1 border bg-light d-flex justify-content-center");
-    			add_location(div70, file$e, 208, 6, 6584);
-    			attr_dev(div71, "class", "col-1");
-    			add_location(div71, file$e, 207, 4, 6557);
-    			attr_dev(div72, "class", "row g-1 mb-1 justify-content-center");
-    			add_location(div72, file$e, 182, 2, 5580);
-    			attr_dev(div73, "class", "container w-75 mt-5");
-    			add_location(div73, file$e, 120, 0, 3228);
+    			attr_dev(div0, "class", "row mb-1 gx-1");
+    			add_location(div0, file$e, 40, 4, 1007);
+    			attr_dev(div1, "class", "w-50 mt-2 position-absolute");
+    			add_location(div1, file$e, 39, 2, 959);
+    			add_location(button, file$e, 74, 4, 2132);
+    			attr_dev(div2, "class", "container w-50 mt-2 position-absolute");
+    			add_location(div2, file$e, 54, 2, 1361);
+    			attr_dev(div3, "class", "position-relative");
+    			set_style(div3, "left", "30%");
+    			add_location(div3, file$e, 38, 0, 906);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div12, anchor);
-    			append_dev(div12, div10);
-    			append_dev(div10, div1);
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div1);
     			append_dev(div1, div0);
-    			append_dev(div0, t0);
-    			append_dev(div10, t1);
-    			append_dev(div10, div3);
-    			append_dev(div3, div2);
-    			append_dev(div2, t2);
-    			append_dev(div10, t3);
-    			append_dev(div10, div5);
-    			append_dev(div5, div4);
-    			append_dev(div4, t4);
-    			append_dev(div10, t5);
-    			append_dev(div10, div7);
-    			append_dev(div7, div6);
-    			append_dev(div6, t6);
-    			append_dev(div10, t7);
-    			append_dev(div10, div9);
-    			append_dev(div9, div8);
-    			append_dev(div8, t8);
-    			append_dev(div12, t9);
-    			append_dev(div12, div11);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
-    				each_blocks_1[i].m(div11, null);
+    				each_blocks_1[i].m(div0, null);
     			}
 
-    			insert_dev(target, t10, anchor);
-    			insert_dev(target, div13, anchor);
+    			append_dev(div3, t0);
+    			append_dev(div3, div2);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div13, null);
+    				each_blocks[i].m(div2, null);
     			}
 
-    			append_dev(div13, t11);
-    			append_dev(div13, button);
-    			insert_dev(target, t13, anchor);
-    			insert_dev(target, div73, anchor);
-    			append_dev(div73, div34);
-    			append_dev(div34, div15);
-    			append_dev(div15, div14);
-    			append_dev(div34, t15);
-    			append_dev(div34, div17);
-    			append_dev(div17, div16);
-    			append_dev(div34, t17);
-    			append_dev(div34, div19);
-    			append_dev(div19, div18);
-    			append_dev(div34, t19);
-    			append_dev(div34, div21);
-    			append_dev(div21, div20);
-    			append_dev(div34, t21);
-    			append_dev(div34, div23);
-    			append_dev(div23, div22);
-    			append_dev(div34, t23);
-    			append_dev(div34, div25);
-    			append_dev(div25, div24);
-    			append_dev(div34, t25);
-    			append_dev(div34, div27);
-    			append_dev(div27, div26);
-    			append_dev(div34, t27);
-    			append_dev(div34, div29);
-    			append_dev(div29, div28);
-    			append_dev(div34, t29);
-    			append_dev(div34, div31);
-    			append_dev(div31, div30);
-    			append_dev(div34, t31);
-    			append_dev(div34, div33);
-    			append_dev(div33, div32);
-    			append_dev(div73, t33);
-    			append_dev(div73, div53);
-    			append_dev(div53, div36);
-    			append_dev(div36, div35);
-    			append_dev(div53, t35);
-    			append_dev(div53, div38);
-    			append_dev(div38, div37);
-    			append_dev(div53, t37);
-    			append_dev(div53, div40);
-    			append_dev(div40, div39);
-    			append_dev(div53, t39);
-    			append_dev(div53, div42);
-    			append_dev(div42, div41);
-    			append_dev(div53, t41);
-    			append_dev(div53, div44);
-    			append_dev(div44, div43);
-    			append_dev(div53, t43);
-    			append_dev(div53, div46);
-    			append_dev(div46, div45);
-    			append_dev(div53, t45);
-    			append_dev(div53, div48);
-    			append_dev(div48, div47);
-    			append_dev(div53, t47);
-    			append_dev(div53, div50);
-    			append_dev(div50, div49);
-    			append_dev(div53, t49);
-    			append_dev(div53, div52);
-    			append_dev(div52, div51);
-    			append_dev(div73, t51);
-    			append_dev(div73, div72);
-    			append_dev(div72, div55);
-    			append_dev(div55, div54);
-    			append_dev(div72, t53);
-    			append_dev(div72, div57);
-    			append_dev(div57, div56);
-    			append_dev(div72, t55);
-    			append_dev(div72, div59);
-    			append_dev(div59, div58);
-    			append_dev(div72, t57);
-    			append_dev(div72, div61);
-    			append_dev(div61, div60);
-    			append_dev(div72, t59);
-    			append_dev(div72, div63);
-    			append_dev(div63, div62);
-    			append_dev(div72, t61);
-    			append_dev(div72, div65);
-    			append_dev(div65, div64);
-    			append_dev(div72, t63);
-    			append_dev(div72, div67);
-    			append_dev(div67, div66);
-    			append_dev(div72, t65);
-    			append_dev(div72, div69);
-    			append_dev(div69, div68);
-    			append_dev(div72, t67);
-    			append_dev(div72, div71);
-    			append_dev(div71, div70);
+    			append_dev(div2, t1);
+    			append_dev(div2, button);
 
     			if (!mounted) {
     				dispose = [
@@ -6299,22 +5801,6 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = (/*word*/ ctx[0][0] ? /*word*/ ctx[0][0] : '') + "")) set_data_dev(t0, t0_value);
-
-    			if (dirty & /*colors*/ 2) {
-    				set_style(div0, "background", /*colors*/ ctx[1][0]);
-    			}
-
-    			if (dirty & /*word*/ 1 && t2_value !== (t2_value = (/*word*/ ctx[0][1] ? /*word*/ ctx[0][1] : '') + "")) set_data_dev(t2, t2_value);
-
-    			if (dirty & /*colors*/ 2) {
-    				set_style(div2, "background", /*colors*/ ctx[1][1]);
-    			}
-
-    			if (dirty & /*word*/ 1 && t4_value !== (t4_value = (/*word*/ ctx[0][2] ? /*word*/ ctx[0][2] : '') + "")) set_data_dev(t4, t4_value);
-    			if (dirty & /*word*/ 1 && t6_value !== (t6_value = (/*word*/ ctx[0][3] ? /*word*/ ctx[0][3] : '') + "")) set_data_dev(t6, t6_value);
-    			if (dirty & /*word*/ 1 && t8_value !== (t8_value = (/*word*/ ctx[0][4] ? /*word*/ ctx[0][4] : '') + "")) set_data_dev(t8, t8_value);
-
     			if (dirty & /*word, colors*/ 3) {
     				each_value_1 = /*word*/ ctx[0];
     				validate_each_argument(each_value_1);
@@ -6328,7 +5814,7 @@ var app = (function () {
     					} else {
     						each_blocks_1[i] = create_each_block_1(child_ctx);
     						each_blocks_1[i].c();
-    						each_blocks_1[i].m(div11, null);
+    						each_blocks_1[i].m(div0, null);
     					}
     				}
 
@@ -6342,13 +5828,9 @@ var app = (function () {
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div12);
+    			if (detaching) detach_dev(div3);
     			destroy_each(each_blocks_1, detaching);
-    			if (detaching) detach_dev(t10);
-    			if (detaching) detach_dev(div13);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(t13);
-    			if (detaching) detach_dev(div73);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -6369,12 +5851,13 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('TestCode', slots, []);
     	let word = "";
+    	let wordList = [];
     	let rightWord = "light";
     	let letterList = [];
-    	const falseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+    	const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
 
     	const wordHandeler = event => {
-    		if (word.length < 5) {
+    		if (word.length < 5 && event.keyCode >= 65 && event.keyCode <= 90) {
     			$$invalidate(0, word = word + event.key);
     		}
 
@@ -6383,19 +5866,13 @@ var app = (function () {
     		}
 
     		if (event.key == 'Backspace') {
-    			console.log(event.key);
-    			$$invalidate(0, word = word.substring(0, word.length));
+    			$$invalidate(0, word = word.substring(0, word.length - 1));
     		}
     	};
 
-    	let wrong = false;
-    	let correct = false;
-    	let positionWrong = false;
     	let colors = [];
 
     	const checkWord = () => {
-    		$$invalidate(0, word = word.split(''));
-
     		for (let i = 0; i < word.length; i++) {
     			if (rightWord[i] == word[i]) {
     				colors.push('green');
@@ -6420,24 +5897,20 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		word,
+    		wordList,
     		rightWord,
     		letterList,
     		falseArray,
     		wordHandeler,
-    		wrong,
-    		correct,
-    		positionWrong,
     		colors,
     		checkWord
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('word' in $$props) $$invalidate(0, word = $$props.word);
+    		if ('wordList' in $$props) wordList = $$props.wordList;
     		if ('rightWord' in $$props) rightWord = $$props.rightWord;
-    		if ('letterList' in $$props) $$invalidate(8, letterList = $$props.letterList);
-    		if ('wrong' in $$props) wrong = $$props.wrong;
-    		if ('correct' in $$props) correct = $$props.correct;
-    		if ('positionWrong' in $$props) positionWrong = $$props.positionWrong;
+    		if ('letterList' in $$props) $$invalidate(9, letterList = $$props.letterList);
     		if ('colors' in $$props) $$invalidate(1, colors = $$props.colors);
     	};
 
