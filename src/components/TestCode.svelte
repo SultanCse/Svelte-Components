@@ -1,8 +1,6 @@
 <script>
   let word = "";
-  let wordList = [];
   let rightWord = "light";
-  let letterList = [];
   const falseArray = ['a', 'b', 'c', 'd', 'e', 'f',];
 
   const wordHandeler = (event)=>{
@@ -12,13 +10,19 @@
     if(event.key=='Enter'){
       checkWord();
     }
-     if(event.key=='Backspace'){
+    if(event.key=='Backspace'){
       word = word.substring(0, word.length-1);
     }
+    if(word.length==5){
+      wordList.push(word);
+      word = "";
+    }
   }
-  $: console.log(letterList)
 
   let colors = [];
+  let wordList = [];
+  let colorList = [];
+  let counter = 0;
 
   const checkWord = ()=>{
        for(let i = 0; i<word.length; i++){
@@ -31,6 +35,12 @@
         }
        }
        colors = colors;      
+       if(colors.length==5){
+         colorList.push(colors);
+         colors = '';
+         console.log(colorList,wordList);
+
+       }
   }
 
 </script>
