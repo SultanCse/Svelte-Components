@@ -1,30 +1,28 @@
 <script>
   let word = "";
   let rightWord = "light";
-  const falseArray = ['a', 'b', 'c', 'd', 'e', 'f',];
+  const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
 
+  let nextLine = 5;
   const wordHandeler = (event)=>{
-    if(word.length<6 && event.keyCode>=65 && event.keyCode<=90){
+    if(word.length<nextLine && event.keyCode>=65 && event.keyCode<=90){
       word = word + event.key
     }
-    if(event.key=='Enter'){
+    if(word.length != 0 && word.length % 5 == 0 && event.key == 'Enter'){
       checkWord();
+      nextLine = word.length + 5;
     }
     if(event.key=='Backspace'){
       word = word.substring(0, word.length-1);
     }
     if(word.length==5){
-      wordList.push(word);
-      word = "";
+      // count++;
     }
   }
-
-  let colors = [];
-  let wordList = [];
-  let colorList = [];
-  let counter = 0;
-
+  let colors=[];
+  // let i = 0;
   const checkWord = ()=>{
+    colors = [];
        for(let i = 0; i<word.length; i++){
         if(rightWord[i%5] == word[i]){
           colors.push('green');
@@ -34,13 +32,8 @@
           colors.push('red');
         }
        }
-       colors = colors;      
-       if(colors.length==5){
-         colorList.push(colors);
-         colors = '';
-         console.log(colorList,wordList);
-
-       }
+      //  colors = colors;      
+       console.log(colors)
   }
 
 </script>

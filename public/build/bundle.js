@@ -5555,22 +5555,22 @@ var app = (function () {
 
     function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[11] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[11] = list[i];
-    	child_ctx[15] = i;
+    	child_ctx[9] = list[i];
+    	child_ctx[13] = i;
     	return child_ctx;
     }
 
-    // (52:6) {#each word as item, i}
+    // (45:6) {#each word as item, i}
     function create_each_block_1(ctx) {
     	let div1;
     	let div0;
-    	let t0_value = /*item*/ ctx[11] + "";
+    	let t0_value = /*item*/ ctx[9] + "";
     	let t0;
     	let t1;
 
@@ -5581,10 +5581,10 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr_dev(div0, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[15]]);
-    			add_location(div0, file$e, 53, 10, 1330);
+    			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[13]]);
+    			add_location(div0, file$e, 46, 10, 1264);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$e, 52, 8, 1296);
+    			add_location(div1, file$e, 45, 8, 1230);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5593,10 +5593,10 @@ var app = (function () {
     			append_dev(div1, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[11] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[9] + "")) set_data_dev(t0, t0_value);
 
     			if (dirty & /*colors*/ 2) {
-    				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[15]]);
+    				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[13]]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -5608,14 +5608,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(52:6) {#each word as item, i}",
+    		source: "(45:6) {#each word as item, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (66:6) {#each falseArray as item}
+    // (59:6) {#each falseArray as item}
     function create_each_block$4(ctx) {
     	let div1;
     	let div0;
@@ -5651,25 +5651,25 @@ var app = (function () {
     			div8 = element("div");
     			t4 = space();
     			attr_dev(div0, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div0, file$e, 67, 10, 1729);
+    			add_location(div0, file$e, 60, 10, 1663);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$e, 66, 8, 1695);
+    			add_location(div1, file$e, 59, 8, 1629);
     			attr_dev(div2, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div2, file$e, 70, 10, 1855);
+    			add_location(div2, file$e, 63, 10, 1789);
     			attr_dev(div3, "class", "col my-1");
-    			add_location(div3, file$e, 69, 8, 1821);
+    			add_location(div3, file$e, 62, 8, 1755);
     			attr_dev(div4, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div4, file$e, 73, 10, 1981);
+    			add_location(div4, file$e, 66, 10, 1915);
     			attr_dev(div5, "class", "col my-1");
-    			add_location(div5, file$e, 72, 8, 1947);
+    			add_location(div5, file$e, 65, 8, 1881);
     			attr_dev(div6, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div6, file$e, 76, 10, 2107);
+    			add_location(div6, file$e, 69, 10, 2041);
     			attr_dev(div7, "class", "col my-1");
-    			add_location(div7, file$e, 75, 8, 2073);
+    			add_location(div7, file$e, 68, 8, 2007);
     			attr_dev(div8, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div8, file$e, 79, 10, 2233);
+    			add_location(div8, file$e, 72, 10, 2167);
     			attr_dev(div9, "class", "col my-1");
-    			add_location(div9, file$e, 78, 8, 2199);
+    			add_location(div9, file$e, 71, 8, 2133);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5705,7 +5705,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(66:6) {#each falseArray as item}",
+    		source: "(59:6) {#each falseArray as item}",
     		ctx
     	});
 
@@ -5761,17 +5761,17 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "reset";
     			attr_dev(div0, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div0, file$e, 50, 4, 1217);
+    			add_location(div0, file$e, 43, 4, 1151);
     			attr_dev(div1, "class", "w-50 mt-2 position-absolute");
-    			add_location(div1, file$e, 49, 2, 1170);
+    			add_location(div1, file$e, 42, 2, 1104);
     			attr_dev(div2, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div2, file$e, 64, 4, 1613);
-    			add_location(button, file$e, 84, 4, 2350);
+    			add_location(div2, file$e, 57, 4, 1547);
+    			add_location(button, file$e, 77, 4, 2284);
     			attr_dev(div3, "class", "w-50 mt-2 position-absolute");
-    			add_location(div3, file$e, 63, 2, 1566);
+    			add_location(div3, file$e, 56, 2, 1500);
     			attr_dev(div4, "class", "position-relative");
     			set_style(div4, "left", "30%");
-    			add_location(div4, file$e, 48, 0, 1117);
+    			add_location(div4, file$e, 41, 0, 1051);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5858,32 +5858,31 @@ var app = (function () {
     	let word = "";
     	let rightWord = "light";
     	const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
+    	let nextLine = 5;
 
     	const wordHandeler = event => {
-    		if (word.length < 6 && event.keyCode >= 65 && event.keyCode <= 90) {
+    		if (word.length < nextLine && event.keyCode >= 65 && event.keyCode <= 90) {
     			$$invalidate(0, word = word + event.key);
     		}
 
-    		if (event.key == 'Enter') {
+    		if (word.length != 0 && word.length % 5 == 0 && event.key == 'Enter') {
     			checkWord();
+    			nextLine = word.length + 5;
     		}
 
     		if (event.key == 'Backspace') {
     			$$invalidate(0, word = word.substring(0, word.length - 1));
     		}
 
-    		if (word.length == 5) {
-    			wordList.push(word);
-    			$$invalidate(0, word = "");
-    		}
+    		if (word.length == 5) ; // count++;
     	};
 
     	let colors = [];
-    	let wordList = [];
-    	let colorList = [];
-    	let counter = 0;
 
+    	// let i = 0;
     	const checkWord = () => {
+    		$$invalidate(1, colors = []);
+
     		for (let i = 0; i < word.length; i++) {
     			if (rightWord[i % 5] == word[i]) {
     				colors.push('green');
@@ -5894,13 +5893,8 @@ var app = (function () {
     			}
     		}
 
-    		$$invalidate(1, colors);
-
-    		if (colors.length == 5) {
-    			colorList.push(colors);
-    			$$invalidate(1, colors = '');
-    			console.log(colorList, wordList);
-    		}
+    		//  colors = colors;      
+    		console.log(colors);
     	};
 
     	const writable_props = [];
@@ -5916,21 +5910,17 @@ var app = (function () {
     		word,
     		rightWord,
     		falseArray,
+    		nextLine,
     		wordHandeler,
     		colors,
-    		wordList,
-    		colorList,
-    		counter,
     		checkWord
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('word' in $$props) $$invalidate(0, word = $$props.word);
     		if ('rightWord' in $$props) rightWord = $$props.rightWord;
+    		if ('nextLine' in $$props) nextLine = $$props.nextLine;
     		if ('colors' in $$props) $$invalidate(1, colors = $$props.colors);
-    		if ('wordList' in $$props) wordList = $$props.wordList;
-    		if ('colorList' in $$props) colorList = $$props.colorList;
-    		if ('counter' in $$props) counter = $$props.counter;
     	};
 
     	if ($$props && "$$inject" in $$props) {
