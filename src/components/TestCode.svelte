@@ -3,24 +3,20 @@
   let rightWord = "light";
   const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
 
-  let nextLine = 5;
+  let nextCount = 5;
   const wordHandeler = (event)=>{
-    if(word.length<nextLine && event.keyCode>=65 && event.keyCode<=90){
+    if(word.length<nextCount && event.keyCode>=65 && event.keyCode<=90){
       word = word + event.key
     }
     if(word.length != 0 && word.length % 5 == 0 && event.key == 'Enter'){
       checkWord();
-      nextLine = word.length + 5;
+      nextCount = word.length + 5;
     }
     if(event.key=='Backspace'){
       word = word.substring(0, word.length-1);
     }
-    if(word.length==5){
-      // count++;
-    }
   }
   let colors=[];
-  // let i = 0;
   const checkWord = ()=>{
     colors = [];
        for(let i = 0; i<word.length; i++){
@@ -31,21 +27,20 @@
         }else{
           colors.push('red');
         }
-       }
-      //  colors = colors;      
+       }    
        console.log(colors)
   }
 
 </script>
 
 <svelte:window on:keydown={event => wordHandeler(event)} />
-<div class="position-relative" style="left:30%;">
-  <div class="w-50 mt-2 position-absolute">
+<div class="position-relative">
+  <div class="w-25 mt-2 position-absolute left-50">
     <div class="row mb-1 row-cols-5 gx-2">
       {#each word as item, i}
         <div class="col my-1">
           <div
-            class="p-1 border h-2 w-100 d-flex justify-content-center"
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
             style="background-color: {colors[i]};"
           >
             {item}
@@ -54,28 +49,48 @@
       {/each}
     </div>
   </div>
-  <div class="w-50 mt-2 position-absolute">
+  <div class="w-25 mt-2 position-absolute left-50">
     <div class="row mb-1 row-cols-5 gx-2">
       {#each falseArray as item}
         <div class="col my-1">
-          <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
+          <div
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+          />
         </div>
         <div class="col my-1">
-          <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
+          <div
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+          />
         </div>
         <div class="col my-1">
-          <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
+          <div
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+          />
         </div>
         <div class="col my-1">
-          <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
+          <div
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+          />
         </div>
         <div class="col my-1">
-          <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
+          <div
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+          />
         </div>
       {/each}
     </div>
 
-    <button on:click={() => console.log('reset')}>reset</button>
+    <div
+      type="button"
+      class="btn btn-outline-danger"
+      on:click={() => {
+        word = '';
+        colors = [];
+        nextCount = 5;
+      }}
+    >
+      reset
+    </div>
   </div>
 </div>
 
@@ -83,13 +98,21 @@
   .h-2 {
     height: 3rem;
   }
-  .wrong {
-    background-color: red;
+  .left-50 {
+    left: 50%;
+    transform: translateX(-50%);
   }
-  .correct {
-    background-color: green;
+  @media (max-width: 1000px) {
+    .w-25 {
+      width: 50% !important;
+    }
   }
-  .positionWrong {
-    background-color: yellow;
+  @media (max-width: 500px) {
+    .w-25 {
+      width: 80% !important;
+    }
+    .left-50 {
+      left: 1%;
+    }
   }
 </style>

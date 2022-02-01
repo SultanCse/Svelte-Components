@@ -5566,7 +5566,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (45:6) {#each word as item, i}
+    // (40:6) {#each word as item, i}
     function create_each_block_1(ctx) {
     	let div1;
     	let div0;
@@ -5580,11 +5580,11 @@ var app = (function () {
     			div0 = element("div");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(div0, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[13]]);
-    			add_location(div0, file$e, 46, 10, 1264);
+    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
+    			set_style(div0, "background-color", /*colors*/ ctx[2][/*i*/ ctx[13]]);
+    			add_location(div0, file$e, 41, 10, 1159);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$e, 45, 8, 1230);
+    			add_location(div1, file$e, 40, 8, 1125);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5595,8 +5595,8 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[9] + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*colors*/ 2) {
-    				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[13]]);
+    			if (dirty & /*colors*/ 4) {
+    				set_style(div0, "background-color", /*colors*/ ctx[2][/*i*/ ctx[13]]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -5608,14 +5608,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(45:6) {#each word as item, i}",
+    		source: "(40:6) {#each word as item, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (59:6) {#each falseArray as item}
+    // (54:6) {#each falseArray as item}
     function create_each_block$4(ctx) {
     	let div1;
     	let div0;
@@ -5650,26 +5650,26 @@ var app = (function () {
     			div9 = element("div");
     			div8 = element("div");
     			t4 = space();
-    			attr_dev(div0, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div0, file$e, 60, 10, 1663);
+    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
+    			add_location(div0, file$e, 55, 10, 1574);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$e, 59, 8, 1629);
-    			attr_dev(div2, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div2, file$e, 63, 10, 1789);
+    			add_location(div1, file$e, 54, 8, 1540);
+    			attr_dev(div2, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
+    			add_location(div2, file$e, 60, 10, 1732);
     			attr_dev(div3, "class", "col my-1");
-    			add_location(div3, file$e, 62, 8, 1755);
-    			attr_dev(div4, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div4, file$e, 66, 10, 1915);
+    			add_location(div3, file$e, 59, 8, 1698);
+    			attr_dev(div4, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
+    			add_location(div4, file$e, 65, 10, 1890);
     			attr_dev(div5, "class", "col my-1");
-    			add_location(div5, file$e, 65, 8, 1881);
-    			attr_dev(div6, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div6, file$e, 69, 10, 2041);
+    			add_location(div5, file$e, 64, 8, 1856);
+    			attr_dev(div6, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
+    			add_location(div6, file$e, 70, 10, 2048);
     			attr_dev(div7, "class", "col my-1");
-    			add_location(div7, file$e, 68, 8, 2007);
-    			attr_dev(div8, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
-    			add_location(div8, file$e, 72, 10, 2167);
+    			add_location(div7, file$e, 69, 8, 2014);
+    			attr_dev(div8, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
+    			add_location(div8, file$e, 75, 10, 2206);
     			attr_dev(div9, "class", "col my-1");
-    			add_location(div9, file$e, 71, 8, 2133);
+    			add_location(div9, file$e, 74, 8, 2172);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5705,7 +5705,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(59:6) {#each falseArray as item}",
+    		source: "(54:6) {#each falseArray as item}",
     		ctx
     	});
 
@@ -5713,14 +5713,14 @@ var app = (function () {
     }
 
     function create_fragment$e(ctx) {
-    	let div4;
+    	let div5;
     	let div1;
     	let div0;
     	let t0;
-    	let div3;
+    	let div4;
     	let div2;
     	let t1;
-    	let button;
+    	let div3;
     	let mounted;
     	let dispose;
     	let each_value_1 = /*word*/ ctx[0];
@@ -5731,7 +5731,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let each_value = /*falseArray*/ ctx[2];
+    	let each_value = /*falseArray*/ ctx[3];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -5741,7 +5741,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div4 = element("div");
+    			div5 = element("div");
     			div1 = element("div");
     			div0 = element("div");
 
@@ -5750,7 +5750,7 @@ var app = (function () {
     			}
 
     			t0 = space();
-    			div3 = element("div");
+    			div4 = element("div");
     			div2 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -5758,55 +5758,56 @@ var app = (function () {
     			}
 
     			t1 = space();
-    			button = element("button");
-    			button.textContent = "reset";
+    			div3 = element("div");
+    			div3.textContent = "reset";
     			attr_dev(div0, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div0, file$e, 43, 4, 1151);
-    			attr_dev(div1, "class", "w-50 mt-2 position-absolute");
-    			add_location(div1, file$e, 42, 2, 1104);
+    			add_location(div0, file$e, 38, 4, 1046);
+    			attr_dev(div1, "class", "w-25 mt-2 position-absolute left-50 svelte-1ovq5yv");
+    			add_location(div1, file$e, 37, 2, 991);
     			attr_dev(div2, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div2, file$e, 57, 4, 1547);
-    			add_location(button, file$e, 77, 4, 2284);
-    			attr_dev(div3, "class", "w-50 mt-2 position-absolute");
-    			add_location(div3, file$e, 56, 2, 1500);
-    			attr_dev(div4, "class", "position-relative");
-    			set_style(div4, "left", "30%");
-    			add_location(div4, file$e, 41, 0, 1051);
+    			add_location(div2, file$e, 52, 4, 1458);
+    			attr_dev(div3, "type", "button");
+    			attr_dev(div3, "class", "btn btn-outline-danger");
+    			add_location(div3, file$e, 82, 4, 2355);
+    			attr_dev(div4, "class", "w-25 mt-2 position-absolute left-50 svelte-1ovq5yv");
+    			add_location(div4, file$e, 51, 2, 1403);
+    			attr_dev(div5, "class", "position-relative");
+    			add_location(div5, file$e, 36, 0, 956);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div4, anchor);
-    			append_dev(div4, div1);
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, div1);
     			append_dev(div1, div0);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
     				each_blocks_1[i].m(div0, null);
     			}
 
-    			append_dev(div4, t0);
-    			append_dev(div4, div3);
-    			append_dev(div3, div2);
+    			append_dev(div5, t0);
+    			append_dev(div5, div4);
+    			append_dev(div4, div2);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div2, null);
     			}
 
-    			append_dev(div3, t1);
-    			append_dev(div3, button);
+    			append_dev(div4, t1);
+    			append_dev(div4, div3);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[4], false, false, false),
-    					listen_dev(button, "click", /*click_handler*/ ctx[5], false, false, false)
+    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[5], false, false, false),
+    					listen_dev(div3, "click", /*click_handler*/ ctx[6], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*colors, word*/ 3) {
+    			if (dirty & /*colors, word*/ 5) {
     				each_value_1 = /*word*/ ctx[0];
     				validate_each_argument(each_value_1);
     				let i;
@@ -5833,7 +5834,7 @@ var app = (function () {
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(div5);
     			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
     			mounted = false;
@@ -5858,30 +5859,27 @@ var app = (function () {
     	let word = "";
     	let rightWord = "light";
     	const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
-    	let nextLine = 5;
+    	let nextCount = 5;
 
     	const wordHandeler = event => {
-    		if (word.length < nextLine && event.keyCode >= 65 && event.keyCode <= 90) {
+    		if (word.length < nextCount && event.keyCode >= 65 && event.keyCode <= 90) {
     			$$invalidate(0, word = word + event.key);
     		}
 
     		if (word.length != 0 && word.length % 5 == 0 && event.key == 'Enter') {
     			checkWord();
-    			nextLine = word.length + 5;
+    			$$invalidate(1, nextCount = word.length + 5);
     		}
 
     		if (event.key == 'Backspace') {
     			$$invalidate(0, word = word.substring(0, word.length - 1));
     		}
-
-    		if (word.length == 5) ; // count++;
     	};
 
     	let colors = [];
 
-    	// let i = 0;
     	const checkWord = () => {
-    		$$invalidate(1, colors = []);
+    		$$invalidate(2, colors = []);
 
     		for (let i = 0; i < word.length; i++) {
     			if (rightWord[i % 5] == word[i]) {
@@ -5893,7 +5891,6 @@ var app = (function () {
     			}
     		}
 
-    		//  colors = colors;      
     		console.log(colors);
     	};
 
@@ -5904,13 +5901,18 @@ var app = (function () {
     	});
 
     	const keydown_handler = event => wordHandeler(event);
-    	const click_handler = () => console.log('reset');
+
+    	const click_handler = () => {
+    		$$invalidate(0, word = '');
+    		$$invalidate(2, colors = []);
+    		$$invalidate(1, nextCount = 5);
+    	};
 
     	$$self.$capture_state = () => ({
     		word,
     		rightWord,
     		falseArray,
-    		nextLine,
+    		nextCount,
     		wordHandeler,
     		colors,
     		checkWord
@@ -5919,15 +5921,23 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ('word' in $$props) $$invalidate(0, word = $$props.word);
     		if ('rightWord' in $$props) rightWord = $$props.rightWord;
-    		if ('nextLine' in $$props) nextLine = $$props.nextLine;
-    		if ('colors' in $$props) $$invalidate(1, colors = $$props.colors);
+    		if ('nextCount' in $$props) $$invalidate(1, nextCount = $$props.nextCount);
+    		if ('colors' in $$props) $$invalidate(2, colors = $$props.colors);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [word, colors, falseArray, wordHandeler, keydown_handler, click_handler];
+    	return [
+    		word,
+    		nextCount,
+    		colors,
+    		falseArray,
+    		wordHandeler,
+    		keydown_handler,
+    		click_handler
+    	];
     }
 
     class TestCode extends SvelteComponentDev {
