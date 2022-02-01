@@ -6,8 +6,8 @@
   const falseArray = ['a', 'b', 'c', 'd', 'e', 'f',];
 
   const wordHandeler = (event)=>{
-    if(word.length<5 && event.keyCode>=65 && event.keyCode<=90){
-      word =word + event.key
+    if(word.length<6 && event.keyCode>=65 && event.keyCode<=90){
+      word = word + event.key
     }
     if(event.key=='Enter'){
       checkWord();
@@ -22,7 +22,7 @@
 
   const checkWord = ()=>{
        for(let i = 0; i<word.length; i++){
-        if(rightWord[i] == word[i]){
+        if(rightWord[i%5] == word[i]){
           colors.push('green');
         }else if(rightWord.includes(word[i]) ){
           colors.push('yellow');
@@ -37,13 +37,12 @@
 
 <svelte:window on:keydown={event => wordHandeler(event)} />
 <div class="position-relative" style="left:30%;">
-  <div class=" w-50 mt-2 position-absolute">
-    <div class="row mb-1 gx-1">
+  <div class="w-50 mt-2 position-absolute">
+    <div class="row mb-1 row-cols-5 gx-2">
       {#each word as item, i}
-        <div class="col-2">
+        <div class="col my-1">
           <div
-            class="p-1 h-2 w-100 d-flex justify-content-center"
-            id={item.id}
+            class="p-1 border h-2 w-100 d-flex justify-content-center"
             style="background-color: {colors[i]};"
           >
             {item}
@@ -52,33 +51,34 @@
       {/each}
     </div>
   </div>
-  <div class="container w-50 mt-2 position-absolute">
-    {#each falseArray as item}
-      <div class="row mb-1 gx-1">
-        <div class="col-2 ">
+  <div class="w-50 mt-2 position-absolute">
+    <div class="row mb-1 row-cols-5 gx-2">
+      {#each falseArray as item}
+        <div class="col my-1">
           <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
         </div>
-        <div class="col-2 ">
+        <div class="col my-1">
           <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
         </div>
-        <div class="col-2 ">
+        <div class="col my-1">
           <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
         </div>
-        <div class="col-2 ">
+        <div class="col my-1">
           <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
         </div>
-        <div class="col-2 ">
+        <div class="col my-1">
           <div class="p-1 border h-2 w-100 d-flex justify-content-center" />
         </div>
-      </div>
-    {/each}
-    <button on:click={() => checkWord()}>check</button>
+      {/each}
+    </div>
+
+    <button on:click={() => console.log('reset')}>reset</button>
   </div>
 </div>
 
 <style>
   .h-2 {
-    height: 2rem;
+    height: 3rem;
   }
   .wrong {
     background-color: red;

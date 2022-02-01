@@ -1,6 +1,5 @@
 <script lang="ts">
   import Template from './components/Template.svelte';
-  import Sidebar from './components/Template.svelte';
 </script>
 
 <main>

@@ -127,57 +127,64 @@
         button.addEventListener('click',()=>{getJock(); loading.hidded=true; loading.style.display='block';});
         audioElement.addEventListener('ended',()=>{toggle(button),audioElement.style.display='none'});
     })
-    
+
 </script>
+
 <div class="container">
-    <button id="button">tell me a Jock</button>
-    <audio id='audio' controls on:loadeddata={()=>{loading.style.display='none',audioElement.style.display='block'}}></audio>
-    <div id='loading'><img src="images/spinner.svg" alt=""></div>
+  <button id="button">tell me a Jock</button>
+  <audio
+    id="audio"
+    controls
+    on:loadeddata={() => {
+      (loading.style.display = 'none'), (audioElement.style.display = 'block');
+    }}
+  />
+  <div id="loading"><img src="images/spinner.svg" alt="" /></div>
 </div>
+
 <style>
-    .container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-        background: url('../images/robot.gif');
-        background-color: #45BADD;
-        background-size: contain;
-        background-position: left center;
-        background-repeat: no-repeat;
-        overflow-x: auto;
-    }
-    button{
-        cursor: pointer;
-        outline: none;
-        font-family: 'Cursor new', Courier, monospace;
-        font-size: 20px;
-        color: white;
-        background: #ff3482;
-        border: none;
-        border-radius: 5px;
-        box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, .2);
-        margin-bottom: 2rem;
-    }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: url('../images/robot.gif');
+    background-color: #45badd;
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    overflow-x: auto;
+  }
+  button {
+    cursor: pointer;
+    outline: none;
+    font-family: 'Cursor new', Courier, monospace;
+    font-size: 20px;
+    color: white;
+    background: #ff3482;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+  }
 
+  button:hover {
+    filter: brightness(95%);
+  }
+  button:active {
+    transform: scale(0.95);
+  }
+  button:disabled {
+    cursor: default;
+    filter: brightness(30%);
+  }
 
-    button:hover{
-        filter: brightness(95%);
+  @media screen and (max-width: 1000px) {
+    .container {
+      background-position: center center;
+      background-size: cover;
     }
-    button:active{
-        transform: scale(.95);
-    }
-    button:disabled{
-        cursor: default;
-        filter: brightness(30%);
-    }
-
-    @media screen and (max-width: 1000px){
-        .container{
-            background-position:center center;
-            background-size: cover;
-        }
-    }
+  }
 </style>

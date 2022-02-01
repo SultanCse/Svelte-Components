@@ -5572,7 +5572,6 @@ var app = (function () {
     	let div0;
     	let t0_value = /*item*/ ctx[10] + "";
     	let t0;
-    	let div0_id_value;
     	let t1;
 
     	const block = {
@@ -5581,12 +5580,11 @@ var app = (function () {
     			div0 = element("div");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(div0, "class", "p-1 h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			attr_dev(div0, "id", div0_id_value = /*item*/ ctx[10].id);
+    			attr_dev(div0, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
     			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[14]]);
-    			add_location(div0, file$e, 43, 10, 1106);
-    			attr_dev(div1, "class", "col-2");
-    			add_location(div1, file$e, 42, 8, 1075);
+    			add_location(div0, file$e, 43, 10, 1122);
+    			attr_dev(div1, "class", "col my-1");
+    			add_location(div1, file$e, 42, 8, 1088);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5596,10 +5594,6 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[10] + "")) set_data_dev(t0, t0_value);
-
-    			if (dirty & /*word*/ 1 && div0_id_value !== (div0_id_value = /*item*/ ctx[10].id)) {
-    				attr_dev(div0, "id", div0_id_value);
-    			}
 
     			if (dirty & /*colors*/ 2) {
     				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[14]]);
@@ -5621,9 +5615,8 @@ var app = (function () {
     	return block;
     }
 
-    // (56:4) {#each falseArray as item}
+    // (56:6) {#each falseArray as item}
     function create_each_block$4(ctx) {
-    	let div10;
     	let div1;
     	let div0;
     	let t0;
@@ -5638,10 +5631,10 @@ var app = (function () {
     	let t3;
     	let div9;
     	let div8;
+    	let t4;
 
     	const block = {
     		c: function create() {
-    			div10 = element("div");
     			div1 = element("div");
     			div0 = element("div");
     			t0 = space();
@@ -5656,48 +5649,55 @@ var app = (function () {
     			t3 = space();
     			div9 = element("div");
     			div8 = element("div");
-    			attr_dev(div0, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div0, file$e, 58, 10, 1521);
-    			attr_dev(div1, "class", "col-2 ");
-    			add_location(div1, file$e, 57, 8, 1489);
-    			attr_dev(div2, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div2, file$e, 61, 10, 1645);
-    			attr_dev(div3, "class", "col-2 ");
-    			add_location(div3, file$e, 60, 8, 1613);
-    			attr_dev(div4, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div4, file$e, 64, 10, 1769);
-    			attr_dev(div5, "class", "col-2 ");
-    			add_location(div5, file$e, 63, 8, 1737);
-    			attr_dev(div6, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div6, file$e, 67, 10, 1893);
-    			attr_dev(div7, "class", "col-2 ");
-    			add_location(div7, file$e, 66, 8, 1861);
-    			attr_dev(div8, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-185fyym");
-    			add_location(div8, file$e, 70, 10, 2017);
-    			attr_dev(div9, "class", "col-2 ");
-    			add_location(div9, file$e, 69, 8, 1985);
-    			attr_dev(div10, "class", "row mb-1 gx-1");
-    			add_location(div10, file$e, 56, 6, 1452);
+    			t4 = space();
+    			attr_dev(div0, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
+    			add_location(div0, file$e, 57, 10, 1521);
+    			attr_dev(div1, "class", "col my-1");
+    			add_location(div1, file$e, 56, 8, 1487);
+    			attr_dev(div2, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
+    			add_location(div2, file$e, 60, 10, 1647);
+    			attr_dev(div3, "class", "col my-1");
+    			add_location(div3, file$e, 59, 8, 1613);
+    			attr_dev(div4, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
+    			add_location(div4, file$e, 63, 10, 1773);
+    			attr_dev(div5, "class", "col my-1");
+    			add_location(div5, file$e, 62, 8, 1739);
+    			attr_dev(div6, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
+    			add_location(div6, file$e, 66, 10, 1899);
+    			attr_dev(div7, "class", "col my-1");
+    			add_location(div7, file$e, 65, 8, 1865);
+    			attr_dev(div8, "class", "p-1 border h-2 w-100 d-flex justify-content-center svelte-1uacw1b");
+    			add_location(div8, file$e, 69, 10, 2025);
+    			attr_dev(div9, "class", "col my-1");
+    			add_location(div9, file$e, 68, 8, 1991);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div10, anchor);
-    			append_dev(div10, div1);
+    			insert_dev(target, div1, anchor);
     			append_dev(div1, div0);
-    			append_dev(div10, t0);
-    			append_dev(div10, div3);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div3, anchor);
     			append_dev(div3, div2);
-    			append_dev(div10, t1);
-    			append_dev(div10, div5);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div5, anchor);
     			append_dev(div5, div4);
-    			append_dev(div10, t2);
-    			append_dev(div10, div7);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div7, anchor);
     			append_dev(div7, div6);
-    			append_dev(div10, t3);
-    			append_dev(div10, div9);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, div9, anchor);
     			append_dev(div9, div8);
+    			append_dev(div9, t4);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div10);
+    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div3);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(div5);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div7);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(div9);
     		}
     	};
 
@@ -5705,7 +5705,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(56:4) {#each falseArray as item}",
+    		source: "(56:6) {#each falseArray as item}",
     		ctx
     	});
 
@@ -5713,10 +5713,11 @@ var app = (function () {
     }
 
     function create_fragment$e(ctx) {
-    	let div3;
+    	let div4;
     	let div1;
     	let div0;
     	let t0;
+    	let div3;
     	let div2;
     	let t1;
     	let button;
@@ -5740,7 +5741,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div3 = element("div");
+    			div4 = element("div");
     			div1 = element("div");
     			div0 = element("div");
 
@@ -5749,6 +5750,7 @@ var app = (function () {
     			}
 
     			t0 = space();
+    			div3 = element("div");
     			div2 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -5757,51 +5759,54 @@ var app = (function () {
 
     			t1 = space();
     			button = element("button");
-    			button.textContent = "check";
-    			attr_dev(div0, "class", "row mb-1 gx-1");
-    			add_location(div0, file$e, 40, 4, 1007);
+    			button.textContent = "reset";
+    			attr_dev(div0, "class", "row mb-1 row-cols-5 gx-2");
+    			add_location(div0, file$e, 40, 4, 1009);
     			attr_dev(div1, "class", "w-50 mt-2 position-absolute");
-    			add_location(div1, file$e, 39, 2, 959);
-    			add_location(button, file$e, 74, 4, 2132);
-    			attr_dev(div2, "class", "container w-50 mt-2 position-absolute");
-    			add_location(div2, file$e, 54, 2, 1361);
-    			attr_dev(div3, "class", "position-relative");
-    			set_style(div3, "left", "30%");
-    			add_location(div3, file$e, 38, 0, 906);
+    			add_location(div1, file$e, 39, 2, 962);
+    			attr_dev(div2, "class", "row mb-1 row-cols-5 gx-2");
+    			add_location(div2, file$e, 54, 4, 1405);
+    			add_location(button, file$e, 74, 4, 2142);
+    			attr_dev(div3, "class", "w-50 mt-2 position-absolute");
+    			add_location(div3, file$e, 53, 2, 1358);
+    			attr_dev(div4, "class", "position-relative");
+    			set_style(div4, "left", "30%");
+    			add_location(div4, file$e, 38, 0, 909);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div3, anchor);
-    			append_dev(div3, div1);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div1);
     			append_dev(div1, div0);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
     				each_blocks_1[i].m(div0, null);
     			}
 
-    			append_dev(div3, t0);
+    			append_dev(div4, t0);
+    			append_dev(div4, div3);
     			append_dev(div3, div2);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div2, null);
     			}
 
-    			append_dev(div2, t1);
-    			append_dev(div2, button);
+    			append_dev(div3, t1);
+    			append_dev(div3, button);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[5], false, false, false),
-    					listen_dev(button, "click", /*click_handler*/ ctx[6], false, false, false)
+    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[4], false, false, false),
+    					listen_dev(button, "click", /*click_handler*/ ctx[5], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*word, colors*/ 3) {
+    			if (dirty & /*colors, word*/ 3) {
     				each_value_1 = /*word*/ ctx[0];
     				validate_each_argument(each_value_1);
     				let i;
@@ -5828,7 +5833,7 @@ var app = (function () {
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div3);
+    			if (detaching) detach_dev(div4);
     			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
     			mounted = false;
@@ -5857,7 +5862,7 @@ var app = (function () {
     	const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
 
     	const wordHandeler = event => {
-    		if (word.length < 5 && event.keyCode >= 65 && event.keyCode <= 90) {
+    		if (word.length < 6 && event.keyCode >= 65 && event.keyCode <= 90) {
     			$$invalidate(0, word = word + event.key);
     		}
 
@@ -5874,7 +5879,7 @@ var app = (function () {
 
     	const checkWord = () => {
     		for (let i = 0; i < word.length; i++) {
-    			if (rightWord[i] == word[i]) {
+    			if (rightWord[i % 5] == word[i]) {
     				colors.push('green');
     			} else if (rightWord.includes(word[i])) {
     				colors.push('yellow');
@@ -5893,7 +5898,7 @@ var app = (function () {
     	});
 
     	const keydown_handler = event => wordHandeler(event);
-    	const click_handler = () => checkWord();
+    	const click_handler = () => console.log('reset');
 
     	$$self.$capture_state = () => ({
     		word,
@@ -5910,7 +5915,7 @@ var app = (function () {
     		if ('word' in $$props) $$invalidate(0, word = $$props.word);
     		if ('wordList' in $$props) wordList = $$props.wordList;
     		if ('rightWord' in $$props) rightWord = $$props.rightWord;
-    		if ('letterList' in $$props) $$invalidate(9, letterList = $$props.letterList);
+    		if ('letterList' in $$props) $$invalidate(8, letterList = $$props.letterList);
     		if ('colors' in $$props) $$invalidate(1, colors = $$props.colors);
     	};
 
@@ -5919,16 +5924,7 @@ var app = (function () {
     	}
 
     	console.log(letterList);
-
-    	return [
-    		word,
-    		colors,
-    		falseArray,
-    		wordHandeler,
-    		checkWord,
-    		keydown_handler,
-    		click_handler
-    	];
+    	return [word, colors, falseArray, wordHandeler, keydown_handler, click_handler];
     }
 
     class TestCode extends SvelteComponentDev {
@@ -5973,18 +5969,18 @@ var app = (function () {
     			div0 = element("div");
     			img = element("img");
     			attr_dev(button_1, "id", "button");
-    			attr_dev(button_1, "class", "svelte-136ekeo");
-    			add_location(button_1, file$d, 132, 4, 5498);
+    			attr_dev(button_1, "class", "svelte-1dudb4e");
+    			add_location(button_1, file$d, 133, 2, 5494);
     			attr_dev(audio, "id", "audio");
     			audio.controls = true;
-    			add_location(audio, file$d, 133, 4, 5547);
+    			add_location(audio, file$d, 134, 2, 5541);
     			if (!src_url_equal(img.src, img_src_value = "images/spinner.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			add_location(img, file$d, 134, 22, 5692);
+    			add_location(img, file$d, 141, 20, 5722);
     			attr_dev(div0, "id", "loading");
-    			add_location(div0, file$d, 134, 4, 5674);
-    			attr_dev(div1, "class", "container svelte-136ekeo");
-    			add_location(div1, file$d, 131, 0, 5469);
+    			add_location(div0, file$d, 141, 2, 5704);
+    			attr_dev(div1, "class", "container svelte-1dudb4e");
+    			add_location(div1, file$d, 132, 0, 5467);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -15923,7 +15919,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(template.$$.fragment);
-    			add_location(main, file, 4, 0, 123);
+    			add_location(main, file, 3, 0, 83);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
