@@ -1,9 +1,11 @@
 <script>
     import "external-svg-loader";
 </script>
-<svg data-src="icons/icon1.svg"
-    width="250"
-    height="250"
-    fill="red"
-    style="color: purple;">
-</svg>
+
+<svg
+  data-src="icons/icon1.svg"
+  width="25"
+  height="25"
+  fill="red"
+  style="color: purple;"
+/>

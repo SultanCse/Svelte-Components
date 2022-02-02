@@ -11,22 +11,22 @@ $: console.log(toggleValue);
 
 let activeTab = 'TestCode';
     let sidebarItems=[
-        {name:'TableDataPagination', icon:'fas fa-tachometer-alt', component: TableDataPagination},
-        {name:'MoonLit', icon:'fas fa-tachometer-alt', component: MoonLit},
-        {name:'LoadingSingleCircle', icon:'fas fa-tachometer-alt', component: LoadingSingleCircle},
-        {name:'TestCode', icon:'fas fa-tachometer-alt', component: TestCode},
-        {name:'SvgIcon', icon:'fas fa-tachometer-alt', component: SvgIcon},
-        {name:'LightDarkTheme', icon:'fas fa-tachometer-alt', component: LightDarkTheme},
-        {name:'LoadingSquareBar', icon:'fas fa-tachometer-alt', component: LoadingSquareBar},
+        {name:'TableDataPagination', icon:'fas fa-table', component: TableDataPagination},
+        {name:'MoonLit', icon:'fas fa-bahai', component: MoonLit},
+        {name:'LoadingSingleCircle', icon:'fas fa-spinner', component: LoadingSingleCircle},
+        {name:'TestCode', icon:'fas fa-text-height', component: TestCode},
+        {name:'SvgIcon', icon:"fas fa-icons", component: SvgIcon},
+        {name:'LightDarkTheme', icon:'fas fa-moon', component: LightDarkTheme},
+        {name:'LoadingSquareBar', icon:'fas fa-fan', component: LoadingSquareBar},
         {name:'LoadingInfinityBar', icon:'fas fa-tachometer-alt', component: LoadingInfinityBar},
-        {name:'JockTeller', icon:'fas fa-tachometer-alt', component: JockTeller},
-        {name:'AnimatedButton', icon:"fab fa-medium", component: AnimatedButton},
-        {name:'LoadingCircle', icon:'fas fa-tachometer-alt', component: LoadingCircle},
-        {name:'QuoteGenerator', icon:'fas fa-tachometer-alt', component: QuoteGenerator},
-        {name:'InfiniteScroll', icon:'fas fa-tachometer-alt', component: InfiniteScroll},
-        {name:'Calculator', icon:'fas fa-tachometer-alt', component: Calculator},
-        {name:'Toggle', icon:'fas fa-tachometer-alt', component: Toggle},
-        {name:'AppPoll', icon:'fas fa-tachometer-alt', component: AppPoll},
+        {name:'JockTeller', icon:'fas fa-headphones', component: JockTeller},
+        {name:'AnimatedButton', icon:"fas fa-radiation", component: AnimatedButton},
+        {name:'LoadingCircle', icon:'fas fa-atom', component: LoadingCircle},
+        {name:'QuoteGenerator', icon:'fas fa-quote-left', component: QuoteGenerator},
+        {name:'InfiniteScroll', icon:'fas fa-scroll', component: InfiniteScroll},
+        {name:'Calculator', icon:'fas fa-calculator', component: Calculator},
+        {name:'Toggle', icon:'fas fa-toggle-off', component: Toggle},
+        {name:'AppPoll', icon:'fas fa-chart-line', component: AppPoll},
         {name:'PackageUsages', icon:'fas fa-tachometer-alt', component: PackageUsages}
     ]
 

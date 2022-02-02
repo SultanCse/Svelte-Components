@@ -37,7 +37,7 @@
 
 <style>
   .icon {
-    padding: 0.5rem;
+    padding: 0.8rem;
     font-size: 2.5rem;
   }
   .title {
@@ -59,9 +59,16 @@
     color: white;
     transition: 0.3s;
   }
+  .item:focus .icon {
+    transform: scale(1.4);
+  }
   .select {
     background: #ff4205;
     color: white;
     transition: 0.3s;
+  }
+  .row:hover .icon {
+    transform: scale(1.4);
+    transition: 0.2s;
   }
 </style>

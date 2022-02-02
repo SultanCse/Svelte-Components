@@ -1,11 +1,12 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
   let word = "";
+  let keyColors = [];
   let rightWord = "light";
-  const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
-  const charSet = [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-                   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-                   ['enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'reset', 'bks']]; 
+  const falseArray = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const charSet = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+                   ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+                   ['Enter', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'reset',]]; 
 
   let nextCount = 5;
   const keyboardHandeler = (event)=>{
@@ -24,10 +25,9 @@
     if(word.length<nextCount && b!='bks' && b!='reset' && b!='enter'){
       word = word + b;
     }
-    if(word.length != 0 && word.length % 5 == 0 && b=='enter'){
+    if(word.length != 0 && word.length % 5 == 0 && b=='Enter'){
       checkWord();
       nextCount = word.length + 5;
-
     }
     if(b=='bks' ){
       word = word.substring(0, word.length-1);
@@ -39,19 +39,23 @@
     }
     console.log(word);
   }
-
   let colors=[];
   const checkWord = ()=>{
     colors = [];
+    keyColors = [];
        for(let i = 0; i<word.length; i++){
         if(rightWord[i%5] == word[i]){
           colors.push('green');
+          keyColors.push({char: word[i], color: 'green'})
         }else if(rightWord.includes(word[i]) ){
           colors.push('yellow');
+          keyColors.push({char: word[i], color: 'green'})
         }else{
           colors.push('red');
+          keyColors.push({char: word[i], color: 'green'})
         }
-       }    
+    }   
+      console.log(keyColors);
   }
 
   
@@ -68,7 +72,7 @@
             class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
             style="background-color: {colors[i]};"
           >
-            {item}
+            {item.toUpperCase()}
           </div>
         </div>
       {/each}
@@ -104,18 +108,6 @@
         </div>
       {/each}
     </div>
-
-    <!-- <div
-      type="button"
-      class="btn btn-outline-danger"
-      on:click={() => {
-        word = '';
-        colors = [];
-        nextCount = 5;
-      }}
-    >
-      reset
-    </div> -->
   </div>
   <!-- bottom div -->
   <div class="w-50 mt-2 position-absolute left-50 bottom-0">
@@ -146,7 +138,6 @@
     <!-- row3 -->
     <div class="row mb-1 row-cols-10 gx-2">
       {#each charSet[2] as item, i (i)}
-        <!--{#each expression as name, index (key)}...{/each}-->
         <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
           <div
             class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
@@ -155,6 +146,11 @@
           </div>
         </div>
       {/each}
+      <div class="col my-1 c-p" on:click={() => onScreenKbHandeller('bks')}>
+        <div class="p-1 border rounded h-2 w-100 d-flex justify-content-center">
+          <i class="fas fa-backspace icon" />
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -172,6 +168,11 @@
   }
   .c-p {
     cursor: pointer;
+  }
+  .icon {
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+    color: crimson;
   }
 
   @media (max-width: 1000px) {
