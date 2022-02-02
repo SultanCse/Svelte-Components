@@ -1,10 +1,14 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
   let word = "";
   let rightWord = "light";
   const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
+  const charSet = [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+                   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+                   ['enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'reset', 'bks']]; 
 
   let nextCount = 5;
-  const wordHandeler = (event)=>{
+  const keyboardHandeler = (event)=>{
     if(word.length<nextCount && event.keyCode>=65 && event.keyCode<=90){
       word = word + event.key
     }
@@ -16,6 +20,26 @@
       word = word.substring(0, word.length-1);
     }
   }
+  const onScreenKbHandeller = (b)=> {
+    if(word.length<nextCount && b!='bks' && b!='reset' && b!='enter'){
+      word = word + b;
+    }
+    if(word.length != 0 && word.length % 5 == 0 && b=='enter'){
+      checkWord();
+      nextCount = word.length + 5;
+
+    }
+    if(b=='bks' ){
+      word = word.substring(0, word.length-1);
+    }
+    if(b=='reset' ){
+      word = '';
+      nextCount = 5;
+      colors = [];
+    }
+    console.log(word);
+  }
+
   let colors=[];
   const checkWord = ()=>{
     colors = [];
@@ -28,13 +52,14 @@
           colors.push('red');
         }
        }    
-       console.log(colors)
   }
+
+  
 
 </script>
 
-<svelte:window on:keydown={event => wordHandeler(event)} />
-<div class="position-relative">
+<svelte:window on:keydown={event => keyboardHandeler(event)} />
+<div class="position-relative w-100 h-100 border">
   <div class="w-25 mt-2 position-absolute left-50">
     <div class="row mb-1 row-cols-5 gx-2">
       {#each word as item, i}
@@ -80,7 +105,7 @@
       {/each}
     </div>
 
-    <div
+    <!-- <div
       type="button"
       class="btn btn-outline-danger"
       on:click={() => {
@@ -90,6 +115,46 @@
       }}
     >
       reset
+    </div> -->
+  </div>
+  <!-- bottom div -->
+  <div class="w-50 mt-2 position-absolute left-50 bottom-0">
+    <!-- row1 -->
+    <div class="row mb-1 row-cols-10 gx-2">
+      {#each charSet[0] as item, i (i)}
+        <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
+          <div
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+          >
+            {item}
+          </div>
+        </div>
+      {/each}
+    </div>
+    <!-- row2 -->
+    <div class="row mb-1 mx-4 row-cols-9 gx-2">
+      {#each charSet[1] as item, i (i)}
+        <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
+          <div
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+          >
+            {item}
+          </div>
+        </div>
+      {/each}
+    </div>
+    <!-- row3 -->
+    <div class="row mb-1 row-cols-10 gx-2">
+      {#each charSet[2] as item, i (i)}
+        <!--{#each expression as name, index (key)}...{/each}-->
+        <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
+          <div
+            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+          >
+            {item}
+          </div>
+        </div>
+      {/each}
     </div>
   </div>
 </div>
@@ -102,6 +167,13 @@
     left: 50%;
     transform: translateX(-50%);
   }
+  .bottom-0 {
+    bottom: 0;
+  }
+  .c-p {
+    cursor: pointer;
+  }
+
   @media (max-width: 1000px) {
     .w-25 {
       width: 50% !important;

@@ -672,6 +672,11 @@ var app = (function () {
         : typeof globalThis !== 'undefined'
             ? globalThis
             : global);
+
+    function destroy_block(block, lookup) {
+        block.d(1);
+        lookup.delete(block.key);
+    }
     function outro_and_destroy_block(block, lookup) {
         transition_out(block, 1, 1, () => {
             lookup.delete(block.key);
@@ -5555,22 +5560,43 @@ var app = (function () {
 
     function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
+    	child_ctx[13] = list[i];
+    	child_ctx[15] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
-    	child_ctx[13] = i;
+    	child_ctx[13] = list[i];
+    	child_ctx[15] = i;
     	return child_ctx;
     }
 
-    // (40:6) {#each word as item, i}
-    function create_each_block_1(ctx) {
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[13] = list[i];
+    	child_ctx[15] = i;
+    	return child_ctx;
+    }
+
+    function get_each_context_3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[13] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[13] = list[i];
+    	child_ctx[15] = i;
+    	return child_ctx;
+    }
+
+    // (65:6) {#each word as item, i}
+    function create_each_block_4(ctx) {
     	let div1;
     	let div0;
-    	let t0_value = /*item*/ ctx[9] + "";
+    	let t0_value = /*item*/ ctx[13] + "";
     	let t0;
     	let t1;
 
@@ -5580,11 +5606,11 @@ var app = (function () {
     			div0 = element("div");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
-    			set_style(div0, "background-color", /*colors*/ ctx[2][/*i*/ ctx[13]]);
-    			add_location(div0, file$e, 41, 10, 1159);
+    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[15]]);
+    			add_location(div0, file$e, 66, 10, 1904);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$e, 40, 8, 1125);
+    			add_location(div1, file$e, 65, 8, 1870);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5593,10 +5619,10 @@ var app = (function () {
     			append_dev(div1, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[9] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[13] + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*colors*/ 4) {
-    				set_style(div0, "background-color", /*colors*/ ctx[2][/*i*/ ctx[13]]);
+    			if (dirty & /*colors*/ 2) {
+    				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[15]]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -5606,17 +5632,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block_1.name,
+    		id: create_each_block_4.name,
     		type: "each",
-    		source: "(40:6) {#each word as item, i}",
+    		source: "(65:6) {#each word as item, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (54:6) {#each falseArray as item}
-    function create_each_block$4(ctx) {
+    // (79:6) {#each falseArray as item}
+    function create_each_block_3(ctx) {
     	let div1;
     	let div0;
     	let t0;
@@ -5650,26 +5676,26 @@ var app = (function () {
     			div9 = element("div");
     			div8 = element("div");
     			t4 = space();
-    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
-    			add_location(div0, file$e, 55, 10, 1574);
+    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			add_location(div0, file$e, 80, 10, 2319);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$e, 54, 8, 1540);
-    			attr_dev(div2, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
-    			add_location(div2, file$e, 60, 10, 1732);
+    			add_location(div1, file$e, 79, 8, 2285);
+    			attr_dev(div2, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			add_location(div2, file$e, 85, 10, 2477);
     			attr_dev(div3, "class", "col my-1");
-    			add_location(div3, file$e, 59, 8, 1698);
-    			attr_dev(div4, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
-    			add_location(div4, file$e, 65, 10, 1890);
+    			add_location(div3, file$e, 84, 8, 2443);
+    			attr_dev(div4, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			add_location(div4, file$e, 90, 10, 2635);
     			attr_dev(div5, "class", "col my-1");
-    			add_location(div5, file$e, 64, 8, 1856);
-    			attr_dev(div6, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
-    			add_location(div6, file$e, 70, 10, 2048);
+    			add_location(div5, file$e, 89, 8, 2601);
+    			attr_dev(div6, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			add_location(div6, file$e, 95, 10, 2793);
     			attr_dev(div7, "class", "col my-1");
-    			add_location(div7, file$e, 69, 8, 2014);
-    			attr_dev(div8, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-1ovq5yv");
-    			add_location(div8, file$e, 75, 10, 2206);
+    			add_location(div7, file$e, 94, 8, 2759);
+    			attr_dev(div8, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			add_location(div8, file$e, 100, 10, 2951);
     			attr_dev(div9, "class", "col my-1");
-    			add_location(div9, file$e, 74, 8, 2172);
+    			add_location(div9, file$e, 99, 8, 2917);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5703,9 +5729,189 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_each_block_3.name,
+    		type: "each",
+    		source: "(79:6) {#each falseArray as item}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (124:6) {#each charSet[0] as item, i (i)}
+    function create_each_block_2(key_1, ctx) {
+    	let div1;
+    	let div0;
+    	let t0_value = /*item*/ ctx[13] + "";
+    	let t0;
+    	let t1;
+    	let mounted;
+    	let dispose;
+
+    	function click_handler() {
+    		return /*click_handler*/ ctx[7](/*item*/ ctx[13]);
+    	}
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			add_location(div0, file$e, 125, 10, 3596);
+    			attr_dev(div1, "class", "col my-1 c-p svelte-rweza1");
+    			add_location(div1, file$e, 124, 8, 3515);
+    			this.first = div1;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, t0);
+    			append_dev(div1, t1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(div1, "click", click_handler, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(124:6) {#each charSet[0] as item, i (i)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (136:6) {#each charSet[1] as item, i (i)}
+    function create_each_block_1(key_1, ctx) {
+    	let div1;
+    	let div0;
+    	let t0_value = /*item*/ ctx[13] + "";
+    	let t0;
+    	let t1;
+    	let mounted;
+    	let dispose;
+
+    	function click_handler_1() {
+    		return /*click_handler_1*/ ctx[8](/*item*/ ctx[13]);
+    	}
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			add_location(div0, file$e, 137, 10, 3974);
+    			attr_dev(div1, "class", "col my-1 c-p svelte-rweza1");
+    			add_location(div1, file$e, 136, 8, 3893);
+    			this.first = div1;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, t0);
+    			append_dev(div1, t1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(div1, "click", click_handler_1, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(136:6) {#each charSet[1] as item, i (i)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (148:6) {#each charSet[2] as item, i (i)}
+    function create_each_block$4(key_1, ctx) {
+    	let div1;
+    	let div0;
+    	let t0_value = /*item*/ ctx[13] + "";
+    	let t0;
+    	let t1;
+    	let mounted;
+    	let dispose;
+
+    	function click_handler_2() {
+    		return /*click_handler_2*/ ctx[9](/*item*/ ctx[13]);
+    	}
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-rweza1");
+    			add_location(div0, file$e, 150, 10, 4414);
+    			attr_dev(div1, "class", "col my-1 c-p svelte-rweza1");
+    			add_location(div1, file$e, 149, 8, 4333);
+    			this.first = div1;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, t0);
+    			append_dev(div1, t1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(div1, "click", click_handler_2, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(54:6) {#each falseArray as item}",
+    		source: "(148:6) {#each charSet[2] as item, i (i)}",
     		ctx
     	});
 
@@ -5713,132 +5919,249 @@ var app = (function () {
     }
 
     function create_fragment$e(ctx) {
-    	let div5;
+    	let div8;
     	let div1;
     	let div0;
     	let t0;
-    	let div4;
+    	let div3;
     	let div2;
     	let t1;
-    	let div3;
+    	let div7;
+    	let div4;
+    	let each_blocks_2 = [];
+    	let each2_lookup = new Map();
+    	let t2;
+    	let div5;
+    	let each_blocks_1 = [];
+    	let each3_lookup = new Map();
+    	let t3;
+    	let div6;
+    	let each_blocks = [];
+    	let each4_lookup = new Map();
     	let mounted;
     	let dispose;
-    	let each_value_1 = /*word*/ ctx[0];
-    	validate_each_argument(each_value_1);
-    	let each_blocks_1 = [];
+    	let each_value_4 = /*word*/ ctx[0];
+    	validate_each_argument(each_value_4);
+    	let each_blocks_4 = [];
 
-    	for (let i = 0; i < each_value_1.length; i += 1) {
-    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	for (let i = 0; i < each_value_4.length; i += 1) {
+    		each_blocks_4[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
     	}
 
-    	let each_value = /*falseArray*/ ctx[3];
+    	let each_value_3 = /*falseArray*/ ctx[2];
+    	validate_each_argument(each_value_3);
+    	let each_blocks_3 = [];
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		each_blocks_3[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+    	}
+
+    	let each_value_2 = /*charSet*/ ctx[3][0];
+    	validate_each_argument(each_value_2);
+    	const get_key = ctx => /*i*/ ctx[15];
+    	validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		let child_ctx = get_each_context_2(ctx, each_value_2, i);
+    		let key = get_key(child_ctx);
+    		each2_lookup.set(key, each_blocks_2[i] = create_each_block_2(key, child_ctx));
+    	}
+
+    	let each_value_1 = /*charSet*/ ctx[3][1];
+    	validate_each_argument(each_value_1);
+    	const get_key_1 = ctx => /*i*/ ctx[15];
+    	validate_each_keys(ctx, each_value_1, get_each_context_1, get_key_1);
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		let child_ctx = get_each_context_1(ctx, each_value_1, i);
+    		let key = get_key_1(child_ctx);
+    		each3_lookup.set(key, each_blocks_1[i] = create_each_block_1(key, child_ctx));
+    	}
+
+    	let each_value = /*charSet*/ ctx[3][2];
     	validate_each_argument(each_value);
-    	let each_blocks = [];
+    	const get_key_2 = ctx => /*i*/ ctx[15];
+    	validate_each_keys(ctx, each_value, get_each_context$4, get_key_2);
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$4(get_each_context$4(ctx, each_value, i));
+    		let child_ctx = get_each_context$4(ctx, each_value, i);
+    		let key = get_key_2(child_ctx);
+    		each4_lookup.set(key, each_blocks[i] = create_each_block$4(key, child_ctx));
     	}
 
     	const block = {
     		c: function create() {
-    			div5 = element("div");
+    			div8 = element("div");
     			div1 = element("div");
     			div0 = element("div");
+
+    			for (let i = 0; i < each_blocks_4.length; i += 1) {
+    				each_blocks_4[i].c();
+    			}
+
+    			t0 = space();
+    			div3 = element("div");
+    			div2 = element("div");
+
+    			for (let i = 0; i < each_blocks_3.length; i += 1) {
+    				each_blocks_3[i].c();
+    			}
+
+    			t1 = space();
+    			div7 = element("div");
+    			div4 = element("div");
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].c();
+    			}
+
+    			t2 = space();
+    			div5 = element("div");
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
     				each_blocks_1[i].c();
     			}
 
-    			t0 = space();
-    			div4 = element("div");
-    			div2 = element("div");
+    			t3 = space();
+    			div6 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t1 = space();
-    			div3 = element("div");
-    			div3.textContent = "reset";
     			attr_dev(div0, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div0, file$e, 38, 4, 1046);
-    			attr_dev(div1, "class", "w-25 mt-2 position-absolute left-50 svelte-1ovq5yv");
-    			add_location(div1, file$e, 37, 2, 991);
+    			add_location(div0, file$e, 63, 4, 1791);
+    			attr_dev(div1, "class", "w-25 mt-2 position-absolute left-50 svelte-rweza1");
+    			add_location(div1, file$e, 62, 2, 1736);
     			attr_dev(div2, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div2, file$e, 52, 4, 1458);
-    			attr_dev(div3, "type", "button");
-    			attr_dev(div3, "class", "btn btn-outline-danger");
-    			add_location(div3, file$e, 82, 4, 2355);
-    			attr_dev(div4, "class", "w-25 mt-2 position-absolute left-50 svelte-1ovq5yv");
-    			add_location(div4, file$e, 51, 2, 1403);
-    			attr_dev(div5, "class", "position-relative");
-    			add_location(div5, file$e, 36, 0, 956);
+    			add_location(div2, file$e, 77, 4, 2203);
+    			attr_dev(div3, "class", "w-25 mt-2 position-absolute left-50 svelte-rweza1");
+    			add_location(div3, file$e, 76, 2, 2148);
+    			attr_dev(div4, "class", "row mb-1 row-cols-10 gx-2");
+    			add_location(div4, file$e, 122, 4, 3425);
+    			attr_dev(div5, "class", "row mb-1 mx-4 row-cols-9 gx-2");
+    			add_location(div5, file$e, 134, 4, 3799);
+    			attr_dev(div6, "class", "row mb-1 row-cols-10 gx-2");
+    			add_location(div6, file$e, 146, 4, 4177);
+    			attr_dev(div7, "class", "w-50 mt-2 position-absolute left-50 bottom-0 svelte-rweza1");
+    			add_location(div7, file$e, 120, 2, 3342);
+    			attr_dev(div8, "class", "position-relative w-100 h-100 border");
+    			add_location(div8, file$e, 61, 0, 1682);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div5, anchor);
-    			append_dev(div5, div1);
+    			insert_dev(target, div8, anchor);
+    			append_dev(div8, div1);
     			append_dev(div1, div0);
 
-    			for (let i = 0; i < each_blocks_1.length; i += 1) {
-    				each_blocks_1[i].m(div0, null);
+    			for (let i = 0; i < each_blocks_4.length; i += 1) {
+    				each_blocks_4[i].m(div0, null);
     			}
 
-    			append_dev(div5, t0);
-    			append_dev(div5, div4);
-    			append_dev(div4, div2);
+    			append_dev(div8, t0);
+    			append_dev(div8, div3);
+    			append_dev(div3, div2);
+
+    			for (let i = 0; i < each_blocks_3.length; i += 1) {
+    				each_blocks_3[i].m(div2, null);
+    			}
+
+    			append_dev(div8, t1);
+    			append_dev(div8, div7);
+    			append_dev(div7, div4);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].m(div4, null);
+    			}
+
+    			append_dev(div7, t2);
+    			append_dev(div7, div5);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(div5, null);
+    			}
+
+    			append_dev(div7, t3);
+    			append_dev(div7, div6);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div2, null);
+    				each_blocks[i].m(div6, null);
     			}
 
-    			append_dev(div4, t1);
-    			append_dev(div4, div3);
-
     			if (!mounted) {
-    				dispose = [
-    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[5], false, false, false),
-    					listen_dev(div3, "click", /*click_handler*/ ctx[6], false, false, false)
-    				];
-
+    				dispose = listen_dev(window, "keydown", /*keydown_handler*/ ctx[6], false, false, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*colors, word*/ 5) {
-    				each_value_1 = /*word*/ ctx[0];
-    				validate_each_argument(each_value_1);
+    			if (dirty & /*colors, word*/ 3) {
+    				each_value_4 = /*word*/ ctx[0];
+    				validate_each_argument(each_value_4);
     				let i;
 
-    				for (i = 0; i < each_value_1.length; i += 1) {
-    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+    				for (i = 0; i < each_value_4.length; i += 1) {
+    					const child_ctx = get_each_context_4(ctx, each_value_4, i);
 
-    					if (each_blocks_1[i]) {
-    						each_blocks_1[i].p(child_ctx, dirty);
+    					if (each_blocks_4[i]) {
+    						each_blocks_4[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks_1[i] = create_each_block_1(child_ctx);
-    						each_blocks_1[i].c();
-    						each_blocks_1[i].m(div0, null);
+    						each_blocks_4[i] = create_each_block_4(child_ctx);
+    						each_blocks_4[i].c();
+    						each_blocks_4[i].m(div0, null);
     					}
     				}
 
-    				for (; i < each_blocks_1.length; i += 1) {
-    					each_blocks_1[i].d(1);
+    				for (; i < each_blocks_4.length; i += 1) {
+    					each_blocks_4[i].d(1);
     				}
 
-    				each_blocks_1.length = each_value_1.length;
+    				each_blocks_4.length = each_value_4.length;
+    			}
+
+    			if (dirty & /*onScreenKbHandeller, charSet*/ 40) {
+    				each_value_2 = /*charSet*/ ctx[3][0];
+    				validate_each_argument(each_value_2);
+    				validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
+    				each_blocks_2 = update_keyed_each(each_blocks_2, dirty, get_key, 1, ctx, each_value_2, each2_lookup, div4, destroy_block, create_each_block_2, null, get_each_context_2);
+    			}
+
+    			if (dirty & /*onScreenKbHandeller, charSet*/ 40) {
+    				each_value_1 = /*charSet*/ ctx[3][1];
+    				validate_each_argument(each_value_1);
+    				validate_each_keys(ctx, each_value_1, get_each_context_1, get_key_1);
+    				each_blocks_1 = update_keyed_each(each_blocks_1, dirty, get_key_1, 1, ctx, each_value_1, each3_lookup, div5, destroy_block, create_each_block_1, null, get_each_context_1);
+    			}
+
+    			if (dirty & /*onScreenKbHandeller, charSet*/ 40) {
+    				each_value = /*charSet*/ ctx[3][2];
+    				validate_each_argument(each_value);
+    				validate_each_keys(ctx, each_value, get_each_context$4, get_key_2);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key_2, 1, ctx, each_value, each4_lookup, div6, destroy_block, create_each_block$4, null, get_each_context$4);
     			}
     		},
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div5);
-    			destroy_each(each_blocks_1, detaching);
-    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(div8);
+    			destroy_each(each_blocks_4, detaching);
+    			destroy_each(each_blocks_3, detaching);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].d();
+    			}
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].d();
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
     			mounted = false;
-    			run_all(dispose);
+    			dispose();
     		}
     	};
 
@@ -5859,16 +6182,23 @@ var app = (function () {
     	let word = "";
     	let rightWord = "light";
     	const falseArray = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+    	const charSet = [
+    		['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    		['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    		['enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'reset', 'bks']
+    	];
+
     	let nextCount = 5;
 
-    	const wordHandeler = event => {
+    	const keyboardHandeler = event => {
     		if (word.length < nextCount && event.keyCode >= 65 && event.keyCode <= 90) {
     			$$invalidate(0, word = word + event.key);
     		}
 
     		if (word.length != 0 && word.length % 5 == 0 && event.key == 'Enter') {
     			checkWord();
-    			$$invalidate(1, nextCount = word.length + 5);
+    			nextCount = word.length + 5;
     		}
 
     		if (event.key == 'Backspace') {
@@ -5876,10 +6206,33 @@ var app = (function () {
     		}
     	};
 
+    	const onScreenKbHandeller = b => {
+    		if (word.length < nextCount && b != 'bks' && b != 'reset' && b != 'enter') {
+    			$$invalidate(0, word = word + b);
+    		}
+
+    		if (word.length != 0 && word.length % 5 == 0 && b == 'enter') {
+    			checkWord();
+    			nextCount = word.length + 5;
+    		}
+
+    		if (b == 'bks') {
+    			$$invalidate(0, word = word.substring(0, word.length - 1));
+    		}
+
+    		if (b == 'reset') {
+    			$$invalidate(0, word = '');
+    			nextCount = 5;
+    			$$invalidate(1, colors = []);
+    		}
+
+    		console.log(word);
+    	};
+
     	let colors = [];
 
     	const checkWord = () => {
-    		$$invalidate(2, colors = []);
+    		$$invalidate(1, colors = []);
 
     		for (let i = 0; i < word.length; i++) {
     			if (rightWord[i % 5] == word[i]) {
@@ -5890,8 +6243,6 @@ var app = (function () {
     				colors.push('red');
     			}
     		}
-
-    		console.log(colors);
     	};
 
     	const writable_props = [];
@@ -5900,20 +6251,20 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$4.warn(`<TestCode> was created with unknown prop '${key}'`);
     	});
 
-    	const keydown_handler = event => wordHandeler(event);
-
-    	const click_handler = () => {
-    		$$invalidate(0, word = '');
-    		$$invalidate(2, colors = []);
-    		$$invalidate(1, nextCount = 5);
-    	};
+    	const keydown_handler = event => keyboardHandeler(event);
+    	const click_handler = item => onScreenKbHandeller(item);
+    	const click_handler_1 = item => onScreenKbHandeller(item);
+    	const click_handler_2 = item => onScreenKbHandeller(item);
 
     	$$self.$capture_state = () => ({
+    		createEventDispatcher,
     		word,
     		rightWord,
     		falseArray,
+    		charSet,
     		nextCount,
-    		wordHandeler,
+    		keyboardHandeler,
+    		onScreenKbHandeller,
     		colors,
     		checkWord
     	});
@@ -5921,8 +6272,8 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ('word' in $$props) $$invalidate(0, word = $$props.word);
     		if ('rightWord' in $$props) rightWord = $$props.rightWord;
-    		if ('nextCount' in $$props) $$invalidate(1, nextCount = $$props.nextCount);
-    		if ('colors' in $$props) $$invalidate(2, colors = $$props.colors);
+    		if ('nextCount' in $$props) nextCount = $$props.nextCount;
+    		if ('colors' in $$props) $$invalidate(1, colors = $$props.colors);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -5931,12 +6282,15 @@ var app = (function () {
 
     	return [
     		word,
-    		nextCount,
     		colors,
     		falseArray,
-    		wordHandeler,
+    		charSet,
+    		keyboardHandeler,
+    		onScreenKbHandeller,
     		keydown_handler,
-    		click_handler
+    		click_handler,
+    		click_handler_1,
+    		click_handler_2
     	];
     }
 
