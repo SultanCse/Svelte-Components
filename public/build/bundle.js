@@ -5560,43 +5560,43 @@ var app = (function () {
 
     function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
-    	child_ctx[17] = i;
+    	child_ctx[20] = list[i];
+    	child_ctx[22] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
-    	child_ctx[17] = i;
+    	child_ctx[20] = list[i];
+    	child_ctx[22] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
-    	child_ctx[17] = i;
+    	child_ctx[20] = list[i];
+    	child_ctx[22] = i;
     	return child_ctx;
     }
 
     function get_each_context_3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
+    	child_ctx[20] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
-    	child_ctx[17] = i;
+    	child_ctx[20] = list[i];
+    	child_ctx[22] = i;
     	return child_ctx;
     }
 
-    // (69:6) {#each word as item, i}
+    // (129:6) {#each word as item, i}
     function create_each_block_4(ctx) {
     	let div1;
     	let div0;
-    	let t0_value = /*item*/ ctx[15].toUpperCase() + "";
+    	let t0_value = /*item*/ ctx[20].toUpperCase() + "";
     	let t0;
     	let t1;
 
@@ -5607,10 +5607,10 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[17]]);
-    			add_location(div0, file$e, 70, 10, 2142);
+    			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[22]]);
+    			add_location(div0, file$e, 130, 10, 4066);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$e, 69, 8, 2108);
+    			add_location(div1, file$e, 129, 8, 4032);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5619,10 +5619,10 @@ var app = (function () {
     			append_dev(div1, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[15].toUpperCase() + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*word*/ 1 && t0_value !== (t0_value = /*item*/ ctx[20].toUpperCase() + "")) set_data_dev(t0, t0_value);
 
     			if (dirty & /*colors*/ 2) {
-    				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[17]]);
+    				set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[22]]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -5634,14 +5634,14 @@ var app = (function () {
     		block,
     		id: create_each_block_4.name,
     		type: "each",
-    		source: "(69:6) {#each word as item, i}",
+    		source: "(129:6) {#each word as item, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (83:6) {#each falseArray as item}
+    // (143:6) {#each falseArray as item}
     function create_each_block_3(ctx) {
     	let div1;
     	let div0;
@@ -5677,25 +5677,25 @@ var app = (function () {
     			div8 = element("div");
     			t4 = space();
     			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div0, file$e, 84, 10, 2571);
+    			add_location(div0, file$e, 144, 10, 4495);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$e, 83, 8, 2537);
+    			add_location(div1, file$e, 143, 8, 4461);
     			attr_dev(div2, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div2, file$e, 89, 10, 2729);
+    			add_location(div2, file$e, 149, 10, 4653);
     			attr_dev(div3, "class", "col my-1");
-    			add_location(div3, file$e, 88, 8, 2695);
+    			add_location(div3, file$e, 148, 8, 4619);
     			attr_dev(div4, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div4, file$e, 94, 10, 2887);
+    			add_location(div4, file$e, 154, 10, 4811);
     			attr_dev(div5, "class", "col my-1");
-    			add_location(div5, file$e, 93, 8, 2853);
+    			add_location(div5, file$e, 153, 8, 4777);
     			attr_dev(div6, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div6, file$e, 99, 10, 3045);
+    			add_location(div6, file$e, 159, 10, 4969);
     			attr_dev(div7, "class", "col my-1");
-    			add_location(div7, file$e, 98, 8, 3011);
+    			add_location(div7, file$e, 158, 8, 4935);
     			attr_dev(div8, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div8, file$e, 104, 10, 3203);
+    			add_location(div8, file$e, 164, 10, 5127);
     			attr_dev(div9, "class", "col my-1");
-    			add_location(div9, file$e, 103, 8, 3169);
+    			add_location(div9, file$e, 163, 8, 5093);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -5731,25 +5731,25 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(83:6) {#each falseArray as item}",
+    		source: "(143:6) {#each falseArray as item}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (116:6) {#each charSet[0] as item, i (i)}
+    // (176:6) {#each charSet[0] as item, i (i)}
     function create_each_block_2(key_1, ctx) {
     	let div1;
     	let div0;
-    	let t0_value = /*item*/ ctx[15] + "";
+    	let t0_value = /*item*/ ctx[20] + "";
     	let t0;
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[7](/*item*/ ctx[15]);
+    		return /*click_handler*/ ctx[8](/*item*/ ctx[20]);
     	}
 
     	const block = {
@@ -5761,9 +5761,10 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div0, file$e, 117, 10, 3635);
+    			set_style(div0, "background-color", /*firstRow*/ ctx[2].color);
+    			add_location(div0, file$e, 177, 10, 5559);
     			attr_dev(div1, "class", "col my-1 c-p svelte-12ul0bq");
-    			add_location(div1, file$e, 116, 8, 3554);
+    			add_location(div1, file$e, 176, 8, 5478);
     			this.first = div1;
     		},
     		m: function mount(target, anchor) {
@@ -5779,6 +5780,10 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
+
+    			if (dirty & /*firstRow*/ 4) {
+    				set_style(div0, "background-color", /*firstRow*/ ctx[2].color);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div1);
@@ -5791,25 +5796,25 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(116:6) {#each charSet[0] as item, i (i)}",
+    		source: "(176:6) {#each charSet[0] as item, i (i)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (128:6) {#each charSet[1] as item, i (i)}
+    // (189:6) {#each charSet[1] as item, i (i)}
     function create_each_block_1(key_1, ctx) {
     	let div1;
     	let div0;
-    	let t0_value = /*item*/ ctx[15] + "";
+    	let t0_value = /*item*/ ctx[20] + "";
     	let t0;
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[8](/*item*/ ctx[15]);
+    		return /*click_handler_1*/ ctx[9](/*item*/ ctx[20]);
     	}
 
     	const block = {
@@ -5821,9 +5826,9 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div0, file$e, 129, 10, 4013);
+    			add_location(div0, file$e, 190, 10, 5994);
     			attr_dev(div1, "class", "col my-1 c-p svelte-12ul0bq");
-    			add_location(div1, file$e, 128, 8, 3932);
+    			add_location(div1, file$e, 189, 8, 5913);
     			this.first = div1;
     		},
     		m: function mount(target, anchor) {
@@ -5851,24 +5856,24 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(128:6) {#each charSet[1] as item, i (i)}",
+    		source: "(189:6) {#each charSet[1] as item, i (i)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (140:6) {#each charSet[2] as item, i (i)}
+    // (201:6) {#each charSet[2] as item, i (i)}
     function create_each_block$4(key_1, ctx) {
     	let div1;
     	let div0;
-    	let t_value = /*item*/ ctx[15] + "";
+    	let t_value = /*item*/ ctx[20] + "";
     	let t;
     	let mounted;
     	let dispose;
 
     	function click_handler_2() {
-    		return /*click_handler_2*/ ctx[9](/*item*/ ctx[15]);
+    		return /*click_handler_2*/ ctx[10](/*item*/ ctx[20]);
     	}
 
     	const block = {
@@ -5879,9 +5884,9 @@ var app = (function () {
     			div0 = element("div");
     			t = text(t_value);
     			attr_dev(div0, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div0, file$e, 141, 10, 4387);
+    			add_location(div0, file$e, 202, 10, 6368);
     			attr_dev(div1, "class", "col my-1 c-p svelte-12ul0bq");
-    			add_location(div1, file$e, 140, 8, 4306);
+    			add_location(div1, file$e, 201, 8, 6287);
     			this.first = div1;
     		},
     		m: function mount(target, anchor) {
@@ -5908,7 +5913,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(140:6) {#each charSet[2] as item, i (i)}",
+    		source: "(201:6) {#each charSet[2] as item, i (i)}",
     		ctx
     	});
 
@@ -5949,7 +5954,7 @@ var app = (function () {
     		each_blocks_4[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
     	}
 
-    	let each_value_3 = /*falseArray*/ ctx[2];
+    	let each_value_3 = /*falseArray*/ ctx[3];
     	validate_each_argument(each_value_3);
     	let each_blocks_3 = [];
 
@@ -5957,9 +5962,9 @@ var app = (function () {
     		each_blocks_3[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
     	}
 
-    	let each_value_2 = /*charSet*/ ctx[3][0];
+    	let each_value_2 = /*charSet*/ ctx[4][0];
     	validate_each_argument(each_value_2);
-    	const get_key = ctx => /*i*/ ctx[17];
+    	const get_key = ctx => /*i*/ ctx[22];
     	validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
 
     	for (let i = 0; i < each_value_2.length; i += 1) {
@@ -5968,9 +5973,9 @@ var app = (function () {
     		each2_lookup.set(key, each_blocks_2[i] = create_each_block_2(key, child_ctx));
     	}
 
-    	let each_value_1 = /*charSet*/ ctx[3][1];
+    	let each_value_1 = /*charSet*/ ctx[4][1];
     	validate_each_argument(each_value_1);
-    	const get_key_1 = ctx => /*i*/ ctx[17];
+    	const get_key_1 = ctx => /*i*/ ctx[22];
     	validate_each_keys(ctx, each_value_1, get_each_context_1, get_key_1);
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -5979,9 +5984,9 @@ var app = (function () {
     		each3_lookup.set(key, each_blocks_1[i] = create_each_block_1(key, child_ctx));
     	}
 
-    	let each_value = /*charSet*/ ctx[3][2];
+    	let each_value = /*charSet*/ ctx[4][2];
     	validate_each_argument(each_value);
-    	const get_key_2 = ctx => /*i*/ ctx[17];
+    	const get_key_2 = ctx => /*i*/ ctx[22];
     	validate_each_keys(ctx, each_value, get_each_context$4, get_key_2);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -6035,29 +6040,29 @@ var app = (function () {
     			div6 = element("div");
     			i = element("i");
     			attr_dev(div0, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div0, file$e, 67, 4, 2029);
+    			add_location(div0, file$e, 127, 4, 3953);
     			attr_dev(div1, "class", "w-25 mt-2 position-absolute left-50 svelte-12ul0bq");
-    			add_location(div1, file$e, 66, 2, 1974);
+    			add_location(div1, file$e, 126, 2, 3898);
     			attr_dev(div2, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div2, file$e, 81, 4, 2455);
+    			add_location(div2, file$e, 141, 4, 4379);
     			attr_dev(div3, "class", "w-25 mt-2 position-absolute left-50 svelte-12ul0bq");
-    			add_location(div3, file$e, 80, 2, 2400);
+    			add_location(div3, file$e, 140, 2, 4324);
     			attr_dev(div4, "class", "row mb-1 row-cols-10 gx-2");
-    			add_location(div4, file$e, 114, 4, 3464);
+    			add_location(div4, file$e, 174, 4, 5388);
     			attr_dev(div5, "class", "row mb-1 mx-4 row-cols-9 gx-2");
-    			add_location(div5, file$e, 126, 4, 3838);
+    			add_location(div5, file$e, 187, 4, 5819);
     			attr_dev(i, "class", "fas fa-backspace icon svelte-12ul0bq");
-    			add_location(i, file$e, 150, 10, 4725);
+    			add_location(i, file$e, 211, 10, 6706);
     			attr_dev(div6, "class", "p-1 border rounded h-2 w-100 d-flex justify-content-center svelte-12ul0bq");
-    			add_location(div6, file$e, 149, 8, 4641);
+    			add_location(div6, file$e, 210, 8, 6622);
     			attr_dev(div7, "class", "col my-1 c-p svelte-12ul0bq");
-    			add_location(div7, file$e, 148, 6, 4561);
+    			add_location(div7, file$e, 209, 6, 6542);
     			attr_dev(div8, "class", "row mb-1 row-cols-10 gx-2");
-    			add_location(div8, file$e, 138, 4, 4216);
+    			add_location(div8, file$e, 199, 4, 6197);
     			attr_dev(div9, "class", "w-50 mt-2 position-absolute left-50 bottom-0 svelte-12ul0bq");
-    			add_location(div9, file$e, 112, 2, 3381);
+    			add_location(div9, file$e, 172, 2, 5305);
     			attr_dev(div10, "class", "position-relative w-100 h-100 border");
-    			add_location(div10, file$e, 65, 0, 1920);
+    			add_location(div10, file$e, 125, 0, 3844);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6108,8 +6113,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[6], false, false, false),
-    					listen_dev(div7, "click", /*click_handler_3*/ ctx[10], false, false, false)
+    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[7], false, false, false),
+    					listen_dev(div7, "click", /*click_handler_3*/ ctx[11], false, false, false)
     				];
 
     				mounted = true;
@@ -6140,22 +6145,22 @@ var app = (function () {
     				each_blocks_4.length = each_value_4.length;
     			}
 
-    			if (dirty & /*onScreenKbHandeller, charSet*/ 40) {
-    				each_value_2 = /*charSet*/ ctx[3][0];
+    			if (dirty & /*onScreenKbHandeller, charSet, firstRow*/ 84) {
+    				each_value_2 = /*charSet*/ ctx[4][0];
     				validate_each_argument(each_value_2);
     				validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
     				each_blocks_2 = update_keyed_each(each_blocks_2, dirty, get_key, 1, ctx, each_value_2, each2_lookup, div4, destroy_block, create_each_block_2, null, get_each_context_2);
     			}
 
-    			if (dirty & /*onScreenKbHandeller, charSet*/ 40) {
-    				each_value_1 = /*charSet*/ ctx[3][1];
+    			if (dirty & /*onScreenKbHandeller, charSet*/ 80) {
+    				each_value_1 = /*charSet*/ ctx[4][1];
     				validate_each_argument(each_value_1);
     				validate_each_keys(ctx, each_value_1, get_each_context_1, get_key_1);
     				each_blocks_1 = update_keyed_each(each_blocks_1, dirty, get_key_1, 1, ctx, each_value_1, each3_lookup, div5, destroy_block, create_each_block_1, null, get_each_context_1);
     			}
 
-    			if (dirty & /*onScreenKbHandeller, charSet*/ 40) {
-    				each_value = /*charSet*/ ctx[3][2];
+    			if (dirty & /*onScreenKbHandeller, charSet*/ 80) {
+    				each_value = /*charSet*/ ctx[4][2];
     				validate_each_argument(each_value);
     				validate_each_keys(ctx, each_value, get_each_context$4, get_key_2);
     				each_blocks = update_keyed_each(each_blocks, dirty, get_key_2, 1, ctx, each_value, each4_lookup, div8, destroy_block, create_each_block$4, t4, get_each_context$4);
@@ -6222,13 +6227,13 @@ var app = (function () {
     			nextCount = word.length + 5;
     		}
 
-    		if (event.key == 'Backspace') {
+    		if (event.key == 'Backspace' && nextCount - 5 != word.length) {
     			$$invalidate(0, word = word.substring(0, word.length - 1));
     		}
     	};
 
     	const onScreenKbHandeller = b => {
-    		if (word.length < nextCount && b != 'bks' && b != 'reset' && b != 'enter') {
+    		if (word.length < nextCount && b != 'bks' && b != 'reset' && b != 'Enter') {
     			$$invalidate(0, word = word + b);
     		}
 
@@ -6237,7 +6242,7 @@ var app = (function () {
     			nextCount = word.length + 5;
     		}
 
-    		if (b == 'bks') {
+    		if (b == 'bks' && nextCount - 5 != word.length) {
     			$$invalidate(0, word = word.substring(0, word.length - 1));
     		}
 
@@ -6245,6 +6250,7 @@ var app = (function () {
     			$$invalidate(0, word = '');
     			nextCount = 5;
     			$$invalidate(1, colors = []);
+    			keyColors = [];
     		}
 
     		console.log(word);
@@ -6259,17 +6265,96 @@ var app = (function () {
     		for (let i = 0; i < word.length; i++) {
     			if (rightWord[i % 5] == word[i]) {
     				colors.push('green');
-    				keyColors.push({ char: word[i], color: 'green' });
+
+    				keyColors.push({
+    					char: word[i].toUpperCase(),
+    					color: 'green'
+    				});
     			} else if (rightWord.includes(word[i])) {
     				colors.push('yellow');
-    				keyColors.push({ char: word[i], color: 'green' });
+
+    				keyColors.push({
+    					char: word[i].toUpperCase(),
+    					color: 'yellow'
+    				});
     			} else {
     				colors.push('red');
-    				keyColors.push({ char: word[i], color: 'green' });
+
+    				keyColors.push({
+    					char: word[i].toUpperCase(),
+    					color: 'red'
+    				});
     			}
     		}
 
-    		console.log(keyColors);
+    		keyColorPerRow();
+    	};
+
+    	let firstRow = [];
+    	let secondRow = [];
+    	let thirdRow = [];
+
+    	const keyColorPerRow = () => {
+    		$$invalidate(2, firstRow = []);
+    		secondRow = [];
+    		thirdRow = [];
+
+    		for (let i = 0; i < word.length; i++) {
+    			if (charSet[0].includes(keyColors[i].char)) {
+    				firstRow.push({
+    					char: keyColors[i].char,
+    					color: keyColors[i].color
+    				});
+    			} else if (charSet[1].includes(keyColors[i].char)) {
+    				secondRow.push({
+    					char: keyColors[i].char,
+    					color: keyColors[i].color
+    				});
+    			} else {
+    				thirdRow.push({
+    					char: keyColors[i].char,
+    					color: keyColors[i].color
+    				});
+    			}
+    		}
+
+    		rowColorFilter(firstRow);
+    		rowColorFilter(secondRow);
+    		rowColorFilter(thirdRow);
+    		console.log('firstRow:', firstRow, 'secondRow:', secondRow, 'thirdRow:', thirdRow);
+    	};
+
+    	const rowColorFilter = row => {
+    		for (let i = 0; i < row.length; i++) {
+    			if (row[i].color == 'yellow') {
+    				for (let j = i + 1; j < row.length; j++) {
+    					if (row[i].char == row[j].char && row[j].color == 'green') {
+    						row.splice(i, 1);
+    						j--;
+    					} else if (row[i].char == row[j].char && row[j].color == 'yellow') {
+    						row.splice(j, 1);
+    						j--;
+    					}
+    				}
+    			} else if (row[i].color == 'green') {
+    				for (let j = i + 1; j < row.length; j++) {
+    					if (row[i].char == row[j].char && row[j].color == 'yellow') {
+    						row.splice(j, 1);
+    						j--;
+    					} else if (row[i].char == row[j].char && row[j].color == 'green') {
+    						row.splice(i, 1);
+    						j--;
+    					}
+    				}
+    			} else if (row[i].color == 'red') {
+    				for (let j = i + 1; j < row.length; j++) {
+    					if (row[i].char == row[j].char && row[j].color == 'red') {
+    						row.splice(i, 1);
+    						j--;
+    					}
+    				}
+    			}
+    		}
     	};
 
     	const writable_props = [];
@@ -6295,7 +6380,12 @@ var app = (function () {
     		keyboardHandeler,
     		onScreenKbHandeller,
     		colors,
-    		checkWord
+    		checkWord,
+    		firstRow,
+    		secondRow,
+    		thirdRow,
+    		keyColorPerRow,
+    		rowColorFilter
     	});
 
     	$$self.$inject_state = $$props => {
@@ -6304,6 +6394,9 @@ var app = (function () {
     		if ('rightWord' in $$props) rightWord = $$props.rightWord;
     		if ('nextCount' in $$props) nextCount = $$props.nextCount;
     		if ('colors' in $$props) $$invalidate(1, colors = $$props.colors);
+    		if ('firstRow' in $$props) $$invalidate(2, firstRow = $$props.firstRow);
+    		if ('secondRow' in $$props) secondRow = $$props.secondRow;
+    		if ('thirdRow' in $$props) thirdRow = $$props.thirdRow;
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -6313,6 +6406,7 @@ var app = (function () {
     	return [
     		word,
     		colors,
+    		firstRow,
     		falseArray,
     		charSet,
     		keyboardHandeler,

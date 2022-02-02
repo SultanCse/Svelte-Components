@@ -17,25 +17,26 @@
       checkWord();
       nextCount = word.length + 5;
     }
-    if(event.key=='Backspace'){
+    if(event.key=='Backspace' && nextCount-5 != word.length){
       word = word.substring(0, word.length-1);
     }
   }
   const onScreenKbHandeller = (b)=> {
-    if(word.length<nextCount && b!='bks' && b!='reset' && b!='enter'){
+    if(word.length<nextCount && b!='bks' && b!='reset' && b!='Enter'){
       word = word + b;
     }
     if(word.length != 0 && word.length % 5 == 0 && b=='Enter'){
       checkWord();
       nextCount = word.length + 5;
     }
-    if(b=='bks' ){
+    if(b=='bks' && nextCount-5 != word.length){
       word = word.substring(0, word.length-1);
     }
     if(b=='reset' ){
       word = '';
       nextCount = 5;
       colors = [];
+      keyColors = [];
     }
     console.log(word);
   }
@@ -46,18 +47,77 @@
        for(let i = 0; i<word.length; i++){
         if(rightWord[i%5] == word[i]){
           colors.push('green');
-          keyColors.push({char: word[i], color: 'green'})
+          keyColors.push({char: word[i].toUpperCase(), color: 'green'})
         }else if(rightWord.includes(word[i]) ){
           colors.push('yellow');
-          keyColors.push({char: word[i], color: 'green'})
+          keyColors.push({char: word[i].toUpperCase(), color: 'yellow'})
         }else{
           colors.push('red');
-          keyColors.push({char: word[i], color: 'green'})
+          keyColors.push({char: word[i].toUpperCase(), color: 'red'})
         }
     }   
-      console.log(keyColors);
+
+      keyColorPerRow();
+      
   }
 
+  let firstRow = [];
+  let secondRow = [];
+  let thirdRow = [];
+  const keyColorPerRow = () => {
+    firstRow = [];
+    secondRow = [];
+    thirdRow = [];
+    for(let i=0; i<word.length; i++){
+      if(charSet[0].includes(keyColors[i].char)){
+        firstRow.push({char: keyColors[i].char, color: keyColors[i].color})
+      }else if(charSet[1].includes(keyColors[i].char)){
+        secondRow.push({char: keyColors[i].char, color: keyColors[i].color})
+      }else{
+         thirdRow.push({char: keyColors[i].char, color: keyColors[i].color})
+      }
+    }
+    rowColorFilter(firstRow);
+    rowColorFilter(secondRow);
+    rowColorFilter(thirdRow);
+    console.log('firstRow:', firstRow, 'secondRow:', secondRow, 'thirdRow:', thirdRow);
+  }
+
+  const rowColorFilter = (row) => {
+    for(let i =0; i<row.length; i++){
+      if(row[i].color == 'yellow'){
+        for(let j =i+1; j<row.length; j++){
+          if(row[i].char == row[j].char && row[j].color=='green'){
+            row.splice(i,1);
+            j--;
+          }else if(row[i].char == row[j].char && row[j].color=='yellow'){
+            row.splice(j,1);
+            j--;
+          }
+        }
+      } 
+      else if(row[i].color == 'green'){
+        for(let j =i+1; j<row.length; j++){
+          if(row[i].char == row[j].char && row[j].color=='yellow'){
+            row.splice(j,1);
+            j--;
+          }else if(row[i].char == row[j].char && row[j].color=='green'){
+            row.splice(i,1);
+            j--;
+          }
+        }
+      } 
+      else if(row[i].color == 'red'){
+        for(let j =i+1; j<row.length; j++){
+          if(row[i].char == row[j].char && row[j].color=='red'){
+            row.splice(i,1);
+            j--;
+          }
+        }
+      }
+
+    }
+  }
   
 
 </script>
@@ -117,6 +177,7 @@
         <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
           <div
             class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+            style="background-color: {firstRow.color};"
           >
             {item}
           </div>
