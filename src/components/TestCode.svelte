@@ -1,8 +1,8 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import {possibilities} from '../store/WordleWords.js';
   let word = "";
   let keyColors = [];
-  let rightWord = "light";
+  let rightWord = "LIGHT";
   const falseArray = ['A', 'B', 'C', 'D', 'E', 'F'];
   const charSet = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
                    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -10,24 +10,33 @@
 
   let nextCount = 5;
   const keyboardHandeler = (event)=>{
-    if(word.length<nextCount && event.keyCode>=65 && event.keyCode<=90){
-      word = word + event.key
+    if(word.length<nextCount && word.length<30 && event.keyCode>=65 && event.keyCode<=90){
+      word = word + event.key.toUpperCase()
+
     }
     if(word.length != 0 && word.length % 5 == 0 && event.key == 'Enter'){
-      checkWord();
-      nextCount = word.length + 5;
+      if(possibilities.includes(word.substring(word.length-5,word.length).toLowerCase())){
+        checkWord();
+        nextCount = word.length + 5;
+      }else{
+        alert('Enter a Meaningfull Word');
+      } 
     }
     if(event.key=='Backspace' && nextCount-5 != word.length){
       word = word.substring(0, word.length-1);
     }
   }
   const onScreenKbHandeller = (b)=> {
-    if(word.length<nextCount && b!='bks' && b!='reset' && b!='Enter'){
+    if(word.length<nextCount && word.length<30 && b!='bks' && b!='reset' && b!='Enter'){
       word = word + b;
     }
     if(word.length != 0 && word.length % 5 == 0 && b=='Enter'){
-      checkWord();
-      nextCount = word.length + 5;
+      if(possibilities.includes(word.substring(word.length-5,word.length).toLowerCase())){
+        checkWord();
+        nextCount = word.length + 5;
+      }else{
+        alert('Enter a Meaningfull Word');
+      }      
     }
     if(b=='bks' && nextCount-5 != word.length){
       word = word.substring(0, word.length-1);
@@ -37,50 +46,54 @@
       nextCount = 5;
       colors = [];
       keyColors = [];
+      firstRowColors = [];
+      secondRowColors = [];
+      thirdRowColors = [];
     }
     console.log(word);
   }
   let colors=[];
   const checkWord = ()=>{
     colors = [];
-    keyColors = [];
-       for(let i = 0; i<word.length; i++){
+    keyColors = [];   
+      for(let i = 0; i<word.length; i++){
         if(rightWord[i%5] == word[i]){
           colors.push('green');
-          keyColors.push({char: word[i].toUpperCase(), color: 'green'})
+          keyColors.push({char: word[i], color: 'green'})
         }else if(rightWord.includes(word[i]) ){
           colors.push('yellow');
-          keyColors.push({char: word[i].toUpperCase(), color: 'yellow'})
+          keyColors.push({char: word[i], color: 'yellow'})
         }else{
           colors.push('red');
-          keyColors.push({char: word[i].toUpperCase(), color: 'red'})
+          keyColors.push({char: word[i], color: 'red'})
         }
-    }   
-
-      keyColorPerRow();
-      
+      }
+      keyColorPerRow();   
+    if(word.includes(rightWord)){
+      alert('You Win');
+    } 
   }
 
-  let firstRow = [];
-  let secondRow = [];
-  let thirdRow = [];
+  let firstRowColors = [];
+  let secondRowColors = [];
+  let thirdRowColors = [];
   const keyColorPerRow = () => {
-    firstRow = [];
-    secondRow = [];
-    thirdRow = [];
+    firstRowColors = [];
+    secondRowColors = [];
+    thirdRowColors = [];
     for(let i=0; i<word.length; i++){
       if(charSet[0].includes(keyColors[i].char)){
-        firstRow.push({char: keyColors[i].char, color: keyColors[i].color})
+        firstRowColors.push({char: keyColors[i].char, color: keyColors[i].color})
       }else if(charSet[1].includes(keyColors[i].char)){
-        secondRow.push({char: keyColors[i].char, color: keyColors[i].color})
+        secondRowColors.push({char: keyColors[i].char, color: keyColors[i].color})
       }else{
-         thirdRow.push({char: keyColors[i].char, color: keyColors[i].color})
+         thirdRowColors.push({char: keyColors[i].char, color: keyColors[i].color})
       }
     }
-    rowColorFilter(firstRow);
-    rowColorFilter(secondRow);
-    rowColorFilter(thirdRow);
-    console.log('firstRow:', firstRow, 'secondRow:', secondRow, 'thirdRow:', thirdRow);
+    rowColorFilter(firstRowColors);
+    rowColorFilter(secondRowColors);
+    rowColorFilter(thirdRowColors);
+    console.log('firstRowColors:', firstRowColors, 'secondRowColors:', secondRowColors, 'thirdRowColors:', thirdRowColors);
   }
 
   const rowColorFilter = (row) => {
@@ -118,6 +131,13 @@
 
     }
   }
+  const colorReturn = (item,row)=>{
+    for(let i =0; i<row.length; i++){
+      if(row[i].char == item){
+        return row[i].color;
+      }
+    }
+  }
   
 
 </script>
@@ -132,7 +152,7 @@
             class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
             style="background-color: {colors[i]};"
           >
-            {item.toUpperCase()}
+            {item}
           </div>
         </div>
       {/each}
@@ -175,12 +195,14 @@
     <div class="row mb-1 row-cols-10 gx-2">
       {#each charSet[0] as item, i (i)}
         <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
-          <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
-            style="background-color: {firstRow.color};"
-          >
-            {item}
-          </div>
+          {#key firstRowColors}
+            <div
+              class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+              style="background-color: {colorReturn(item, firstRowColors)};"
+            >
+              {item}
+            </div>
+          {/key}
         </div>
       {/each}
     </div>
@@ -188,11 +210,14 @@
     <div class="row mb-1 mx-4 row-cols-9 gx-2">
       {#each charSet[1] as item, i (i)}
         <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
-          <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
-          >
-            {item}
-          </div>
+          {#key secondRowColors}
+            <div
+              class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+              style="background-color: {colorReturn(item, secondRowColors)};"
+            >
+              {item}
+            </div>
+          {/key}
         </div>
       {/each}
     </div>
@@ -200,11 +225,14 @@
     <div class="row mb-1 row-cols-10 gx-2">
       {#each charSet[2] as item, i (i)}
         <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
-          <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
-          >
-            {item}
-          </div>
+          {#key thirdRowColors}
+            <div
+              class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+              style="background-color: {colorReturn(item, thirdRowColors)};"
+            >
+              {item}
+            </div>
+          {/key}
         </div>
       {/each}
       <div class="col my-1 c-p" on:click={() => onScreenKbHandeller('bks')}>
