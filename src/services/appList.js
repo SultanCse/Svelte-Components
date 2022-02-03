@@ -17,6 +17,7 @@ import SvgIcon from '../elements/SvgIcon.svelte';
 import LoadingSingleCircle from '../elements/LoadingSingleCircle.svelte';
 import MoonLit from '../components/MoonLit.svelte';
 import Wordle from '../components/Wordle.svelte';
+import Modal from '../elements/Modal.svelte';
 
 export {
   PackageUsages,
@@ -37,5 +38,6 @@ export {
   LoadingSquareBar,
   LoadingSingleCircle,
   MoonLit,
+  Modal,
   Wordle
 };

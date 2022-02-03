@@ -33,60 +33,57 @@
     // }
 
 </script>
-<div class="parent">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-    {#each paginatedItems as item}
-        <tr>
-            <th scope="row">{item.id}</th>
-            <td>{item.value}</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-    {/each}
-        </tbody>
-    </table>
 
-    <LightPaginationNav
-    totalItems="{items.length}"
-    pageSize="{pageSize}"
-    currentPage="{currentPage}"
-    limit="{1}"
-    showStepOptions="{true}"
-    on:setPage="{(e) => currentPage = e.detail.page}"
-    />
+<div class="parent">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each paginatedItems as item}
+        <tr>
+          <th scope="row">{item.id}</th>
+          <td>{item.value}</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
+
+  <LightPaginationNav
+    totalItems={items.length}
+    {pageSize}
+    {currentPage}
+    limit={1}
+    showStepOptions={true}
+    on:setPage={e => (currentPage = e.detail.page)}
+  />
 </div>
 
- 
-
-
 <style>
-    table{
-        border: 1px solid rgb(218, 217, 217);
-    }
-    .parent{
-        padding: 0px 20px;
-    }
-    :global(.light-pagination-nav){
-        display: flex;
-        justify-content: right;
-    }
-    :global(.pagination-nav){
-        /* background: orange !important; */    
-        padding: 0px 40px;
-        box-shadow: 0 1px 2px rgb(0 0 0 / 13%) !important;
-    }
+  table {
+    border: 1px solid rgb(218, 217, 217);
+  }
+  .parent {
+    padding: 0px 20px;
+  }
+  :global(.light-pagination-nav) {
+    display: flex;
+    justify-content: right;
+  }
+  :global(.pagination-nav) {
+    /* background: orange !important; */
+    padding: 0px 40px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 13%) !important;
+  }
 
-    :global(.option.disabled){
-        opacity: .3;
-    }
-
+  :global(.option.disabled) {
+    opacity: 0.3;
+  }
 </style>

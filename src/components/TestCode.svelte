@@ -1,8 +1,10 @@
 <script>
 	import {possibilities} from '../store/WordleWords.js';
+  const index = Math.floor(Math.random() * possibilities.length);
   let word = "";
   let keyColors = [];
-  let rightWord = "LIGHT";
+  let rightWord = possibilities[index].toUpperCase();
+  console.log(rightWord);
   const falseArray = ['A', 'B', 'C', 'D', 'E', 'F'];
   const charSet = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
                    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -10,7 +12,7 @@
 
   let nextCount = 5;
   const keyboardHandeler = (event)=>{
-    if(word.length<nextCount && word.length<30 && event.keyCode>=65 && event.keyCode<=90){
+    if(word.length<nextCount && word.length<30 && event.keyCode>=65 && event.keyCode<=90 && !word.includes(rightWord)){
       word = word + event.key.toUpperCase()
 
     }
@@ -27,7 +29,7 @@
     }
   }
   const onScreenKbHandeller = (b)=> {
-    if(word.length<nextCount && word.length<30 && b!='bks' && b!='reset' && b!='Enter'){
+    if(word.length<nextCount && word.length<30 && b!='bks' && b!='reset' && b!='Enter' && !word.includes(rightWord)){
       word = word + b;
     }
     if(word.length != 0 && word.length % 5 == 0 && b=='Enter'){
@@ -68,10 +70,12 @@
           keyColors.push({char: word[i], color: 'red'})
         }
       }
+      colors = colors;
       keyColorPerRow();   
-    if(word.includes(rightWord)){
+      if(word.includes(rightWord)){
       alert('You Win');
-    } 
+    }
+     
   }
 
   let firstRowColors = [];
@@ -143,13 +147,13 @@
 </script>
 
 <svelte:window on:keydown={event => keyboardHandeler(event)} />
-<div class="position-relative w-100 h-100 border">
+<div class="position-relative w-100 h-100 border bg-dark">
   <div class="w-25 mt-2 position-absolute left-50">
     <div class="row mb-1 row-cols-5 gx-2">
       {#each word as item, i}
         <div class="col my-1">
           <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+            class="border rounded h-2 w-100 d-flex justify-content-center"
             style="background-color: {colors[i]};"
           >
             {item}
@@ -162,28 +166,24 @@
     <div class="row mb-1 row-cols-5 gx-2">
       {#each falseArray as item}
         <div class="col my-1">
+          <div class="border rounded h-2 w-100 d-flex justify-content-center" />
+        </div>
+        <div class="col my-1">
+          <div class="border rounded h-2 w-100 d-flex justify-content-center" />
+        </div>
+        <div class="col my-1">
           <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+            class="  border rounded h-2 w-100 d-flex justify-content-center"
           />
         </div>
         <div class="col my-1">
           <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+            class="  border rounded h-2 w-100 d-flex justify-content-center"
           />
         </div>
         <div class="col my-1">
           <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
-          />
-        </div>
-        <div class="col my-1">
-          <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
-          />
-        </div>
-        <div class="col my-1">
-          <div
-            class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+            class="  border rounded h-2 w-100 d-flex justify-content-center"
           />
         </div>
       {/each}
@@ -197,7 +197,7 @@
         <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
           {#key firstRowColors}
             <div
-              class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+              class="  border rounded h-2 w-100 d-flex justify-content-center"
               style="background-color: {colorReturn(item, firstRowColors)};"
             >
               {item}
@@ -212,7 +212,7 @@
         <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
           {#key secondRowColors}
             <div
-              class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+              class="  border rounded h-2 w-100 d-flex justify-content-center"
               style="background-color: {colorReturn(item, secondRowColors)};"
             >
               {item}
@@ -227,7 +227,7 @@
         <div class="col my-1 c-p" on:click={() => onScreenKbHandeller(item)}>
           {#key thirdRowColors}
             <div
-              class="p-1 border rounded h-2 w-100 d-flex justify-content-center"
+              class="  border rounded h-2 w-100 d-flex justify-content-center"
               style="background-color: {colorReturn(item, thirdRowColors)};"
             >
               {item}
@@ -236,7 +236,7 @@
         </div>
       {/each}
       <div class="col my-1 c-p" on:click={() => onScreenKbHandeller('bks')}>
-        <div class="p-1 border rounded h-2 w-100 d-flex justify-content-center">
+        <div class="  border rounded h-2 w-100 d-flex justify-content-center">
           <i class="fas fa-backspace icon" />
         </div>
       </div>
@@ -246,7 +246,9 @@
 
 <style>
   .h-2 {
-    height: 3rem;
+    height: 2.4rem;
+    font-size: 1.4rem;
+    color: white;
   }
   .left-50 {
     left: 50%;
@@ -254,6 +256,9 @@
   }
   .bottom-0 {
     bottom: 0;
+  }
+  .top-60 {
+    top: 60%;
   }
   .c-p {
     cursor: pointer;
