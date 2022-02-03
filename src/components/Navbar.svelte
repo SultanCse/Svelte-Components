@@ -36,7 +36,7 @@ import BounchingHeadline from "./BounchingHeadline.svelte";
   </div>
   <div class="col p-0">
     <div class="navbar navbar-light bg-light p-0">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/#">
         <i class="fas fa-arrow-{arrow} px-3" on:click={toggleArrow} />
       </a>
       <BounchingHeadline {...$$restProps} />

@@ -17,7 +17,7 @@
 
 {#each list as item}
   <div
-    class="row g-0 shadow-sm item"
+    class="row g-0 shadow-sm item m-1"
     class:select={selected == item.name ? true : false}
     tabindex="1"
     on:click={() => {
@@ -37,20 +37,23 @@
 
 <style>
   .icon {
-    padding: 0.8rem;
-    font-size: 2.5rem;
+    /* padding: 0.8rem; */
+    margin-top: 1.2rem;
+    font-size: 1rem;
   }
   .title {
     margin-top: auto;
     margin-bottom: auto;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .item {
     cursor: pointer;
-    color: #ff4205;
+    border-radius: 3px;
+    height: 50px;
+    /* color: #ff4205; */
   }
   .item:hover {
-    background: #f0764d;
+    background: #f76e11;
     transition: 0.3s;
     color: white;
   }
@@ -63,7 +66,7 @@
     transform: scale(1.4);
   }
   .select {
-    background: #ff4205;
+    background: #f76e11;
     color: white;
     transition: 0.3s;
   }
