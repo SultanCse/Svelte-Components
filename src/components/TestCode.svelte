@@ -60,14 +60,14 @@
     keyColors = [];   
       for(let i = 0; i<word.length; i++){
         if(rightWord[i%5] == word[i]){
-          colors.push('green');
-          keyColors.push({char: word[i], color: 'green'})
+          colors.push('#538D4C');
+          keyColors.push({char: word[i], color: '#538D4C'})
         }else if(rightWord.includes(word[i]) ){
-          colors.push('yellow');
-          keyColors.push({char: word[i], color: 'yellow'})
+          colors.push(' #B4A037');
+          keyColors.push({char: word[i], color: ' #B4A037'})
         }else{
-          colors.push('red');
-          keyColors.push({char: word[i], color: 'red'})
+          colors.push('#3A3A3C');
+          keyColors.push({char: word[i], color: '#3A3A3C'})
         }
       }
       colors = colors;
@@ -102,31 +102,31 @@
 
   const rowColorFilter = (row) => {
     for(let i =0; i<row.length; i++){
-      if(row[i].color == 'yellow'){
+      if(row[i].color == ' #B4A037'){
         for(let j =i+1; j<row.length; j++){
-          if(row[i].char == row[j].char && row[j].color=='green'){
+          if(row[i].char == row[j].char && row[j].color=='#538D4C'){
             row.splice(i,1);
             j--;
-          }else if(row[i].char == row[j].char && row[j].color=='yellow'){
+          }else if(row[i].char == row[j].char && row[j].color==' #B4A037'){
             row.splice(j,1);
             j--;
           }
         }
       } 
-      else if(row[i].color == 'green'){
+      else if(row[i].color == '#538D4C'){
         for(let j =i+1; j<row.length; j++){
-          if(row[i].char == row[j].char && row[j].color=='yellow'){
+          if(row[i].char == row[j].char && row[j].color==' #B4A037'){
             row.splice(j,1);
             j--;
-          }else if(row[i].char == row[j].char && row[j].color=='green'){
+          }else if(row[i].char == row[j].char && row[j].color=='#538D4C'){
             row.splice(i,1);
             j--;
           }
         }
       } 
-      else if(row[i].color == 'red'){
+      else if(row[i].color == '#3A3A3C'){
         for(let j =i+1; j<row.length; j++){
-          if(row[i].char == row[j].char && row[j].color=='red'){
+          if(row[i].char == row[j].char && row[j].color=='#3A3A3C'){
             row.splice(i,1);
             j--;
           }
@@ -147,7 +147,10 @@
 </script>
 
 <svelte:window on:keydown={event => keyboardHandeler(event)} />
-<div class="position-relative w-100 h-100 border bg-dark">
+<div
+  class="position-relative w-100 h-100 border fw-bolder"
+  style="background: #111111;"
+>
   <div class="w-25 mt-2 position-absolute left-50">
     <div class="row mb-1 row-cols-5 gx-2">
       {#each word as item, i}
@@ -198,7 +201,9 @@
           {#key firstRowColors}
             <div
               class="  border rounded h-2 w-100 d-flex justify-content-center"
-              style="background-color: {colorReturn(item, firstRowColors)};"
+              style="background-color: {colorReturn(item, firstRowColors)
+                ? colorReturn(item, firstRowColors)
+                : '#828385'};"
             >
               {item}
             </div>
@@ -213,7 +218,9 @@
           {#key secondRowColors}
             <div
               class="  border rounded h-2 w-100 d-flex justify-content-center"
-              style="background-color: {colorReturn(item, secondRowColors)};"
+              style="background-color: {colorReturn(item, secondRowColors)
+                ? colorReturn(item, secondRowColors)
+                : '#828385'};"
             >
               {item}
             </div>
@@ -228,7 +235,9 @@
           {#key thirdRowColors}
             <div
               class="  border rounded h-2 w-100 d-flex justify-content-center"
-              style="background-color: {colorReturn(item, thirdRowColors)};"
+              style="background-color: {colorReturn(item, thirdRowColors)
+                ? colorReturn(item, thirdRowColors)
+                : '#828385'};"
             >
               {item}
             </div>
@@ -245,6 +254,11 @@
 </div>
 
 <style>
+  :root {
+    --positionWrong: #b4a037;
+    --positionCorrect: #538d4c;
+    --notIncluded: #3a3a3c;
+  }
   .h-2 {
     height: 2.4rem;
     font-size: 1.4rem;
