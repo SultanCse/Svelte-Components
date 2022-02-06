@@ -4,7 +4,7 @@
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
         Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,TableDataPagination,
         LoadingSquareBar, LoadingInfinityBar, BounchingHeadline, SvgIcon,
-        LoadingSingleCircle, MoonLit, Modal} from '../services/appList.js'
+        LoadingSingleCircle, MoonLit, Modal, Wordle} from '../services/appList.js'
     
 let toggleValue=false;
 $: console.log(toggleValue);
@@ -13,6 +13,7 @@ let activeTab = 'TestCode';
     let sidebarItems=[
         {name:'TableDataPagination', icon:'fas fa-table', component: TableDataPagination},
         {name:'MoonLit', icon:'fas fa-bahai', component: MoonLit},
+        {name:'Wordle', icon:'fas fa-bahai', component: Wordle},
         {name:'Modal', icon:'fas fa-check', component: Modal},
         {name:'LoadingSingleCircle', icon:'fas fa-spinner', component: LoadingSingleCircle},
         {name:'TestCode', icon:'fas fa-text-height', component: TestCode},
@@ -110,6 +111,8 @@ let activeTab = 'TestCode';
         />
       {:else if activeTab == 'PackageUsages'}
         <PackageUsages />
+      {:else if activeTab == 'Wordle'}
+        <Wordle />
       {/if}
       <!-- <div></div> -->
     </div>
