@@ -165,7 +165,7 @@
       {/each}
     </div>
   </div>
-  <div class="w-25 mt-2 left-50">
+  <div class="w-25 mt-2 ">
     <div class="row mb-1 row-cols-5 gx-2">
       {#each falseArray as item}
         <div class="col my-1">
