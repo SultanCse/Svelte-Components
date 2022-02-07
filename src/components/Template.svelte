@@ -13,7 +13,7 @@ let activeTab = 'TestCode';
     let sidebarItems=[
         {name:'TableDataPagination', icon:'fas fa-table', component: TableDataPagination},
         {name:'MoonLit', icon:'fas fa-bahai', component: MoonLit},
-        {name:'Wordle', icon:'fas fa-bahai', component: Wordle},
+        {name:'Wordle', icon:'fab fa-wordpress', component: Wordle},
         {name:'Modal', icon:'fas fa-check', component: Modal},
         {name:'LoadingSingleCircle', icon:'fas fa-spinner', component: LoadingSingleCircle},
         {name:'TestCode', icon:'fas fa-text-height', component: TestCode},
