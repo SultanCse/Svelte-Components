@@ -28405,7 +28405,7 @@ var app = (function () {
     			div0 = element("div");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(div0, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
+    			attr_dev(div0, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
     			set_style(div0, "background-color", /*colors*/ ctx[1][/*i*/ ctx[24]]);
     			add_location(div0, file$3, 157, 10, 5124);
     			attr_dev(div1, "class", "col my-1");
@@ -28475,26 +28475,26 @@ var app = (function () {
     			div9 = element("div");
     			div8 = element("div");
     			t4 = space();
-    			attr_dev(div0, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
-    			add_location(div0, file$3, 171, 10, 5535);
+    			attr_dev(div0, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
+    			add_location(div0, file$3, 171, 10, 5517);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$3, 170, 8, 5501);
-    			attr_dev(div2, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
-    			add_location(div2, file$3, 174, 10, 5665);
+    			add_location(div1, file$3, 170, 8, 5483);
+    			attr_dev(div2, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
+    			add_location(div2, file$3, 174, 10, 5647);
     			attr_dev(div3, "class", "col my-1");
-    			add_location(div3, file$3, 173, 8, 5631);
-    			attr_dev(div4, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
-    			add_location(div4, file$3, 177, 10, 5795);
+    			add_location(div3, file$3, 173, 8, 5613);
+    			attr_dev(div4, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
+    			add_location(div4, file$3, 177, 10, 5777);
     			attr_dev(div5, "class", "col my-1");
-    			add_location(div5, file$3, 176, 8, 5761);
-    			attr_dev(div6, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
-    			add_location(div6, file$3, 182, 10, 5951);
+    			add_location(div5, file$3, 176, 8, 5743);
+    			attr_dev(div6, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
+    			add_location(div6, file$3, 182, 10, 5933);
     			attr_dev(div7, "class", "col my-1");
-    			add_location(div7, file$3, 181, 8, 5917);
-    			attr_dev(div8, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
-    			add_location(div8, file$3, 187, 10, 6107);
+    			add_location(div7, file$3, 181, 8, 5899);
+    			attr_dev(div8, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
+    			add_location(div8, file$3, 187, 10, 6089);
     			attr_dev(div9, "class", "col my-1");
-    			add_location(div9, file$3, 186, 8, 6073);
+    			add_location(div9, file$3, 186, 8, 6055);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -28547,13 +28547,13 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			t = text(t_value);
-    			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
+    			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
 
     			set_style(div, "background-color", /*colorReturn*/ ctx[9](/*item*/ ctx[22], /*firstRowColors*/ ctx[2])
     			? /*colorReturn*/ ctx[9](/*item*/ ctx[22], /*firstRowColors*/ ctx[2])
     			: '#828385');
 
-    			add_location(div, file$3, 201, 12, 6572);
+    			add_location(div, file$3, 201, 12, 6554);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -28602,8 +28602,8 @@ var app = (function () {
     			div = element("div");
     			key_block.c();
     			t = space();
-    			attr_dev(div, "class", "col my-1 c-p svelte-hnu834");
-    			add_location(div, file$3, 199, 8, 6456);
+    			attr_dev(div, "class", "col my-1 c-p svelte-og2z59");
+    			add_location(div, file$3, 199, 8, 6438);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -28657,13 +28657,13 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			t = text(t_value);
-    			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
+    			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
 
     			set_style(div, "background-color", /*colorReturn*/ ctx[9](/*item*/ ctx[22], /*secondRowColors*/ ctx[3])
     			? /*colorReturn*/ ctx[9](/*item*/ ctx[22], /*secondRowColors*/ ctx[3])
     			: '#828385');
 
-    			add_location(div, file$3, 218, 12, 7170);
+    			add_location(div, file$3, 218, 12, 7152);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -28712,8 +28712,8 @@ var app = (function () {
     			div = element("div");
     			key_block.c();
     			t = space();
-    			attr_dev(div, "class", "col my-1 c-p svelte-hnu834");
-    			add_location(div, file$3, 216, 8, 7053);
+    			attr_dev(div, "class", "col my-1 c-p svelte-og2z59");
+    			add_location(div, file$3, 216, 8, 7035);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -28767,13 +28767,13 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			t = text(t_value);
-    			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
+    			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
 
     			set_style(div, "background-color", /*colorReturn*/ ctx[9](/*item*/ ctx[22], /*thirdRowColors*/ ctx[4])
     			? /*colorReturn*/ ctx[9](/*item*/ ctx[22], /*thirdRowColors*/ ctx[4])
     			: '#828385');
 
-    			add_location(div, file$3, 235, 12, 7765);
+    			add_location(div, file$3, 235, 12, 7747);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -28820,8 +28820,8 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			key_block.c();
-    			attr_dev(div, "class", "col my-1 c-p svelte-hnu834");
-    			add_location(div, file$3, 233, 8, 7649);
+    			attr_dev(div, "class", "col my-1 c-p svelte-og2z59");
+    			add_location(div, file$3, 233, 8, 7631);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -28985,26 +28985,26 @@ var app = (function () {
     			i = element("i");
     			attr_dev(div0, "class", "row mb-1 row-cols-5 gx-2");
     			add_location(div0, file$3, 154, 4, 5011);
-    			attr_dev(div1, "class", "w-25 mt-2 position-absolute left-50 svelte-hnu834");
+    			attr_dev(div1, "class", "w-25 mt-2 position-absolute left-50 svelte-og2z59");
     			add_location(div1, file$3, 153, 2, 4956);
     			attr_dev(div2, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div2, file$3, 168, 4, 5419);
-    			attr_dev(div3, "class", "w-25 mt-2 position-absolute left-50 svelte-hnu834");
+    			add_location(div2, file$3, 168, 4, 5401);
+    			attr_dev(div3, "class", "w-25 mt-2 left-50 svelte-og2z59");
     			add_location(div3, file$3, 167, 2, 5364);
     			attr_dev(div4, "class", "row mb-1 row-cols-10 gx-2");
-    			add_location(div4, file$3, 197, 4, 6366);
+    			add_location(div4, file$3, 197, 4, 6348);
     			attr_dev(div5, "class", "row mb-1 mx-4 row-cols-9 gx-2");
-    			add_location(div5, file$3, 214, 4, 6959);
-    			attr_dev(i, "class", "fas fa-backspace icon svelte-hnu834");
-    			add_location(i, file$3, 248, 10, 8285);
-    			attr_dev(div6, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-hnu834");
-    			add_location(div6, file$3, 247, 8, 8203);
-    			attr_dev(div7, "class", "col my-1 c-p svelte-hnu834");
-    			add_location(div7, file$3, 246, 6, 8123);
+    			add_location(div5, file$3, 214, 4, 6941);
+    			attr_dev(i, "class", "fas fa-backspace icon svelte-og2z59");
+    			add_location(i, file$3, 248, 10, 8267);
+    			attr_dev(div6, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
+    			add_location(div6, file$3, 247, 8, 8185);
+    			attr_dev(div7, "class", "col my-1 c-p svelte-og2z59");
+    			add_location(div7, file$3, 246, 6, 8105);
     			attr_dev(div8, "class", "row mb-1 row-cols-10 gx-2");
-    			add_location(div8, file$3, 231, 4, 7559);
-    			attr_dev(div9, "class", "w-50 mt-2 position-absolute left-50 bottom-0 svelte-hnu834");
-    			add_location(div9, file$3, 195, 2, 6283);
+    			add_location(div8, file$3, 231, 4, 7541);
+    			attr_dev(div9, "class", "w-50 mt-2 position-absolute left-50 bottom-0 svelte-og2z59");
+    			add_location(div9, file$3, 195, 2, 6265);
     			attr_dev(div10, "class", "position-relative w-100 h-100 border fw-bolder");
     			set_style(div10, "background", "#111111");
     			add_location(div10, file$3, 149, 0, 4855);
