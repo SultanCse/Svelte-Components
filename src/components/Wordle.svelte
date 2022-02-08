@@ -1,6 +1,6 @@
 <script>
 	import {possibilities} from '../store/WordleWords.js';
-  const index = Math.floor(Math.random() * possibilities.length);
+  let index = Math.floor(Math.random() * possibilities.length);
   let word = "";
   let keyColors = [];
   let rightWord = possibilities[index].toUpperCase();
@@ -51,6 +51,10 @@
       firstRowColors = [];
       secondRowColors = [];
       thirdRowColors = [];
+      index = Math.floor(Math.random() * possibilities.length);
+      rightWord = possibilities[index].toUpperCase();
+      console.log(rightWord);
+      
     }
     console.log(word);
   }
