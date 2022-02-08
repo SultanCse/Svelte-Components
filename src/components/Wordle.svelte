@@ -72,8 +72,11 @@
       }
       colors = colors;
       keyColorPerRow();   
-      if(word.includes(rightWord)){
+    if(word.includes(rightWord)){
       alert('You Win');
+    }
+    if(!word.includes(rightWord) && word.length == 30){
+      alert('You Loss');
     }
      
   }
@@ -165,7 +168,7 @@
       {/each}
     </div>
   </div>
-  <div class="w-25 mt-2 ">
+  <div class="w-25 mt-2 position-absolute left-50">
     <div class="row mb-1 row-cols-5 gx-2">
       {#each falseArray as item}
         <div class="col my-1">
