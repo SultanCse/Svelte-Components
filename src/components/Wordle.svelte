@@ -1,5 +1,9 @@
 <script>
 	import {possibilities} from '../store/WordleWords.js';
+  import {WordleModal} from '../services/appList.js';
+  let openModal = false;
+  let title = '';
+  let subtitle = '';
   let index = Math.floor(Math.random() * possibilities.length);
   let word = "";
   let keyColors = [];
@@ -21,7 +25,9 @@
         checkWord();
         nextCount = word.length + 5;
       }else{
-        alert('Enter a Meaningfull Word');
+        openModal = true;
+        title = 'Attention';
+        subtitle = 'Enter a Meaningfull Word';
       } 
     }
     if(event.key=='Backspace' && nextCount-5 != word.length){
@@ -76,10 +82,14 @@
       colors = colors;
       keyColorPerRow();   
     if(word.includes(rightWord)){
-      alert('You Win');
+      openModal = true;
+      title = 'Well Done';
+      subtitle = 'You have guessed the word successfully';
     }
     if(!word.includes(rightWord) && word.length == 30){
-      alert('You Loss');
+      openModal = true;
+        title = 'Failed';
+        subtitle = 'You have failed to guess the word';
     }
      
   }
@@ -257,6 +267,18 @@
       </div>
     </div>
   </div>
+  {#if openModal}
+    <WordleModal
+      bind:openModal
+      bind:title
+      bind:subtitle
+      titleColor={title == 'Well Done'
+        ? 'text-success'
+        : title == 'Failed'
+        ? 'text-danger'
+        : 'text-warning'}
+    />
+  {/if}
 </div>
 
 <style>

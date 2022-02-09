@@ -17,27 +17,27 @@ import SvgIcon from '../elements/SvgIcon.svelte';
 import LoadingSingleCircle from '../elements/LoadingSingleCircle.svelte';
 import MoonLit from '../components/MoonLit.svelte';
 import Wordle from '../components/Wordle.svelte';
-import Modal from '../elements/Modal.svelte';
+import WordleModal from '../elements/WordleModal.svelte';
 
 export {
-  PackageUsages,
-  LoadingInfinityBar,
-  LightDarkTheme,
   AnimatedButton,
-  JockTeller,
   AppPoll,
-  QuoteGenerator,
-  Toggle,
-  Calculator,
   BounchingHeadline,
-  TableDataPagination,
-  SvgIcon,
-  InfiniteScroll,
-  TestCode,
+  Calculator,
+  JockTeller,
+  LightDarkTheme,
   LoadingCircle,
   LoadingSquareBar,
   LoadingSingleCircle,
+  LoadingInfinityBar,
   MoonLit,
-  Modal,
-  Wordle
+  PackageUsages,
+  QuoteGenerator,
+  SvgIcon,
+  Toggle,
+  TableDataPagination,
+  InfiniteScroll,
+  TestCode,
+  Wordle,
+  WordleModal
 };

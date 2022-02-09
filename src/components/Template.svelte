@@ -4,7 +4,7 @@
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
         Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,TableDataPagination,
         LoadingSquareBar, LoadingInfinityBar, BounchingHeadline, SvgIcon,
-        LoadingSingleCircle, MoonLit, Modal, Wordle} from '../services/appList.js'
+        LoadingSingleCircle, MoonLit, WordleModal, Wordle} from '../services/appList.js'
     
 let toggleValue=false;
 $: console.log(toggleValue);
@@ -14,7 +14,7 @@ let activeTab = 'TestCode';
         {name:'TableDataPagination', icon:'fas fa-table', component: TableDataPagination},
         {name:'MoonLit', icon:'fas fa-bahai', component: MoonLit},
         {name:'Wordle', icon:'fab fa-wordpress', component: Wordle},
-        {name:'Modal', icon:'fas fa-check', component: Modal},
+        {name:'WordleModal', icon:'fas fa-check', component: WordleModal},
         {name:'LoadingSingleCircle', icon:'fas fa-spinner', component: LoadingSingleCircle},
         {name:'TestCode', icon:'fas fa-text-height', component: TestCode},
         {name:'SvgIcon', icon:"fas fa-icons", component: SvgIcon},
@@ -100,8 +100,8 @@ let activeTab = 'TestCode';
         <AppPoll />
       {:else if activeTab == 'Calculator'}
         <Calculator />
-      {:else if activeTab == 'Modal'}
-        <Modal />
+      {:else if activeTab == 'WordleModal'}
+        <WordleModal />
       {:else if activeTab == 'Toggle'}
         <Toggle
           width="10rem"
