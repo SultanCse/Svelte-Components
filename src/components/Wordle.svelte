@@ -56,7 +56,6 @@
       console.log(rightWord);
       
     }
-    console.log(word);
   }
   let colors=[];
   const checkWord = ()=>{
