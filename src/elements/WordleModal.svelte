@@ -14,7 +14,10 @@
   class="body {display
     ? ''
     : 'd-none'} position-absolute top-0 start-0 w-100 h-100  {className}"
-  on:click|self={() => (display = false)}
+  on:click|self={() => {
+    display = false;
+    openModal = false;
+  }}
 >
   <div
     class="w-50 shadow-sm bg-white border rounded position-absolute start-25 top-20 "

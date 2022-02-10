@@ -43,7 +43,9 @@
         checkWord();
         nextCount = word.length + 5;
       }else{
-        alert('Enter a Meaningfull Word');
+        openModal = true;
+        title = 'Attention';
+        subtitle = 'Enter a Meaningfull Word';
       }      
     }
     if(b=='bks' && nextCount-5 != word.length){
@@ -88,8 +90,8 @@
     }
     if(!word.includes(rightWord) && word.length == 30){
       openModal = true;
-        title = 'Failed';
-        subtitle = 'You have failed to guess the word';
+      title = 'Failed';
+      subtitle = 'You have failed to guess the word';
     }
      
   }

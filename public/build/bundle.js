@@ -5596,16 +5596,16 @@ var app = (function () {
     			div0 = element("div");
     			div0.textContent = "Cancel";
     			attr_dev(p0, "class", p0_class_value = "text-center fs-1 m-0 fw-bolder " + /*titleColor*/ ctx[3] + "" + " svelte-1cuklot");
-    			add_location(p0, file$g, 22, 4, 660);
+    			add_location(p0, file$g, 25, 4, 695);
     			attr_dev(p1, "class", p1_class_value = "text-center fs-4 mb-0 fw-light " + /*subtitleColor*/ ctx[4] + " svelte-1cuklot");
-    			add_location(p1, file$g, 24, 4, 759);
+    			add_location(p1, file$g, 27, 4, 794);
     			attr_dev(div0, "class", "btn btn-secondary");
     			attr_dev(div0, "type", "");
-    			add_location(div0, file$g, 32, 6, 1100);
+    			add_location(div0, file$g, 35, 6, 1135);
     			attr_dev(div1, "class", "d-flex justify-content-end m-2");
-    			add_location(div1, file$g, 30, 4, 971);
+    			add_location(div1, file$g, 33, 4, 1006);
     			attr_dev(div2, "class", "w-50 shadow-sm bg-white border rounded position-absolute start-25 top-20  svelte-1cuklot");
-    			add_location(div2, file$g, 18, 2, 531);
+    			add_location(div2, file$g, 21, 2, 566);
     			attr_dev(div3, "class", div3_class_value = "body " + (/*display*/ ctx[6] ? '' : 'd-none') + " position-absolute top-0 start-0 w-100 h-100 " + /*className*/ ctx[5] + " svelte-1cuklot");
     			add_location(div3, file$g, 12, 0, 368);
     		},
@@ -5691,7 +5691,10 @@ var app = (function () {
     		($$invalidate(6, display = false), $$invalidate(0, openModal = false));
     	};
 
-    	const click_handler_1 = () => $$invalidate(6, display = false);
+    	const click_handler_1 = () => {
+    		$$invalidate(6, display = false);
+    		$$invalidate(0, openModal = false);
+    	};
 
     	$$self.$$set = $$props => {
     		if ('title' in $$props) $$invalidate(1, title = $$props.title);
@@ -27853,7 +27856,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (172:6) {#each word as item, i}
+    // (174:6) {#each word as item, i}
     function create_each_block_4(ctx) {
     	let div1;
     	let div0;
@@ -27869,9 +27872,9 @@ var app = (function () {
     			t1 = space();
     			attr_dev(div0, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
     			set_style(div0, "background-color", /*colors*/ ctx[4][/*i*/ ctx[30]]);
-    			add_location(div0, file$2, 173, 10, 5699);
+    			add_location(div0, file$2, 175, 10, 5756);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$2, 172, 8, 5665);
+    			add_location(div1, file$2, 174, 8, 5722);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -27895,14 +27898,14 @@ var app = (function () {
     		block,
     		id: create_each_block_4.name,
     		type: "each",
-    		source: "(172:6) {#each word as item, i}",
+    		source: "(174:6) {#each word as item, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (186:6) {#each falseArray as item}
+    // (188:6) {#each falseArray as item}
     function create_each_block_3(ctx) {
     	let div1;
     	let div0;
@@ -27938,25 +27941,25 @@ var app = (function () {
     			div8 = element("div");
     			t4 = space();
     			attr_dev(div0, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
-    			add_location(div0, file$2, 187, 10, 6110);
+    			add_location(div0, file$2, 189, 10, 6167);
     			attr_dev(div1, "class", "col my-1");
-    			add_location(div1, file$2, 186, 8, 6076);
+    			add_location(div1, file$2, 188, 8, 6133);
     			attr_dev(div2, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
-    			add_location(div2, file$2, 190, 10, 6240);
+    			add_location(div2, file$2, 192, 10, 6297);
     			attr_dev(div3, "class", "col my-1");
-    			add_location(div3, file$2, 189, 8, 6206);
+    			add_location(div3, file$2, 191, 8, 6263);
     			attr_dev(div4, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
-    			add_location(div4, file$2, 193, 10, 6370);
+    			add_location(div4, file$2, 195, 10, 6427);
     			attr_dev(div5, "class", "col my-1");
-    			add_location(div5, file$2, 192, 8, 6336);
+    			add_location(div5, file$2, 194, 8, 6393);
     			attr_dev(div6, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
-    			add_location(div6, file$2, 198, 10, 6526);
+    			add_location(div6, file$2, 200, 10, 6583);
     			attr_dev(div7, "class", "col my-1");
-    			add_location(div7, file$2, 197, 8, 6492);
+    			add_location(div7, file$2, 199, 8, 6549);
     			attr_dev(div8, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
-    			add_location(div8, file$2, 203, 10, 6682);
+    			add_location(div8, file$2, 205, 10, 6739);
     			attr_dev(div9, "class", "col my-1");
-    			add_location(div9, file$2, 202, 8, 6648);
+    			add_location(div9, file$2, 204, 8, 6705);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -27992,14 +27995,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(186:6) {#each falseArray as item}",
+    		source: "(188:6) {#each falseArray as item}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (217:10) {#key firstRowColors}
+    // (219:10) {#key firstRowColors}
     function create_key_block_2(ctx) {
     	let div;
     	let t_value = /*item*/ ctx[28] + "";
@@ -28015,7 +28018,7 @@ var app = (function () {
     			? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*firstRowColors*/ ctx[5])
     			: '#828385');
 
-    			add_location(div, file$2, 217, 12, 7147);
+    			add_location(div, file$2, 219, 12, 7204);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -28037,14 +28040,14 @@ var app = (function () {
     		block,
     		id: create_key_block_2.name,
     		type: "key",
-    		source: "(217:10) {#key firstRowColors}",
+    		source: "(219:10) {#key firstRowColors}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (215:6) {#each charSet[0] as item, i (i)}
+    // (217:6) {#each charSet[0] as item, i (i)}
     function create_each_block_2(key_1, ctx) {
     	let div;
     	let previous_key = /*firstRowColors*/ ctx[5];
@@ -28065,7 +28068,7 @@ var app = (function () {
     			key_block.c();
     			t = space();
     			attr_dev(div, "class", "col my-1 c-p svelte-og2z59");
-    			add_location(div, file$2, 215, 8, 7031);
+    			add_location(div, file$2, 217, 8, 7088);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -28102,14 +28105,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(215:6) {#each charSet[0] as item, i (i)}",
+    		source: "(217:6) {#each charSet[0] as item, i (i)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (234:10) {#key secondRowColors}
+    // (236:10) {#key secondRowColors}
     function create_key_block_1(ctx) {
     	let div;
     	let t_value = /*item*/ ctx[28] + "";
@@ -28125,7 +28128,7 @@ var app = (function () {
     			? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*secondRowColors*/ ctx[6])
     			: '#828385');
 
-    			add_location(div, file$2, 234, 12, 7745);
+    			add_location(div, file$2, 236, 12, 7802);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -28147,14 +28150,14 @@ var app = (function () {
     		block,
     		id: create_key_block_1.name,
     		type: "key",
-    		source: "(234:10) {#key secondRowColors}",
+    		source: "(236:10) {#key secondRowColors}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (232:6) {#each charSet[1] as item, i (i)}
+    // (234:6) {#each charSet[1] as item, i (i)}
     function create_each_block_1(key_1, ctx) {
     	let div;
     	let previous_key = /*secondRowColors*/ ctx[6];
@@ -28175,7 +28178,7 @@ var app = (function () {
     			key_block.c();
     			t = space();
     			attr_dev(div, "class", "col my-1 c-p svelte-og2z59");
-    			add_location(div, file$2, 232, 8, 7628);
+    			add_location(div, file$2, 234, 8, 7685);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -28212,14 +28215,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(232:6) {#each charSet[1] as item, i (i)}",
+    		source: "(234:6) {#each charSet[1] as item, i (i)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (251:10) {#key thirdRowColors}
+    // (253:10) {#key thirdRowColors}
     function create_key_block$1(ctx) {
     	let div;
     	let t_value = /*item*/ ctx[28] + "";
@@ -28235,7 +28238,7 @@ var app = (function () {
     			? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*thirdRowColors*/ ctx[7])
     			: '#828385');
 
-    			add_location(div, file$2, 251, 12, 8340);
+    			add_location(div, file$2, 253, 12, 8397);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -28257,14 +28260,14 @@ var app = (function () {
     		block,
     		id: create_key_block$1.name,
     		type: "key",
-    		source: "(251:10) {#key thirdRowColors}",
+    		source: "(253:10) {#key thirdRowColors}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (249:6) {#each charSet[2] as item, i (i)}
+    // (251:6) {#each charSet[2] as item, i (i)}
     function create_each_block(key_1, ctx) {
     	let div;
     	let previous_key = /*thirdRowColors*/ ctx[7];
@@ -28283,7 +28286,7 @@ var app = (function () {
     			div = element("div");
     			key_block.c();
     			attr_dev(div, "class", "col my-1 c-p svelte-og2z59");
-    			add_location(div, file$2, 249, 8, 8224);
+    			add_location(div, file$2, 251, 8, 8281);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -28319,14 +28322,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(249:6) {#each charSet[2] as item, i (i)}",
+    		source: "(251:6) {#each charSet[2] as item, i (i)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (270:2) {#if openModal}
+    // (272:2) {#if openModal}
     function create_if_block$1(ctx) {
     	let wordlemodal;
     	let updating_openModal;
@@ -28426,7 +28429,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(270:2) {#if openModal}",
+    		source: "(272:2) {#if openModal}",
     		ctx
     	});
 
@@ -28559,30 +28562,30 @@ var app = (function () {
     			t5 = space();
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div0, file$2, 170, 4, 5586);
+    			add_location(div0, file$2, 172, 4, 5643);
     			attr_dev(div1, "class", "w-25 mt-2 position-absolute left-50 svelte-og2z59");
-    			add_location(div1, file$2, 169, 2, 5531);
+    			add_location(div1, file$2, 171, 2, 5588);
     			attr_dev(div2, "class", "row mb-1 row-cols-5 gx-2");
-    			add_location(div2, file$2, 184, 4, 5994);
+    			add_location(div2, file$2, 186, 4, 6051);
     			attr_dev(div3, "class", "w-25 mt-2 position-absolute left-50 svelte-og2z59");
-    			add_location(div3, file$2, 183, 2, 5939);
+    			add_location(div3, file$2, 185, 2, 5996);
     			attr_dev(div4, "class", "row mb-1 row-cols-10 gx-2");
-    			add_location(div4, file$2, 213, 4, 6941);
+    			add_location(div4, file$2, 215, 4, 6998);
     			attr_dev(div5, "class", "row mb-1 mx-4 row-cols-9 gx-2");
-    			add_location(div5, file$2, 230, 4, 7534);
+    			add_location(div5, file$2, 232, 4, 7591);
     			attr_dev(i, "class", "fas fa-backspace icon svelte-og2z59");
-    			add_location(i, file$2, 264, 10, 8860);
+    			add_location(i, file$2, 266, 10, 8917);
     			attr_dev(div6, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
-    			add_location(div6, file$2, 263, 8, 8778);
+    			add_location(div6, file$2, 265, 8, 8835);
     			attr_dev(div7, "class", "col my-1 c-p svelte-og2z59");
-    			add_location(div7, file$2, 262, 6, 8698);
+    			add_location(div7, file$2, 264, 6, 8755);
     			attr_dev(div8, "class", "row mb-1 row-cols-10 gx-2");
-    			add_location(div8, file$2, 247, 4, 8134);
+    			add_location(div8, file$2, 249, 4, 8191);
     			attr_dev(div9, "class", "w-50 mt-2 position-absolute left-50 bottom-0 svelte-og2z59");
-    			add_location(div9, file$2, 211, 2, 6858);
+    			add_location(div9, file$2, 213, 2, 6915);
     			attr_dev(div10, "class", "position-relative w-100 h-100 border fw-bolder");
     			set_style(div10, "background", "#111111");
-    			add_location(div10, file$2, 165, 0, 5430);
+    			add_location(div10, file$2, 167, 0, 5487);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -28807,7 +28810,9 @@ var app = (function () {
     				checkWord();
     				nextCount = word.length + 5;
     			} else {
-    				alert('Enter a Meaningfull Word');
+    				$$invalidate(0, openModal = true);
+    				$$invalidate(1, title = 'Attention');
+    				$$invalidate(2, subtitle = 'Enter a Meaningfull Word');
     			}
     		}
 
