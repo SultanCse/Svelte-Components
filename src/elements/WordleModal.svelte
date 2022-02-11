@@ -8,8 +8,13 @@
   // export let buttonText="Submit";
   export let className="bg-gray";
   export let openModal = false;
+  const modalHandeller = (event)=>{
+    event.key === 'Enter' ? openModal=!openModal:'';
+    console.log(event.key, openModal);
+  }
 </script>
 
+<svelte:window on:keydown={event => modalHandeller(event)} />
 <div
   class="body {display
     ? ''

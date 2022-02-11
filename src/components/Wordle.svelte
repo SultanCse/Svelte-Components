@@ -274,11 +274,7 @@
       bind:openModal
       bind:title
       bind:subtitle
-      titleColor={title == 'Well Done'
-        ? 'text-success'
-        : title == 'Failed'
-        ? 'text-danger'
-        : 'text-warning'}
+      titleColor={title == 'Well Done' ? 'text-success' : 'text-danger'}
     />
   {/if}
 </div>
