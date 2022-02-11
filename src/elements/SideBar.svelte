@@ -24,11 +24,11 @@
       dispatch('activeTab', {activeTab: item.name});
     }}
   >
-    <div class="col-lg-4 col-md-12 d-flex justify-content-center">
-      <i class="{item.icon} icon" />
+    <div class="col-lg-4 col-12 d-flex justify-content-center">
+      <i class="{item.icon} icon text-center" />
     </div>
     <div
-      class="col-lg-8 col-md-12 d-sm-none d-md-block d-flex text-lg-start text-md-center title"
+      class="col-lg-8 col-12 d-none d-md-block text-lg-start text-md-center title"
     >
       {item.name ? item.name : item.component.name}
     </div>
@@ -38,7 +38,7 @@
 <style>
   .icon {
     /* padding: 0.8rem; */
-    margin-top: 1.2rem;
+    /* margin-top: 1.2rem; */
     font-size: 1rem;
   }
   .title {
@@ -49,7 +49,8 @@
   .item {
     cursor: pointer;
     border-radius: 3px;
-    height: 50px;
+    padding: 1rem 0;
+    /* height: 50px; */
     /* color: #ff4205; */
   }
   .item:hover {

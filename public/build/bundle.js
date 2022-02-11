@@ -1072,13 +1072,13 @@ var app = (function () {
     			div1 = element("div");
     			t1 = text(t1_value);
     			t2 = space();
-    			attr_dev(i, "class", i_class_value = "" + (/*item*/ ctx[4].icon + " icon" + " svelte-uqox2l"));
-    			add_location(i, file$w, 27, 6, 932);
-    			attr_dev(div0, "class", "col-lg-4 col-md-12 d-flex justify-content-center");
+    			attr_dev(i, "class", i_class_value = "" + (/*item*/ ctx[4].icon + " icon text-center" + " svelte-1yo3l9e"));
+    			add_location(i, file$w, 27, 6, 929);
+    			attr_dev(div0, "class", "col-lg-4 col-12 d-flex justify-content-center");
     			add_location(div0, file$w, 26, 4, 862);
-    			attr_dev(div1, "class", "col-lg-8 col-md-12 d-sm-none d-md-block d-flex text-lg-start text-md-center title svelte-uqox2l");
-    			add_location(div1, file$w, 29, 4, 980);
-    			attr_dev(div2, "class", "row g-0 shadow-sm item m-1 svelte-uqox2l");
+    			attr_dev(div1, "class", "col-lg-8 col-12 d-none d-md-block text-lg-start text-md-center title svelte-1yo3l9e");
+    			add_location(div1, file$w, 29, 4, 989);
+    			attr_dev(div2, "class", "row g-0 shadow-sm item m-1 svelte-1yo3l9e");
     			attr_dev(div2, "tabindex", "1");
 
     			toggle_class(div2, "select", /*selected*/ ctx[1] == /*item*/ ctx[4].name
@@ -1104,7 +1104,7 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty & /*list*/ 1 && i_class_value !== (i_class_value = "" + (/*item*/ ctx[4].icon + " icon" + " svelte-uqox2l"))) {
+    			if (dirty & /*list*/ 1 && i_class_value !== (i_class_value = "" + (/*item*/ ctx[4].icon + " icon text-center" + " svelte-1yo3l9e"))) {
     				attr_dev(i, "class", i_class_value);
     			}
 
