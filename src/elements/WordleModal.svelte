@@ -32,12 +32,13 @@
     <!-- sub header -->
     <p class="text-center fs-4 mb-0 fw-light {subtitleColor}">{subtitle}</p>
     <!-- modal body -->
-    <!-- <div class="p-2 border-bottom">
+    <div class="p-2 text-center">
       <slot />
-    </div> -->
+    </div>
     <!-- modal bottom buttons -->
     <div class="d-flex justify-content-end m-2">
       <!-- <div class="btn btn-primary me-2" type="">{buttonText}</div> -->
+
       <div
         class="btn btn-secondary"
         type=""

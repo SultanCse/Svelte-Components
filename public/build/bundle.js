@@ -2371,7 +2371,7 @@ var app = (function () {
     const file$p = "src\\pollevent\\CreatePollForm.svelte";
 
     // (68:8) <Button type="secondary" >
-    function create_default_slot$1(ctx) {
+    function create_default_slot$2(ctx) {
     	let t;
 
     	const block = {
@@ -2388,7 +2388,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$1.name,
+    		id: create_default_slot$2.name,
     		type: "slot",
     		source: "(68:8) <Button type=\\\"secondary\\\" >",
     		ctx
@@ -2436,7 +2436,7 @@ var app = (function () {
     	button = new Button({
     			props: {
     				type: "secondary",
-    				$$slots: { default: [create_default_slot$1] },
+    				$$slots: { default: [create_default_slot$2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -2995,7 +2995,7 @@ var app = (function () {
     }
 
     // (38:0) <Card>
-    function create_default_slot(ctx) {
+    function create_default_slot$1(ctx) {
     	let div5;
     	let h3;
     	let t0_value = /*poll*/ ctx[0].question + "";
@@ -3191,7 +3191,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot.name,
+    		id: create_default_slot$1.name,
     		type: "slot",
     		source: "(38:0) <Card>",
     		ctx
@@ -3206,7 +3206,7 @@ var app = (function () {
 
     	card = new Card({
     			props: {
-    				$$slots: { default: [create_default_slot] },
+    				$$slots: { default: [create_default_slot$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -3659,7 +3659,7 @@ var app = (function () {
     const file$l = "src\\pollevent\\AppPoll.svelte";
 
     // (19:41) 
-    function create_if_block_1$2(ctx) {
+    function create_if_block_1$3(ctx) {
     	let createpollform;
     	let current;
     	createpollform = new CreatePollForm({ $$inline: true });
@@ -3690,7 +3690,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$2.name,
+    		id: create_if_block_1$3.name,
     		type: "if",
     		source: "(19:41) ",
     		ctx
@@ -3761,7 +3761,7 @@ var app = (function () {
     		});
 
     	tabs.$on("tabChange", /*tabChange_handler*/ ctx[3]);
-    	const if_block_creators = [create_if_block$5, create_if_block_1$2];
+    	const if_block_creators = [create_if_block$5, create_if_block_1$3];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -11751,7 +11751,7 @@ var app = (function () {
     }
 
     // (52:71) 
-    function create_if_block_1$1(ctx) {
+    function create_if_block_1$2(ctx) {
     	let current;
     	const ellipsis_slot_template = /*#slots*/ ctx[9].ellipsis;
     	const ellipsis_slot = create_slot(ellipsis_slot_template, ctx, /*$$scope*/ ctx[8], get_ellipsis_slot_context);
@@ -11800,7 +11800,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$1.name,
+    		id: create_if_block_1$2.name,
     		type: "if",
     		source: "(52:71) ",
     		ctx
@@ -12019,7 +12019,7 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	const if_block_creators = [create_if_block$3, create_if_block_1$1, create_if_block_2$1, create_if_block_3$1];
+    	const if_block_creators = [create_if_block$3, create_if_block_1$2, create_if_block_2$1, create_if_block_3$1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -27420,7 +27420,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr_dev(div0, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
-    			set_style(div0, "background-color", /*colors*/ ctx[4][/*i*/ ctx[30]]);
+    			set_style(div0, "background-color", /*colors*/ ctx[5][/*i*/ ctx[30]]);
     			add_location(div0, file$3, 175, 10, 5756);
     			attr_dev(div1, "class", "col my-1");
     			add_location(div1, file$3, 174, 8, 5722);
@@ -27434,8 +27434,8 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*word*/ 8 && t0_value !== (t0_value = /*item*/ ctx[28] + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty[0] & /*colors*/ 16) {
-    				set_style(div0, "background-color", /*colors*/ ctx[4][/*i*/ ctx[30]]);
+    			if (dirty[0] & /*colors*/ 32) {
+    				set_style(div0, "background-color", /*colors*/ ctx[5][/*i*/ ctx[30]]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -27563,8 +27563,8 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
 
-    			set_style(div, "background-color", /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*firstRowColors*/ ctx[5])
-    			? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*firstRowColors*/ ctx[5])
+    			set_style(div, "background-color", /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*firstRowColors*/ ctx[6])
+    			? /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*firstRowColors*/ ctx[6])
     			: '#828385');
 
     			add_location(div, file$3, 219, 12, 7204);
@@ -27574,9 +27574,9 @@ var app = (function () {
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*firstRowColors*/ 32) {
-    				set_style(div, "background-color", /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*firstRowColors*/ ctx[5])
-    				? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*firstRowColors*/ ctx[5])
+    			if (dirty[0] & /*firstRowColors*/ 64) {
+    				set_style(div, "background-color", /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*firstRowColors*/ ctx[6])
+    				? /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*firstRowColors*/ ctx[6])
     				: '#828385');
     			}
     		},
@@ -27599,14 +27599,14 @@ var app = (function () {
     // (217:6) {#each charSet[0] as item, i (i)}
     function create_each_block_2(key_1, ctx) {
     	let div;
-    	let previous_key = /*firstRowColors*/ ctx[5];
+    	let previous_key = /*firstRowColors*/ ctx[6];
     	let t;
     	let mounted;
     	let dispose;
     	let key_block = create_key_block_2(ctx);
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[14](/*item*/ ctx[28]);
+    		return /*click_handler*/ ctx[15](/*item*/ ctx[28]);
     	}
 
     	const block = {
@@ -27633,7 +27633,7 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*firstRowColors*/ 32 && safe_not_equal(previous_key, previous_key = /*firstRowColors*/ ctx[5])) {
+    			if (dirty[0] & /*firstRowColors*/ 64 && safe_not_equal(previous_key, previous_key = /*firstRowColors*/ ctx[6])) {
     				key_block.d(1);
     				key_block = create_key_block_2(ctx);
     				key_block.c();
@@ -27673,8 +27673,8 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
 
-    			set_style(div, "background-color", /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*secondRowColors*/ ctx[6])
-    			? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*secondRowColors*/ ctx[6])
+    			set_style(div, "background-color", /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*secondRowColors*/ ctx[7])
+    			? /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*secondRowColors*/ ctx[7])
     			: '#828385');
 
     			add_location(div, file$3, 236, 12, 7802);
@@ -27684,9 +27684,9 @@ var app = (function () {
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*secondRowColors*/ 64) {
-    				set_style(div, "background-color", /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*secondRowColors*/ ctx[6])
-    				? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*secondRowColors*/ ctx[6])
+    			if (dirty[0] & /*secondRowColors*/ 128) {
+    				set_style(div, "background-color", /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*secondRowColors*/ ctx[7])
+    				? /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*secondRowColors*/ ctx[7])
     				: '#828385');
     			}
     		},
@@ -27709,14 +27709,14 @@ var app = (function () {
     // (234:6) {#each charSet[1] as item, i (i)}
     function create_each_block_1(key_1, ctx) {
     	let div;
-    	let previous_key = /*secondRowColors*/ ctx[6];
+    	let previous_key = /*secondRowColors*/ ctx[7];
     	let t;
     	let mounted;
     	let dispose;
     	let key_block = create_key_block_1(ctx);
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[15](/*item*/ ctx[28]);
+    		return /*click_handler_1*/ ctx[16](/*item*/ ctx[28]);
     	}
 
     	const block = {
@@ -27743,7 +27743,7 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*secondRowColors*/ 64 && safe_not_equal(previous_key, previous_key = /*secondRowColors*/ ctx[6])) {
+    			if (dirty[0] & /*secondRowColors*/ 128 && safe_not_equal(previous_key, previous_key = /*secondRowColors*/ ctx[7])) {
     				key_block.d(1);
     				key_block = create_key_block_1(ctx);
     				key_block.c();
@@ -27783,8 +27783,8 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(div, "class", "border rounded h-2 w-100 d-flex justify-content-center svelte-og2z59");
 
-    			set_style(div, "background-color", /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*thirdRowColors*/ ctx[7])
-    			? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*thirdRowColors*/ ctx[7])
+    			set_style(div, "background-color", /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*thirdRowColors*/ ctx[8])
+    			? /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*thirdRowColors*/ ctx[8])
     			: '#828385');
 
     			add_location(div, file$3, 253, 12, 8397);
@@ -27794,9 +27794,9 @@ var app = (function () {
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*thirdRowColors*/ 128) {
-    				set_style(div, "background-color", /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*thirdRowColors*/ ctx[7])
-    				? /*colorReturn*/ ctx[12](/*item*/ ctx[28], /*thirdRowColors*/ ctx[7])
+    			if (dirty[0] & /*thirdRowColors*/ 256) {
+    				set_style(div, "background-color", /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*thirdRowColors*/ ctx[8])
+    				? /*colorReturn*/ ctx[13](/*item*/ ctx[28], /*thirdRowColors*/ ctx[8])
     				: '#828385');
     			}
     		},
@@ -27819,13 +27819,13 @@ var app = (function () {
     // (251:6) {#each charSet[2] as item, i (i)}
     function create_each_block(key_1, ctx) {
     	let div;
-    	let previous_key = /*thirdRowColors*/ ctx[7];
+    	let previous_key = /*thirdRowColors*/ ctx[8];
     	let mounted;
     	let dispose;
     	let key_block = create_key_block$1(ctx);
 
     	function click_handler_2() {
-    		return /*click_handler_2*/ ctx[16](/*item*/ ctx[28]);
+    		return /*click_handler_2*/ ctx[17](/*item*/ ctx[28]);
     	}
 
     	const block = {
@@ -27850,7 +27850,7 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*thirdRowColors*/ 128 && safe_not_equal(previous_key, previous_key = /*thirdRowColors*/ ctx[7])) {
+    			if (dirty[0] & /*thirdRowColors*/ 256 && safe_not_equal(previous_key, previous_key = /*thirdRowColors*/ ctx[8])) {
     				key_block.d(1);
     				key_block = create_key_block$1(ctx);
     				key_block.c();
@@ -27887,21 +27887,23 @@ var app = (function () {
     	let current;
 
     	function wordlemodal_openModal_binding(value) {
-    		/*wordlemodal_openModal_binding*/ ctx[18](value);
+    		/*wordlemodal_openModal_binding*/ ctx[19](value);
     	}
 
     	function wordlemodal_title_binding(value) {
-    		/*wordlemodal_title_binding*/ ctx[19](value);
+    		/*wordlemodal_title_binding*/ ctx[20](value);
     	}
 
     	function wordlemodal_subtitle_binding(value) {
-    		/*wordlemodal_subtitle_binding*/ ctx[20](value);
+    		/*wordlemodal_subtitle_binding*/ ctx[21](value);
     	}
 
     	let wordlemodal_props = {
     		titleColor: /*title*/ ctx[1] == 'Well Done'
     		? 'text-success'
-    		: 'text-danger'
+    		: 'text-danger',
+    		$$slots: { default: [create_default_slot] },
+    		$$scope: { ctx }
     	};
 
     	if (/*openModal*/ ctx[0] !== void 0) {
@@ -27935,6 +27937,10 @@ var app = (function () {
     			if (dirty[0] & /*title*/ 2) wordlemodal_changes.titleColor = /*title*/ ctx[1] == 'Well Done'
     			? 'text-success'
     			: 'text-danger';
+
+    			if (dirty[0] & /*rightWord, title*/ 18 | dirty[1] & /*$$scope*/ 32) {
+    				wordlemodal_changes.$$scope = { dirty, ctx };
+    			}
 
     			if (!updating_openModal && dirty[0] & /*openModal*/ 1) {
     				updating_openModal = true;
@@ -27981,6 +27987,103 @@ var app = (function () {
     	return block;
     }
 
+    // (279:6) {#if title == 'Failed'}
+    function create_if_block_1$1(ctx) {
+    	let p0;
+    	let t0;
+    	let t1;
+    	let t2;
+    	let t3;
+    	let p1;
+
+    	const block = {
+    		c: function create() {
+    			p0 = element("p");
+    			t0 = text("“");
+    			t1 = text(/*rightWord*/ ctx[4]);
+    			t2 = text("”");
+    			t3 = space();
+    			p1 = element("p");
+    			p1.textContent = "is the rightWord";
+    			attr_dev(p0, "class", "text-success");
+    			add_location(p0, file$3, 279, 8, 9224);
+    			attr_dev(p1, "class", "text-success fw-normal");
+    			add_location(p1, file$3, 280, 8, 9275);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p0, anchor);
+    			append_dev(p0, t0);
+    			append_dev(p0, t1);
+    			append_dev(p0, t2);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, p1, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*rightWord*/ 16) set_data_dev(t1, /*rightWord*/ ctx[4]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p0);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(p1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(279:6) {#if title == 'Failed'}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (273:4) <WordleModal        bind:openModal        bind:title        bind:subtitle        titleColor={title == 'Well Done' ? 'text-success' : 'text-danger'}      >
+    function create_default_slot(ctx) {
+    	let if_block_anchor;
+    	let if_block = /*title*/ ctx[1] == 'Failed' && create_if_block_1$1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty$1();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*title*/ ctx[1] == 'Failed') {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_1$1(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot.name,
+    		type: "slot",
+    		source: "(273:4) <WordleModal        bind:openModal        bind:title        bind:subtitle        titleColor={title == 'Well Done' ? 'text-success' : 'text-danger'}      >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$3(ctx) {
     	let div10;
     	let div1;
@@ -28017,7 +28120,7 @@ var app = (function () {
     		each_blocks_4[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
     	}
 
-    	let each_value_3 = /*falseArray*/ ctx[8];
+    	let each_value_3 = /*falseArray*/ ctx[9];
     	validate_each_argument(each_value_3);
     	let each_blocks_3 = [];
 
@@ -28025,7 +28128,7 @@ var app = (function () {
     		each_blocks_3[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
     	}
 
-    	let each_value_2 = /*charSet*/ ctx[9][0];
+    	let each_value_2 = /*charSet*/ ctx[10][0];
     	validate_each_argument(each_value_2);
     	const get_key = ctx => /*i*/ ctx[30];
     	validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
@@ -28036,7 +28139,7 @@ var app = (function () {
     		each2_lookup.set(key, each_blocks_2[i] = create_each_block_2(key, child_ctx));
     	}
 
-    	let each_value_1 = /*charSet*/ ctx[9][1];
+    	let each_value_1 = /*charSet*/ ctx[10][1];
     	validate_each_argument(each_value_1);
     	const get_key_1 = ctx => /*i*/ ctx[30];
     	validate_each_keys(ctx, each_value_1, get_each_context_1, get_key_1);
@@ -28047,7 +28150,7 @@ var app = (function () {
     		each3_lookup.set(key, each_blocks_1[i] = create_each_block_1(key, child_ctx));
     	}
 
-    	let each_value = /*charSet*/ ctx[9][2];
+    	let each_value = /*charSet*/ ctx[10][2];
     	validate_each_argument(each_value);
     	const get_key_2 = ctx => /*i*/ ctx[30];
     	validate_each_keys(ctx, each_value, get_each_context, get_key_2);
@@ -28184,15 +28287,15 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[13], false, false, false),
-    					listen_dev(div7, "click", /*click_handler_3*/ ctx[17], false, false, false)
+    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[14], false, false, false),
+    					listen_dev(div7, "click", /*click_handler_3*/ ctx[18], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*colors, word*/ 24) {
+    			if (dirty[0] & /*colors, word*/ 40) {
     				each_value_4 = /*word*/ ctx[3];
     				validate_each_argument(each_value_4);
     				let i;
@@ -28216,22 +28319,22 @@ var app = (function () {
     				each_blocks_4.length = each_value_4.length;
     			}
 
-    			if (dirty[0] & /*onScreenKbHandeller, charSet, colorReturn, firstRowColors*/ 6688) {
-    				each_value_2 = /*charSet*/ ctx[9][0];
+    			if (dirty[0] & /*onScreenKbHandeller, charSet, colorReturn, firstRowColors*/ 13376) {
+    				each_value_2 = /*charSet*/ ctx[10][0];
     				validate_each_argument(each_value_2);
     				validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
     				each_blocks_2 = update_keyed_each(each_blocks_2, dirty, get_key, 1, ctx, each_value_2, each2_lookup, div4, destroy_block, create_each_block_2, null, get_each_context_2);
     			}
 
-    			if (dirty[0] & /*onScreenKbHandeller, charSet, colorReturn, secondRowColors*/ 6720) {
-    				each_value_1 = /*charSet*/ ctx[9][1];
+    			if (dirty[0] & /*onScreenKbHandeller, charSet, colorReturn, secondRowColors*/ 13440) {
+    				each_value_1 = /*charSet*/ ctx[10][1];
     				validate_each_argument(each_value_1);
     				validate_each_keys(ctx, each_value_1, get_each_context_1, get_key_1);
     				each_blocks_1 = update_keyed_each(each_blocks_1, dirty, get_key_1, 1, ctx, each_value_1, each3_lookup, div5, destroy_block, create_each_block_1, null, get_each_context_1);
     			}
 
-    			if (dirty[0] & /*onScreenKbHandeller, charSet, colorReturn, thirdRowColors*/ 6784) {
-    				each_value = /*charSet*/ ctx[9][2];
+    			if (dirty[0] & /*onScreenKbHandeller, charSet, colorReturn, thirdRowColors*/ 13568) {
+    				each_value = /*charSet*/ ctx[10][2];
     				validate_each_argument(each_value);
     				validate_each_keys(ctx, each_value, get_each_context, get_key_2);
     				each_blocks = update_keyed_each(each_blocks, dirty, get_key_2, 1, ctx, each_value, each4_lookup, div8, destroy_block, create_each_block, t4, get_each_context);
@@ -28368,13 +28471,13 @@ var app = (function () {
     		if (b == 'reset') {
     			$$invalidate(3, word = '');
     			nextCount = 5;
-    			$$invalidate(4, colors = []);
+    			$$invalidate(5, colors = []);
     			keyColors = [];
-    			$$invalidate(5, firstRowColors = []);
-    			$$invalidate(6, secondRowColors = []);
-    			$$invalidate(7, thirdRowColors = []);
+    			$$invalidate(6, firstRowColors = []);
+    			$$invalidate(7, secondRowColors = []);
+    			$$invalidate(8, thirdRowColors = []);
     			index = Math.floor(Math.random() * possibilities.length);
-    			rightWord = possibilities[index].toUpperCase();
+    			$$invalidate(4, rightWord = possibilities[index].toUpperCase());
     			console.log(rightWord);
     		}
     	};
@@ -28382,7 +28485,7 @@ var app = (function () {
     	let colors = [];
 
     	const checkWord = () => {
-    		$$invalidate(4, colors = []);
+    		$$invalidate(5, colors = []);
     		keyColors = [];
 
     		for (let i = 0; i < word.length; i++) {
@@ -28398,7 +28501,7 @@ var app = (function () {
     			}
     		}
 
-    		$$invalidate(4, colors);
+    		$$invalidate(5, colors);
     		keyColorPerRow();
 
     		if (word.includes(rightWord)) {
@@ -28419,9 +28522,9 @@ var app = (function () {
     	let thirdRowColors = [];
 
     	const keyColorPerRow = () => {
-    		$$invalidate(5, firstRowColors = []);
-    		$$invalidate(6, secondRowColors = []);
-    		$$invalidate(7, thirdRowColors = []);
+    		$$invalidate(6, firstRowColors = []);
+    		$$invalidate(7, secondRowColors = []);
+    		$$invalidate(8, thirdRowColors = []);
 
     		for (let i = 0; i < word.length; i++) {
     			if (charSet[0].includes(keyColors[i].char)) {
@@ -28548,12 +28651,12 @@ var app = (function () {
     		if ('index' in $$props) index = $$props.index;
     		if ('word' in $$props) $$invalidate(3, word = $$props.word);
     		if ('keyColors' in $$props) keyColors = $$props.keyColors;
-    		if ('rightWord' in $$props) rightWord = $$props.rightWord;
+    		if ('rightWord' in $$props) $$invalidate(4, rightWord = $$props.rightWord);
     		if ('nextCount' in $$props) nextCount = $$props.nextCount;
-    		if ('colors' in $$props) $$invalidate(4, colors = $$props.colors);
-    		if ('firstRowColors' in $$props) $$invalidate(5, firstRowColors = $$props.firstRowColors);
-    		if ('secondRowColors' in $$props) $$invalidate(6, secondRowColors = $$props.secondRowColors);
-    		if ('thirdRowColors' in $$props) $$invalidate(7, thirdRowColors = $$props.thirdRowColors);
+    		if ('colors' in $$props) $$invalidate(5, colors = $$props.colors);
+    		if ('firstRowColors' in $$props) $$invalidate(6, firstRowColors = $$props.firstRowColors);
+    		if ('secondRowColors' in $$props) $$invalidate(7, secondRowColors = $$props.secondRowColors);
+    		if ('thirdRowColors' in $$props) $$invalidate(8, thirdRowColors = $$props.thirdRowColors);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -28565,6 +28668,7 @@ var app = (function () {
     		title,
     		subtitle,
     		word,
+    		rightWord,
     		colors,
     		firstRowColors,
     		secondRowColors,
@@ -28605,8 +28709,8 @@ var app = (function () {
     const file$2 = "src\\elements\\WordleModal.svelte";
 
     function create_fragment$2(ctx) {
+    	let div4;
     	let div3;
-    	let div2;
     	let p0;
     	let t0;
     	let t1;
@@ -28616,16 +28720,21 @@ var app = (function () {
     	let t3;
     	let p1_class_value;
     	let t4;
-    	let div1;
     	let div0;
-    	let div3_class_value;
+    	let t5;
+    	let div2;
+    	let div1;
+    	let div4_class_value;
+    	let current;
     	let mounted;
     	let dispose;
+    	const default_slot_template = /*#slots*/ ctx[9].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[8], null);
 
     	const block = {
     		c: function create() {
+    			div4 = element("div");
     			div3 = element("div");
-    			div2 = element("div");
     			p0 = element("p");
     			t0 = text(/*title*/ ctx[1]);
     			t1 = text("!");
@@ -28633,70 +28742,106 @@ var app = (function () {
     			p1 = element("p");
     			t3 = text(/*subtitle*/ ctx[2]);
     			t4 = space();
-    			div1 = element("div");
     			div0 = element("div");
-    			div0.textContent = "Cancel";
+    			if (default_slot) default_slot.c();
+    			t5 = space();
+    			div2 = element("div");
+    			div1 = element("div");
+    			div1.textContent = "Cancel";
     			attr_dev(p0, "class", p0_class_value = "text-center fs-1 m-0 fw-bolder " + /*titleColor*/ ctx[3] + "" + " svelte-1cuklot");
     			add_location(p0, file$2, 30, 4, 894);
     			attr_dev(p1, "class", p1_class_value = "text-center fs-4 mb-0 fw-light " + /*subtitleColor*/ ctx[4] + " svelte-1cuklot");
     			add_location(p1, file$2, 32, 4, 993);
-    			attr_dev(div0, "class", "btn btn-secondary");
-    			attr_dev(div0, "type", "");
-    			add_location(div0, file$2, 40, 6, 1334);
-    			attr_dev(div1, "class", "d-flex justify-content-end m-2");
-    			add_location(div1, file$2, 38, 4, 1205);
-    			attr_dev(div2, "class", "w-50 shadow-sm bg-white border rounded position-absolute start-25 top-20  svelte-1cuklot");
-    			add_location(div2, file$2, 26, 2, 765);
-    			attr_dev(div3, "class", div3_class_value = "body " + (/*display*/ ctx[6] ? '' : 'd-none') + " position-absolute top-0 start-0 w-100 h-100 " + /*className*/ ctx[5] + " svelte-1cuklot");
-    			add_location(div3, file$2, 17, 0, 567);
+    			attr_dev(div0, "class", "p-2 text-center");
+    			add_location(div0, file$2, 34, 4, 1096);
+    			attr_dev(div1, "class", "btn btn-secondary");
+    			attr_dev(div1, "type", "");
+    			add_location(div1, file$2, 41, 6, 1325);
+    			attr_dev(div2, "class", "d-flex justify-content-end m-2");
+    			add_location(div2, file$2, 38, 4, 1194);
+    			attr_dev(div3, "class", "w-50 shadow-sm bg-white border rounded position-absolute start-25 top-20  svelte-1cuklot");
+    			add_location(div3, file$2, 26, 2, 765);
+    			attr_dev(div4, "class", div4_class_value = "body " + (/*display*/ ctx[6] ? '' : 'd-none') + " position-absolute top-0 start-0 w-100 h-100 " + /*className*/ ctx[5] + " svelte-1cuklot");
+    			add_location(div4, file$2, 17, 0, 567);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div3, anchor);
-    			append_dev(div3, div2);
-    			append_dev(div2, p0);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div3);
+    			append_dev(div3, p0);
     			append_dev(p0, t0);
     			append_dev(p0, t1);
-    			append_dev(div2, t2);
-    			append_dev(div2, p1);
+    			append_dev(div3, t2);
+    			append_dev(div3, p1);
     			append_dev(p1, t3);
-    			append_dev(div2, t4);
+    			append_dev(div3, t4);
+    			append_dev(div3, div0);
+
+    			if (default_slot) {
+    				default_slot.m(div0, null);
+    			}
+
+    			append_dev(div3, t5);
+    			append_dev(div3, div2);
     			append_dev(div2, div1);
-    			append_dev(div1, div0);
+    			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[8], false, false, false),
-    					listen_dev(div0, "click", /*click_handler*/ ctx[9], false, false, false),
-    					listen_dev(div3, "click", self$1(/*click_handler_1*/ ctx[10]), false, false, false)
+    					listen_dev(window, "keydown", /*keydown_handler*/ ctx[10], false, false, false),
+    					listen_dev(div1, "click", /*click_handler*/ ctx[11], false, false, false),
+    					listen_dev(div4, "click", self$1(/*click_handler_1*/ ctx[12]), false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*title*/ 2) set_data_dev(t0, /*title*/ ctx[1]);
+    			if (!current || dirty & /*title*/ 2) set_data_dev(t0, /*title*/ ctx[1]);
 
-    			if (dirty & /*titleColor*/ 8 && p0_class_value !== (p0_class_value = "text-center fs-1 m-0 fw-bolder " + /*titleColor*/ ctx[3] + "" + " svelte-1cuklot")) {
+    			if (!current || dirty & /*titleColor*/ 8 && p0_class_value !== (p0_class_value = "text-center fs-1 m-0 fw-bolder " + /*titleColor*/ ctx[3] + "" + " svelte-1cuklot")) {
     				attr_dev(p0, "class", p0_class_value);
     			}
 
-    			if (dirty & /*subtitle*/ 4) set_data_dev(t3, /*subtitle*/ ctx[2]);
+    			if (!current || dirty & /*subtitle*/ 4) set_data_dev(t3, /*subtitle*/ ctx[2]);
 
-    			if (dirty & /*subtitleColor*/ 16 && p1_class_value !== (p1_class_value = "text-center fs-4 mb-0 fw-light " + /*subtitleColor*/ ctx[4] + " svelte-1cuklot")) {
+    			if (!current || dirty & /*subtitleColor*/ 16 && p1_class_value !== (p1_class_value = "text-center fs-4 mb-0 fw-light " + /*subtitleColor*/ ctx[4] + " svelte-1cuklot")) {
     				attr_dev(p1, "class", p1_class_value);
     			}
 
-    			if (dirty & /*display, className*/ 96 && div3_class_value !== (div3_class_value = "body " + (/*display*/ ctx[6] ? '' : 'd-none') + " position-absolute top-0 start-0 w-100 h-100 " + /*className*/ ctx[5] + " svelte-1cuklot")) {
-    				attr_dev(div3, "class", div3_class_value);
+    			if (default_slot) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 256)) {
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[8],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[8])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[8], dirty, null),
+    						null
+    					);
+    				}
+    			}
+
+    			if (!current || dirty & /*display, className*/ 96 && div4_class_value !== (div4_class_value = "body " + (/*display*/ ctx[6] ? '' : 'd-none') + " position-absolute top-0 start-0 w-100 h-100 " + /*className*/ ctx[5] + " svelte-1cuklot")) {
+    				attr_dev(div4, "class", div4_class_value);
     			}
     		},
-    		i: noop$1,
-    		o: noop$1,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div3);
+    			if (detaching) detach_dev(div4);
+    			if (default_slot) default_slot.d(detaching);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -28715,7 +28860,7 @@ var app = (function () {
 
     function instance$2($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
-    	validate_slots('WordleModal', slots, []);
+    	validate_slots('WordleModal', slots, ['default']);
     	let display = true;
     	let { title = "Title" } = $$props;
     	let { subtitle = "Subtitle" } = $$props;
@@ -28756,6 +28901,7 @@ var app = (function () {
     		if ('subtitleColor' in $$props) $$invalidate(4, subtitleColor = $$props.subtitleColor);
     		if ('className' in $$props) $$invalidate(5, className = $$props.className);
     		if ('openModal' in $$props) $$invalidate(0, openModal = $$props.openModal);
+    		if ('$$scope' in $$props) $$invalidate(8, $$scope = $$props.$$scope);
     	};
 
     	$$self.$capture_state = () => ({
@@ -28793,6 +28939,8 @@ var app = (function () {
     		className,
     		display,
     		modalHandeller,
+    		$$scope,
+    		slots,
     		keydown_handler,
     		click_handler,
     		click_handler_1

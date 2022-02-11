@@ -275,7 +275,12 @@
       bind:title
       bind:subtitle
       titleColor={title == 'Well Done' ? 'text-success' : 'text-danger'}
-    />
+    >
+      {#if title == 'Failed'}
+        <p class="text-success">“{rightWord}”</p>
+        <p class="text-success fw-normal">is the rightWord</p>
+      {/if}
+    </WordleModal>
   {/if}
 </div>
 
