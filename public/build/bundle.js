@@ -1073,13 +1073,16 @@ var app = (function () {
     			t1 = text(t1_value);
     			t2 = space();
     			attr_dev(i, "class", i_class_value = "" + (/*item*/ ctx[4].icon + " icon text-center" + " svelte-1yo3l9e"));
-    			add_location(i, file$w, 27, 6, 929);
+    			add_location(i, file$w, 30, 6, 1020);
     			attr_dev(div0, "class", "col-lg-4 col-12 d-flex justify-content-center");
-    			add_location(div0, file$w, 26, 4, 862);
+    			add_location(div0, file$w, 29, 4, 953);
     			attr_dev(div1, "class", "col-lg-8 col-12 d-none d-md-block text-lg-start text-md-center title svelte-1yo3l9e");
-    			add_location(div1, file$w, 29, 4, 989);
+    			add_location(div1, file$w, 32, 4, 1080);
     			attr_dev(div2, "class", "row g-0 shadow-sm item m-1 svelte-1yo3l9e");
     			attr_dev(div2, "tabindex", "1");
+    			attr_dev(div2, "data-bs-toggle", "tooltip");
+    			attr_dev(div2, "data-bs-placement", "right");
+    			attr_dev(div2, "title", "Tooltip on right");
 
     			toggle_class(div2, "select", /*selected*/ ctx[1] == /*item*/ ctx[4].name
     			? true
@@ -13971,28 +13974,43 @@ var app = (function () {
 
     function create_fragment$6(ctx) {
     	let svg;
+    	let t0;
+    	let button;
 
     	const block = {
     		c: function create() {
     			svg = svg_element("svg");
+    			t0 = space();
+    			button = element("button");
+    			button.textContent = "Tooltip on right";
     			attr_dev(svg, "data-src", "icons/icon1.svg");
     			attr_dev(svg, "width", "25");
     			attr_dev(svg, "height", "25");
     			attr_dev(svg, "fill", "red");
     			set_style(svg, "color", "purple");
     			add_location(svg, file$6, 4, 0, 58);
+    			attr_dev(button, "type", "button");
+    			attr_dev(button, "class", "btn btn-secondary");
+    			attr_dev(button, "data-bs-toggle", "tooltip");
+    			attr_dev(button, "data-bs-placement", "right");
+    			attr_dev(button, "title", "Tooltip on right");
+    			add_location(button, file$6, 11, 0, 167);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, svg, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, button, anchor);
     		},
     		p: noop$1,
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(svg);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(button);
     		}
     	};
 

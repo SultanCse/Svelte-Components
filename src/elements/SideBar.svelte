@@ -23,6 +23,9 @@
     on:click={() => {
       dispatch('activeTab', {activeTab: item.name});
     }}
+    data-bs-toggle="tooltip"
+    data-bs-placement="right"
+    title="Tooltip on right"
   >
     <div class="col-lg-4 col-12 d-flex justify-content-center">
       <i class="{item.icon} icon text-center" />
