@@ -2,7 +2,7 @@
 	import SideBar from './../elements/SideBar.svelte';
   import NavBar from './NavBar.svelte';
     import {PackageUsages, LightDarkTheme, AnimatedButton,AppPoll,QuoteGenerator,
-        Toggle,Calculator,InfiniteScroll,TestCode,LoadingCircle, JockTeller,TableDataPagination,
+        Toggle,Calculator,InfiniteScroll,TestCode,ToDoApp,LoadingCircle, JockTeller,TableDataPagination,
         LoadingSquareBar, LoadingInfinityBar, BounchingHeadline, SvgIcon,
         LoadingSingleCircle, MoonLit, WordleModal, Wordle} from '../services/appList.js'
     
@@ -29,7 +29,8 @@ let activeTab = 'TestCode';
         {name:'Calculator', icon:'fas fa-calculator', component: Calculator},
         {name:'Toggle', icon:'fas fa-toggle-off', component: Toggle},
         {name:'AppPoll', icon:'fas fa-chart-line', component: AppPoll},
-        {name:'PackageUsages', icon:'fas fa-tachometer-alt', component: PackageUsages}
+        {name:'PackageUsages', icon:'fas fa-tachometer-alt', component: PackageUsages},
+        {name:'ToDoApp', icon:"fas fa-clipboard-list", component: ToDoApp},
     ]
 
 </script>
@@ -113,6 +114,8 @@ let activeTab = 'TestCode';
         <PackageUsages />
       {:else if activeTab == 'Wordle'}
         <Wordle />
+      {:else if activeTab == 'ToDoApp'}
+        <ToDoApp />
       {/if}
       <!-- <div></div> -->
     </div>

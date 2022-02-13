@@ -18,6 +18,7 @@ import LoadingSingleCircle from '../elements/LoadingSingleCircle.svelte';
 import MoonLit from '../components/MoonLit.svelte';
 import Wordle from '../components/Wordle.svelte';
 import WordleModal from '../elements/WordleModal.svelte';
+import ToDoApp from '../components/ToDoApp.svelte';
 
 export {
   AnimatedButton,
@@ -38,6 +39,7 @@ export {
   TableDataPagination,
   InfiniteScroll,
   TestCode,
+  ToDoApp,
   Wordle,
   WordleModal
 };
