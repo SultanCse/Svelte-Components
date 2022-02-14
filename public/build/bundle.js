@@ -5573,51 +5573,67 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (24:0) {#each todos as todo}
+    // (34:4) {#each todos as todo}
     function create_each_block$5(ctx) {
-    	let div;
+    	let div3;
+    	let div0;
     	let input;
     	let t0;
-    	let span;
+    	let div1;
+    	let p;
     	let t1_value = /*todo*/ ctx[2].task + "";
     	let t1;
     	let t2;
+    	let div2;
     	let i;
     	let t3;
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div3 = element("div");
+    			div0 = element("div");
     			input = element("input");
     			t0 = space();
-    			span = element("span");
+    			div1 = element("div");
+    			p = element("p");
     			t1 = text(t1_value);
     			t2 = space();
+    			div2 = element("div");
     			i = element("i");
     			t3 = space();
     			attr_dev(input, "type", "checkbox");
-    			add_location(input, file$h, 25, 4, 794);
-    			add_location(span, file$h, 26, 4, 825);
-    			attr_dev(i, "class", "fas fa-check");
-    			add_location(i, file$h, 27, 4, 855);
-    			attr_dev(div, "class", "m-2 p-2 shadow-sm");
-    			add_location(div, file$h, 24, 2, 757);
+    			attr_dev(input, "class", "svelte-ykvn7b");
+    			add_location(input, file$h, 35, 27, 1002);
+    			attr_dev(div0, "class", "col-1");
+    			add_location(div0, file$h, 35, 8, 983);
+    			add_location(p, file$h, 36, 25, 1060);
+    			attr_dev(div1, "class", "col");
+    			add_location(div1, file$h, 36, 8, 1043);
+    			attr_dev(i, "class", "fas fa-trash font-red");
+    			add_location(i, file$h, 37, 27, 1113);
+    			attr_dev(div2, "class", "col-1");
+    			add_location(div2, file$h, 37, 8, 1094);
+    			attr_dev(div3, "class", "row shadow-sm justify-content-center my-1");
+    			add_location(div3, file$h, 34, 6, 917);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, input);
-    			append_dev(div, t0);
-    			append_dev(div, span);
-    			append_dev(span, t1);
-    			append_dev(div, t2);
-    			append_dev(div, i);
-    			append_dev(div, t3);
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div0);
+    			append_dev(div0, input);
+    			append_dev(div3, t0);
+    			append_dev(div3, div1);
+    			append_dev(div1, p);
+    			append_dev(p, t1);
+    			append_dev(div3, t2);
+    			append_dev(div3, div2);
+    			append_dev(div2, i);
+    			append_dev(div3, t3);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*todos*/ 2 && t1_value !== (t1_value = /*todo*/ ctx[2].task + "")) set_data_dev(t1, t1_value);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div3);
     		}
     	};
 
@@ -5625,7 +5641,7 @@ var app = (function () {
     		block,
     		id: create_each_block$5.name,
     		type: "each",
-    		source: "(24:0) {#each todos as todo}",
+    		source: "(34:4) {#each todos as todo}",
     		ctx
     	});
 
@@ -5638,7 +5654,8 @@ var app = (function () {
     	let t0;
     	let div0;
     	let t2;
-    	let each_1_anchor;
+    	let div3;
+    	let div2;
     	let mounted;
     	let dispose;
     	let each_value = /*todos*/ ctx[1];
@@ -5657,19 +5674,26 @@ var app = (function () {
     			div0 = element("div");
     			div0.textContent = "add";
     			t2 = space();
+    			div3 = element("div");
+    			div2 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			each_1_anchor = empty$1();
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "add task");
-    			add_location(input, file$h, 20, 2, 581);
+    			input.autofocus = "autofocus";
+    			attr_dev(input, "class", "w50 svelte-ykvn7b");
+    			add_location(input, file$h, 21, 2, 599);
     			attr_dev(div0, "class", "btn btn-outline-secondary");
-    			add_location(div0, file$h, 21, 2, 647);
+    			add_location(div0, file$h, 28, 2, 727);
     			attr_dev(div1, "class", "d-flex justify-content-center m-2");
-    			add_location(div1, file$h, 19, 0, 530);
+    			add_location(div1, file$h, 20, 0, 548);
+    			attr_dev(div2, "class", "m-2 w50 svelte-ykvn7b");
+    			add_location(div2, file$h, 32, 2, 861);
+    			attr_dev(div3, "class", "d-flex justify-content-center");
+    			add_location(div3, file$h, 31, 0, 814);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5681,12 +5705,14 @@ var app = (function () {
     			append_dev(div1, t0);
     			append_dev(div1, div0);
     			insert_dev(target, t2, anchor);
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div2);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(target, anchor);
+    				each_blocks[i].m(div2, null);
     			}
 
-    			insert_dev(target, each_1_anchor, anchor);
+    			input.focus();
 
     			if (!mounted) {
     				dispose = [
@@ -5715,7 +5741,7 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block$5(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    						each_blocks[i].m(div2, null);
     					}
     				}
 
@@ -5731,8 +5757,8 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div1);
     			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div3);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(each_1_anchor);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -5753,12 +5779,8 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('TestCode', slots, []);
     	let task = '';
-
-    	let todo = {
-    		task: '',
-    		completed: false,
-    		date: new Date()
-    	};
+    	let completed = false;
+    	let todo = { task, completed, date: new Date() };
 
     	let todos = [
     		{
@@ -5808,6 +5830,7 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		task,
+    		completed,
     		todo,
     		todos,
     		addTodo,
@@ -5818,6 +5841,7 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ('task' in $$props) $$invalidate(0, task = $$props.task);
+    		if ('completed' in $$props) completed = $$props.completed;
     		if ('todo' in $$props) $$invalidate(2, todo = $$props.todo);
     		if ('todos' in $$props) $$invalidate(1, todos = $$props.todos);
     	};
