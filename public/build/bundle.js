@@ -29093,7 +29093,7 @@ var app = (function () {
 
     const file$1 = "src\\components\\Template.svelte";
 
-    // (38:0) {#key activeTab}
+    // (39:0) {#key activeTab}
     function create_key_block(ctx) {
     	let navbar;
     	let updating_header;
@@ -29149,14 +29149,14 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(38:0) {#key activeTab}",
+    		source: "(39:0) {#key activeTab}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (117:39) 
+    // (118:39) 
     function create_if_block_19(ctx) {
     	let todoapp;
     	let current;
@@ -29189,14 +29189,14 @@ var app = (function () {
     		block,
     		id: create_if_block_19.name,
     		type: "if",
-    		source: "(117:39) ",
+    		source: "(118:39) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (115:38) 
+    // (116:38) 
     function create_if_block_18(ctx) {
     	let wordle;
     	let current;
@@ -29229,14 +29229,14 @@ var app = (function () {
     		block,
     		id: create_if_block_18.name,
     		type: "if",
-    		source: "(115:38) ",
+    		source: "(116:38) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (113:45) 
+    // (114:45) 
     function create_if_block_17(ctx) {
     	let packageusages;
     	let current;
@@ -29269,14 +29269,14 @@ var app = (function () {
     		block,
     		id: create_if_block_17.name,
     		type: "if",
-    		source: "(113:45) ",
+    		source: "(114:45) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (106:38) 
+    // (107:38) 
     function create_if_block_16(ctx) {
     	let toggle;
     	let updating_checkedValue;
@@ -29336,14 +29336,14 @@ var app = (function () {
     		block,
     		id: create_if_block_16.name,
     		type: "if",
-    		source: "(106:38) ",
+    		source: "(107:38) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (104:43) 
+    // (105:43) 
     function create_if_block_15(ctx) {
     	let wordlemodal;
     	let current;
@@ -29376,14 +29376,14 @@ var app = (function () {
     		block,
     		id: create_if_block_15.name,
     		type: "if",
-    		source: "(104:43) ",
+    		source: "(105:43) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (102:42) 
+    // (103:42) 
     function create_if_block_14(ctx) {
     	let calculator;
     	let current;
@@ -29416,14 +29416,14 @@ var app = (function () {
     		block,
     		id: create_if_block_14.name,
     		type: "if",
-    		source: "(102:42) ",
+    		source: "(103:42) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:39) 
+    // (101:39) 
     function create_if_block_13(ctx) {
     	let apppoll;
     	let current;
@@ -29456,14 +29456,14 @@ var app = (function () {
     		block,
     		id: create_if_block_13.name,
     		type: "if",
-    		source: "(100:39) ",
+    		source: "(101:39) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (98:46) 
+    // (99:46) 
     function create_if_block_12(ctx) {
     	let quotegenerator;
     	let current;
@@ -29496,14 +29496,14 @@ var app = (function () {
     		block,
     		id: create_if_block_12.name,
     		type: "if",
-    		source: "(98:46) ",
+    		source: "(99:46) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (96:46) 
+    // (97:46) 
     function create_if_block_11(ctx) {
     	let infinitescroll;
     	let current;
@@ -29536,14 +29536,14 @@ var app = (function () {
     		block,
     		id: create_if_block_11.name,
     		type: "if",
-    		source: "(96:46) ",
+    		source: "(97:46) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:45) 
+    // (95:45) 
     function create_if_block_10(ctx) {
     	let loadingcircle;
     	let current;
@@ -29576,14 +29576,14 @@ var app = (function () {
     		block,
     		id: create_if_block_10.name,
     		type: "if",
-    		source: "(94:45) ",
+    		source: "(95:45) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (92:46) 
+    // (93:46) 
     function create_if_block_9(ctx) {
     	let animatedbutton;
     	let current;
@@ -29617,14 +29617,14 @@ var app = (function () {
     		block,
     		id: create_if_block_9.name,
     		type: "if",
-    		source: "(92:46) ",
+    		source: "(93:46) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (90:48) 
+    // (91:48) 
     function create_if_block_8(ctx) {
     	let loadingsquarebar;
     	let current;
@@ -29657,14 +29657,14 @@ var app = (function () {
     		block,
     		id: create_if_block_8.name,
     		type: "if",
-    		source: "(90:48) ",
+    		source: "(91:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (88:50) 
+    // (89:50) 
     function create_if_block_7(ctx) {
     	let loadinginfinitybar;
     	let current;
@@ -29697,14 +29697,14 @@ var app = (function () {
     		block,
     		id: create_if_block_7.name,
     		type: "if",
-    		source: "(88:50) ",
+    		source: "(89:50) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (86:42) 
+    // (87:42) 
     function create_if_block_6(ctx) {
     	let jockteller;
     	let current;
@@ -29737,14 +29737,14 @@ var app = (function () {
     		block,
     		id: create_if_block_6.name,
     		type: "if",
-    		source: "(86:42) ",
+    		source: "(87:42) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (84:39) 
+    // (85:39) 
     function create_if_block_5(ctx) {
     	let moonlit;
     	let current;
@@ -29777,14 +29777,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5.name,
     		type: "if",
-    		source: "(84:39) ",
+    		source: "(85:39) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (82:46) 
+    // (83:46) 
     function create_if_block_4(ctx) {
     	let lightdarktheme;
     	let current;
@@ -29817,14 +29817,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(82:46) ",
+    		source: "(83:46) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (76:39) 
+    // (77:39) 
     function create_if_block_3(ctx) {
     	let svgicon;
     	let current;
@@ -29858,14 +29858,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(76:39) ",
+    		source: "(77:39) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:51) 
+    // (71:51) 
     function create_if_block_2(ctx) {
     	let loadingsinglecircle;
     	let current;
@@ -29899,14 +29899,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(70:51) ",
+    		source: "(71:51) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:40) 
+    // (65:40) 
     function create_if_block_1(ctx) {
     	let testcode;
     	let current;
@@ -29940,14 +29940,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(64:40) ",
+    		source: "(65:40) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:6) {#if activeTab == 'TableDataPagination'}
+    // (59:6) {#if activeTab == 'TableDataPagination'}
     function create_if_block(ctx) {
     	let tabledatapagination;
     	let current;
@@ -29981,7 +29981,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(58:6) {#if activeTab == 'TableDataPagination'}",
+    		source: "(59:6) {#if activeTab == 'TableDataPagination'}",
     		ctx
     	});
 
@@ -30079,15 +30079,15 @@ var app = (function () {
     			div2 = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "parent svelte-6xzses");
-    			add_location(div0, file$1, 42, 4, 2325);
+    			add_location(div0, file$1, 43, 4, 2335);
     			attr_dev(div1, "class", "col-2");
-    			add_location(div1, file$1, 41, 2, 2300);
+    			add_location(div1, file$1, 42, 2, 2310);
     			attr_dev(div2, "class", "content svelte-6xzses");
-    			add_location(div2, file$1, 56, 4, 2667);
+    			add_location(div2, file$1, 57, 4, 2677);
     			attr_dev(div3, "class", "col");
-    			add_location(div3, file$1, 55, 2, 2644);
+    			add_location(div3, file$1, 56, 2, 2654);
     			attr_dev(div4, "class", "row g-0 m-0");
-    			add_location(div4, file$1, 40, 0, 2271);
+    			add_location(div4, file$1, 41, 0, 2281);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -30214,6 +30214,16 @@ var app = (function () {
     			component: MoonLit
     		},
     		{
+    			name: 'AppPoll',
+    			icon: 'fas fa-chart-line',
+    			component: AppPoll
+    		},
+    		{
+    			name: 'ToDoApp',
+    			icon: "fas fa-clipboard-list",
+    			component: ToDoApp
+    		},
+    		{
     			name: 'Wordle',
     			icon: 'fab fa-wordpress',
     			component: Wordle
@@ -30289,19 +30299,9 @@ var app = (function () {
     			component: Toggle
     		},
     		{
-    			name: 'AppPoll',
-    			icon: 'fas fa-chart-line',
-    			component: AppPoll
-    		},
-    		{
     			name: 'PackageUsages',
     			icon: 'fas fa-tachometer-alt',
     			component: PackageUsages
-    		},
-    		{
-    			name: 'ToDoApp',
-    			icon: "fas fa-clipboard-list",
-    			component: ToDoApp
     		}
     	];
 

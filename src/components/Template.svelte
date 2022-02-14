@@ -13,6 +13,8 @@ let activeTab = 'TestCode';
     let sidebarItems=[
         {name:'TableDataPagination', icon:'fas fa-table', component: TableDataPagination},
         {name:'MoonLit', icon:'fas fa-bahai', component: MoonLit},
+        {name:'AppPoll', icon:'fas fa-chart-line', component: AppPoll},
+        {name:'ToDoApp', icon:"fas fa-clipboard-list", component: ToDoApp},
         {name:'Wordle', icon:'fab fa-wordpress', component: Wordle},
         {name:'WordleModal', icon:'fas fa-check', component: WordleModal},
         {name:'LoadingSingleCircle', icon:'fas fa-spinner', component: LoadingSingleCircle},
@@ -28,9 +30,8 @@ let activeTab = 'TestCode';
         {name:'InfiniteScroll', icon:'fas fa-scroll', component: InfiniteScroll},
         {name:'Calculator', icon:'fas fa-calculator', component: Calculator},
         {name:'Toggle', icon:'fas fa-toggle-off', component: Toggle},
-        {name:'AppPoll', icon:'fas fa-chart-line', component: AppPoll},
         {name:'PackageUsages', icon:'fas fa-tachometer-alt', component: PackageUsages},
-        {name:'ToDoApp', icon:"fas fa-clipboard-list", component: ToDoApp},
+        
     ]
 
 </script>
