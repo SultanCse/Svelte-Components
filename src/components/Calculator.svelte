@@ -13,11 +13,28 @@
     }
     
   });
+  
+  const add=(a, b)=> {
+    return a + b;
+  }
+  const sub=(a, b)=> {
+    return a - b;
+  }
+  const mul=(a, b)=> {
+    return a * b;
+  }
+  const dif = (a, b) => {
+    return a / b;
+  }
+  const equal = (a, b) => {
+    return a == b;
+  }
 
   const setNumber=(x)=>{
     equation=equation+x;
   }
 </script>
+
 <div class="container-fluid">
   <div class="row g-0 justify-content-center">
     <div class="col-md-4 col-md-offset-4">
@@ -60,39 +77,102 @@
         </div>
         <!-- second row -->
         <div class="col-3">
-          <input type="submit" name="" bind:value={num7} on:click={()=>setNumber(7)} />
+          <input
+            type="submit"
+            name=""
+            bind:value={num7}
+            on:click={() => setNumber(7)}
+          />
         </div>
         <div class="col-3">
-          <input type="submit" name="" bind:value={num8} on:click={()=>setNumber(8)}/>
+          <input
+            type="submit"
+            name=""
+            bind:value={num8}
+            on:click={() => setNumber(8)}
+          />
         </div>
         <div class="col-3">
-          <input type="submit" name="" bind:value={num9} on:click={()=>setNumber(9)}/>
+          <input
+            type="submit"
+            name=""
+            bind:value={num9}
+            on:click={() => setNumber(9)}
+          />
         </div>
         <div class="col-3">
-          <input type="submit" name="" bind:value={numHash} class="" on:click={()=>setNumber('/')}/>
+          <input
+            type="submit"
+            name=""
+            bind:value={numHash}
+            class=""
+            on:click={() => setNumber('/')}
+          />
         </div>
         <!-- third row -->
         <div class="col-3">
-          <input type="submit" name="" value="4" class="" on:click={()=>setNumber(4)} />
+          <input
+            type="submit"
+            name=""
+            value="4"
+            class=""
+            on:click={() => setNumber(4)}
+          />
         </div>
         <div class="col-3">
-          <input type="submit" name="" value="5" class="" on:click={()=>setNumber(5)}/>
+          <input
+            type="submit"
+            name=""
+            value="5"
+            class=""
+            on:click={() => setNumber(5)}
+          />
         </div>
         <div class="col-3">
-          <input type="submit" name="" value="6" class="" on:click={()=>setNumber(6)}/>
+          <input
+            type="submit"
+            name=""
+            value="6"
+            class=""
+            on:click={() => setNumber(6)}
+          />
         </div>
         <div class="col-3">
-          <input type="submit" name="" value="X" class="" on:click={()=>setNumber('x')}/>
+          <input
+            type="submit"
+            name=""
+            value="X"
+            class=""
+            on:click={() => setNumber('x')}
+          />
         </div>
         <!-- four row -->
         <div class="col-3">
-          <input type="submit" name="" value="1" class="" on:click={()=>setNumber(1)}/>
+          <input
+            type="submit"
+            name=""
+            value="1"
+            class=""
+            on:click={() => setNumber(1)}
+          />
         </div>
         <div class="col-3">
-          <input type="submit" name="" value="2" class="" on:click={()=>setNumber(2)}/>
+          <input
+            type="submit"
+            name=""
+            value="2"
+            class=""
+            on:click={() => setNumber(2)}
+          />
         </div>
         <div class="col-3">
-          <input type="submit" name="" value="3" class="" on:click={()=>setNumber(3)}/>
+          <input
+            type="submit"
+            name=""
+            value="3"
+            class=""
+            on:click={() => setNumber(3)}
+          />
         </div>
         <div class="col-3">
           <input type="submit" name="" value="-" class="" />
@@ -150,17 +230,17 @@
     padding-right: 0;
     /*use for resing default padding for .row in input text section*/
   }
-  .teaxtbox input[type="text"] {
+  .teaxtbox input[type='text'] {
     width: 100%;
     border: 1px solid #f1f1f1;
     font-size: 18px;
     font-weight: 700;
     padding: 12px;
   }
-  .teaxtbox input[type="text"]:focus {
+  .teaxtbox input[type='text']:focus {
     outline: none;
   }
-  .commonbutton input[type="submit"] {
+  .commonbutton input[type='submit'] {
     padding: 8px;
     background: #f2f2f2;
     border: none;
@@ -170,7 +250,7 @@
     margin-top: 15px;
     border-radius: 5px;
   }
-  .conflict input[type="submit"] {
+  .conflict input[type='submit'] {
     padding: 8px;
     background: #f2f2f2;
     border: none;
@@ -180,8 +260,8 @@
     margin-top: 15px;
     border-radius: 5px;
   }
-  .conflict input[type="submit"]:focus,
-  .commonbutton input[type="submit"]:focus {
+  .conflict input[type='submit']:focus,
+  .commonbutton input[type='submit']:focus {
     outline: none;
   }
   #del {
