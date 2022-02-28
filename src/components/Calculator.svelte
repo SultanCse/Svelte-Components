@@ -29,6 +29,9 @@
   const equal = (a, b) => {
     return a == b;
   }
+  const equal2 = (a, b) => {
+    return a == b;
+  }
 
   const setNumber=(x)=>{
     equation=equation+x;
